@@ -18,15 +18,6 @@ export const validNumber = (
 
 // -------------------------------
 
-export const validUrl = (value: string) => {
-  if (value === null || value === undefined || value === '') return true;
-  const str = String(value);
-  const pattern = /^https?:\/\/[^\s/$.?#].[^\s]*/;
-  return str.length === length && pattern.test(str);
-};
-
-// -------------------------------
-
 export const fileSizes = () => {
   const max1mb = 1024 * 1024;
   const max2mb = 2 * max1mb;

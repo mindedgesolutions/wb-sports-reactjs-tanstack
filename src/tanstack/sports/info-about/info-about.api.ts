@@ -123,12 +123,12 @@ const formatAssociationPayload = (data: AssociationSchema) => {
   const formData = new FormData();
 
   Object.entries(data).forEach(([key, value]) => {
-    if (value instanceof File && key === 'newImg') {
+    if (key === 'newImg' && value instanceof File) {
       formData.append(key, value);
       return;
     }
 
-    if (value !== '' || value !== null) {
+    if (value !== '' && value != null) {
       formData.append(key, String(value));
     }
   });
@@ -140,8 +140,6 @@ const formatAssociationPayload = (data: AssociationSchema) => {
 
 export const associationCreate = async (data: AssociationSchema) => {
   const payload = formatAssociationPayload(data);
-  console.log(payload);
-  return;
 
   const res = await customFetch.post(
     sportsApp.infoAbout.associations.create,
@@ -158,7 +156,7 @@ export const associationUpdate = async (
   id: number,
 ) => {
   const payload = formatAssociationPayload(data);
-  payload.append('_method', 'PUT');
+  payload?.append('_method', 'PUT');
 
   const res = await customFetch.post(
     sportsApp.infoAbout.associations.update(id),

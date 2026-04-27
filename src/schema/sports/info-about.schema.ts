@@ -3,7 +3,6 @@ import {
   fileTypes,
   validEmail,
   validNumber,
-  validUrl,
 } from '@/utils/format.validation';
 import z from 'zod';
 
@@ -48,7 +47,7 @@ export const associationSchema = z
       .string()
       .max(255, 'Address must be less than 255 characters')
       .optional(),
-    website: z.string().optional(),
+    website: z.union([z.literal(''), z.url()]).optional(),
     email: z.string().optional(),
     phoneOne: z.string().optional(),
     phoneTwo: z.string().optional(),
@@ -57,18 +56,12 @@ export const associationSchema = z
     oldImg: z.string().optional(),
   })
   .superRefine((data, ctx) => {
-    const { website, email, phoneOne, phoneTwo, fax, newImg } = data;
-
-    if (website && !validUrl(website)) {
-      ctx.addIssue({
-        code: 'custom',
-        message: 'Invalid URL',
-      });
-    }
+    const { email, phoneOne, phoneTwo, fax, newImg } = data;
 
     if (email && !validEmail(email)) {
       ctx.addIssue({
         code: 'custom',
+        path: ['email'],
         message: 'Invalid email',
       });
     }
@@ -76,6 +69,7 @@ export const associationSchema = z
     if (phoneOne && !validNumber(phoneOne, 10)) {
       ctx.addIssue({
         code: 'custom',
+        path: ['phoneOne'],
         message: 'Invalid phone no.',
       });
     }
@@ -83,6 +77,7 @@ export const associationSchema = z
     if (phoneTwo && !validNumber(phoneTwo, 10)) {
       ctx.addIssue({
         code: 'custom',
+        path: ['phoneTwo'],
         message: 'Invalid phone no.',
       });
     }
@@ -90,6 +85,7 @@ export const associationSchema = z
     if (fax && !validNumber(fax, 10)) {
       ctx.addIssue({
         code: 'custom',
+        path: ['fax'],
         message: 'Invalid FAX no.',
       });
     }
@@ -98,6 +94,7 @@ export const associationSchema = z
       if (!fileTypes().imageTypes.includes(newImg.type)) {
         ctx.addIssue({
           code: 'custom',
+          path: ['newImg'],
           message: 'Only JPEG, PNG, and GIF images are allowed',
         });
       }
@@ -105,6 +102,7 @@ export const associationSchema = z
       if (newImg.size > fileSizes().max1mb) {
         ctx.addIssue({
           code: 'custom',
+          path: ['newImg'],
           message: 'Image size must be less than 1MB',
         });
       }
