@@ -1,0 +1,32 @@
+// Sports app starts --------
+export { default as RootLanding } from '@/pages/RootLanding';
+export { default as SpaSignin } from '@/pages/sports/app/SpaSignin';
+export { default as SpaLayout } from '@/pages/sports/app/SpaLayout';
+export { default as SpaDashboard } from '@/pages/sports/app/dashboard/SpaDashboard';
+export { default as SpaVisionMission } from '@/pages/sports/app/about-us/vision-mission/SpaVisionMission';
+export { default as SpaSportsInBengal } from '@/pages/sports/app/about-us/sports-in-bengal/SpaSportsInBengal';
+export { default as SpaAdminStructure } from '@/pages/sports/app/about-us/admin-structure/SpaAdminStructure';
+export { default as SpaKeyPersonnel } from '@/pages/sports/app/about-us/key-personnel/SpaKeyPersonnel';
+export { default as SpaAchievements } from '@/pages/sports/app/about-us/achievements/SpaAchievements';
+export { default as SpaSportsCategories } from '@/pages/sports/app/sports/sports-categories/SpaSportsCategories';
+export { default as SpaSportsPersonnel } from '@/pages/sports/app/sports/sports-personnel/SpaSportsPersonnel';
+export { default as SpaSportsEvents } from '@/pages/sports/app/sports/sports-events/SpaSportsEvents';
+export { default as SpaSportsInfrastructure } from '@/pages/sports/app/sports/sports-infrastructure/SpaSportsInfrastructure';
+export { default as SpaWbsEvents } from '@/pages/sports/app/wbs-council/events/SpaWbsEvents';
+export { default as SpaKheloIndia } from '@/pages/sports/app/wbs-council/khelo-india/SpaKheloIndia';
+export { default as SpaWbsCouncilMembers } from '@/pages/sports/app/wbs-council/wbs-council-members/SpaWbsCouncilMembers';
+export { default as SpaAnnouncements } from '@/pages/sports/app/announcements/announcements/SpaAnnouncements';
+export { default as SpaAdvertisements } from '@/pages/sports/app/announcements/advertisements/SpaAdvertisements';
+export { default as SpaGudingPrinciples } from '@/pages/sports/app/announcements/guiding-principles/SpaGudingPrinciples';
+export { default as SpaPlayersAchievements } from '@/pages/sports/app/achievements-awards/players-achievements/SpaPlayersAchievements';
+export { default as SpaAwards } from '@/pages/sports/app/achievements-awards/awards/SpaAwards';
+export { default as SpaAssocSites } from '@/pages/sports/app/info-about/assoc-sites/SpaAssocSites';
+export { default as SpaAssociations } from '@/pages/sports/app/info-about/associations/SpaAssociations';
+export { default as SpaFifa } from '@/pages/sports/app/info-about/fifa-u17/SpaFifa';
+export { default as SpaSportsPolicies } from '@/pages/sports/app/info-about/sports-policies/SpaSportsPolicies';
+export { default as SpaStadiums } from '@/pages/sports/app/info-about/stadiums/SpaStadiums';
+export { default as SpaStadiumSingle } from '@/pages/sports/app/info-about/stadiums/SpaStadiumSingle';
+
+// Sports website starts --------
+export { default as SpwLayout } from '@/pages/sports/website/SpwLayout';
+export { default as SpwLanding } from '@/pages/sports/website/SpwLanding';

@@ -1,0 +1,10 @@
+import { Skeleton } from '@/components/ui/skeleton';
+
+const AppSkeletonRow = ({ count }: { count: number }) => {
+  return Array.from({ length: count }, (_, index) => (
+    <div className="mb-3" key={index + 1}>
+      <Skeleton className="w-full h-6 rounded" />
+    </div>
+  ));
+};
+export default AppSkeletonRow;
