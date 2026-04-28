@@ -7,6 +7,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { Link } from 'react-router-dom';
+import AppTitleLoading from '../app/AppTitleLoading';
 
 const AppTitleWrapper = ({
   title,
@@ -35,7 +36,9 @@ const AppTitleWrapper = ({
               </BreadcrumbItem>
               <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>
-                <BreadcrumbPage>Fetching data</BreadcrumbPage>
+                <BreadcrumbPage>
+                  <AppTitleLoading />
+                </BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>

@@ -22,7 +22,8 @@ export { default as SpaPlayersAchievements } from '@/pages/sports/app/achievemen
 export { default as SpaAwards } from '@/pages/sports/app/achievements-awards/awards/SpaAwards';
 export { default as SpaAssocSites } from '@/pages/sports/app/info-about/assoc-sites/SpaAssocSites';
 export { default as SpaAssociations } from '@/pages/sports/app/info-about/associations/SpaAssociations';
-export { default as SpaFifa } from '@/pages/sports/app/info-about/fifa-u17/SpaFifa';
+export { default as SpaFifaGallery } from '@/pages/sports/app/info-about/fifa-u17/SpaFifaGallery';
+export { default as SpaFifaGallerySingle } from '@/pages/sports/app/info-about/fifa-u17/SpaFifaGallerySingle';
 export { default as SpaSportsPolicies } from '@/pages/sports/app/info-about/sports-policies/SpaSportsPolicies';
 export { default as SpaStadiums } from '@/pages/sports/app/info-about/stadiums/SpaStadiums';
 export { default as SpaStadiumSingle } from '@/pages/sports/app/info-about/stadiums/SpaStadiumSingle';

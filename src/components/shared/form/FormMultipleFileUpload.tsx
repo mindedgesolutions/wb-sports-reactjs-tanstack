@@ -5,8 +5,6 @@ import { fileSizes } from '@/utils/format.validation';
 import { X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
-const MAX_FILES = 10;
-
 type ExistingImage = {
   type: 'existing';
   url: string;
@@ -22,19 +20,24 @@ type ImageItem = ExistingImage | NewImage;
 
 type Props = {
   maxCount?: number;
+  maxSize?: number;
   initialImages?: string[];
   onChange: (data: { newFiles: File[]; existing: string[] }) => void;
   resetTrigger?: number;
   label?: string;
+  description?: string;
 };
 
 const FormMultipleFileUpload = ({
-  maxCount = MAX_FILES,
+  maxCount = 10,
+  maxSize = 1,
   initialImages = [],
   onChange,
   resetTrigger,
   label,
+  description,
 }: Props) => {
+  const allowedSize = maxSize * fileSizes().max1mb;
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [images, setImages] = useState<ImageItem[]>(
@@ -51,7 +54,7 @@ const FormMultipleFileUpload = ({
 
     const files = Array.from(e.target.files);
 
-    const validFiles = files.filter((file) => file.size <= fileSizes().max2mb);
+    const validFiles = files.filter((file) => file.size <= allowedSize);
 
     const remainingSlots = maxCount - images.length;
 
@@ -152,29 +155,32 @@ const FormMultipleFileUpload = ({
 
       <div className="grid grid-cols-6 gap-2 mt-4">
         {images.map((img, index) => (
-          <>
-            <div key={index} className="col-span-1 relative">
-              <div className="w-36 h-36 border border-muted-foreground/20 p-1">
-                <img
-                  src={
-                    img.type === 'existing'
-                      ? titles.BASE_URL + img.url
-                      : img.preview
-                  }
-                  alt=""
-                  className="w-full h-full max-h-32 object-cover"
-                />
-              </div>
-              <button
-                type="button"
-                className="absolute top-0 right-0 rounded-full p-1 bg-muted text-destructive cursor-pointer"
-                onClick={() => removeImage(index)}
-              >
-                <X className="size-4" />
-              </button>
+          <div key={index} className="col-span-1 relative">
+            <div className="w-36 h-36 border border-muted-foreground/20 p-1">
+              <img
+                src={
+                  img.type === 'existing'
+                    ? titles.BASE_URL + img.url
+                    : img.preview
+                }
+                alt=""
+                className="w-full h-full max-h-32 object-cover"
+              />
             </div>
-          </>
+            <button
+              type="button"
+              className="absolute top-0 right-0 rounded-full p-1 bg-muted text-destructive cursor-pointer"
+              onClick={() => removeImage(index)}
+            >
+              <X className="size-4" />
+            </button>
+          </div>
         ))}
+        {description && (
+          <FieldDescription className="text-destructive text-xs">
+            {description}
+          </FieldDescription>
+        )}
       </div>
     </div>
   );

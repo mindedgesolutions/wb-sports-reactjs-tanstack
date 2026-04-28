@@ -30,5 +30,6 @@ export { default as FormUploadSingle } from '@/components/shared/form/FormUpload
 export { default as AppListContactContainer } from '@/components/shared/app/AppListContactContainer';
 export { default as FormSimpleFileUpload } from '@/components/shared/form/FormSimpleFileUpload';
 export { default as FormMultipleFileUpload } from '@/components/shared/form/FormMultipleFileUpload';
+export { default as AppTitleLoading } from '@/components/shared/app/AppTitleLoading';
 
 // Sports App Components

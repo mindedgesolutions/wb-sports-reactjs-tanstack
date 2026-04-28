@@ -3,11 +3,15 @@ import {
   AppTitleWrapper,
   FormMultipleFileUpload,
 } from '@/components';
-import type { StadiumSchema } from '@/schema/sports/info-about.schema';
+import type { FifaGallerySchema } from '@/schema/sports/info-about.schema';
 import { useFormContext } from 'react-hook-form';
 
-const StadiumImages = ({ resetKey }: { resetKey: number }) => {
-  const { getValues, setValue } = useFormContext<StadiumSchema>();
+const GalleryImages = ({ resetKey }: { resetKey: number }) => {
+  const {
+    formState: { errors },
+    getValues,
+    setValue,
+  } = useFormContext<FifaGallerySchema>();
 
   const handleImages = ({
     newFiles,
@@ -22,17 +26,18 @@ const StadiumImages = ({ resetKey }: { resetKey: number }) => {
 
   return (
     <>
-      <AppTitleWrapper title="stadium images" />
-      <AppBodyWrapper className="mb-4">
+      <AppTitleWrapper title="gallery images" />
+      <AppBodyWrapper className="mb-2">
         <div className="grid grid-cols-4 gap-4">
           <div className="col-span-3 grid gap-4">
             <FormMultipleFileUpload
-              maxCount={10}
-              maxSize={1}
+              maxCount={50}
+              maxSize={5}
               label={`Add images`}
               onChange={handleImages}
               resetTrigger={resetKey}
               initialImages={getValues('existingGalleryImg')}
+              description={errors.newGalleryImg?.message}
             />
           </div>
         </div>
@@ -40,4 +45,4 @@ const StadiumImages = ({ resetKey }: { resetKey: number }) => {
     </>
   );
 };
-export default StadiumImages;
+export default GalleryImages;

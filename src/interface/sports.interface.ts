@@ -279,3 +279,31 @@ export interface IAssociationList {
   data: IAssociationRow[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+interface IFifaPhoto {
+  id: number;
+  fifa_id: number;
+  image_path: string;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IFifaGalleryRow {
+  id: number;
+  name: string;
+  slug: string;
+  description: string | null;
+  event_date: Date | null;
+  is_active: boolean;
+  first_photo?: IFifaPhoto;
+  photos?: IFifaPhoto[];
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IFifaGalleryList {
+  data: IFifaGalleryRow[];
+  meta: IPagination;
+}

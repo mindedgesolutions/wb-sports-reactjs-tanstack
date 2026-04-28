@@ -114,7 +114,7 @@ const Form = ({ assoc }: { assoc?: IAssociationRow }) => {
 
     mutation.mutate(payload as any, {
       onSuccess: () => {
-        openModal(false);
+        // openModal(false);
         showSuccess(`Association ${msg} successfully`);
       },
       onError: (error) => {

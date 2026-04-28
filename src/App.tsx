@@ -69,7 +69,8 @@ const router = createBrowserRouter([
         children: [
           { path: 'assoc-sites', element: <pg.SpaAssocSites /> },
           { path: 'associations', element: <pg.SpaAssociations /> },
-          { path: 'fifa-u17', element: <pg.SpaFifa /> },
+          { path: 'fifa-u17', element: <pg.SpaFifaGallery /> },
+          { path: 'fifa/:id?', element: <pg.SpaFifaGallerySingle /> },
           { path: 'sports-policies', element: <pg.SpaSportsPolicies /> },
           { path: 'stadiums', element: <pg.SpaStadiums /> },
           { path: 'stadium/:id?', element: <pg.SpaStadiumSingle /> },

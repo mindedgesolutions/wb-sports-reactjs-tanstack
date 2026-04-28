@@ -1,83 +1,78 @@
+import { showError } from '@/alerts/show.error';
+import { showSuccess } from '@/alerts/show.success';
 import {
   AppBodyWrapper,
   AppTitleLoading,
   AppTitleWrapper,
   SubmitBtn,
 } from '@/components';
-import { Link, useParams } from 'react-router-dom';
-import GeneralSection from './form/GeneralSection';
-import StadiumDetails from './form/StadiumDetails';
-import Highlights from './form/Highlights';
-import StadiumImages from './form/StadiumImages';
-import { FormProvider, useForm } from 'react-hook-form';
+import type { IFifaGalleryRow } from '@/interface/sports.interface';
 import {
-  stadiumSchema,
-  type StadiumSchema,
+  fifaGallerySchema,
+  type FifaGallerySchema,
 } from '@/schema/sports/info-about.schema';
+import {
+  useFifaGalleryCreate,
+  useFifaGalleryUpdate,
+} from '@/tanstack/sports/info-about/info-about.mutation';
+import { useFetchFifaGallery } from '@/tanstack/sports/info-about/info-about.query';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect, useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
+import { Link, useParams } from 'react-router-dom';
+import GeneralSection from './form/GeneralSection';
+import GalleryImages from './form/GalleryImages';
 import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
-import {
-  useStadiumCreate,
-  useStadiumUpdate,
-} from '@/tanstack/sports/info-about/info-about.mutation';
-import { showSuccess } from '@/alerts/show.success';
-import { showError } from '@/alerts/show.error';
 import { titles } from '@/constants';
-import { useFetchStadium } from '@/tanstack/sports/info-about/info-about.query';
-import type { IStadiumSingle } from '@/interface/sports.interface';
+import { FieldDescription } from '@/components/ui/field';
 
-const SpaStadiumSingle = () => {
+const SpaFifaGallerySingle = () => {
   const { id } = useParams();
 
-  const methods = useForm<StadiumSchema>({
+  const methods = useForm<FifaGallerySchema>({
     defaultValues: {
-      name: '',
-      location: '',
-      address: '',
-      coverImg: undefined,
-      oldCoverImg: '',
+      title: '',
       description: '',
-      highlights: [{ value: '' }],
+      eventDate: undefined,
       newGalleryImg: [],
       existingGalleryImg: [],
     },
     mode: 'all',
-    resolver: zodResolver(stadiumSchema),
+    resolver: zodResolver(fifaGallerySchema),
   });
   const [resetKey, setResetKey] = useState(0);
-  const [files, setFiles] = useState<any[]>([]);
-  const [pageTitle, setPageTitle] = useState<any>('Add new stadium');
+  const [pageTitle, setPageTitle] = useState<any>('Add new gallery');
 
   // ----------------------------------
 
-  const { data, isLoading: fetching } = useFetchStadium(Number(id), {
+  const { data, isLoading: fetching } = useFetchFifaGallery(Number(id), {
     enabled: !!id,
-  }) as { data: IStadiumSingle | undefined; isLoading: boolean };
+  }) as { data: IFifaGalleryRow | undefined; isLoading: boolean };
 
   // ----------------------------------
 
   const reset = () => {
     setResetKey((k) => k + 1);
-    setFiles([]);
     methods.reset();
   };
 
-  const add = useStadiumCreate();
-  const update = useStadiumUpdate();
-  const isLoading = id ? update.isPending : add.isPending;
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const mutation = id
+    ? useFifaGalleryUpdate(setUploadProgress)
+    : useFifaGalleryCreate(setUploadProgress);
+
+  const isLoading = mutation.isPending;
 
   // ----------------------------------
 
-  const handleSubmit = async (data: StadiumSchema) => {
-    const mutation = id ? update : add;
+  const handleSubmit = async (data: FifaGallerySchema) => {
     const payload = id ? { id, data } : data;
     const msg = id ? 'updated' : 'added';
+    setUploadProgress(0);
 
     mutation.mutate(payload as any, {
       onSuccess: (data) => {
-        !id && methods.reset(data);
+        !id && data && methods.reset(data);
         showSuccess(`Stadium details ${msg} successfully`);
       },
       onError: (error: any) => {
@@ -86,7 +81,7 @@ const SpaStadiumSingle = () => {
         if (errors) {
           if (!Array.isArray(errors)) {
             Object.entries(errors).forEach(([key, message]) => {
-              methods.setError(key as keyof StadiumSchema, {
+              methods.setError(key as keyof FifaGallerySchema, {
                 message: (message as string[])[0],
               });
             });
@@ -108,34 +103,24 @@ const SpaStadiumSingle = () => {
   useEffect(() => {
     if (data) {
       methods.reset({
-        name: data.name,
-        location: data.location,
-        address: data.address || '',
-        coverImg: undefined,
-        description: data.stadium_details?.description || '',
-        oldCoverImg: data.cover_img || '',
-        highlights: data.stadium_highlights?.map((h: any) => ({
-          value: h.title || '',
-        })) || [{ value: '' }],
+        title: data.name,
+        description: data.description || '',
+        eventDate: data.event_date,
         newGalleryImg: [],
         existingGalleryImg:
-          data?.stadium_images?.map((item: any) => String(item.image_path)) ||
-          [],
+          data?.photos?.map((item: any) => String(item.image_path)) || [],
       });
       setResetKey((k) => k + 1);
       setPageTitle(fetching ? <AppTitleLoading /> : data.name);
     } else {
       methods.reset({
-        name: '',
-        location: '',
-        address: '',
-        coverImg: undefined,
-        oldCoverImg: '',
-        highlights: [{ value: '' }],
+        title: '',
+        description: '',
+        eventDate: undefined,
         newGalleryImg: [],
         existingGalleryImg: [],
       });
-      setPageTitle(id ? <AppTitleLoading /> : 'Add new stadium');
+      setPageTitle(id ? <AppTitleLoading /> : 'Add new FIFA gallery');
     }
   }, [data]);
 
@@ -146,11 +131,15 @@ const SpaStadiumSingle = () => {
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(handleSubmit)}>
             <fieldset disabled={isLoading || fetching}>
-              <GeneralSection files={files} setFiles={setFiles} />
-              <StadiumDetails />
-              <Highlights />
-              <StadiumImages resetKey={resetKey} />
-              <Separator className="my-4" />
+              <GeneralSection />
+              <GalleryImages resetKey={resetKey} />
+              <FieldDescription className="mb-4">
+                {mutation.isPending && (
+                  <div className="text-destructive text-xs font-semibold tracking-wider">
+                    Uploading... {uploadProgress}%
+                  </div>
+                )}
+              </FieldDescription>
               <div className="flex gap-4">
                 <SubmitBtn
                   isSubmitting={isLoading || fetching}
@@ -164,7 +153,7 @@ const SpaStadiumSingle = () => {
                 >
                   Reset
                 </Button>
-                <Link to={`${titles.SPORTS_APP_URL}/info-about/stadiums`}>
+                <Link to={`${titles.SPORTS_APP_URL}/info-about/fifa-u17`}>
                   <Button
                     type="button"
                     className="text-xs tracking-wider"
@@ -181,4 +170,4 @@ const SpaStadiumSingle = () => {
     </>
   );
 };
-export default SpaStadiumSingle;
+export default SpaFifaGallerySingle;

@@ -151,7 +151,7 @@ export const sportsAppMenu = () => {
           },
           {
             title: 'FIFA U-17 World Cup',
-            url: `${titles.SPORTS_APP_URL}/info-about/awards`,
+            url: `${titles.SPORTS_APP_URL}/info-about/fifa-u17`,
           },
           {
             title: 'Sports Policies',

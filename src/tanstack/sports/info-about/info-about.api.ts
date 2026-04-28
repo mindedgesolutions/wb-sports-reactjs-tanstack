@@ -2,8 +2,11 @@ import { customFetch } from '@/axios/custom.fetch';
 import { sportsApp } from '@/constants/api.sports';
 import type {
   AssociationSchema,
+  FifaGallerySchema,
   StadiumSchema,
 } from '@/schema/sports/info-about.schema';
+import { parseDate } from '@/utils/date.utils';
+import { chunkArray, optimizeImage } from '@/utils/image.utils';
 
 type ListProps = {
   page?: number;
@@ -167,3 +170,114 @@ export const associationUpdate = async (
 };
 
 // Associations end ------------
+
+// FIFA starts ------------
+
+export const getFifaGallery = async ({ page, search, signal }: ListProps) => {
+  const res = await customFetch.get(sportsApp.infoAbout.fifa.list, {
+    params: { page, search },
+    signal,
+  });
+  return res.data;
+};
+
+// -------------------------------
+
+export const fetchFifaGallery = async (id: number, signal: AbortSignal) => {
+  const res = await customFetch.get(sportsApp.infoAbout.fifa.show(id), {
+    signal,
+  });
+  return res.data.data;
+};
+
+// -------------------------------
+
+const formatFifaGalleryPayload = async (data: FifaGallerySchema) => {
+  const payload = new FormData();
+  const eDate =
+    data.eventDate instanceof Date ? parseDate(data.eventDate) : null;
+
+  for (const [key, value] of Object.entries(data)) {
+    if (key === 'newGalleryImg') continue;
+    if (key === 'existingGalleryImg') continue;
+    if (value == null) continue;
+
+    if (key === 'eventDate' && eDate) {
+      payload.append('eventDate', eDate);
+      continue;
+    }
+
+    payload.append(key, String(value));
+  }
+  return payload;
+};
+
+// -------------------------------
+
+const formatImageChunkPayload = async (files: File[]) => {
+  const payload = new FormData();
+
+  for (const file of files) {
+    const optimizedFile = await optimizeImage(file);
+    payload.append('newGalleryImg[]', optimizedFile);
+  }
+
+  return payload;
+};
+
+// -------------------------------
+
+export const fifaGalleryCreate = async (data: FifaGallerySchema) => {
+  const payload = await formatFifaGalleryPayload(data);
+
+  const res = await customFetch.post(sportsApp.infoAbout.fifa.create, payload, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  });
+  return res.data;
+};
+
+// -------------------------------
+
+export const uploadGalleryImages = async (
+  galleryId: number,
+  files: File[],
+  onProgress?: (progress: number) => void,
+) => {
+  const chunks = chunkArray(files, 5);
+
+  for (let i = 0; i < chunks.length; i++) {
+    const payload = await formatImageChunkPayload(chunks[i]);
+
+    await customFetch.post(
+      sportsApp.infoAbout.fifa.upload(galleryId),
+      payload,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      },
+    );
+
+    const progress = Math.round(((i + 1) / chunks.length) * 100);
+    onProgress?.(progress);
+  }
+};
+
+// -------------------------------
+
+export const fifaGalleryUpdate = async (
+  id: number,
+  data: FifaGallerySchema,
+) => {
+  const payload = await formatFifaGalleryPayload(data);
+  payload.append('_method', 'PUT');
+
+  const res = await customFetch.post(
+    sportsApp.infoAbout.fifa.update(id),
+    payload,
+    { headers: { 'Content-Type': 'multipart/form-data' } },
+  );
+  return res.data;
+};
+
+// FIFA ends ------------

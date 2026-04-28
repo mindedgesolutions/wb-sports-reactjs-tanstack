@@ -100,10 +100,18 @@ export const sportsApp = {
     associations: {
       create: `/sports/info-about/associations`,
       list: `/sports/info-about/associations`,
-      show: (id: number) => `/sports/info-about/associations/${id}`,
       update: (id: number) => `/sports/info-about/associations/${id}`,
       delete: (id: number) => `/sports/info-about/associations/${id}`,
       toggle: (id: number) => `/sports/info-about/associations/toggle/${id}`,
+    },
+    fifa: {
+      create: `/sports/info-about/fifa`,
+      list: `/sports/info-about/fifa`,
+      show: (id: number) => `/sports/info-about/fifa/${id}`,
+      update: (id: number) => `/sports/info-about/fifa/${id}`,
+      delete: (id: number) => `/sports/info-about/fifa/${id}`,
+      toggle: (id: number) => `/sports/info-about/fifa/toggle/${id}`,
+      upload: (id: number) => `/sports/info-about/fifa/photos/${id}`,
     },
   },
 };

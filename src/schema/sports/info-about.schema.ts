@@ -109,3 +109,29 @@ export const associationSchema = z
     }
   });
 export type AssociationSchema = z.input<typeof associationSchema>;
+
+// -----------------------------
+
+export const fifaGallerySchema = z
+  .object({
+    title: z
+      .string()
+      .min(1, 'Gallery title is required')
+      .max(255, 'Gallery title must be less than 255 characters'),
+    description: z.string().optional(),
+    eventDate: z.coerce.date().optional(),
+    newGalleryImg: z.array(z.instanceof(File)).optional(),
+    existingGalleryImg: z.array(z.string()).optional(),
+  })
+  .superRefine((data, ctx) => {
+    const { newGalleryImg, existingGalleryImg } = data;
+
+    if (existingGalleryImg?.length === 0 && newGalleryImg?.length === 0) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['newGalleryImg'],
+        message: 'At least 1 image is required',
+      });
+    }
+  });
+export type FifaGallerySchema = z.input<typeof fifaGallerySchema>;
