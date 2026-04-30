@@ -135,3 +135,45 @@ export const fifaGallerySchema = z
     }
   });
 export type FifaGallerySchema = z.input<typeof fifaGallerySchema>;
+
+// -----------------------------
+
+export const sportsPolicySchema = z
+  .object({
+    name: z
+      .string()
+      .min(1, 'Policy name is required')
+      .max(255, 'Policy name must be less than 255 characters'),
+    newFile: z.instanceof(File).optional().or(z.undefined()),
+    existingFile: z.string().optional(),
+  })
+  .superRefine((data, ctx) => {
+    const { newFile, existingFile } = data;
+
+    if (!existingFile && !newFile) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['newFile'],
+        message: 'Policy attachment is required',
+      });
+    }
+
+    if (newFile) {
+      if (newFile.size > fileSizes().max10mb) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['newFile'],
+          message: 'Policy attachment must be less than 10MB',
+        });
+      }
+
+      if (!fileTypes().documentTypes.includes(newFile.type)) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['newFile'],
+          message: 'Invalid file type',
+        });
+      }
+    }
+  });
+export type SportsPolicySchema = z.input<typeof sportsPolicySchema>;

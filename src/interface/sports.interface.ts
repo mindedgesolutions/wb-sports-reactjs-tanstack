@@ -307,3 +307,21 @@ export interface IFifaGalleryList {
   data: IFifaGalleryRow[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+export interface ISportsPolicyRow {
+  id: number;
+  name: string;
+  slug: string;
+  file_path: string;
+  file_name: string;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface ISportsPolicyList {
+  data: ISportsPolicyRow[];
+  meta: IPagination;
+}

@@ -1,6 +1,7 @@
 import type {
   AssociationSchema,
   FifaGallerySchema,
+  SportsPolicySchema,
   StadiumSchema,
 } from '@/schema/sports/info-about.schema';
 import { useMutation } from '@tanstack/react-query';
@@ -9,6 +10,8 @@ import {
   associationUpdate,
   fifaGalleryCreate,
   fifaGalleryUpdate,
+  sportsPolicyCreate,
+  sportsPolicyUpdate,
   stadiumCreate,
   stadiumUpdate,
   uploadGalleryImages,
@@ -122,6 +125,36 @@ export const useFifaGalleryUpdate = (
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['fifa-galleries'] });
       queryClient.invalidateQueries({ queryKey: ['fetch-fifa-gallery'] });
+    },
+  });
+};
+
+// -------------------------------
+
+export const useSportsPolicyCreate = () => {
+  return useMutation({
+    mutationFn: sportsPolicyCreate,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['sports-policies'] });
+      queryClient.invalidateQueries({ queryKey: ['sports-policy-selected'] });
+    },
+  });
+};
+
+// -------------------------------
+
+type SportsPolicyPayload = {
+  data: SportsPolicySchema;
+  id: number;
+};
+
+export const useSportsPolicyUpdate = () => {
+  return useMutation({
+    mutationFn: ({ data, id }: SportsPolicyPayload) =>
+      sportsPolicyUpdate(data, id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['sports-policies'] });
+      queryClient.invalidateQueries({ queryKey: ['sports-policy-selected'] });
     },
   });
 };

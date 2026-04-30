@@ -113,5 +113,12 @@ export const sportsApp = {
       toggle: (id: number) => `/sports/info-about/fifa/toggle/${id}`,
       upload: (id: number) => `/sports/info-about/fifa/photos/${id}`,
     },
+    sportsPolicies: {
+      create: `/sports/info-about/sports-policies`,
+      list: `/sports/info-about/sports-policies`,
+      update: (id: number) => `/sports/info-about/sports-policies/${id}`,
+      delete: (id: number) => `/sports/info-about/sports-policies/${id}`,
+      toggle: (id: number) => `/sports/info-about/sports-policies/toggle/${id}`,
+    },
   },
 };

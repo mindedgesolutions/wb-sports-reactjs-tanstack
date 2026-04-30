@@ -3,6 +3,7 @@ import { sportsApp } from '@/constants/api.sports';
 import type {
   AssociationSchema,
   FifaGallerySchema,
+  SportsPolicySchema,
   StadiumSchema,
 } from '@/schema/sports/info-about.schema';
 import { parseDate } from '@/utils/date.utils';
@@ -192,14 +193,17 @@ export const fetchFifaGallery = async (id: number, signal: AbortSignal) => {
 
 // -------------------------------
 
-const formatFifaGalleryPayload = async (data: FifaGallerySchema) => {
+const formatFifaGalleryPayload = async (
+  data: FifaGallerySchema,
+  id?: number,
+) => {
   const payload = new FormData();
   const eDate =
     data.eventDate instanceof Date ? parseDate(data.eventDate) : null;
 
   for (const [key, value] of Object.entries(data)) {
     if (key === 'newGalleryImg') continue;
-    if (key === 'existingGalleryImg') continue;
+    if (!id && key === 'existingGalleryImg') continue;
     if (value == null) continue;
 
     if (key === 'eventDate' && eDate) {
@@ -269,7 +273,7 @@ export const fifaGalleryUpdate = async (
   id: number,
   data: FifaGallerySchema,
 ) => {
-  const payload = await formatFifaGalleryPayload(data);
+  const payload = await formatFifaGalleryPayload(data, id);
   payload.append('_method', 'PUT');
 
   const res = await customFetch.post(
@@ -281,3 +285,66 @@ export const fifaGalleryUpdate = async (
 };
 
 // FIFA ends ------------
+
+// Sports Policies start ------------
+
+export const getSportsPolicies = async ({
+  page,
+  search,
+  signal,
+}: ListProps) => {
+  const res = await customFetch.get(sportsApp.infoAbout.sportsPolicies.list, {
+    params: { page, search },
+    signal,
+  });
+  return res.data;
+};
+
+// -------------------------------
+
+const formatSportsPolicyPayload = (data: SportsPolicySchema) => {
+  const payload = new FormData();
+
+  Object.entries(data).forEach(([key, value]) => {
+    if (key === 'newFile' && value instanceof File) {
+      payload.append('newFile', value);
+      return;
+    }
+    if (value !== '' && value !== undefined) {
+      payload.append(key, String(value));
+    }
+  });
+  return payload;
+};
+
+// -------------------------------
+
+export const sportsPolicyCreate = async (data: SportsPolicySchema) => {
+  const payload = formatSportsPolicyPayload(data);
+
+  const res = await customFetch.post(
+    sportsApp.infoAbout.sportsPolicies.create,
+    payload,
+    { headers: { 'Content-Type': 'multipart/form-data' } },
+  );
+  return res.data;
+};
+
+// -------------------------------
+
+export const sportsPolicyUpdate = async (
+  data: SportsPolicySchema,
+  id: number,
+) => {
+  const payload = formatSportsPolicyPayload(data);
+  payload.append('_method', 'PUT');
+
+  const res = await customFetch.post(
+    sportsApp.infoAbout.sportsPolicies.update(id),
+    payload,
+    { headers: { 'Content-Type': 'multipart/form-data' } },
+  );
+  return res.data;
+};
+
+// Sports Policies end ------------

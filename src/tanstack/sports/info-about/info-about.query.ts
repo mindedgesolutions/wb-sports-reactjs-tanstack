@@ -4,6 +4,7 @@ import {
   fetchStadium,
   getAssociations,
   getFifaGallery,
+  getSportsPolicies,
   getStadiums,
 } from './info-about.api';
 
@@ -67,5 +68,15 @@ export const useFetchFifaGallery = (
       fetchFifaGallery(id, signal),
     enabled: true,
     ...options,
+  });
+};
+
+// -------------------------------
+
+export const useSportsPolicies = ({ search, page }: ParamProps) => {
+  return useQuery({
+    queryKey: ['sports-policies', { search, page }],
+    queryFn: ({ signal }: { signal: AbortSignal }) =>
+      getSportsPolicies({ search, page, signal }),
   });
 };

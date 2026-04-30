@@ -155,7 +155,7 @@ export const sportsAppMenu = () => {
           },
           {
             title: 'Sports Policies',
-            url: `${titles.SPORTS_APP_URL}/info-about/awards`,
+            url: `${titles.SPORTS_APP_URL}/info-about/sports-policies`,
           },
           {
             title: 'Associated Sites',
