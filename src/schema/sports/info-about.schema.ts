@@ -177,3 +177,14 @@ export const sportsPolicySchema = z
     }
   });
 export type SportsPolicySchema = z.input<typeof sportsPolicySchema>;
+
+// -----------------------------
+
+export const assocSiteSchema = z.object({
+  title: z
+    .string()
+    .min(1, 'Site title is required')
+    .max(255, 'Site title must be less than 255 characters'),
+  url: z.url().min(1, 'Site URL is required'),
+});
+export type AssocSiteSchema = z.input<typeof assocSiteSchema>;

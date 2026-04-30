@@ -120,5 +120,12 @@ export const sportsApp = {
       delete: (id: number) => `/sports/info-about/sports-policies/${id}`,
       toggle: (id: number) => `/sports/info-about/sports-policies/toggle/${id}`,
     },
+    assocSites: {
+      create: `/sports/info-about/assoc-sites`,
+      list: `/sports/info-about/assoc-sites`,
+      update: (id: number) => `/sports/info-about/assoc-sites/${id}`,
+      delete: (id: number) => `/sports/info-about/assoc-sites/${id}`,
+      toggle: (id: number) => `/sports/info-about/assoc-sites/toggle/${id}`,
+    },
   },
 };

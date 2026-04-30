@@ -2,6 +2,7 @@ import { customFetch } from '@/axios/custom.fetch';
 import { sportsApp } from '@/constants/api.sports';
 import type {
   AssociationSchema,
+  AssocSiteSchema,
   FifaGallerySchema,
   SportsPolicySchema,
   StadiumSchema,
@@ -348,3 +349,35 @@ export const sportsPolicyUpdate = async (
 };
 
 // Sports Policies end ------------
+
+// Associated Websites start ------------
+
+export const getAssocSites = async ({ page, search, signal }: ListProps) => {
+  const res = await customFetch.get(sportsApp.infoAbout.assocSites.list, {
+    params: { page, search },
+    signal,
+  });
+  return res.data;
+};
+
+// -------------------------------
+
+export const assocSiteCreate = async (data: AssocSiteSchema) => {
+  const res = await customFetch.post(
+    sportsApp.infoAbout.assocSites.create,
+    data,
+  );
+  return res.data;
+};
+
+// -------------------------------
+
+export const assocSiteUpdate = async (data: AssocSiteSchema, id: number) => {
+  const res = await customFetch.put(
+    sportsApp.infoAbout.assocSites.update(id),
+    data,
+  );
+  return res.data;
+};
+
+// Associated Websites end ------------

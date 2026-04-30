@@ -325,3 +325,21 @@ export interface ISportsPolicyList {
   data: ISportsPolicyRow[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+export interface IAssocSiteRow {
+  id: number;
+  title: string;
+  slug: string;
+  url: string;
+  last_updated: Date | null;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IAssocSiteList {
+  data: IAssocSiteRow[];
+  meta: IPagination;
+}

@@ -1,5 +1,6 @@
 import type {
   AssociationSchema,
+  AssocSiteSchema,
   FifaGallerySchema,
   SportsPolicySchema,
   StadiumSchema,
@@ -8,6 +9,8 @@ import { useMutation } from '@tanstack/react-query';
 import {
   associationCreate,
   associationUpdate,
+  assocSiteCreate,
+  assocSiteUpdate,
   fifaGalleryCreate,
   fifaGalleryUpdate,
   sportsPolicyCreate,
@@ -155,6 +158,35 @@ export const useSportsPolicyUpdate = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['sports-policies'] });
       queryClient.invalidateQueries({ queryKey: ['sports-policy-selected'] });
+    },
+  });
+};
+
+// -------------------------------
+
+export const useAssocSiteCreate = () => {
+  return useMutation({
+    mutationFn: assocSiteCreate,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['assoc-sites'] });
+      queryClient.invalidateQueries({ queryKey: ['assoc-site-selected'] });
+    },
+  });
+};
+
+// -------------------------------
+
+type AssocSitePayload = {
+  data: AssocSiteSchema;
+  id: number;
+};
+
+export const useAssocSiteUpdate = () => {
+  return useMutation({
+    mutationFn: ({ data, id }: AssocSitePayload) => assocSiteUpdate(data, id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['assoc-sites'] });
+      queryClient.invalidateQueries({ queryKey: ['assoc-site-selected'] });
     },
   });
 };

@@ -159,7 +159,7 @@ export const sportsAppMenu = () => {
           },
           {
             title: 'Associated Sites',
-            url: `${titles.SPORTS_APP_URL}/info-about/awards`,
+            url: `${titles.SPORTS_APP_URL}/info-about/assoc-sites`,
           },
         ],
       },

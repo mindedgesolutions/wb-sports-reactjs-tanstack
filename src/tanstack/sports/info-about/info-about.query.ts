@@ -3,6 +3,7 @@ import {
   fetchFifaGallery,
   fetchStadium,
   getAssociations,
+  getAssocSites,
   getFifaGallery,
   getSportsPolicies,
   getStadiums,
@@ -78,5 +79,14 @@ export const useSportsPolicies = ({ search, page }: ParamProps) => {
     queryKey: ['sports-policies', { search, page }],
     queryFn: ({ signal }: { signal: AbortSignal }) =>
       getSportsPolicies({ search, page, signal }),
+  });
+};
+
+// -------------------------------
+
+export const useAssocSites = ({ search, page }: ParamProps) => {
+  return useQuery({
+    queryKey: ['assoc-sites', { page, search }],
+    queryFn: ({ signal }) => getAssocSites({ page, search, signal }),
   });
 };
