@@ -170,19 +170,19 @@ export const sportsAppMenu = () => {
         items: [
           {
             title: 'Photo Gallery',
-            url: `${titles.SPORTS_APP_URL}/players-achievements`,
+            url: `${titles.SPORTS_APP_URL}/moments/photo-gallery`,
           },
           {
             title: 'Audio Visuals',
-            url: `${titles.SPORTS_APP_URL}/awards`,
+            url: `${titles.SPORTS_APP_URL}/moments/audio-visuals`,
           },
           {
             title: 'Bulletins',
-            url: `${titles.SPORTS_APP_URL}/awards`,
+            url: `${titles.SPORTS_APP_URL}/moments/bulletins`,
           },
           {
             title: 'Amphan',
-            url: `${titles.SPORTS_APP_URL}/awards`,
+            url: `${titles.SPORTS_APP_URL}/moments/amphan`,
           },
         ],
       },

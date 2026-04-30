@@ -27,6 +27,10 @@ export { default as SpaFifaGallerySingle } from '@/pages/sports/app/info-about/f
 export { default as SpaSportsPolicies } from '@/pages/sports/app/info-about/sports-policies/SpaSportsPolicies';
 export { default as SpaStadiums } from '@/pages/sports/app/info-about/stadiums/SpaStadiums';
 export { default as SpaStadiumSingle } from '@/pages/sports/app/info-about/stadiums/SpaStadiumSingle';
+export { default as SpaAmphan } from '@/pages/sports/app/moments/amphan/SpaAmphan';
+export { default as SpaAudioVisuals } from '@/pages/sports/app/moments/audio-visuals/SpaAudioVisuals';
+export { default as SpaBulletins } from '@/pages/sports/app/moments/bulletins/SpaBulletins';
+export { default as SpaPhotoGallery } from '@/pages/sports/app/moments/photo-gallery/SpaPhotoGallery';
 
 // Sports website starts --------
 export { default as SpwLayout } from '@/pages/sports/website/SpwLayout';

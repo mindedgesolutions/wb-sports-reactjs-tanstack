@@ -76,6 +76,15 @@ const router = createBrowserRouter([
           { path: 'stadium/:id?', element: <pg.SpaStadiumSingle /> },
         ],
       },
+      {
+        path: 'moments',
+        children: [
+          { path: 'photo-gallery', element: <pg.SpaPhotoGallery /> },
+          { path: 'audio-visuals', element: <pg.SpaAudioVisuals /> },
+          { path: 'bulletins', element: <pg.SpaBulletins /> },
+          { path: 'amphan', element: <pg.SpaAmphan /> },
+        ],
+      },
     ],
   },
   {
