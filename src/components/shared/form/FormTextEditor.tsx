@@ -32,6 +32,7 @@ export interface RHFEditorProps<T extends FieldValues> {
   disabled?: boolean;
   onValueChange?: (value: string) => void;
   description?: string;
+  height?: number;
 }
 
 const FormTextEditor = <T extends FieldValues>({
@@ -40,6 +41,7 @@ const FormTextEditor = <T extends FieldValues>({
   placeholder,
   onValueChange,
   description,
+  height,
 }: RHFEditorProps<T>) => {
   const editorRef = useRef<TinyMCEEditor | null>(null);
 
@@ -65,7 +67,7 @@ const FormTextEditor = <T extends FieldValues>({
                 base_url: '/tinymce',
                 placeholder: placeholder || 'Start typing here...',
                 suffix: '.min',
-                height: 500,
+                height: height || 500,
                 menubar: false,
                 plugins: [
                   'link',

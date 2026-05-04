@@ -343,3 +343,47 @@ export interface IAssocSiteList {
   data: IAssocSiteRow[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+export interface IPhotoRow {
+  id: number;
+  gallery_id: number;
+  image_path: string;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IPhotoGalleryRow {
+  id: number;
+  category: string;
+  title: string;
+  slug: string;
+  description: string | null;
+  cover_img: string | null;
+  event_date: Date | null;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+  photos_count: number;
+}
+
+export interface IPhotoGalleryList {
+  data: IPhotoGalleryRow[];
+  meta: IPagination;
+}
+
+export interface IPhotoGallerySingle {
+  id: number;
+  category: string;
+  title: string;
+  slug: string;
+  description: string | null;
+  cover_img: string | null;
+  event_date: Date | null;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+  photos_count: number;
+  photos: IPhotoRow[];
+}

@@ -170,7 +170,7 @@ export const sportsAppMenu = () => {
         items: [
           {
             title: 'Photo Gallery',
-            url: `${titles.SPORTS_APP_URL}/moments/photo-gallery`,
+            url: `${titles.SPORTS_APP_URL}/moments/photo-galleries`,
           },
           {
             title: 'Audio Visuals',

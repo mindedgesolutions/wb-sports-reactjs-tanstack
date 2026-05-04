@@ -79,7 +79,8 @@ const router = createBrowserRouter([
       {
         path: 'moments',
         children: [
-          { path: 'photo-gallery', element: <pg.SpaPhotoGallery /> },
+          { path: 'photo-galleries', element: <pg.SpaPhotoGallery /> },
+          { path: 'gallery/:id?', element: <pg.SpaPhotoGallerySingle /> },
           { path: 'audio-visuals', element: <pg.SpaAudioVisuals /> },
           { path: 'bulletins', element: <pg.SpaBulletins /> },
           { path: 'amphan', element: <pg.SpaAmphan /> },

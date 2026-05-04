@@ -56,6 +56,9 @@ const SpaStadiumSingle = () => {
     enabled: !!id,
   }) as { data: IStadiumSingle | undefined; isLoading: boolean };
 
+  const title = id ? `${data?.name.toUpperCase()}` : `Add New Stadium`;
+  document.title = title + ' | ' + titles.SPORTS_APP_NAME;
+
   // ----------------------------------
 
   const reset = () => {

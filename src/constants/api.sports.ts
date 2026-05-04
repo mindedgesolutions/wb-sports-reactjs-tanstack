@@ -128,4 +128,15 @@ export const sportsApp = {
       toggle: (id: number) => `/sports/info-about/assoc-sites/toggle/${id}`,
     },
   },
+  moments: {
+    photoGalleries: {
+      create: `/sports/moments/photo-galleries`,
+      list: `/sports/moments/photo-galleries`,
+      show: (id: number) => `/sports/moments/photo-galleries/${id}`,
+      update: (id: number) => `/sports/moments/photo-galleries/${id}`,
+      delete: (id: number) => `/sports/moments/photo-galleries/${id}`,
+      toggle: (id: number) => `/sports/moments/photo-galleries/toggle/${id}`,
+      upload: (id: number) => `/sports/moments/photo-galleries/photos/${id}`,
+    },
+  },
 };

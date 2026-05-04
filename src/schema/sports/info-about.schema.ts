@@ -185,6 +185,6 @@ export const assocSiteSchema = z.object({
     .string()
     .min(1, 'Site title is required')
     .max(255, 'Site title must be less than 255 characters'),
-  url: z.url().min(1, 'Site URL is required'),
+  url: z.url({ message: 'Invalid URL' }).min(1, 'Site URL is required'),
 });
 export type AssocSiteSchema = z.input<typeof assocSiteSchema>;
