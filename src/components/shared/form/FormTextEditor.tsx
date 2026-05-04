@@ -53,7 +53,7 @@ const FormTextEditor = <T extends FieldValues>({
         render={({ field }) => {
           return (
             <Editor
-              key={field.value}
+              // key={field.value}
               licenseKey="gpl"
               onInit={(_, editor) => (editorRef.current = editor)}
               value={field.value || ''}
