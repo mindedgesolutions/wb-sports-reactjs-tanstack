@@ -1,6 +1,7 @@
 import { useQuery, type UseQueryOptions } from '@tanstack/react-query';
 import {
   getAudioVisuals,
+  getBulletins,
   getPhotoGalleries,
   getPhotoGallery,
 } from './moments.api';
@@ -39,5 +40,15 @@ export const useAudioVisuals = ({ page, search }: ParamProps) => {
     queryKey: ['audio-visuals', { page, search }],
     queryFn: ({ signal }: { signal: AbortSignal }) =>
       getAudioVisuals({ page, search, signal }),
+  });
+};
+
+// -------------------------------
+
+export const useBulletins = ({ page, search }: ParamProps) => {
+  return useQuery({
+    queryKey: ['bulletins', { page, search }],
+    queryFn: ({ signal }: { signal: AbortSignal }) =>
+      getBulletins({ page, search, signal }),
   });
 };

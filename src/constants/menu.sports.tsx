@@ -167,6 +167,8 @@ export const sportsAppMenu = () => {
         title: 'Moments',
         url: '#',
         icon: Images,
+        isActive:
+          pathname.includes(`${titles.SPORTS_APP_URL}/moments/`) ?? false,
         items: [
           {
             title: 'Photo Gallery',
@@ -190,10 +192,11 @@ export const sportsAppMenu = () => {
         title: 'RTI',
         url: '#',
         icon: Rss,
+        isActive: pathname.includes(`${titles.SPORTS_APP_URL}/rti/`) ?? false,
         items: [
           {
             title: 'Notices',
-            url: `${titles.SPORTS_APP_URL}/players-achievements`,
+            url: `${titles.SPORTS_APP_URL}/rti/notices`,
           },
         ],
       },

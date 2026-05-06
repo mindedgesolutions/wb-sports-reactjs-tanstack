@@ -35,7 +35,7 @@ const FormSimpleFileUpload = <T extends FieldValues>({
                 const file = e.target.files ? e.target.files[0] : undefined;
                 field.onChange(file);
               }}
-              className={cn(className)}
+              className={cn('rounded-sm', className)}
             />
           </Field>
         )}

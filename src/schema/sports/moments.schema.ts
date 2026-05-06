@@ -1,4 +1,4 @@
-import { fileTypes } from '@/utils/format.validation';
+import { fileSizes, fileTypes } from '@/utils/format.validation';
 import { getYoutubeVideoId } from '@/utils/functions';
 import z from 'zod';
 
@@ -51,3 +51,46 @@ export const audioVisualSchema = z.object({
   title: z.string().max(255, 'Title must be less than 255 characters'),
 });
 export type AudioVisualSchema = z.input<typeof audioVisualSchema>;
+
+// ---------------------------------
+
+export const bulletinsSchema = z
+  .object({
+    name: z
+      .string()
+      .max(500, 'Title must be less than 255 characters')
+      .optional(),
+    eventDate: z.coerce.date().optional(),
+    newFile: z.instanceof(File).optional().or(z.undefined()),
+    oldFile: z.string().optional(),
+  })
+  .superRefine((data, ctx) => {
+    const { newFile, oldFile } = data;
+
+    if (!oldFile && !newFile) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['newFile'],
+        message: 'Attchment is required',
+      });
+    }
+
+    if (!oldFile && newFile) {
+      if (!fileTypes().documentTypes.includes(newFile.type)) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['newFile'],
+          message: 'Invalid file type',
+        });
+      }
+
+      if (newFile.size > fileSizes().max10mb) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['newFile'],
+          message: 'Max. 10 MB allowed',
+        });
+      }
+    }
+  });
+export type BulletinsSchema = z.input<typeof bulletinsSchema>;

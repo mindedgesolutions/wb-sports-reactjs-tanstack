@@ -403,3 +403,21 @@ export interface IAudioVisualList {
   data: IAudioVisualRow[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+export interface IBulletinRow {
+  id: number;
+  name: string;
+  slug: string;
+  file_path: string;
+  event_date: Date | null;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IBulletinList {
+  data: IBulletinRow[];
+  meta: IPagination;
+}

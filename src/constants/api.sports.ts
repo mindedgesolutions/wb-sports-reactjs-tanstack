@@ -143,7 +143,13 @@ export const sportsApp = {
       list: `/sports/moments/audio-visuals`,
       update: (id: number) => `/sports/moments/audio-visuals/${id}`,
       delete: (id: number) => `/sports/moments/audio-visuals/${id}`,
-      toggle: (id: number) => `/sports/moments/audio-visuals/toggle/${id}`,
+    },
+    bulletins: {
+      create: `/sports/moments/bulletins`,
+      list: `/sports/moments/bulletins`,
+      update: (id: number) => `/sports/moments/bulletins/${id}`,
+      delete: (id: number) => `/sports/moments/bulletins/${id}`,
+      toggle: (id: number) => `/sports/moments/bulletins/toggle/${id}`,
     },
   },
 };

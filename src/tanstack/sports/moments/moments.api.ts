@@ -2,6 +2,7 @@ import { customFetch } from '@/axios/custom.fetch';
 import { sportsApp } from '@/constants/api.sports';
 import type {
   AudioVisualSchema,
+  BulletinsSchema,
   PhotoGallerySchema,
 } from '@/schema/sports/moments.schema';
 import { parseDate } from '@/utils/date.utils';
@@ -178,9 +179,76 @@ export const audioVisualUpdate = async (
 ) => {
   const payload = formatAudioVisualPayload(data);
 
-  const res = await customFetch.post(
+  const res = await customFetch.put(
     sportsApp.moments.audioVisuals.update(id),
     payload,
   );
   return res.data;
 };
+
+// Audio Visual ends ------------
+
+// Bulletins starts ------------
+
+export const getBulletins = async ({ page, search, signal }: ListProps) => {
+  const res = await customFetch.get(sportsApp.moments.bulletins.list, {
+    params: { page, search },
+    signal,
+  });
+  return res.data;
+};
+
+// -------------------------------
+
+const formatBulletinPayload = (data: BulletinsSchema) => {
+  const eventDate =
+    data.eventDate instanceof Date ? parseDate(data.eventDate) : null;
+
+  const payload = new FormData();
+
+  Object.entries(data).forEach(([key, value]) => {
+    if (key === 'eventDate' && eventDate) {
+      payload.append('eventDate', eventDate);
+      return;
+    }
+
+    if (key === 'newFile' && value instanceof File) {
+      payload.append('newFile', value);
+      return;
+    }
+
+    if (value != null && value !== '') {
+      payload.append(key, String(value));
+    }
+  });
+  return payload;
+};
+
+// -------------------------------
+
+export const bulletinCreate = async (data: BulletinsSchema) => {
+  const payload = formatBulletinPayload(data);
+
+  const res = await customFetch.post(
+    sportsApp.moments.bulletins.create,
+    payload,
+    { headers: { 'Content-Type': 'multipart/form-data' } },
+  );
+  return res.data;
+};
+
+// -------------------------------
+
+export const bulletinUpdate = async (id: number, data: BulletinsSchema) => {
+  const payload = formatBulletinPayload(data);
+  payload.append('_method', 'PUT');
+
+  const res = await customFetch.post(
+    sportsApp.moments.bulletins.update(id),
+    payload,
+    { headers: { 'Content-Type': 'multipart/form-data' } },
+  );
+  return res.data;
+};
+
+// Bulletins ends ------------

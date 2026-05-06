@@ -2,6 +2,8 @@ import { useMutation } from '@tanstack/react-query';
 import {
   audioVisualCreate,
   audioVisualUpdate,
+  bulletinCreate,
+  bulletinUpdate,
   photoGalleryCreate,
   photoGalleryUpdate,
   uploadGalleryImages,
@@ -9,6 +11,7 @@ import {
 import { queryClient } from '@/tanstack/query.client';
 import type {
   AudioVisualSchema,
+  BulletinsSchema,
   PhotoGallerySchema,
 } from '@/schema/sports/moments.schema';
 
@@ -95,6 +98,36 @@ export const useAudioVisualUpdate = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['audio-visuals'] });
+    },
+  });
+};
+
+// -------------------------------
+
+export const useBulletinCreate = () => {
+  return useMutation({
+    mutationFn: async (data: BulletinsSchema) => {
+      const res = await bulletinCreate(data);
+      return res;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['bulletins'] });
+      queryClient.invalidateQueries({ queryKey: ['bulletin-selected'] });
+    },
+  });
+};
+
+// -------------------------------
+
+export const useBulletinUpdate = () => {
+  return useMutation({
+    mutationFn: async ({ id, data }: { id: number; data: BulletinsSchema }) => {
+      const res = await bulletinUpdate(id, data);
+      return res;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['bulletins'] });
+      queryClient.invalidateQueries({ queryKey: ['bulletin-selected'] });
     },
   });
 };
