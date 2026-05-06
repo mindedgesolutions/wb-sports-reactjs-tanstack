@@ -138,5 +138,12 @@ export const sportsApp = {
       toggle: (id: number) => `/sports/moments/photo-galleries/toggle/${id}`,
       upload: (id: number) => `/sports/moments/photo-galleries/photos/${id}`,
     },
+    audioVisuals: {
+      create: `/sports/moments/audio-visuals`,
+      list: `/sports/moments/audio-visuals`,
+      update: (id: number) => `/sports/moments/audio-visuals/${id}`,
+      delete: (id: number) => `/sports/moments/audio-visuals/${id}`,
+      toggle: (id: number) => `/sports/moments/audio-visuals/toggle/${id}`,
+    },
   },
 };

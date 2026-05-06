@@ -1,4 +1,5 @@
 import { fileTypes } from '@/utils/format.validation';
+import { getYoutubeVideoId } from '@/utils/functions';
 import z from 'zod';
 
 export const photoGallerySchema = z
@@ -36,3 +37,17 @@ export const photoGallerySchema = z
     }
   });
 export type PhotoGallerySchema = z.input<typeof photoGallerySchema>;
+
+// ---------------------------------
+
+export const audioVisualSchema = z.object({
+  url: z
+    .string()
+    .trim()
+    .refine(
+      (value) => !!getYoutubeVideoId(value),
+      'Please enter a valid YouTube video URL',
+    ),
+  title: z.string().max(255, 'Title must be less than 255 characters'),
+});
+export type AudioVisualSchema = z.input<typeof audioVisualSchema>;

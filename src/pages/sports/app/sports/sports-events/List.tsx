@@ -53,7 +53,7 @@ const List = ({
                 colSpan={5}
                 className="text-center text-muted-foreground uppercase tracking-wider"
               >
-                No records found
+                No record found
               </TableCell>
             </TableRow>
           ) : (

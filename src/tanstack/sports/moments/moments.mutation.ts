@@ -1,11 +1,16 @@
 import { useMutation } from '@tanstack/react-query';
 import {
+  audioVisualCreate,
+  audioVisualUpdate,
   photoGalleryCreate,
   photoGalleryUpdate,
   uploadGalleryImages,
 } from './moments.api';
 import { queryClient } from '@/tanstack/query.client';
-import type { PhotoGallerySchema } from '@/schema/sports/moments.schema';
+import type {
+  AudioVisualSchema,
+  PhotoGallerySchema,
+} from '@/schema/sports/moments.schema';
 
 export const usePhotoGalleryCreate = (
   onProgress?: (progress: number) => void,
@@ -56,6 +61,40 @@ export const usePhotoGalleryUpdate = (
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['photo-galleries'] });
       queryClient.invalidateQueries({ queryKey: ['photo-gallery'] });
+    },
+  });
+};
+
+// -------------------------------
+
+export const useAudioVisualCreate = () => {
+  return useMutation({
+    mutationFn: async (data: AudioVisualSchema) => {
+      const res = await audioVisualCreate(data);
+      return res;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['audio-visuals'] });
+    },
+  });
+};
+
+// -------------------------------
+
+export const useAudioVisualUpdate = () => {
+  return useMutation({
+    mutationFn: async ({
+      id,
+      data,
+    }: {
+      id: number;
+      data: AudioVisualSchema;
+    }) => {
+      const res = await audioVisualUpdate(id, data);
+      return res;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['audio-visuals'] });
     },
   });
 };

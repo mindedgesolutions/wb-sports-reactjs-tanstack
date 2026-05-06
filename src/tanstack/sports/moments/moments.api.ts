@@ -1,6 +1,9 @@
 import { customFetch } from '@/axios/custom.fetch';
 import { sportsApp } from '@/constants/api.sports';
-import type { PhotoGallerySchema } from '@/schema/sports/moments.schema';
+import type {
+  AudioVisualSchema,
+  PhotoGallerySchema,
+} from '@/schema/sports/moments.schema';
 import { parseDate } from '@/utils/date.utils';
 import { chunkArray, optimizeImage } from '@/utils/image.utils';
 
@@ -9,6 +12,8 @@ type ListProps = {
   page?: number;
   signal: AbortSignal;
 };
+
+// Photo Gallery starts ------------
 
 export const getPhotoGalleries = async ({
   page,
@@ -126,6 +131,56 @@ export const photoGalleryUpdate = async (
     sportsApp.moments.photoGalleries.update(id),
     payload,
     { headers: { 'Content-Type': 'multipart/form-data' } },
+  );
+  return res.data;
+};
+
+// Photo Gallery ends ------------
+
+// Audio Visual starts ------------
+
+export const getAudioVisuals = async ({ page, search, signal }: ListProps) => {
+  const res = await customFetch.get(sportsApp.moments.audioVisuals.list, {
+    params: { page, search },
+    signal,
+  });
+  return res.data;
+};
+
+// -------------------------------
+
+const formatAudioVisualPayload = (data: AudioVisualSchema) => {
+  const payload = {} as any;
+
+  Object.entries(data).forEach(([key, value]) => {
+    payload[key] = String(value);
+  });
+  return payload;
+};
+
+// -------------------------------
+
+export const audioVisualCreate = async (data: AudioVisualSchema) => {
+  const payload = formatAudioVisualPayload(data);
+
+  const res = await customFetch.post(
+    sportsApp.moments.audioVisuals.create,
+    payload,
+  );
+  return res.data;
+};
+
+// -------------------------------
+
+export const audioVisualUpdate = async (
+  id: number,
+  data: AudioVisualSchema,
+) => {
+  const payload = formatAudioVisualPayload(data);
+
+  const res = await customFetch.post(
+    sportsApp.moments.audioVisuals.update(id),
+    payload,
   );
   return res.data;
 };

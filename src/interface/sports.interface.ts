@@ -387,3 +387,19 @@ export interface IPhotoGallerySingle {
   photos_count: number;
   photos: IPhotoRow[];
 }
+
+// -----------------------------
+
+export interface IAudioVisualRow {
+  id: number;
+  title: string | null;
+  video_link: string;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IAudioVisualList {
+  data: IAudioVisualRow[];
+  meta: IPagination;
+}

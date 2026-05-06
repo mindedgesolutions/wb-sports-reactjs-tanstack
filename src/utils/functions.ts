@@ -97,3 +97,43 @@ export const handleDownload = async (filePath: string, fileName: string) => {
     throw new Error('Failed to download file');
   }
 };
+
+// -----------------------
+
+export const getYoutubeVideoId = (url: string): string | null => {
+  try {
+    const parsed = new URL(url);
+
+    // youtu.be/<id>
+    if (parsed.hostname === 'youtu.be') {
+      const id = parsed.pathname.slice(1);
+      return id || null;
+    }
+
+    // youtube.com/watch?v=<id>
+    if (
+      parsed.hostname === 'youtube.com' ||
+      parsed.hostname === 'www.youtube.com' ||
+      parsed.hostname === 'm.youtube.com'
+    ) {
+      // watch?v=
+      if (parsed.pathname === '/watch') {
+        return parsed.searchParams.get('v');
+      }
+
+      // /embed/<id>
+      if (parsed.pathname.startsWith('/embed/')) {
+        return parsed.pathname.split('/')[2] || null;
+      }
+
+      // /shorts/<id>
+      if (parsed.pathname.startsWith('/shorts/')) {
+        return parsed.pathname.split('/')[2] || null;
+      }
+    }
+
+    return null;
+  } catch {
+    return null;
+  }
+};

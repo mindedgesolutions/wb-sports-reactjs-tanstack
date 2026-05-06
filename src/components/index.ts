@@ -31,5 +31,6 @@ export { default as AppListContactContainer } from '@/components/shared/app/AppL
 export { default as FormSimpleFileUpload } from '@/components/shared/form/FormSimpleFileUpload';
 export { default as FormMultipleFileUpload } from '@/components/shared/form/FormMultipleFileUpload';
 export { default as AppTitleLoading } from '@/components/shared/app/AppTitleLoading';
+export { default as YouTubeThumbnailPreview } from '@/components/shared/YouTubeThumbnailPreview';
 
 // Sports App Components
