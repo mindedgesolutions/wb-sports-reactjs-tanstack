@@ -151,5 +151,11 @@ export const sportsApp = {
       delete: (id: number) => `/sports/moments/bulletins/${id}`,
       toggle: (id: number) => `/sports/moments/bulletins/toggle/${id}`,
     },
+    amphanPhotos: {
+      create: `/sports/moments/amphan-photos`,
+      list: `/sports/moments/amphan-photos`,
+      update: (id: number) => `/sports/moments/amphan-photos/${id}`,
+      delete: (id: number) => `/sports/moments/amphan-photos/${id}`,
+    },
   },
 };

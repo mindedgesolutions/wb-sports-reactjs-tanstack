@@ -1,6 +1,7 @@
 import { customFetch } from '@/axios/custom.fetch';
 import { sportsApp } from '@/constants/api.sports';
 import type {
+  AmphanPhotosSchema,
   AudioVisualSchema,
   BulletinsSchema,
   PhotoGallerySchema,
@@ -252,3 +253,63 @@ export const bulletinUpdate = async (id: number, data: BulletinsSchema) => {
 };
 
 // Bulletins ends ------------
+
+// Amphan Photos starts ------------
+
+export const getAmphanPhotos = async ({ page, search, signal }: ListProps) => {
+  const res = await customFetch.get(sportsApp.moments.amphanPhotos.list, {
+    params: { page, search },
+    signal,
+  });
+  return res.data;
+};
+
+// -------------------------------
+
+const formatAmphanPhotoPayload = (data: AmphanPhotosSchema) => {
+  const payload = new FormData();
+
+  Object.entries(data).forEach(([key, value]) => {
+    if (key === 'newImage' && value instanceof File) {
+      payload.append('newImage', value);
+      return;
+    }
+
+    if (value != null && value !== '') {
+      payload.append(key, String(value));
+    }
+  });
+  return payload;
+};
+
+// -------------------------------
+
+export const amphanPhotoCreate = async (data: AmphanPhotosSchema) => {
+  const payload = formatAmphanPhotoPayload(data);
+
+  const res = await customFetch.post(
+    sportsApp.moments.amphanPhotos.create,
+    payload,
+    { headers: { 'Content-Type': 'multipart/form-data' } },
+  );
+  return res.data;
+};
+
+// -------------------------------
+
+export const amphanPhotoUpdate = async (
+  id: number,
+  data: AmphanPhotosSchema,
+) => {
+  const payload = formatAmphanPhotoPayload(data);
+  payload.append('_method', 'PUT');
+
+  const res = await customFetch.post(
+    sportsApp.moments.amphanPhotos.update(id),
+    payload,
+    { headers: { 'Content-Type': 'multipart/form-data' } },
+  );
+  return res.data;
+};
+
+// Amphan Photos ends ------------

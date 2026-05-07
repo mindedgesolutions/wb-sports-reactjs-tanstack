@@ -23,7 +23,7 @@ export const photoGallerySchema = z
         ctx.addIssue({
           code: 'custom',
           path: ['coverImg'],
-          message: 'Invalid file type',
+          message: 'Only JPEG, PNG, and GIF images are allowed',
         });
       }
 
@@ -31,7 +31,7 @@ export const photoGallerySchema = z
         ctx.addIssue({
           code: 'custom',
           path: ['coverImg'],
-          message: 'Invalid file type',
+          message: 'Image size must be less than 10MB',
         });
       }
     }
@@ -75,12 +75,12 @@ export const bulletinsSchema = z
       });
     }
 
-    if (!oldFile && newFile) {
+    if (newFile) {
       if (!fileTypes().documentTypes.includes(newFile.type)) {
         ctx.addIssue({
           code: 'custom',
           path: ['newFile'],
-          message: 'Invalid file type',
+          message: 'Only JPEG, PNG, and GIF images are allowed',
         });
       }
 
@@ -88,9 +88,48 @@ export const bulletinsSchema = z
         ctx.addIssue({
           code: 'custom',
           path: ['newFile'],
-          message: 'Max. 10 MB allowed',
+          message: 'File size must be less than 10MB',
         });
       }
     }
   });
 export type BulletinsSchema = z.input<typeof bulletinsSchema>;
+
+// ---------------------------------
+
+export const amphanPhotosSchema = z
+  .object({
+    newImage: z.instanceof(File).optional().or(z.undefined()),
+    existingImage: z.string().optional(),
+    title: z.string().max(255, 'Title must be less than 255 characters'),
+  })
+  .superRefine((data, ctx) => {
+    const { newImage, existingImage } = data;
+
+    if (!existingImage && !newImage) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['newImage'],
+        message: 'Image is required',
+      });
+    }
+
+    if (newImage) {
+      if (!fileTypes().imageTypes.includes(newImage.type)) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['newImage'],
+          message: 'Only JPEG, PNG, and GIF images are allowed',
+        });
+      }
+
+      if (newImage.size > fileSizes().max10mb) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['newImage'],
+          message: 'Image size must be less than 10MB',
+        });
+      }
+    }
+  });
+export type AmphanPhotosSchema = z.input<typeof amphanPhotosSchema>;

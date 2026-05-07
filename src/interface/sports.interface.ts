@@ -421,3 +421,18 @@ export interface IBulletinList {
   data: IBulletinRow[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+export interface IAmphanPhotoRow {
+  id: number;
+  image_path: string;
+  title: string;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IAmphanPhotoList {
+  data: IAmphanPhotoRow[];
+  meta: IPagination;
+}

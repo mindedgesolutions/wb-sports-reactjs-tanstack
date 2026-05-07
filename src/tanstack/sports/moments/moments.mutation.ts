@@ -1,5 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import {
+  amphanPhotoCreate,
+  amphanPhotoUpdate,
   audioVisualCreate,
   audioVisualUpdate,
   bulletinCreate,
@@ -10,6 +12,7 @@ import {
 } from './moments.api';
 import { queryClient } from '@/tanstack/query.client';
 import type {
+  AmphanPhotosSchema,
   AudioVisualSchema,
   BulletinsSchema,
   PhotoGallerySchema,
@@ -128,6 +131,42 @@ export const useBulletinUpdate = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['bulletins'] });
       queryClient.invalidateQueries({ queryKey: ['bulletin-selected'] });
+    },
+  });
+};
+
+// -------------------------------
+
+export const useAmphanPhotoCreate = () => {
+  return useMutation({
+    mutationFn: async (data: AmphanPhotosSchema) => {
+      const res = await amphanPhotoCreate(data);
+      return res;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['amphan-photos'] });
+      queryClient.invalidateQueries({ queryKey: ['amphan-photo-selected'] });
+    },
+  });
+};
+
+// -------------------------------
+
+export const useAmphanPhotoUpdate = () => {
+  return useMutation({
+    mutationFn: async ({
+      id,
+      data,
+    }: {
+      id: number;
+      data: AmphanPhotosSchema;
+    }) => {
+      const res = await amphanPhotoUpdate(id, data);
+      return res;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['amphan-photos'] });
+      queryClient.invalidateQueries({ queryKey: ['amphan-photo-selected'] });
     },
   });
 };

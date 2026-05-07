@@ -1,5 +1,6 @@
 import { useQuery, type UseQueryOptions } from '@tanstack/react-query';
 import {
+  getAmphanPhotos,
   getAudioVisuals,
   getBulletins,
   getPhotoGalleries,
@@ -50,5 +51,15 @@ export const useBulletins = ({ page, search }: ParamProps) => {
     queryKey: ['bulletins', { page, search }],
     queryFn: ({ signal }: { signal: AbortSignal }) =>
       getBulletins({ page, search, signal }),
+  });
+};
+
+// -------------------------------
+
+export const useAmphanPhotos = ({ page, search }: ParamProps) => {
+  return useQuery({
+    queryKey: ['amphan-photos', { page, search }],
+    queryFn: ({ signal }: { signal: AbortSignal }) =>
+      getAmphanPhotos({ page, search, signal }),
   });
 };
