@@ -86,6 +86,10 @@ const router = createBrowserRouter([
           { path: 'amphan', element: <pg.SpaAmphan /> },
         ],
       },
+      {
+        path: 'rti',
+        children: [{ path: 'notices', element: <pg.SpaNotices /> }],
+      },
     ],
   },
   {

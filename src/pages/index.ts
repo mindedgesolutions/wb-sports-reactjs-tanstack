@@ -32,6 +32,7 @@ export { default as SpaAudioVisuals } from '@/pages/sports/app/moments/audio-vis
 export { default as SpaBulletins } from '@/pages/sports/app/moments/bulletins/SpaBulletins';
 export { default as SpaPhotoGallery } from '@/pages/sports/app/moments/photo-gallery/SpaPhotoGallery';
 export { default as SpaPhotoGallerySingle } from '@/pages/sports/app/moments/photo-gallery/SpaPhotoGallerySingle';
+export { default as SpaNotices } from '@/pages/sports/app/rti/notices/SpaNotices';
 
 // Sports website starts --------
 export { default as SpwLayout } from '@/pages/sports/website/SpwLayout';

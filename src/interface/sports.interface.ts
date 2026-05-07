@@ -436,3 +436,24 @@ export interface IAmphanPhotoList {
   data: IAmphanPhotoRow[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+export interface IRtiNoticeRow {
+  id: number;
+  notice_no: string;
+  subject: string;
+  is_new: boolean;
+  start_date: Date | null;
+  end_date: Date | null;
+  file_path: string;
+  file_name: string | null;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IRtiNoticeList {
+  data: IRtiNoticeRow[];
+  meta: IPagination;
+}

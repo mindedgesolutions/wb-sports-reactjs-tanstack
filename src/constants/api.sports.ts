@@ -158,4 +158,13 @@ export const sportsApp = {
       delete: (id: number) => `/sports/moments/amphan-photos/${id}`,
     },
   },
+  rti: {
+    notices: {
+      create: `/sports/rti/notices`,
+      list: `/sports/rti/notices`,
+      update: (id: number) => `/sports/rti/notices/${id}`,
+      delete: (id: number) => `/sports/rti/notices/${id}`,
+      toggle: (id: number) => `/sports/rti/notices/toggle/${id}`,
+    },
+  },
 };
