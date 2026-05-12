@@ -32,7 +32,7 @@ import {
 import { Label } from '@/components/ui/label';
 import { sportsCategories } from '@/constants';
 import { Button } from '@/components/ui/button';
-import { User } from 'lucide-react';
+import { Trash2, User } from 'lucide-react';
 
 const Form = () => {
   const {
@@ -171,13 +171,19 @@ const Form = () => {
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="designation">Achievement date</Label>
-                <FormDatepicker
-                  control={form.control}
-                  name="achievementDate"
-                  allowFutureDates={false}
-                  description={errors.achievementDate?.message}
-                  id="achievementDate"
-                />
+                <span className="flex items-center gap-2">
+                  <FormDatepicker
+                    control={form.control}
+                    name="achievementDate"
+                    allowFutureDates={false}
+                    description={errors.achievementDate?.message}
+                    id="achievementDate"
+                  />
+                  <Trash2
+                    className="text-destructive h-4 w-4 cursor-pointer"
+                    onClick={() => form.setValue('achievementDate', undefined)}
+                  />
+                </span>
               </div>
             </div>
           </CardContent>

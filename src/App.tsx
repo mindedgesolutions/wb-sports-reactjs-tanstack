@@ -90,6 +90,7 @@ const router = createBrowserRouter([
         path: 'rti',
         children: [{ path: 'notices', element: <pg.SpaNotices /> }],
       },
+      { path: 'contact-us', element: <pg.SpaContactUs /> },
     ],
   },
   {

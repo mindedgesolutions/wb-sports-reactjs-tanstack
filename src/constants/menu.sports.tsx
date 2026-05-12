@@ -202,7 +202,7 @@ export const sportsAppMenu = () => {
       },
       {
         title: 'Contact Us',
-        url: `${titles.SPORTS_APP_URL}/dashboard`,
+        url: `${titles.SPORTS_APP_URL}/contact-us`,
         icon: Headphones,
         isActive: true,
       },

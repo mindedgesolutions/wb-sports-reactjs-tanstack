@@ -8,6 +8,7 @@ import {
 } from '@/components';
 import { Label } from '@/components/ui/label';
 import type { FifaGallerySchema } from '@/schema/sports/info-about.schema';
+import { Trash2 } from 'lucide-react';
 import { useFormContext } from 'react-hook-form';
 import { MdOutlineStadium } from 'react-icons/md';
 
@@ -16,6 +17,7 @@ const GeneralSection = () => {
     formState: { errors },
     register,
     control,
+    setValue,
   } = useFormContext<FifaGallerySchema>();
 
   return (
@@ -53,12 +55,18 @@ const GeneralSection = () => {
           <div className="col-span-1">
             <div className="grid gap-2">
               <Label htmlFor="description">Event date</Label>
-              <FormDatepicker
-                control={control}
-                name="eventDate"
-                allowFutureDates={false}
-                description={errors.eventDate?.message}
-              />
+              <span className="flex items-center gap-2">
+                <FormDatepicker
+                  control={control}
+                  name="eventDate"
+                  allowFutureDates={false}
+                  description={errors.eventDate?.message}
+                />
+                <Trash2
+                  className="text-destructive h-4 w-4 cursor-pointer"
+                  onClick={() => setValue('eventDate', undefined)}
+                />
+              </span>
             </div>
           </div>
         </div>

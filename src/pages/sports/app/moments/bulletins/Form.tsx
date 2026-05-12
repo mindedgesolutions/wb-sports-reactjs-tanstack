@@ -32,6 +32,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { titles } from '@/constants';
 import { GoFile } from 'react-icons/go';
+import { Trash2 } from 'lucide-react';
 
 const Form = () => {
   const {
@@ -141,12 +142,18 @@ const Form = () => {
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="name">Event date</Label>
-                <FormDatepicker
-                  control={form.control}
-                  name="eventDate"
-                  allowFutureDates={false}
-                  description={errors.eventDate?.message}
-                />
+                <span className="flex items-center gap-2">
+                  <FormDatepicker
+                    control={form.control}
+                    name="eventDate"
+                    allowFutureDates={false}
+                    description={errors.eventDate?.message}
+                  />
+                  <Trash2
+                    className="text-destructive h-4 w-4 cursor-pointer"
+                    onClick={() => form.setValue('eventDate', undefined)}
+                  />
+                </span>
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="name">

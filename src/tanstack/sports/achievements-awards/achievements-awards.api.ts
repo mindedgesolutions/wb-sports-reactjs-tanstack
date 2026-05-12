@@ -36,7 +36,7 @@ const formatPlayersAchievementPayload = (data: PlayersAchievementsSchema) => {
   Object.entries(data).forEach(([key, value]) => {
     if (key === 'achievementDate' && achDate) {
       formData[key] = achDate;
-    } else {
+    } else if (value !== '' && value != null) {
       formData[key] = String(value);
     }
   });
