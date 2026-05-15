@@ -180,7 +180,12 @@ const SpaSignin = () => {
                     )}
                   </div>
                   <Field>
-                    <FieldLabel htmlFor="username">Username</FieldLabel>
+                    <FieldLabel
+                      htmlFor="username"
+                      className="text-muted-foreground"
+                    >
+                      Username
+                    </FieldLabel>
                     <FormInput
                       id="username"
                       register={form.register}
@@ -192,7 +197,12 @@ const SpaSignin = () => {
                   </Field>
                   <Field>
                     <div className="flex items-center">
-                      <FieldLabel htmlFor="password">Password</FieldLabel>
+                      <FieldLabel
+                        htmlFor="password"
+                        className="text-muted-foreground"
+                      >
+                        Password
+                      </FieldLabel>
                       <Link
                         to="#"
                         className="ml-auto text-xs underline-offset-4 hover:underline"

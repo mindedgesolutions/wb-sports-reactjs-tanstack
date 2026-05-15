@@ -37,4 +37,4 @@ export { default as SpaContactUs } from '@/pages/sports/app/contact-us/SpaContac
 
 // Sports website starts --------
 export { default as SpwLayout } from '@/pages/sports/website/SpwLayout';
-export { default as SpwLanding } from '@/pages/sports/website/SpwLanding';
+export { default as SpwLanding } from '@/pages/sports/website/homepage/SpwLanding';

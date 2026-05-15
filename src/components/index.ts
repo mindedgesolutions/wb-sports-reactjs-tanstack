@@ -32,5 +32,11 @@ export { default as FormSimpleFileUpload } from '@/components/shared/form/FormSi
 export { default as FormMultipleFileUpload } from '@/components/shared/form/FormMultipleFileUpload';
 export { default as AppTitleLoading } from '@/components/shared/app/AppTitleLoading';
 export { default as YouTubeThumbnailPreview } from '@/components/shared/YouTubeThumbnailPreview';
+export { default as WbTopImageSlider } from '@/components/shared/website/WbTopImageSlider';
+export { default as WbProfileCardOne } from '@/components/shared/website/WbProfileCardOne';
+export { default as WbProfileCardTwo } from '@/components/shared/website/WbProfileCardTwo';
+export { default as WbTopButtonContainer } from '@/components/shared/website/WbTopButtonContainer';
 
-// Sports App Components
+// Sports Website Components
+export { default as SpwHeaderTop } from '@/components/sports/website/header/SpwHeaderTop';
+export { default as SpwHeaderBottom } from '@/components/sports/website/header/SpwHeaderBottom';
