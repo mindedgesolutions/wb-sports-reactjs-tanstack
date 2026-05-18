@@ -26,7 +26,7 @@ import {
 import { titles } from '.';
 
 function sportsWebsiteMenus() {
-  const menus: WebsiteMenuProps[] = [
+  const menus: IWebsiteMenuProps[] = [
     {
       name: 'Home',
       link: `/${titles.SPORTS_WEB_URL}`,

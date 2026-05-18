@@ -68,7 +68,7 @@ const WbTopImageSlider = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-75 md:h-125 overflow-visible">
+    <section className="relative w-full h-75 md:h-125 overflow-visible mb-20">
       <div className="relative h-75 md:h-125 overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.img

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 
-const WbMenu = ({ menu }: { menu: WebsiteMenuProps }) => {
+const WbMenu = ({ menu }: { menu: IWebsiteMenuProps }) => {
   const [isHover, setIsHover] = useState(false);
 
   const hasSubMenu = !!menu.subMenus?.length;

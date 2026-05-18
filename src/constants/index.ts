@@ -3,6 +3,9 @@ import nicLogo from '@/assets/images/NIC_Logo.png';
 import spSignin from '@/assets/images/sp-signin.jpg';
 import profileImg from '@/assets/images/000m.jpg';
 import nationalEmblem from '@/assets/images/national-emblem.png';
+import cmImg from '@/assets/images/subhendu.jpeg';
+import micImg from '@/assets/images/Shri_Nisith_Pramanik_Minister.jpeg';
+import demoImg from '@/assets/images/demo.jpg';
 
 export const titles = {
   SPORTS_APP_NAME: import.meta.env.VITE_SPORTS_APP_NAME,
@@ -28,7 +31,16 @@ export const titles = {
 
 // -------------------------------
 
-export const images = { logo, nicLogo, spSignin, profileImg, nationalEmblem };
+export const images = {
+  logo,
+  nicLogo,
+  spSignin,
+  profileImg,
+  nationalEmblem,
+  cmImg,
+  micImg,
+  demoImg,
+};
 
 // -------------------------------
 
@@ -60,4 +72,23 @@ export const spAnnouncementTypes = [
   { label: 'Notice', value: 'notice' },
   { label: 'Circular', value: 'circular' },
   { label: 'Tender', value: 'tender' },
+];
+
+// -------------------------------
+
+export const homepageMentions: IHomepageMention[] = [
+  {
+    name: 'Suvendu Adhikari',
+    designation: `Hon'ble Chief Minister`,
+    image: images.cmImg,
+  },
+  {
+    name: 'Nisith Pramanik',
+    designation: `Hon'ble MIC`,
+    image: images.micImg,
+  },
+  {
+    name: 'Ashok Dinda',
+    designation: `Hon'ble MOS`,
+  },
 ];

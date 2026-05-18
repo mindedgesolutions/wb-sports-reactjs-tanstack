@@ -2,7 +2,7 @@ import WbMenu from '@/components/shared/website/WbMenu';
 import sportsWebsiteMenus from '@/constants/menu.sports.website';
 
 const SpwMenu = () => {
-  const menus = sportsWebsiteMenus() as WebsiteMenuProps[];
+  const menus = sportsWebsiteMenus() as IWebsiteMenuProps[];
 
   return (
     <header className="z-10 h-10 md:flex flex-row justify-center items-center">

@@ -45,11 +45,17 @@ interface IListProps<T> {
   onPageChange: (page: number) => void;
 }
 
-interface WebsiteMenuProps {
+interface IWebsiteMenuProps {
   name: string;
   link?: string | null;
   icon?: React.ElementType | null;
   subMenuHeading?: string | null;
   subMenus?: WebsiteSubMenuProps[] | null;
   gridCols?: number | null;
+}
+
+interface IHomepageMention {
+  name: string;
+  designation: string;
+  image?: string;
 }
