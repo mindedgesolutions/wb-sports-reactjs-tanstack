@@ -68,8 +68,8 @@ const WbTopImageSlider = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-75 md:h-150 overflow-visible">
-      <div className="relative h-75 md:h-150 overflow-hidden">
+    <section className="relative w-full h-75 md:h-125 overflow-visible">
+      <div className="relative h-75 md:h-125 overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.img
             key={slides[current].id}
@@ -81,7 +81,9 @@ const WbTopImageSlider = () => {
             transition={{ duration: 0.3, ease: 'easeOut' }}
           />
         </AnimatePresence>
-        <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6">
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-secondary-foreground/60 " />
+        <div className="relative  flex flex-col items-center justify-center h-full text-center px-6">
           <AnimatePresence mode="wait">
             <motion.div
               key={slides[current].id}
@@ -133,22 +135,20 @@ const WbTopImageSlider = () => {
           </AnimatePresence>
         </div>
       </div>
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-secondary-foreground/60 z-10" />
       <button
         onClick={prevSlide}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 p-1 md:p-3 rounded-full backdrop-blur"
+        className="absolute left-6 top-1/2 -translate-y-1/2  bg-white/20 hover:bg-white/30 p-1 md:p-3 rounded-full backdrop-blur"
       >
         <ChevronLeft className="text-white w-4 md:w-8 h-4 md:h-8" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 p-1 md:p-3 rounded-full backdrop-blur"
+        className="absolute right-6 top-1/2 -translate-y-1/2  bg-white/20 hover:bg-white/30 p-1 md:p-3 rounded-full backdrop-blur"
       >
         <ChevronRight className="text-white w-4 md:w-8 h-4 md:h-8" />
       </button>
       {/* Thumbnails */}
-      <div className="flex absolute left-1/2 bottom-0 translate-y-1/2 -translate-x-1/2 z-30 gap-2 md:gap-4">
+      <div className="flex absolute left-1/2 bottom-0 translate-y-1/2 -translate-x-1/2  gap-2 md:gap-4">
         {slides.map((slide, index) => (
           <button
             key={slide.id}

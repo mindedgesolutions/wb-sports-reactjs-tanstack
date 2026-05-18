@@ -2,7 +2,7 @@ import logo from '@/assets/images/sports-logo.png';
 import nicLogo from '@/assets/images/NIC_Logo.png';
 import spSignin from '@/assets/images/sp-signin.jpg';
 import profileImg from '@/assets/images/000m.jpg';
-import biswaBangla from '@/assets/images/biswa-bangla.png';
+import nationalEmblem from '@/assets/images/national-emblem.png';
 
 export const titles = {
   SPORTS_APP_NAME: import.meta.env.VITE_SPORTS_APP_NAME,
@@ -28,7 +28,7 @@ export const titles = {
 
 // -------------------------------
 
-export const images = { logo, nicLogo, spSignin, profileImg, biswaBangla };
+export const images = { logo, nicLogo, spSignin, profileImg, nationalEmblem };
 
 // -------------------------------
 
