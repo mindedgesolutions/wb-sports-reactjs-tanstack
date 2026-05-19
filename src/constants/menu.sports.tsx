@@ -208,7 +208,7 @@ export const sportsAppMenu = () => {
       },
       {
         title: 'New Scroller (Homepage)',
-        url: `${titles.SPORTS_APP_URL}/dashboard`,
+        url: `${titles.SPORTS_APP_URL}/news-scroller`,
         icon: Newspaper,
         isActive: true,
       },

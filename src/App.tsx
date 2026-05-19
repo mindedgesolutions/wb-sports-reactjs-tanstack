@@ -91,6 +91,7 @@ const router = createBrowserRouter([
         children: [{ path: 'notices', element: <pg.SpaNotices /> }],
       },
       { path: 'contact-us', element: <pg.SpaContactUs /> },
+      { path: 'news-scroller', element: <pg.SpaNewsScroller /> },
     ],
   },
   {

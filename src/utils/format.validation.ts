@@ -37,6 +37,7 @@ export const fileTypes = () => {
     'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
   ];
+  const anyTypes = [...imageTypes, ...documentTypes];
 
-  return { imageTypes, documentTypes };
+  return { imageTypes, documentTypes, anyTypes };
 };

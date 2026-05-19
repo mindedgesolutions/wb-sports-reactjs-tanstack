@@ -172,6 +172,7 @@ const Form = () => {
                   allowFutureDates={false}
                   description={errors.dob?.message}
                   id="dob"
+                  resetField={(name) => form.setValue(name, undefined)}
                 />
               </div>
               <div className="grid gap-2">

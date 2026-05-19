@@ -33,7 +33,6 @@ import {
 import { Label } from '@/components/ui/label';
 import { IoMdClipboard } from 'react-icons/io';
 import { Button } from '@/components/ui/button';
-import { Trash2 } from 'lucide-react';
 
 const RadioOptions: { value: string; label: string }[] = [
   { value: 'true', label: 'New' },
@@ -186,10 +185,7 @@ const Form = () => {
                     name="startDate"
                     allowFutureDates={false}
                     description={errors.startDate?.message}
-                  />
-                  <Trash2
-                    className="text-destructive h-4 w-4 cursor-pointer"
-                    onClick={() => form.setValue('startDate', undefined)}
+                    resetField={(name) => form.setValue(name, undefined)}
                   />
                 </span>
               </div>
@@ -201,10 +197,7 @@ const Form = () => {
                     name="endDate"
                     allowFutureDates={false}
                     description={errors.endDate?.message}
-                  />
-                  <Trash2
-                    className="text-destructive h-4 w-4 cursor-pointer"
-                    onClick={() => form.setValue('endDate', undefined)}
+                    resetField={(name) => form.setValue(name, undefined)}
                   />
                 </span>
               </div>

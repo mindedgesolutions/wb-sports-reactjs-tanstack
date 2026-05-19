@@ -96,7 +96,10 @@ export const keyPersonnelCreate = async (data: KeyPersonnelSchema) => {
   Object.entries(data).forEach(([key, value]) => {
     if (value instanceof File) {
       formData.append(key, value);
-    } else if (value !== undefined && value !== null) {
+      return;
+    }
+
+    if (value !== '' && value != null) {
       formData.append(key, String(value));
     }
   });
@@ -162,8 +165,11 @@ const formatAchievementPayload = (data: AchievementSchema) => {
   Object.entries(data).forEach(([key, value]) => {
     if (key === 'achievementDate' && achDate) {
       formData.append(key, achDate);
-    } else {
-      formData.append(key, value as string);
+      return;
+    }
+
+    if (value !== '' && value != null) {
+      formData.append(key, String(value));
     }
   });
   return formData;

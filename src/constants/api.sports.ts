@@ -167,4 +167,13 @@ export const sportsApp = {
       toggle: (id: number) => `/sports/rti/notices/toggle/${id}`,
     },
   },
+  newsScroller: {
+    newsScroller: {
+      create: `/sports/news-scroll/news-scroll`,
+      list: `/sports/news-scroll/news-scroll`,
+      update: (id: number) => `/sports/news-scroll/news-scroll/${id}`,
+      delete: (id: number) => `/sports/news-scroll/news-scroll/${id}`,
+      toggle: (id: number) => `/sports/news-scroll/news-scroll/toggle/${id}`,
+    },
+  },
 };

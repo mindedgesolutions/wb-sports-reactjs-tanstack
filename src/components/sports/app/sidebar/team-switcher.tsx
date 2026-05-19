@@ -24,7 +24,10 @@ export function TeamSwitcher() {
                 className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground cursor-pointer"
               >
                 <div className="text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <img src={images.nationalEmblem} className="size-8" />
+                  <img
+                    src={images.nationalEmblem}
+                    className="p-px group-data-[collapsible=icon]:h-8"
+                  />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight gap-0.5">
                   <AppTooltip

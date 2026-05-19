@@ -457,3 +457,23 @@ export interface IRtiNoticeList {
   data: IRtiNoticeRow[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+export interface INewsScrollerRow {
+  id: number;
+  title: string;
+  slug: string;
+  description: string | null;
+  news_date: Date | null;
+  file_name: string;
+  file_path: string;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface INewsScrollerList {
+  data: INewsScrollerRow[];
+  meta: IPagination;
+}

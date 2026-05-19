@@ -6,8 +6,10 @@ import {
 import Mentions from './Mentions';
 import Introduction from './Introduction';
 import SportsInBengal from './SportsInBengal';
+import { titles } from '@/constants';
 
 const SpwLanding = () => {
+  document.title = `Home | ${titles.SPORTS_APP_NAME}`;
   // const imgArr = Array.from({ length: 4 }, (_, i) => i + 4);
 
   return (

@@ -8,6 +8,6 @@ const SpwSectionWrapper = ({
   children: ReactNode;
   className?: string;
 }) => {
-  return <div className={cn('p-4', className)}>{children}</div>;
+  return <div className={cn('p-8', className)}>{children}</div>;
 };
 export default SpwSectionWrapper;

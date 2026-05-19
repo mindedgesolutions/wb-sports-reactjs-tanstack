@@ -139,6 +139,7 @@ const Form = () => {
                   allowFutureDates={false}
                   description={errors.eventDate?.message}
                   id="eventDate"
+                  resetField={(name) => form.setValue(name, undefined)}
                 />
               </div>
             </div>

@@ -163,6 +163,7 @@ const Form = () => {
                   allowFutureDates={true}
                   description={errors.adDate?.message}
                   id="adDate"
+                  resetField={(name) => form.setValue(name, undefined)}
                 />
               </div>
               <div className="grid gap-2">

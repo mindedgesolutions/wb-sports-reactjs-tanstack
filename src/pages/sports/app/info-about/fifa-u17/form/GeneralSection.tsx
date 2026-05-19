@@ -8,7 +8,6 @@ import {
 } from '@/components';
 import { Label } from '@/components/ui/label';
 import type { FifaGallerySchema } from '@/schema/sports/info-about.schema';
-import { Trash2 } from 'lucide-react';
 import { useFormContext } from 'react-hook-form';
 import { MdOutlineStadium } from 'react-icons/md';
 
@@ -61,10 +60,8 @@ const GeneralSection = () => {
                   name="eventDate"
                   allowFutureDates={false}
                   description={errors.eventDate?.message}
-                />
-                <Trash2
-                  className="text-destructive h-4 w-4 cursor-pointer"
-                  onClick={() => setValue('eventDate', undefined)}
+                  id="eventDate"
+                  resetField={(name) => setValue(name, undefined)}
                 />
               </span>
             </div>
