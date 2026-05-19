@@ -29,6 +29,7 @@ import {
 } from '@/components';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
+import { X } from 'lucide-react';
 
 const Form = () => {
   const {
@@ -101,7 +102,7 @@ const Form = () => {
       form.reset({
         title: selected.title,
         description: selected.description || '',
-        achievementDate: selected.achievement_date,
+        achievementDate: selected.achievement_date || undefined,
       });
     } else {
       form.reset({
@@ -143,13 +144,19 @@ const Form = () => {
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="achievementDate">Achievement Date</Label>
-                <FormDatepicker
-                  control={form.control}
-                  name="achievementDate"
-                  description={errors.achievementDate?.message}
-                  allowFutureDates={false}
-                  id="achievementDate"
-                />
+                <div className="flex items-center gap-2">
+                  <FormDatepicker
+                    control={form.control}
+                    id="achievementDate"
+                    name="achievementDate"
+                    description={errors.achievementDate?.message}
+                    allowFutureDates={false}
+                  />
+                  <X
+                    className="text-destructive h-4"
+                    onClick={() => form.setValue('achievementDate', undefined)}
+                  />
+                </div>
               </div>
             </div>
           </CardContent>

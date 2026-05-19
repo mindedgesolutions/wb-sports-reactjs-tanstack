@@ -162,7 +162,10 @@ const formatAchievementPayload = (data: AchievementSchema) => {
   Object.entries(data).forEach(([key, value]) => {
     if (key === 'achievementDate' && achDate) {
       formData.append(key, achDate);
-    } else {
+      return;
+    }
+
+    if (value !== '' && value !== null && value !== undefined) {
       formData.append(key, value as string);
     }
   });

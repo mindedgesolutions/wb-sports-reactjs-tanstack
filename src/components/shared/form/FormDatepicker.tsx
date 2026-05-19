@@ -70,12 +70,12 @@ const FormDatepicker = <T extends FieldValues>({
             </Popover>
           )}
         />
+        {description && (
+          <FieldDescription className="text-destructive text-xs">
+            {description}
+          </FieldDescription>
+        )}
       </Field>
-      {description && (
-        <FieldDescription className="text-destructive text-xs">
-          {description}
-        </FieldDescription>
-      )}
     </>
   );
 };
