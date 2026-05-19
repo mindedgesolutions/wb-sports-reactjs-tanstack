@@ -29,7 +29,7 @@ export const useDeleteEntity = (
         );
       }
 
-      showSuccess('Entity deleted successfully');
+      showSuccess('Deleted successfully');
     },
 
     onError: () => {
