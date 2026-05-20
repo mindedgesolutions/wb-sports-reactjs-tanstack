@@ -17,7 +17,7 @@ import {
 } from '@/components';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
-import { Phone, User } from 'lucide-react';
+import { Phone, User, X } from 'lucide-react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQuery } from '@tanstack/react-query';
 import { queryClient } from '@/tanstack/query.client';
@@ -166,14 +166,19 @@ const Form = () => {
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="dob">Date of Birth</Label>
-                <FormDatepicker
-                  control={form.control}
-                  name="dob"
-                  allowFutureDates={false}
-                  description={errors.dob?.message}
-                  id="dob"
-                  resetField={(name) => form.setValue(name, undefined)}
-                />
+                <div className="flex items-center gap-2">
+                  <FormDatepicker
+                    control={form.control}
+                    id="dob"
+                    name="dob"
+                    allowFutureDates={false}
+                    description={errors.dob?.message}
+                  />
+                  <X
+                    className="text-destructive h-4 cursor-pointer"
+                    onClick={() => form.setValue('dob', undefined)}
+                  />
+                </div>
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="address">Address</Label>

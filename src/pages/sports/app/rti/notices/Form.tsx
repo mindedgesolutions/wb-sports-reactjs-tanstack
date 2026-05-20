@@ -33,6 +33,7 @@ import {
 import { Label } from '@/components/ui/label';
 import { IoMdClipboard } from 'react-icons/io';
 import { Button } from '@/components/ui/button';
+import { X } from 'lucide-react';
 
 const RadioOptions: { value: string; label: string }[] = [
   { value: 'true', label: 'New' },
@@ -183,9 +184,13 @@ const Form = () => {
                   <FormDatepicker
                     control={form.control}
                     name="startDate"
+                    id="startDate"
                     allowFutureDates={false}
                     description={errors.startDate?.message}
-                    resetField={(name) => form.setValue(name, undefined)}
+                  />
+                  <X
+                    className="text-destructive h-4 cursor-pointer"
+                    onClick={() => form.setValue('startDate', undefined)}
                   />
                 </span>
               </div>
@@ -195,9 +200,13 @@ const Form = () => {
                   <FormDatepicker
                     control={form.control}
                     name="endDate"
+                    id="endDate"
                     allowFutureDates={false}
                     description={errors.endDate?.message}
-                    resetField={(name) => form.setValue(name, undefined)}
+                  />
+                  <X
+                    className="text-destructive h-4 cursor-pointer"
+                    onClick={() => form.setValue('endDate', undefined)}
                   />
                 </span>
               </div>

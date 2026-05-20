@@ -41,7 +41,9 @@ const formatAnnouncementPayload = (data: AnnouncementSchema) => {
     if (key !== 'startDate' && key !== 'endDate') {
       if (value instanceof File) {
         payload.append('newFile', value);
-      } else {
+      }
+
+      if (value !== '' && value !== undefined && value !== null) {
         payload.append(key, String(value));
       }
     }
@@ -113,7 +115,9 @@ const formatAdvertisementPayload = (data: AdvertisementSchema) => {
     if (key !== 'adDate') {
       if (value instanceof File) {
         payload.append('newFile', value);
-      } else {
+      }
+
+      if (value !== '' && value !== undefined && value !== null) {
         payload.append(key, String(value));
       }
     }

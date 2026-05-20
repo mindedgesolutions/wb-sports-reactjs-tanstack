@@ -60,7 +60,10 @@ const formatGalleryPayload = async (data: PhotoGallerySchema, id?: number) => {
       continue;
     }
 
-    payload.append(key, String(value));
+    if (value !== '' && value !== undefined && value !== null) {
+      payload.append(key, String(value));
+      continue;
+    }
   }
   return payload;
 };
@@ -218,7 +221,7 @@ const formatBulletinPayload = (data: BulletinsSchema) => {
       return;
     }
 
-    if (value != null && value !== '') {
+    if (value !== '' && value !== undefined && value !== null) {
       payload.append(key, String(value));
     }
   });
@@ -275,7 +278,7 @@ const formatAmphanPhotoPayload = (data: AmphanPhotosSchema) => {
       return;
     }
 
-    if (value != null && value !== '') {
+    if (value !== '' && value !== undefined && value !== null) {
       payload.append(key, String(value));
     }
   });

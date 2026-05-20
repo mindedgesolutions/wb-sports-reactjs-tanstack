@@ -32,7 +32,7 @@ import { queryClient } from '@/tanstack/query.client';
 import { showSuccess } from '@/alerts/show.success';
 import { showError } from '@/alerts/show.error';
 import { spAnnouncementTypes, titles } from '@/constants';
-import { FileCheck } from 'lucide-react';
+import { FileCheck, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { GoFile } from 'react-icons/go';
 
@@ -184,25 +184,35 @@ const Form = () => {
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="designation">Start date</Label>
-                <FormDatepicker
-                  control={form.control}
-                  name="startDate"
-                  allowFutureDates={true}
-                  description={errors.startDate?.message}
-                  id="startDate"
-                  resetField={(name) => form.setValue(name, undefined)}
-                />
+                <div className="flex items-center gap-2">
+                  <FormDatepicker
+                    control={form.control}
+                    id="startDate"
+                    name="startDate"
+                    allowFutureDates={true}
+                    description={errors.startDate?.message}
+                  />
+                  <X
+                    className="text-destructive h-4 cursor-pointer"
+                    onClick={() => form.setValue('startDate', undefined)}
+                  />
+                </div>
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="designation">End date</Label>
-                <FormDatepicker
-                  control={form.control}
-                  name="endDate"
-                  allowFutureDates={true}
-                  description={errors.endDate?.message}
-                  id="endDate"
-                  resetField={(name) => form.setValue(name, undefined)}
-                />
+                <div className="flex items-center gap-2">
+                  <FormDatepicker
+                    control={form.control}
+                    id="endDate"
+                    name="endDate"
+                    allowFutureDates={true}
+                    description={errors.endDate?.message}
+                  />
+                  <X
+                    className="text-destructive h-4 cursor-pointer"
+                    onClick={() => form.setValue('endDate', undefined)}
+                  />
+                </div>
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="newFile">

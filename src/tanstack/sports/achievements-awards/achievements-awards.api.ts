@@ -36,7 +36,10 @@ const formatPlayersAchievementPayload = (data: PlayersAchievementsSchema) => {
   Object.entries(data).forEach(([key, value]) => {
     if (key === 'achievementDate' && achDate) {
       formData[key] = achDate;
-    } else if (value !== '' && value != null) {
+      return;
+    }
+
+    if (value !== '' && value !== undefined && value !== null) {
       formData[key] = String(value);
     }
   });
@@ -87,7 +90,10 @@ const formatAwardPayload = (data: AwardsSchema) => {
   Object.entries(data).forEach(([key, value]) => {
     if (value instanceof File) {
       formData.append(key, value);
-    } else {
+      return;
+    }
+
+    if (value !== '' && value !== undefined && value !== null) {
       formData.append(key, String(value));
     }
   });

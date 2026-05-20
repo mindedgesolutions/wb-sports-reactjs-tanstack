@@ -153,7 +153,7 @@ const Form = () => {
                     allowFutureDates={false}
                   />
                   <X
-                    className="text-destructive h-4"
+                    className="text-destructive h-4 cursor-pointer"
                     onClick={() => form.setValue('achievementDate', undefined)}
                   />
                 </div>

@@ -41,7 +41,7 @@ const formatRtiNoticePayload = (data: RtiNoticeSchema) => {
       return;
     }
 
-    if (value != null && value !== '') {
+    if (value !== '' && value !== undefined && value !== null) {
       payload.append(key, String(value));
     }
   });

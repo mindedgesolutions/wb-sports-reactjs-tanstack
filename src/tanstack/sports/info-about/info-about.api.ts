@@ -65,7 +65,7 @@ const formatStadiumPayload = (data: StadiumSchema) => {
       return;
     }
 
-    if (value == undefined || value === null) {
+    if (value !== '' && value !== undefined && value !== null) {
       return;
     }
 
@@ -133,7 +133,7 @@ const formatAssociationPayload = (data: AssociationSchema) => {
       return;
     }
 
-    if (value !== '' && value != null) {
+    if (value !== '' && value !== undefined && value !== null) {
       formData.append(key, String(value));
     }
   });
@@ -212,7 +212,10 @@ const formatFifaGalleryPayload = async (
       continue;
     }
 
-    payload.append(key, String(value));
+    if (value !== '' && value !== undefined && value !== null) {
+      payload.append(key, String(value));
+      continue;
+    }
   }
   return payload;
 };
@@ -311,7 +314,8 @@ const formatSportsPolicyPayload = (data: SportsPolicySchema) => {
       payload.append('newFile', value);
       return;
     }
-    if (value !== '' && value !== undefined) {
+
+    if (value !== '' && value !== undefined && value !== null) {
       payload.append(key, String(value));
     }
   });

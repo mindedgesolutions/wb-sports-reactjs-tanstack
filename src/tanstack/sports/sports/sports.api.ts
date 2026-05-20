@@ -36,7 +36,10 @@ const formatSportsPersonnelPayload = (data: SportsPersonnelSchema) => {
   Object.entries(data).forEach(([key, value]) => {
     if (key === 'dob') {
       payload[key] = dob;
-    } else {
+      return;
+    }
+
+    if (value !== '' && value !== undefined && value !== null) {
       payload[key] = value;
     }
   });
@@ -91,9 +94,16 @@ const formatSportsEventPayload = (data: SportsEventsSchema) => {
   const payload: any = {};
 
   Object.entries(data).forEach(([key, value]) => {
-    if (key === 'eventDate') {
+    if (key === 'eventDate' && eventDate) {
       payload[key] = eventDate;
-    } else {
+    }
+
+    if (
+      key !== 'eventDate' &&
+      value !== '' &&
+      value !== undefined &&
+      value !== null
+    ) {
       payload[key] = value;
     }
   });

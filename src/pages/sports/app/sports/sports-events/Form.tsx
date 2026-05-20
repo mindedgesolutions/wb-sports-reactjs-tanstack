@@ -113,7 +113,7 @@ const Form = () => {
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>
-        <CardTitle>{selected ? 'Edit' : 'Add new'} sports personnel</CardTitle>
+        <CardTitle>{selected ? 'Edit' : 'Add new'} sports event</CardTitle>
       </CardHeader>
       <form onSubmit={form.handleSubmit(handleSubmit)} autoComplete="off">
         <fieldset disabled={isLoading}>
@@ -132,14 +132,15 @@ const Form = () => {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="dob">Date of Birth</Label>
+                <Label htmlFor="dob">
+                  Date of Event <AppRequired />
+                </Label>
                 <FormDatepicker
                   control={form.control}
+                  id="eventDate"
                   name="eventDate"
                   allowFutureDates={false}
                   description={errors.eventDate?.message}
-                  id="eventDate"
-                  resetField={(name) => form.setValue(name, undefined)}
                 />
               </div>
             </div>

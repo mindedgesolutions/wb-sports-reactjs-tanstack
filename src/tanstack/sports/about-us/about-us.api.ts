@@ -90,16 +90,24 @@ export const getKeyPersonnelAll = async ({
 
 // -----------------------------
 
-export const keyPersonnelCreate = async (data: KeyPersonnelSchema) => {
+const formatKeyPersonnelPayload = (data: KeyPersonnelSchema) => {
   const formData = new FormData();
 
   Object.entries(data).forEach(([key, value]) => {
     if (value instanceof File) {
       formData.append(key, value);
-    } else if (value !== undefined && value !== null) {
+      return;
+    }
+
+    if (value !== '' && value !== undefined && value !== null) {
       formData.append(key, String(value));
     }
   });
+  return formData;
+};
+
+export const keyPersonnelCreate = async (data: KeyPersonnelSchema) => {
+  const formData = formatKeyPersonnelPayload(data);
 
   const res = await customFetch.post(
     sportsApp.aboutUs.keyPersonnel.create,
@@ -117,15 +125,7 @@ export const keyPersonnelUpdate = async (
   id: number,
   data: KeyPersonnelSchema,
 ) => {
-  const formData = new FormData();
-
-  Object.entries(data).forEach(([key, value]) => {
-    if (value instanceof File) {
-      formData.append(key, value);
-    } else if (value !== undefined && value !== null) {
-      formData.append(key, String(value));
-    }
-  });
+  const formData = formatKeyPersonnelPayload(data);
 
   const res = await customFetch.post(
     sportsApp.aboutUs.keyPersonnel.update(id),
