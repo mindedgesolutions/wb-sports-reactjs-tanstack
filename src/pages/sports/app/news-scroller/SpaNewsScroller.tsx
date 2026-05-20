@@ -35,7 +35,6 @@ const SpaNewsScroller = () => {
   });
 
   if (isError) console.log(error);
-  console.log(data);
 
   return (
     <>

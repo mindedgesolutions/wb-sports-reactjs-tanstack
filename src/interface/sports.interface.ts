@@ -477,3 +477,26 @@ export interface INewsScrollerList {
   data: INewsScrollerRow[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+export interface IContactUsRow {
+  id: number;
+  designation: string;
+  department: string;
+  name: string;
+  address: string | null;
+  email: string | null;
+  phone_1: string | null;
+  phone_2: string | null;
+  fax: string | null;
+  is_active: boolean;
+  show_order: number;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IContactUsList {
+  data: IContactUsRow[];
+  meta: IPagination;
+}

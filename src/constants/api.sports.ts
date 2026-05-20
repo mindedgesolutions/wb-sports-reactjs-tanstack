@@ -176,4 +176,14 @@ export const sportsApp = {
       toggle: (id: number) => `/sports/news-scroll/news-scroll/toggle/${id}`,
     },
   },
+  contactUs: {
+    contactUs: {
+      create: `/sports/contact-us/contact-us`,
+      list: `/sports/contact-us/contact-us`,
+      update: (id: number) => `/sports/contact-us/contact-us/${id}`,
+      delete: (id: number) => `/sports/contact-us/contact-us/${id}`,
+      toggle: (id: number) => `/sports/contact-us/contact-us/toggle/${id}`,
+      sort: `/sports/contact-us/contact-us/sort`,
+    },
+  },
 };
