@@ -12,8 +12,8 @@ import {
 import { images, titles } from '@/constants';
 import { useLogout } from '@/tanstack/shared/auth/auth.mutation';
 import { useCurrentUser } from '@/tanstack/shared/auth/auth.query';
-import { LockKeyhole, LogOut, User } from 'lucide-react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { LogOut, User } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const AppProfileContainer = () => {
   const navigate = useNavigate();
@@ -80,14 +80,12 @@ const AppProfileContainer = () => {
             </div>
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem className="text-xs cursor-pointer mb-1">
-            <User className="size-3.5" />
-            Personal Information
-          </DropdownMenuItem>
-          <DropdownMenuItem className="text-xs cursor-pointer mb-1">
-            <LockKeyhole className="size-3.5" />
-            Change Password
-          </DropdownMenuItem>
+          <Link to={`${redirect}/profile`}>
+            <DropdownMenuItem className="text-xs cursor-pointer mb-1">
+              <User className="size-3.5" />
+              Profile Update
+            </DropdownMenuItem>
+          </Link>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>

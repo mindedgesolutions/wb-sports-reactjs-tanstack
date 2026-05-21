@@ -221,12 +221,8 @@ export const sportsAppMenu = () => {
         isActive: true,
         items: [
           {
-            title: 'Personal Information',
-            url: '#',
-          },
-          {
-            title: 'Change Password',
-            url: '#',
+            title: 'Update Profile',
+            url: `${titles.SPORTS_APP_URL}/profile`,
           },
         ],
       },
