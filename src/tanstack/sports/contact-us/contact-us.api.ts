@@ -18,6 +18,15 @@ export const getContactUs = async ({ page, search, signal }: ListProps) => {
 
 // ----------------------------------
 
+export const getContactUsAll = async (signal: AbortSignal) => {
+  const res = await customFetch.get(sportsApp.contactUs.contactUs.all, {
+    signal,
+  });
+  return res.data;
+};
+
+// ----------------------------------
+
 export const contactUsCreate = async (data: ContactUsSchema) => {
   const res = await customFetch.post(
     sportsApp.contactUs.contactUs.create,

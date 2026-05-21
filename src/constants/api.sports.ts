@@ -184,6 +184,7 @@ export const sportsApp = {
       delete: (id: number) => `/sports/contact-us/contact-us/${id}`,
       toggle: (id: number) => `/sports/contact-us/contact-us/toggle/${id}`,
       sort: `/sports/contact-us/contact-us/sort`,
+      all: `/sports/contact-us/contact-us/all`,
     },
   },
 };

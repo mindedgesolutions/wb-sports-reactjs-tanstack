@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getContactUs } from './contact-us.api';
+import { getContactUs, getContactUsAll } from './contact-us.api';
 
 type ParamProps = {
   page?: number;
@@ -11,5 +11,14 @@ export const useContactUs = ({ page, search }: ParamProps) => {
     queryKey: ['contact-us', { page, search }],
     queryFn: ({ signal }: { signal: AbortSignal }) =>
       getContactUs({ page, search, signal }),
+  });
+};
+
+// ----------------------------------
+
+export const useContactUsAll = () => {
+  return useQuery({
+    queryKey: ['contact-us-all'],
+    queryFn: ({ signal }: { signal: AbortSignal }) => getContactUsAll(signal),
   });
 };

@@ -8,6 +8,7 @@ export const useContactUsCreate = () => {
     mutationFn: (data: ContactUsSchema) => contactUsCreate(data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['contact-us'] });
+      queryClient.invalidateQueries({ queryKey: ['contact-us-all'] });
     },
   });
 };
@@ -24,6 +25,7 @@ export const useContactUsUpdate = () => {
     mutationFn: ({ id, data }: ContactUsPayload) => contactUsUpdate(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['contact-us'] });
+      queryClient.invalidateQueries({ queryKey: ['contact-us-all'] });
     },
   });
 };

@@ -102,8 +102,9 @@ const List = ({
                       api={sportsApp.contactUs.contactUs.delete(
                         Number(data.id),
                       )}
-                      queryKey="contact-us"
                       deleteQueryKey="contact-us-selected"
+                      queryKey="contact-us"
+                      additionalQueryKeys={['contact-us-all']}
                       id={data.id}
                     />
                   </span>
