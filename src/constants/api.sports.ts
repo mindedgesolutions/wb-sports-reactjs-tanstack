@@ -187,4 +187,14 @@ export const sportsApp = {
       all: `/sports/contact-us/contact-us/all`,
     },
   },
+  homepageSliders: {
+    homepageSliders: {
+      create: `/sports/homepage-sliders/homepage-sliders`,
+      list: `/sports/homepage-sliders/homepage-sliders`,
+      update: (id: number) => `/sports/homepage-sliders/homepage-sliders/${id}`,
+      delete: (id: number) => `/sports/homepage-sliders/homepage-sliders/${id}`,
+      toggle: (id: number) =>
+        `/sports/homepage-sliders/homepage-sliders/toggle/${id}`,
+    },
+  },
 };

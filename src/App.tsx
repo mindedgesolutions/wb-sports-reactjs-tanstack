@@ -92,6 +92,7 @@ const router = createBrowserRouter([
       },
       { path: 'contact-us', element: <pg.SpaContactUs /> },
       { path: 'news-scroller', element: <pg.SpaNewsScroller /> },
+      { path: 'homepage-sliders', element: <pg.SpaHomepageSlider /> },
       { path: 'profile', element: <pg.SpaProfile /> },
     ],
   },

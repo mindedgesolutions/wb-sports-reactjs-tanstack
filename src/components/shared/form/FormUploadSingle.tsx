@@ -31,11 +31,13 @@ const FormUploadSingle = ({
   setFiles,
   setFormImg,
   maxAllowed,
+  aspectRatio = 1,
 }: {
   files: any[];
   setFiles: Dispatch<SetStateAction<any[] | []>>;
   setFormImg: (file: File) => void;
   maxAllowed?: number;
+  aspectRatio?: number;
 }) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
@@ -91,7 +93,7 @@ const FormUploadSingle = ({
                 image={URL.createObjectURL(files[0].file)}
                 crop={crop}
                 zoom={zoom}
-                aspect={1}
+                aspect={aspectRatio}
                 onCropChange={setCrop}
                 onZoomChange={setZoom}
                 onCropComplete={onCropComplete}

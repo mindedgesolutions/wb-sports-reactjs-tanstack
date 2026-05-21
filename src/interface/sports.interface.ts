@@ -500,3 +500,19 @@ export interface IContactUsList {
   data: IContactUsRow[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+export interface IHomepageSliderRow {
+  id: number;
+  image_path: string;
+  is_active: boolean;
+  show_order: number;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IHomepageSliderList {
+  data: IHomepageSliderRow[];
+  meta: IPagination;
+}

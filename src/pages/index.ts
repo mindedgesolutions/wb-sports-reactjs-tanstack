@@ -36,6 +36,7 @@ export { default as SpaNotices } from '@/pages/sports/app/rti/notices/SpaNotices
 export { default as SpaContactUs } from '@/pages/sports/app/contact-us/SpaContactUs';
 export { default as SpaNewsScroller } from '@/pages/sports/app/news-scroller/SpaNewsScroller';
 export { default as SpaProfile } from '@/pages/sports/app/profile/SpaProfile';
+export { default as SpaHomepageSlider } from '@/pages/sports/app/homepage-slider/SpaHomepageSlider';
 
 // Sports website starts --------
 export { default as SpwLayout } from '@/pages/sports/website/SpwLayout';

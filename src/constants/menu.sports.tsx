@@ -5,6 +5,7 @@ import { IoMicOutline } from 'react-icons/io5';
 import { HiOutlineTrophy } from 'react-icons/hi2';
 import { LuCircleUserRound } from 'react-icons/lu';
 import { MdOutlineHome } from 'react-icons/md';
+import { FaRegImage } from 'react-icons/fa';
 import { Headphones, Images, Info, Newspaper, Rss } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import { titles } from '.';
@@ -19,6 +20,12 @@ export const sportsAppMenu = () => {
         url: `${titles.SPORTS_APP_URL}/dashboard`,
         icon: MdOutlineHome,
         isActive: pathname === `${titles.SPORTS_APP_URL}/dashboard`,
+      },
+      {
+        title: 'Homepage Sliders',
+        url: `${titles.SPORTS_APP_URL}/homepage-sliders`,
+        icon: FaRegImage,
+        isActive: pathname === `${titles.SPORTS_APP_URL}/homepage-sliders`,
       },
       {
         title: 'About Us',
@@ -204,13 +211,15 @@ export const sportsAppMenu = () => {
         title: 'Contact Us',
         url: `${titles.SPORTS_APP_URL}/contact-us`,
         icon: Headphones,
-        isActive: true,
+        isActive:
+          pathname.includes(`${titles.SPORTS_APP_URL}/contact-us`) ?? false,
       },
       {
         title: 'New Scroller (Homepage)',
         url: `${titles.SPORTS_APP_URL}/news-scroller`,
         icon: Newspaper,
-        isActive: true,
+        isActive:
+          pathname.includes(`${titles.SPORTS_APP_URL}/news-scroller`) ?? false,
       },
     ],
     settings: [
