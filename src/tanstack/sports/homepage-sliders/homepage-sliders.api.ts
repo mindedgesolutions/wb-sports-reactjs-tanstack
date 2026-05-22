@@ -1,5 +1,7 @@
 import { customFetch } from '@/axios/custom.fetch';
+import { simpleFetch } from '@/axios/refresh.fetch';
 import { sportsApp } from '@/constants/api.sports';
+import { sportsWeb } from '@/constants/api.sports.website';
 import type { HomepageSliderSchema } from '@/schema/sports/homepage-slider.schema';
 import { optimizeImage } from '@/utils/image.utils';
 
@@ -37,4 +39,11 @@ export const homepageSliderCreate = async (data: HomepageSliderSchema) => {
     { headers: { 'Content-Type': 'multipart/form-data' } },
   );
   return res.data;
+};
+
+// ----------------------------------
+
+export const getHomepageSlidersWb = async () => {
+  const res = await simpleFetch.get(sportsWeb.homepage.homepageSliders);
+  return res.data.data;
 };

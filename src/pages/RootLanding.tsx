@@ -6,7 +6,7 @@ const RootLanding = () => {
   return (
     <div className="flex min-h-screen items-center justify-center">
       <div className="flex gap-4">
-        <Link to={`${titles.SPORTS_APP_URL}/signin`}>
+        <Link to={`${titles.SPORTS_APP_URL}/sign-in`}>
           <Button>Sports App</Button>
         </Link>
         <Link to={`${titles.SPORTS_WEB_URL}`}>

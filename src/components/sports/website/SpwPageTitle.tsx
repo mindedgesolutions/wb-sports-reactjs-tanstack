@@ -10,17 +10,19 @@ const SpwPageTitle = ({
   className?: string;
 }) => {
   return (
-    <div className="flex flex-col justify-center items-center font-roboto mb-8">
+    <div className="flex flex-col justify-center items-center font-roboto mb-4 md:mb-8">
       <span
         className={cn(
-          'uppercase tracking-wider font-semibold text-2xl text-primary',
+          'uppercase tracking-wider font-semibold text-base md:text-2xl text-primary',
           className,
         )}
       >
         {title}
       </span>
       {subtitle && (
-        <span className="text-lg text-muted-foreground">{subtitle}</span>
+        <span className="text-xs md:text-lg text-muted-foreground mt-4 md:mt-8">
+          {subtitle}
+        </span>
       )}
     </div>
   );

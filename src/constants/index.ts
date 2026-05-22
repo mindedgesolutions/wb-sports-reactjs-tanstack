@@ -6,6 +6,8 @@ import nationalEmblem from '@/assets/images/national-emblem.png';
 import cmImg from '@/assets/images/subhendu.jpeg';
 import micImg from '@/assets/images/Shri_Nisith_Pramanik_Minister.jpeg';
 import demoImg from '@/assets/images/demo.jpg';
+// Icons used throughout
+import { GrAttachment } from 'react-icons/gr';
 
 export const titles = {
   SPORTS_APP_NAME: import.meta.env.VITE_SPORTS_APP_NAME,
@@ -40,6 +42,12 @@ export const images = {
   cmImg,
   micImg,
   demoImg,
+};
+
+// -------------------------------
+
+export const icons = {
+  GrAttachment,
 };
 
 // -------------------------------

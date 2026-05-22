@@ -6,8 +6,11 @@ import {
 
 const Introduction = () => {
   return (
-    <SpwSectionWrapper className="max-w-7xl mx-auto mb-8">
-      <SpwPageTitle title="Welcome to Department of youth Services and Sports (Sports Wing)" />
+    <SpwSectionWrapper className="max-w-7xl mx-auto mb-4 md:mb-8">
+      <SpwPageTitle
+        title="Welcome to Department of youth Services and Sports (Sports Wing)"
+        className="text-center"
+      />
       <SpwParagraphWrapper className="[text-align-last:center]">
         It is universally accepted that sports is an essential prerequisite for
         good health. There is no better platform to bring all the youth in a

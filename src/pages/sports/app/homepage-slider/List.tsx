@@ -16,6 +16,7 @@ import {
 import { serialNo } from '@/utils/functions';
 import { sportsApp } from '@/constants/api.sports';
 import { titles } from '@/constants';
+import dayjs from 'dayjs';
 
 const List = ({
   data,
@@ -55,12 +56,12 @@ const List = ({
           ) : (
             data?.data?.map((data, index) => (
               <TableRow
-                className="uppercase text-muted-foreground grayscale-100 hover:grayscale-0 transition-all"
+                className="uppercase text-muted-foreground"
                 key={data.id}
               >
                 <TableCell>{serialNo({ page, index })}.</TableCell>
                 <TableCell>
-                  <div className="w-40">
+                  <div className="w-28">
                     <img
                       src={`${titles.BASE_URL}${data.image_path}`}
                       alt={data.image_path}
@@ -68,7 +69,9 @@ const List = ({
                     />
                   </div>
                 </TableCell>
-                <TableCell></TableCell>
+                <TableCell>
+                  {dayjs(data.updated_at).format(`DD/MM/YYYY`)}
+                </TableCell>
                 <TableCell>
                   <FormToggle
                     checked={data.is_active}

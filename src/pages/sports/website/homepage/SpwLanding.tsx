@@ -7,14 +7,21 @@ import Mentions from './Mentions';
 import Introduction from './Introduction';
 import SportsInBengal from './SportsInBengal';
 import { titles } from '@/constants';
+import { useHomepageSliderWeb } from '@/tanstack/sports/homepage-sliders/homepage-sliders.query';
+import type { IHomepageSliderRow } from '@/interface/sports.interface';
 
 const SpwLanding = () => {
   document.title = `Home | ${titles.SPORTS_APP_NAME}`;
-  // const imgArr = Array.from({ length: 4 }, (_, i) => i + 4);
+
+  const { data: sliders } = useHomepageSliderWeb();
+  const imagePaths: { id: number; path: string }[] = [];
+  sliders?.map((slider: IHomepageSliderRow) =>
+    imagePaths.push({ id: slider.id, path: slider.image_path }),
+  );
 
   return (
     <div>
-      <WbTopImageSlider />
+      {sliders && <WbTopImageSlider slides={imagePaths} />}
       <Mentions />
       <Introduction />
       <SportsInBengal />

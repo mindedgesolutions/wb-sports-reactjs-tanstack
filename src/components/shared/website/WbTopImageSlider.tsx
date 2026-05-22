@@ -1,54 +1,13 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { titles } from '@/constants';
 
-type Slide = {
-  id: number;
-  image: string;
-  title?: string;
-  description?: string;
-  buttonText?: string;
-};
-
-const slides: Slide[] = [
-  {
-    id: 1,
-    image: 'https://swiperjs.com/demos/images/abstract-1.jpg',
-    title: 'Banner 1',
-    description: 'This is banner 1',
-    buttonText: 'Read More ...',
-  },
-  {
-    id: 2,
-    image: 'https://swiperjs.com/demos/images/abstract-2.jpg',
-    title: 'Banner 2',
-    description: 'This is banner 2',
-    buttonText: 'Read More ...',
-  },
-  {
-    id: 3,
-    image: 'https://swiperjs.com/demos/images/abstract-3.jpg',
-    title: 'Banner 3',
-    description: 'This is banner 3',
-    buttonText: 'Read More ...',
-  },
-  {
-    id: 4,
-    image: 'https://swiperjs.com/demos/images/abstract-4.jpg',
-    title: 'Banner 4',
-    description: 'This is banner 4',
-    buttonText: 'Read More ...',
-  },
-  {
-    id: 5,
-    image: 'https://swiperjs.com/demos/images/abstract-5.jpg',
-    title: 'Banner 5',
-    description: 'This is banner 5',
-    buttonText: 'Read More ...',
-  },
-];
-
-const WbTopImageSlider = () => {
+const WbTopImageSlider = ({
+  slides,
+}: {
+  slides: { id: number; path: string }[];
+}) => {
   const [current, setCurrent] = useState(0);
 
   const nextSlide = () => {
@@ -68,12 +27,12 @@ const WbTopImageSlider = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-75 md:h-125 overflow-visible mb-20">
-      <div className="relative h-75 md:h-125 overflow-hidden">
+    <section className="relative w-full h-60 md:h-125 overflow-visible mb-20">
+      <div className="relative h-60 md:h-125 overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.img
             key={slides[current].id}
-            src={slides[current].image}
+            src={`${titles.BASE_URL}${slides[current].path}`}
             className="absolute inset-0 w-full h-full object-cover"
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -83,7 +42,9 @@ const WbTopImageSlider = () => {
         </AnimatePresence>
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-secondary-foreground/60 " />
-        <div className="relative  flex flex-col items-center justify-center h-full text-center px-6">
+        {/* This part is for animated quotation and custom buttons - don't delete */}
+
+        {/* <div className="relative  flex flex-col items-center justify-center h-full text-center px-6">
           <AnimatePresence mode="wait">
             <motion.div
               key={slides[current].id}
@@ -133,7 +94,9 @@ const WbTopImageSlider = () => {
               )}
             </motion.div>
           </AnimatePresence>
-        </div>
+        </div> */}
+
+        {/* This part is for animated quotation and custom buttons - don't delete */}
       </div>
       <button
         onClick={prevSlide}
@@ -160,8 +123,8 @@ const WbTopImageSlider = () => {
             }`}
           >
             <img
-              src={slide.image}
-              alt={slide.title}
+              src={`${titles.BASE_URL}${slide.path}`}
+              alt={String(slide.id)}
               className="w-full h-full object-cover"
             />
           </button>

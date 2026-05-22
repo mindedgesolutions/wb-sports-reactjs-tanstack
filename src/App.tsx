@@ -7,7 +7,7 @@ const spw = titles.SPORTS_WEB_URL;
 
 const router = createBrowserRouter([
   { path: `/`, element: <pg.RootLanding /> },
-  { path: `${spa}/signin`, element: <pg.SpaSignin /> },
+  { path: `${spa}/sign-in`, element: <pg.SpaSignin /> },
   {
     path: spa,
     element: <pg.SpaLayout />,

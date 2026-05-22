@@ -1,5 +1,7 @@
 import { customFetch } from '@/axios/custom.fetch';
+import { simpleFetch } from '@/axios/refresh.fetch';
 import { sportsApp } from '@/constants/api.sports';
+import { sportsWeb } from '@/constants/api.sports.website';
 import type { NewsScrollerSchema } from '@/schema/sports/news-scroller.schema';
 import { parseDate } from '@/utils/date.utils';
 
@@ -71,4 +73,11 @@ export const newsScrollerUpdate = async (
     { headers: { 'Content-Type': 'multipart/form-data' } },
   );
   return res.data;
+};
+
+// ------------------------------
+
+export const getNewsScrollerWb = async () => {
+  const res = await simpleFetch.get(sportsWeb.homepage.newsScroller);
+  return res.data.data;
 };

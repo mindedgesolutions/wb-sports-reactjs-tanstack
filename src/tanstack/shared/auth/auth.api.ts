@@ -1,15 +1,15 @@
 import { customFetch } from '@/axios/custom.fetch';
-import { refreshFetch } from '@/axios/refresh.fetch';
+import { simpleFetch } from '@/axios/refresh.fetch';
 
 export const getCaptcha = async () => {
-  const res = await refreshFetch.get(`/auth/captcha`);
+  const res = await simpleFetch.get(`/auth/captcha`);
   return res.data;
 };
 
 // ------------------------
 
 export const login = async (data: any) => {
-  const res = await refreshFetch.post(`/auth/login`, data);
+  const res = await simpleFetch.post(`/auth/login`, data);
   return res;
 };
 

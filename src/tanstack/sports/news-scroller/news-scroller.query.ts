@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getNewsScroller } from './news-scroller.api';
+import { getNewsScroller, getNewsScrollerWb } from './news-scroller.api';
 
 export const useNewsScroller = ({
   search,
@@ -14,5 +14,14 @@ export const useNewsScroller = ({
       const res = await getNewsScroller({ search, page, signal });
       return res;
     },
+  });
+};
+
+// ------------------------------
+
+export const useNewsScrollerWb = () => {
+  return useQuery({
+    queryKey: ['news-scroller-web'],
+    queryFn: getNewsScrollerWb,
   });
 };
