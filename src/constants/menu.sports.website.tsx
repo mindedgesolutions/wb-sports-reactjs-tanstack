@@ -6,6 +6,8 @@ import {
   FileAudio,
   Files,
   House,
+  Images,
+  Info,
   Landmark,
   List,
   ListCheck,
@@ -24,6 +26,10 @@ import {
   Volleyball,
 } from 'lucide-react';
 import { titles } from '.';
+import { MdOutlineFolderCopy, MdOutlineGroups } from 'react-icons/md';
+import { PiSoccerBallFill } from 'react-icons/pi';
+import { IoMicOutline } from 'react-icons/io5';
+import { HiOutlineTrophy } from 'react-icons/hi2';
 
 function sportsWebsiteMenus() {
   const menus: IWebsiteMenuProps[] = [
@@ -34,6 +40,7 @@ function sportsWebsiteMenus() {
     },
     {
       name: 'About Us',
+      icon: MdOutlineFolderCopy,
       subMenus: [
         {
           name: 'Vision & Mission',
@@ -70,6 +77,7 @@ function sportsWebsiteMenus() {
     },
     {
       name: 'Sports',
+      icon: PiSoccerBallFill,
       subMenus: [
         {
           name: 'Sports Categories',
@@ -100,6 +108,7 @@ function sportsWebsiteMenus() {
     },
     {
       name: 'WBS Council of Sports',
+      icon: MdOutlineGroups,
       subMenus: [
         {
           name: 'Advisory Board',
@@ -130,6 +139,7 @@ function sportsWebsiteMenus() {
     },
     {
       name: 'Announcements',
+      icon: IoMicOutline,
       subMenus: [
         {
           name: 'Notices',
@@ -166,6 +176,7 @@ function sportsWebsiteMenus() {
     },
     {
       name: 'Achievements & Awards',
+      icon: HiOutlineTrophy,
       subMenus: [
         {
           name: 'Players Achievements',
@@ -184,6 +195,7 @@ function sportsWebsiteMenus() {
     },
     {
       name: 'Information About',
+      icon: Info,
       subMenus: [
         {
           name: 'Stadiums',
@@ -220,6 +232,7 @@ function sportsWebsiteMenus() {
     },
     {
       name: 'Moments',
+      icon: Images,
       subMenus: [
         {
           name: 'Photo Galleries',
@@ -250,6 +263,7 @@ function sportsWebsiteMenus() {
     },
     {
       name: 'RTI',
+      icon: Rss,
       subMenus: [
         {
           name: 'RTI Act 2005',

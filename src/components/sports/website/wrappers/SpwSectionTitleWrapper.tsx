@@ -10,7 +10,7 @@ const SpwSectionTitleWrapper = ({
   className?: string;
 }) => {
   return (
-    <div className="flex flex-col justify-start items-start font-roboto mb-8">
+    <div className="flex flex-col font-roboto mb-8">
       <span
         className={cn(
           'uppercase tracking-wider font-semibold text-base md:text-2xl text-primary',

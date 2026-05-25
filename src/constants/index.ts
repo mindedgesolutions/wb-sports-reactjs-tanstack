@@ -95,8 +95,4 @@ export const homepageMentions: IHomepageMention[] = [
     designation: `Hon'ble MIC`,
     image: images.micImg,
   },
-  {
-    name: 'Ashok Dinda',
-    designation: `Hon'ble MOS`,
-  },
 ];

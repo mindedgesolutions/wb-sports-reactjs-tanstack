@@ -1,32 +1,24 @@
 import { NavMain } from '@/components/sports/website/mobile-menu/nav-main';
-import { NavUser } from '@/components/sports/website/mobile-menu/nav-user';
 import { TeamSwitcher } from '@/components/sports/website/mobile-menu/team-switcher';
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
   SidebarRail,
 } from '@/components/ui/sidebar';
-import { NavSettings } from '@/components/sports/website/mobile-menu/nav-settings';
-import { sportsAppMenu } from '@/constants/menu.sports';
+import sportsWebsiteMenus from '@/constants/menu.sports.website';
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const navMain = sportsAppMenu().spAppMenu.navMain;
-  const settings = sportsAppMenu().spAppMenu.settings;
+export function AppSidebar({ ...props }) {
+  const spMenus = sportsWebsiteMenus() as IWebsiteMenuProps[];
 
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
+      <SidebarHeader className="bg-primary">
         <TeamSwitcher />
       </SidebarHeader>
-      <SidebarContent>
-        <NavMain items={navMain} />
-        <NavSettings settings={settings} />
+      <SidebarContent className="bg-primary">
+        <NavMain items={spMenus} />
       </SidebarContent>
-      <SidebarFooter>
-        <NavUser />
-      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   );
