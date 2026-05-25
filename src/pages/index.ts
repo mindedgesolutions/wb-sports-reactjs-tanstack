@@ -41,3 +41,8 @@ export { default as SpaHomepageSlider } from '@/pages/sports/app/homepage-slider
 // Sports website starts --------
 export { default as SpwLayout } from '@/pages/sports/website/SpwLayout';
 export { default as SpwLanding } from '@/pages/sports/website/homepage/SpwLanding';
+export { default as SpwVisionMission } from '@/pages/sports/website/about-us/vision-mission/SpwVisionMission';
+export { default as SpwSportsInBengal } from '@/pages/sports/website/about-us/sports-in-bengal/SpwSportsInBengal';
+export { default as SpwAdminStructure } from '@/pages/sports/website/about-us/admin-structure/SpwAdminStructure';
+export { default as SpwKeyPersonnel } from '@/pages/sports/website/about-us/key-personnel/SpwKeyPersonnel';
+export { default as SpwAchievements } from '@/pages/sports/website/about-us/achievements/SpwAchievements';

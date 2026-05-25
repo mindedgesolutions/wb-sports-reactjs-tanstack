@@ -29,7 +29,7 @@ const SportsInBengal = () => {
             passion for a match ...
           </SpwParagraphWrapper>
           <div className="flex justify-center md:justify-start">
-            <Button size={'lg'} className="rounded-none text-xs">
+            <Button size={'lg'} className="rounded-none text-xs text-white">
               Read More
             </Button>
           </div>

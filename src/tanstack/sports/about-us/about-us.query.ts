@@ -3,6 +3,7 @@ import {
   getAchievements,
   getAdminStructure,
   getAdminStructureAll,
+  getAdminStructureAllWb,
   getKeyPersonnel,
   getKeyPersonnelAll,
 } from './about-us.api';
@@ -27,6 +28,15 @@ export const useAdminStructureAll = () => {
   return useQuery({
     queryKey: ['admin-structure-all'],
     queryFn: ({ signal }) => getAdminStructureAll({ signal }),
+  });
+};
+
+// -----------------------------
+
+export const useAdminStructureAllWb = () => {
+  return useQuery({
+    queryKey: ['admin-structure-all-web'],
+    queryFn: getAdminStructureAllWb,
   });
 };
 

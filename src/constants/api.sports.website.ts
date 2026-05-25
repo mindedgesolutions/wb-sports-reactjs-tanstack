@@ -7,4 +7,7 @@ export const sportsWeb = {
     visionMissionImages: (count: number) =>
       `${prefix}/gallery-images-ltd/${count}`,
   },
+  aboutUs: {
+    adminStructute: `${prefix}/org-structure/all`,
+  },
 };

@@ -6,6 +6,7 @@ import nationalEmblem from '@/assets/images/national-emblem.png';
 import cmImg from '@/assets/images/subhendu.jpeg';
 import micImg from '@/assets/images/Shri_Nisith_Pramanik_Minister.jpeg';
 import demoImg from '@/assets/images/demo.jpg';
+import defaultBanner from '@/assets/images/default_banner.png';
 // Icons used throughout
 import { GrAttachment } from 'react-icons/gr';
 
@@ -42,6 +43,7 @@ export const images = {
   cmImg,
   micImg,
   demoImg,
+  defaultBanner,
 };
 
 // -------------------------------

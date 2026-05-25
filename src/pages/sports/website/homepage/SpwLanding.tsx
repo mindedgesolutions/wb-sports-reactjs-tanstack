@@ -1,13 +1,13 @@
 import { WbSliderPlaceholder, WbTopImageSlider } from '@/components';
-import Mentions from './Mentions';
-import Introduction from './Introduction';
-import SportsInBengal from './SportsInBengal';
+import Mentions from './components/Mentions';
+import Introduction from './components/Introduction';
+import SportsInBengal from './components/SportsInBengal';
 import { titles } from '@/constants';
 import { useHomepageSliderWeb } from '@/tanstack/sports/homepage-sliders/homepage-sliders.query';
 import type { IHomepageSliderRow } from '@/interface/sports.interface';
 import { useGetPhotoGalleryWb } from '@/tanstack/sports/moments/moments.query';
-import VisionMission from './VisionMission';
-import ImageScroller from './ImageScroller';
+import VisionMission from './components/VisionMission';
+import ImageScroller from './components/ImageScroller';
 
 const SpwLanding = () => {
   document.title = `Home | ${titles.SPORTS_APP_NAME}`;

@@ -38,6 +38,7 @@ export { default as WbProfileCardTwo } from '@/components/shared/website/WbProfi
 export { default as WbTopButtonContainer } from '@/components/shared/website/WbTopButtonContainer';
 export { default as WbMenu } from '@/components/shared/website/WbMenu';
 export { default as WbSliderPlaceholder } from '@/components/shared/website/WbSliderPlaceholder';
+export { default as WbLoader } from '@/components/shared/website/WbLoader';
 
 // Sports Website Components
 export { default as SpwHeaderTop } from '@/components/sports/website/header/SpwHeaderTop';
@@ -49,3 +50,4 @@ export { default as SpwSectionTitleWrapper } from '@/components/sports/website/w
 export { default as SpwPageTitleWrapper } from '@/components/sports/website/SpwPageTitle';
 export { default as SpwParagraphWrapper } from '@/components/sports/website/wrappers/SpwParagraphWrapper';
 export { default as SpwPageTitle } from '@/components/sports/website/SpwPageTitle';
+export { default as SpwPageBanner } from '@/components/sports/website/SpwPageBanner';

@@ -1,5 +1,7 @@
 import { customFetch } from '@/axios/custom.fetch';
+import { simpleFetch } from '@/axios/refresh.fetch';
 import { sportsApp } from '@/constants/api.sports';
+import { sportsWeb } from '@/constants/api.sports.website';
 import type {
   AchievementSchema,
   AdminStructureSchema,
@@ -38,6 +40,13 @@ export const getAdminStructureAll = async ({
     signal,
   });
   return res.data;
+};
+
+// -----------------------------
+
+export const getAdminStructureAllWb = async () => {
+  const res = await simpleFetch.get(sportsWeb.aboutUs.adminStructute);
+  return res.data.data;
 };
 
 // -----------------------------

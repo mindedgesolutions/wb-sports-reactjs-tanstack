@@ -99,7 +99,14 @@ const router = createBrowserRouter([
   {
     path: spw,
     element: <pg.SpwLayout />,
-    children: [{ index: true, element: <pg.SpwLanding /> }],
+    children: [
+      { index: true, element: <pg.SpwLanding /> },
+      { path: 'vision-mission', element: <pg.SpwVisionMission /> },
+      { path: 'sports-in-bengal', element: <pg.SpwSportsInBengal /> },
+      { path: 'administrative-structure', element: <pg.SpwAdminStructure /> },
+      { path: 'key-personnel', element: <pg.SpwKeyPersonnel /> },
+      { path: 'achievements', element: <pg.SpwAchievements /> },
+    ],
   },
 ]);
 
