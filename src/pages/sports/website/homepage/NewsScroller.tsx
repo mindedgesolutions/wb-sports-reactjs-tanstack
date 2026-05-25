@@ -46,7 +46,7 @@ const NewsScroller = () => {
         <Marquee pauseOnHover vertical className="[--duration:10s]">
           {news?.map((data) => (
             <ReviewCard
-              key={data.id}
+              key={data.file_path}
               title={data.title}
               file_path={data.file_path}
             />

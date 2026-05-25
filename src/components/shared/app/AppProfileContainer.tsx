@@ -31,7 +31,7 @@ const AppProfileContainer = () => {
 
   const handleRedirect = () => {
     showSuccess('Logged out successfully');
-    navigate(`${redirect}/signin`);
+    navigate(`${redirect}/sign-in`);
   };
 
   // ------------------------

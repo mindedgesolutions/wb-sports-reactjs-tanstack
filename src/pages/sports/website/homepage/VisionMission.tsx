@@ -4,15 +4,28 @@ import {
   SpwSectionWrapper,
 } from '@/components';
 import { Button } from '@/components/ui/button';
-import NewsScroller from './NewsScroller';
+import { titles } from '@/constants';
+import type { IPhotoRow } from '@/interface/sports.interface';
+import { Link } from 'react-router-dom';
 
-const SportsInBengal = () => {
+const VisionMission = ({ images }: { images: IPhotoRow[] }) => {
   return (
     <SpwSectionWrapper className="max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 py-4 md:py-8">
-        <div className="col-span-1">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 py-8">
+        <div className="col-span-1 grid grid-cols-2 gap-2 md:gap-4">
+          {images?.map((img: IPhotoRow) => (
+            <div className="col-span-1 h-full" key={img.image_path}>
+              <img
+                src={`${titles.BASE_URL}${img.image_path}`}
+                alt=""
+                className="w-full h-full max-h-32 object-cover"
+              />
+            </div>
+          ))}
+        </div>
+        <div className="col-span-1 md:col-span-2">
           <SpwSectionTitleWrapper
-            title="Sports in Bengal"
+            title="Vision & Mission"
             className="text-card-foreground"
           />
           <SpwParagraphWrapper className="mb-4 md:mb-8">
@@ -28,13 +41,17 @@ const SportsInBengal = () => {
             football elsewhere will find it difficult to duplicate that kind of
             passion for a match ...
           </SpwParagraphWrapper>
-          <Button size={'lg'} className="rounded-none text-xs">
-            Read More
-          </Button>
+          <Link
+            to={`${titles.SPORTS_WEB_URL}/vision-mission`}
+            className="mt-12"
+          >
+            <Button size={'lg'} className="rounded-none text-xs">
+              Read More ...
+            </Button>
+          </Link>
         </div>
-        <NewsScroller />
       </div>
     </SpwSectionWrapper>
   );
 };
-export default SportsInBengal;
+export default VisionMission;

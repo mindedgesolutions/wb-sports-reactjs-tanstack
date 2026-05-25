@@ -1,5 +1,7 @@
 import { customFetch } from '@/axios/custom.fetch';
+import { simpleFetch } from '@/axios/refresh.fetch';
 import { sportsApp } from '@/constants/api.sports';
+import { sportsWeb } from '@/constants/api.sports.website';
 import type {
   AmphanPhotosSchema,
   AudioVisualSchema,
@@ -35,6 +37,15 @@ export const getPhotoGallery = async (id: number, signal: AbortSignal) => {
   const res = await customFetch.get(sportsApp.moments.photoGalleries.show(id), {
     signal,
   });
+  return res.data.data;
+};
+
+// -------------------------------
+
+export const getPhotoGalleryWb = async (count: number) => {
+  const res = await simpleFetch.get(
+    sportsWeb.homepage.visionMissionImages(count),
+  );
   return res.data.data;
 };
 

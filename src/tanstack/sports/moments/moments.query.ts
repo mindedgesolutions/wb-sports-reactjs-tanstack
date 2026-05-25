@@ -5,6 +5,7 @@ import {
   getBulletins,
   getPhotoGalleries,
   getPhotoGallery,
+  getPhotoGalleryWb,
 } from './moments.api';
 
 type ParamProps = {
@@ -17,6 +18,15 @@ export const usePhotoGalleries = ({ search, page }: ParamProps) => {
     queryKey: ['photo-galleries', { search, page }],
     queryFn: ({ signal }: { signal: AbortSignal }) =>
       getPhotoGalleries({ search, page, signal }),
+  });
+};
+
+// -------------------------------
+
+export const useGetPhotoGalleryWb = (count: number) => {
+  return useQuery({
+    queryKey: ['photo-gallery-web', count],
+    queryFn: () => getPhotoGalleryWb(count),
   });
 };
 

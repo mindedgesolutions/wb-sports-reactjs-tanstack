@@ -37,6 +37,7 @@ export { default as WbProfileCardOne } from '@/components/shared/website/WbProfi
 export { default as WbProfileCardTwo } from '@/components/shared/website/WbProfileCardTwo';
 export { default as WbTopButtonContainer } from '@/components/shared/website/WbTopButtonContainer';
 export { default as WbMenu } from '@/components/shared/website/WbMenu';
+export { default as WbSliderPlaceholder } from '@/components/shared/website/WbSliderPlaceholder';
 
 // Sports Website Components
 export { default as SpwHeaderTop } from '@/components/sports/website/header/SpwHeaderTop';

@@ -14,7 +14,7 @@ const SpaLayout = () => {
     const handleLogout = () => {
       queryClient.clear();
       showError('Your session has expired. Please log in again.');
-      navigate(`${titles.SPORTS_APP_URL}/signin`, { replace: true });
+      navigate(`${titles.SPORTS_APP_URL}/sign-in`, { replace: true });
     };
     window.addEventListener('force-logout', handleLogout);
     return () => {

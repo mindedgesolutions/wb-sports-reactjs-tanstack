@@ -114,7 +114,7 @@ const WbTopImageSlider = ({
       <div className="flex absolute left-1/2 bottom-0 translate-y-1/2 -translate-x-1/2  gap-2 md:gap-4">
         {slides.map((slide, index) => (
           <button
-            key={slide.id}
+            key={slide.path}
             onClick={() => setCurrent(index)}
             className={`w-14 md:w-28 h-8 md:h-16 overflow-hidden border-2 shadow-xl transition-all duration-300 backdrop-blur-sm ${
               current === index
