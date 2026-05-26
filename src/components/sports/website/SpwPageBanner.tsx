@@ -1,6 +1,12 @@
 import { images, titles } from '@/constants';
 
-const SpwPageBanner = ({ title }: { title: string }) => {
+const SpwPageBanner = ({
+  title,
+  subtitle,
+}: {
+  title: string;
+  subtitle?: string;
+}) => {
   return (
     <div className="flex-1 relative">
       <img
@@ -14,7 +20,7 @@ const SpwPageBanner = ({ title }: { title: string }) => {
           {title}
         </p>
         <p className="text-base md:text-lg text-white font-light tracking-widest mt-1 text-center">
-          The official portal of the Government of West Bengal
+          {subtitle || `The official portal of the Government of West Bengal`}
         </p>
       </div>
     </div>

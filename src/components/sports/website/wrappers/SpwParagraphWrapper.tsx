@@ -11,7 +11,7 @@ const SpwParagraphWrapper = ({
   return (
     <div
       className={cn(
-        'text-sm font-roboto text-card-foreground tracking-wide leading-relaxed text-justify',
+        'text-base font-roboto text-card-foreground tracking-wider leading-relaxed text-justify',
         className,
       )}
     >

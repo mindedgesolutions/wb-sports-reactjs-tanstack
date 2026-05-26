@@ -18,7 +18,7 @@ const VisionMission = ({ images }: { images: IPhotoRow[] }) => {
               <img
                 src={`${titles.BASE_URL}${img.image_path}`}
                 alt=""
-                className="w-full h-full max-h-32 object-cover"
+                className="w-full h-full max-h-36 object-cover"
               />
             </div>
           ))}
@@ -39,7 +39,7 @@ const VisionMission = ({ images }: { images: IPhotoRow[] }) => {
             Kolkata (Calcutta) can easily draw in more than 100,000 spectators
             to even a domestic soccer encounter whereas even international
             football elsewhere will find it difficult to duplicate that kind of
-            passion for a match ...
+            passion for ...
           </SpwParagraphWrapper>
           <div className="flex justify-center md:justify-start">
             <Link to={`${titles.SPORTS_WEB_URL}/vision-mission`}>

@@ -53,9 +53,9 @@ export const useKeyPersonnel = ({ page, search }: ParamProps) => {
   });
 };
 
-export const useKeyPersonnelWb = ({ page, search }: ParamProps) => {
+export const useKeyPersonnelWb = () => {
   return useQuery({
-    queryKey: ['key-personnel-web', { page, search }],
+    queryKey: ['key-personnel-web'],
     queryFn: ({ signal }) => getKeyPersonnelWb(signal),
   });
 };
