@@ -23,6 +23,7 @@ export const useHomepageSlider = ({ page }: ParamProps) => {
 export const useHomepageSliderWeb = () => {
   return useQuery({
     queryKey: ['homepage-sliders-web'],
-    queryFn: getHomepageSlidersWb,
+    queryFn: ({ signal }: { signal: AbortSignal }) =>
+      getHomepageSlidersWb(signal),
   });
 };

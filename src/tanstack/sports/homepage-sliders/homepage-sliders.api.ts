@@ -43,7 +43,9 @@ export const homepageSliderCreate = async (data: HomepageSliderSchema) => {
 
 // ----------------------------------
 
-export const getHomepageSlidersWb = async () => {
-  const res = await simpleFetch.get(sportsWeb.homepage.homepageSliders);
+export const getHomepageSlidersWb = async (signal: AbortSignal) => {
+  const res = await simpleFetch.get(sportsWeb.homepage.homepageSliders, {
+    signal,
+  });
   return res.data.data;
 };

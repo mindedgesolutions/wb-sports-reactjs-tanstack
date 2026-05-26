@@ -9,5 +9,6 @@ export const sportsWeb = {
   },
   aboutUs: {
     adminStructute: `${prefix}/org-structure/all`,
+    keyPersonnel: `${prefix}/web-key-personnel/all`,
   },
 };

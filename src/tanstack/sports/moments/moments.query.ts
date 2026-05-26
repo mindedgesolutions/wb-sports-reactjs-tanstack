@@ -26,7 +26,8 @@ export const usePhotoGalleries = ({ search, page }: ParamProps) => {
 export const useGetPhotoGalleryWb = (count: number) => {
   return useQuery({
     queryKey: ['photo-gallery-web', count],
-    queryFn: () => getPhotoGalleryWb(count),
+    queryFn: ({ signal }: { signal: AbortSignal }) =>
+      getPhotoGalleryWb(count, signal),
   });
 };
 

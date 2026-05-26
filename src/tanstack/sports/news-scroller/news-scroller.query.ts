@@ -22,6 +22,6 @@ export const useNewsScroller = ({
 export const useNewsScrollerWb = () => {
   return useQuery({
     queryKey: ['news-scroller-web'],
-    queryFn: getNewsScrollerWb,
+    queryFn: ({ signal }: { signal: AbortSignal }) => getNewsScrollerWb(signal),
   });
 };

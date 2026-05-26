@@ -6,6 +6,7 @@ import {
   getAdminStructureAllWb,
   getKeyPersonnel,
   getKeyPersonnelAll,
+  getKeyPersonnelWb,
 } from './about-us.api';
 
 type ParamProps = {
@@ -36,7 +37,8 @@ export const useAdminStructureAll = () => {
 export const useAdminStructureAllWb = () => {
   return useQuery({
     queryKey: ['admin-structure-all-web'],
-    queryFn: getAdminStructureAllWb,
+    queryFn: ({ signal }: { signal: AbortSignal }) =>
+      getAdminStructureAllWb(signal),
   });
 };
 
@@ -48,6 +50,13 @@ export const useKeyPersonnel = ({ page, search }: ParamProps) => {
   return useQuery({
     queryKey: ['key-personnel', { page, search }],
     queryFn: ({ signal }) => getKeyPersonnel({ page, search, signal }),
+  });
+};
+
+export const useKeyPersonnelWb = ({ page, search }: ParamProps) => {
+  return useQuery({
+    queryKey: ['key-personnel-web', { page, search }],
+    queryFn: ({ signal }) => getKeyPersonnelWb(signal),
   });
 };
 

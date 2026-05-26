@@ -77,7 +77,9 @@ export const newsScrollerUpdate = async (
 
 // ------------------------------
 
-export const getNewsScrollerWb = async () => {
-  const res = await simpleFetch.get(sportsWeb.homepage.newsScroller);
+export const getNewsScrollerWb = async (signal: AbortSignal) => {
+  const res = await simpleFetch.get(sportsWeb.homepage.newsScroller, {
+    signal,
+  });
   return res.data.data;
 };

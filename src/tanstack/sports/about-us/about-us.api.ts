@@ -44,8 +44,10 @@ export const getAdminStructureAll = async ({
 
 // -----------------------------
 
-export const getAdminStructureAllWb = async () => {
-  const res = await simpleFetch.get(sportsWeb.aboutUs.adminStructute);
+export const getAdminStructureAllWb = async (signal: AbortSignal) => {
+  const res = await simpleFetch.get(sportsWeb.aboutUs.adminStructute, {
+    signal,
+  });
   return res.data.data;
 };
 
@@ -82,6 +84,13 @@ export const getKeyPersonnel = async ({ page, search, signal }: ListProps) => {
     signal,
   });
   return res.data;
+};
+
+// -----------------------------
+
+export const getKeyPersonnelWb = async (signal: AbortSignal) => {
+  const res = await simpleFetch.get(sportsWeb.aboutUs.keyPersonnel, { signal });
+  return res.data.data;
 };
 
 // -----------------------------

@@ -42,9 +42,10 @@ export const getPhotoGallery = async (id: number, signal: AbortSignal) => {
 
 // -------------------------------
 
-export const getPhotoGalleryWb = async (count: number) => {
+export const getPhotoGalleryWb = async (count: number, signal: AbortSignal) => {
   const res = await simpleFetch.get(
     sportsWeb.homepage.visionMissionImages(count),
+    { signal },
   );
   return res.data.data;
 };
