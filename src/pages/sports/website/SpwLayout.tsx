@@ -36,7 +36,7 @@ const SpwLayout = () => {
               <SpwHeaderBottom className="px-2" />
               <div className="bg-primary h-8">
                 <AppSidebar />
-                <SidebarTrigger className="text-white" />
+                <SidebarTrigger className="text-primary-foreground" />
               </div>
               <Outlet />
               <SpwFooter />

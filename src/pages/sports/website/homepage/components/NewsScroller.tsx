@@ -23,7 +23,7 @@ const ReviewCard = ({
           />
           <div className="flex flex-col">
             <figcaption
-              className="text-xs font-roboto text-muted-foreground tracking-wide leading-relaxed text-justify hover:text-card-foreground dark:text-white"
+              className="text-xs font-roboto text-muted-foreground tracking-wide leading-relaxed text-justify hover:text-card-foreground dark:text-primary-foreground"
               // onClick={() => handleDownload(file_path!, file_name ?? title!)}
             >
               {title.length > 70 ? title.slice(0, 70) + ` ...` : title}

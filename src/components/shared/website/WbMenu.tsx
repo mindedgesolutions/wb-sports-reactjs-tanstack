@@ -32,7 +32,7 @@ const WbMenu = ({ menu }: { menu: IWebsiteMenuProps }) => {
       {/* main menu */}
       <Link
         to={menu.link || '#'}
-        className="flex items-center gap-1 cursor-pointer px-2 py-2.5 bg-primary/30 hover:bg-primary/40 duration-200 text-white tracking-widest text-xs"
+        className="flex items-center gap-1 cursor-pointer px-2 py-2.5 bg-primary/30 hover:bg-primary/40 duration-200 text-primary-foreground tracking-widest text-xs"
       >
         {menu.name}
 
@@ -65,12 +65,12 @@ const WbMenu = ({ menu }: { menu: IWebsiteMenuProps }) => {
                       {/* icon */}
                       <div className="bg-white/20 w-fit p-2 rounded-md group-hover/menubox:bg-white/40 duration-300">
                         {subMenu.icon && (
-                          <subMenu.icon className="size-4 text-white transition-colors duration-300 group-hover/menubox:text-white" />
+                          <subMenu.icon className="size-4 text-primary-foreground transition-colors duration-300 group-hover/menubox:text-primary-foreground" />
                         )}
                       </div>
 
                       {/* label */}
-                      <h6 className="text-white dark:text-white text-sm transition-colors duration-300 group-hover/menubox:text-white">
+                      <h6 className="text-primary-foreground dark:text-primary-foreground text-sm transition-colors duration-300 group-hover/menubox:text-primary-foreground">
                         {subMenu.name}
                       </h6>
                     </div>

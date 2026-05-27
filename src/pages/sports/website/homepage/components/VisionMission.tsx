@@ -43,8 +43,11 @@ const VisionMission = ({ images }: { images: IPhotoRow[] }) => {
           </SpwParagraphWrapper>
           <div className="flex justify-center md:justify-start">
             <Link to={`${titles.SPORTS_WEB_URL}/vision-mission`}>
-              <Button size={'lg'} className="rounded-none text-xs text-white">
-                Read More ...
+              <Button
+                size={'lg'}
+                className="rounded-none text-xs text-primary-foreground"
+              >
+                Read More
               </Button>
             </Link>
           </div>

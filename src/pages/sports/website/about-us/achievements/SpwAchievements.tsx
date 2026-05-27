@@ -37,12 +37,12 @@ const SpwAchievements = () => {
     <>
       <SpwPageBanner title="Achievements" />
       <SpwSectionWrapper className="max-w-6xl mx-auto">
-        <ol className="list-disc list-inside md:list-outside marker:text-primary marker:text-2xl">
+        <ol className="list-disc list-inside md:list-outside marker:text-primary marker:text-sm md:marker:text-2xl">
           {isLoading && <WbLoader />}
           {rows.map((item) => (
             <li
               key={item.id}
-              className="mb-4 md:mb-8 text-sm md:text-base font-roboto tracking-wider leading-relaxed text-justify last-of-type:mb-0 ml-0 md:ml-4"
+              className="mb-4 md:mb-8 text-xs md:text-sm font-roboto tracking-normal md:tracking-wider leading-normal md:leading-relaxed text-justify last-of-type:mb-0 ml-0 md:ml-4"
             >
               {item.title}
             </li>

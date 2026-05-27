@@ -26,7 +26,7 @@ const SpwAdminStructure = () => {
                   <>
                     <section
                       key={t.designation}
-                      className="p-4 min-w-48 bg-primary text-white text-center font-roboto text-xs tracking-wider"
+                      className="p-4 min-w-48 bg-primary text-primary-foreground text-center font-roboto text-xs tracking-wider"
                     >
                       {t.designation}
                     </section>

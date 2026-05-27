@@ -59,7 +59,7 @@ const WbTopImageSlider = ({
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="text-lg md:text-5xl font-bold text-white mb-2 md:mb-6"
+                  className="text-lg md:text-5xl font-bold text-primary-foreground mb-2 md:mb-6"
                 >
                   {slides[current].title}
                 </motion.h1>
@@ -87,7 +87,7 @@ const WbTopImageSlider = ({
                     delay: 0.6,
                     ease: 'easeOut',
                   }}
-                  className="bg-primary hover:bg-primary/90 text-white text-xs tracking-wider px-2.5 md:px-4 py-1.5 md:py-2 rounded-xs transition-colors transform-gpu will-change-transform cursor-pointer"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground text-xs tracking-wider px-2.5 md:px-4 py-1.5 md:py-2 rounded-xs transition-colors transform-gpu will-change-transform cursor-pointer"
                 >
                   {slides[current].buttonText}
                 </motion.button>
@@ -102,13 +102,13 @@ const WbTopImageSlider = ({
         onClick={prevSlide}
         className="absolute left-6 top-1/2 -translate-y-1/2  bg-white/20 hover:bg-white/30 p-1 md:p-3 rounded-full backdrop-blur"
       >
-        <ChevronLeft className="text-white w-4 md:w-8 h-4 md:h-8" />
+        <ChevronLeft className="text-primary-foreground w-4 md:w-8 h-4 md:h-8" />
       </button>
       <button
         onClick={nextSlide}
         className="absolute right-6 top-1/2 -translate-y-1/2  bg-white/20 hover:bg-white/30 p-1 md:p-3 rounded-full backdrop-blur"
       >
-        <ChevronRight className="text-white w-4 md:w-8 h-4 md:h-8" />
+        <ChevronRight className="text-primary-foreground w-4 md:w-8 h-4 md:h-8" />
       </button>
       {/* Thumbnails */}
       <div className="flex absolute left-1/2 bottom-0 translate-y-1/2 -translate-x-1/2  gap-2 md:gap-4">
