@@ -33,12 +33,11 @@ export { default as FormMultipleFileUpload } from '@/components/shared/form/Form
 export { default as AppTitleLoading } from '@/components/shared/app/AppTitleLoading';
 export { default as YouTubeThumbnailPreview } from '@/components/shared/YouTubeThumbnailPreview';
 export { default as WbTopImageSlider } from '@/components/shared/website/WbTopImageSlider';
-export { default as WbProfileCardOne } from '@/components/shared/website/WbProfileCardOne';
-export { default as WbProfileCardTwo } from '@/components/shared/website/WbProfileCardTwo';
 export { default as WbTopButtonContainer } from '@/components/shared/website/WbTopButtonContainer';
 export { default as WbMenu } from '@/components/shared/website/WbMenu';
 export { default as WbSliderPlaceholder } from '@/components/shared/website/WbSliderPlaceholder';
 export { default as WbLoader } from '@/components/shared/website/WbLoader';
+export { default as WbLoadMore } from '@/components/shared/website/WbLoadMore';
 
 // Sports Website Components
 export { default as SpwHeaderTop } from '@/components/sports/website/header/SpwHeaderTop';

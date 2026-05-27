@@ -1,6 +1,7 @@
-import { useQuery } from '@tanstack/react-query';
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 import {
   getAchievements,
+  getAchievementsWb,
   getAdminStructure,
   getAdminStructureAll,
   getAdminStructureAllWb,
@@ -76,7 +77,31 @@ export const useKeyPersonnelAll = () => {
 export const useAchievements = ({ page, search }: ParamProps) => {
   return useQuery({
     queryKey: ['achievements', { page, search }],
-    queryFn: ({ signal }) => getAchievements({ page, search, signal }),
+    queryFn: ({ signal }: { signal: AbortSignal }) =>
+      getAchievements({ page, search, signal }),
+  });
+};
+
+// -----------------------------
+
+export const useAchievementsWb = () => {
+  return useInfiniteQuery({
+    queryKey: ['achievements-web'],
+    queryFn: ({ pageParam = 1, signal }) =>
+      getAchievementsWb({
+        signal,
+        page: pageParam,
+      }),
+
+    initialPageParam: 1,
+
+    getNextPageParam: (lastPage) => {
+      if (lastPage.current_page < lastPage.last_page) {
+        return lastPage.current_page + 1;
+      }
+
+      return undefined;
+    },
   });
 };
 

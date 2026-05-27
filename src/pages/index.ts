@@ -46,3 +46,4 @@ export { default as SpwSportsInBengal } from '@/pages/sports/website/about-us/sp
 export { default as SpwAdminStructure } from '@/pages/sports/website/about-us/admin-structure/SpwAdminStructure';
 export { default as SpwKeyPersonnel } from '@/pages/sports/website/about-us/key-personnel/SpwKeyPersonnel';
 export { default as SpwAchievements } from '@/pages/sports/website/about-us/achievements/SpwAchievements';
+export { default as SpwSportsCategories } from '@/pages/sports/website/sports/sports-categories/SpwSportsCategories';

@@ -106,6 +106,7 @@ const router = createBrowserRouter([
       { path: 'administrative-structure', element: <pg.SpwAdminStructure /> },
       { path: 'key-personnel', element: <pg.SpwKeyPersonnel /> },
       { path: 'achievements', element: <pg.SpwAchievements /> },
+      { path: 'sports-categories', element: <pg.SpwSportsCategories /> },
     ],
   },
 ]);

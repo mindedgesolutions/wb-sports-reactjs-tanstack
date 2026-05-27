@@ -169,6 +169,22 @@ export const getAchievements = async ({ page, search, signal }: ListProps) => {
 
 // -----------------------------
 
+export const getAchievementsWb = async ({
+  signal,
+  page,
+}: {
+  signal: AbortSignal;
+  page: number;
+}) => {
+  const res = await simpleFetch.get(sportsWeb.aboutUs.achievements, {
+    params: { page },
+    signal,
+  });
+  return res.data.data;
+};
+
+// -----------------------------
+
 const formatAchievementPayload = (data: AchievementSchema) => {
   const achDate =
     data.achievementDate instanceof Date
