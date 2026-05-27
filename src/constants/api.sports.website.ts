@@ -12,4 +12,8 @@ export const sportsWeb = {
     keyPersonnel: `${prefix}/web-key-personnel/all`,
     achievements: `${prefix}/achievements/all`,
   },
+  sports: {
+    sportsPersonnel: (sport: string) =>
+      `${prefix}/sports-personnel-web/${sport}`,
+  },
 };

@@ -1,5 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { getSportsEvents, getSportsPersonnel } from './sports.api';
+import {
+  getSportsEvents,
+  getSportsPersonnel,
+  getSportsPersonnelWb,
+} from './sports.api';
 
 type ParamProps = {
   page?: number;
@@ -12,6 +16,22 @@ export const useSportsPersonnel = ({ page, search }: ParamProps) => {
   return useQuery({
     queryKey: ['sports-personnel', { page, search }],
     queryFn: ({ signal }) => getSportsPersonnel({ page, search, signal }),
+  });
+};
+
+// ------------------------------
+
+export const useSportsPersonnelWb = ({
+  sport,
+  enabled = true,
+}: {
+  sport: string;
+  enabled: boolean;
+}) => {
+  return useQuery({
+    queryKey: ['sports-personnel-web', { sport }],
+    queryFn: ({ signal }) => getSportsPersonnelWb({ sport, signal }),
+    enabled,
   });
 };
 

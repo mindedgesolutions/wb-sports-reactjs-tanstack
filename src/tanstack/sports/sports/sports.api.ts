@@ -1,5 +1,7 @@
 import { customFetch } from '@/axios/custom.fetch';
+import { simpleFetch } from '@/axios/refresh.fetch';
 import { sportsApp } from '@/constants/api.sports';
+import { sportsWeb } from '@/constants/api.sports.website';
 import type {
   SportsEventsSchema,
   SportsPersonnelSchema,
@@ -24,6 +26,21 @@ export const getSportsPersonnel = async ({
     signal,
   });
   return res.data;
+};
+
+// -----------------------------
+
+export const getSportsPersonnelWb = async ({
+  sport,
+  signal,
+}: {
+  sport: string;
+  signal: AbortSignal;
+}) => {
+  const res = await simpleFetch.get(sportsWeb.sports.sportsPersonnel(sport), {
+    signal,
+  });
+  return res.data.data;
 };
 
 // -----------------------------

@@ -2,7 +2,7 @@ import { SpwPageBanner, SpwSectionWrapper, WbLoader } from '@/components';
 import { titles } from '@/constants';
 import type { IKeyPersonnelRow } from '@/interface/sports.interface';
 import { useKeyPersonnelWb } from '@/tanstack/sports/about-us/about-us.query';
-import PersonCard from './components/PersonCard';
+import PersonCard from './PersonCard';
 
 const SpwKeyPersonnel = () => {
   document.title = `Key Personnel | ${titles.SPORTS_APP_NAME}`;

@@ -23,17 +23,17 @@ const SpwAdminStructure = () => {
             <div className="flex flex-col justify-center items-center gap-1">
               {data.map((t: IAdminStructureRow, index: number) => {
                 return (
-                  <>
-                    <section
-                      key={t.designation}
-                      className="p-4 min-w-48 bg-primary text-primary-foreground text-center font-roboto text-xs tracking-wider"
-                    >
+                  <div
+                    key={t.show_order}
+                    className="flex flex-col items-center"
+                  >
+                    <section className="p-4 min-w-48 bg-primary text-primary-foreground font-roboto text-xs tracking-wider">
                       {t.designation}
                     </section>
                     {index !== data.length - 1 && (
                       <PiArrowDownBold className="text-primary" />
                     )}
-                  </>
+                  </div>
                 );
               })}
             </div>
