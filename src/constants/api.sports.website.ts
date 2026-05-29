@@ -15,5 +15,6 @@ export const sportsWeb = {
   sports: {
     sportsPersonnel: (sport: string) =>
       `${prefix}/sports-personnel-web/${sport}`,
+    sportsEvents: `${prefix}/events/all`,
   },
 };

@@ -14,7 +14,7 @@ const SpwSportsCategories = () => {
   return (
     <>
       <SpwPageBanner title="Sports Categories" />
-      <SpwSectionWrapper className="max-w-6xl mx-auto mb-4 md:mb-8 gap-8">
+      <SpwSectionWrapper className="max-w-7xl mx-auto mb-4 md:mb-8 gap-8">
         <div className="flex flex-col gap-16">
           {data.map((t) => (
             <div

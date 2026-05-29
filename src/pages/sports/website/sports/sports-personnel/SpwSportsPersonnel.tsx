@@ -26,7 +26,7 @@ const SpwSportsPersonnel = () => {
   return (
     <>
       <SpwPageBanner title="Sports Personnel" />
-      <SpwSectionWrapper className="max-w-6xl mx-auto mb-4 md:mb-8 gap-8">
+      <SpwSectionWrapper className="max-w-7xl mx-auto mb-4 md:mb-8 gap-8">
         <div className="grid grid-cols-8 gap-2">
           {sportsCategories.map((t) => {
             const isSelected = selectedSport === t.value;

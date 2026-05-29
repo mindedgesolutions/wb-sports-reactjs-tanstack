@@ -104,6 +104,22 @@ export const getSportsEvents = async ({ page, search, signal }: ListProps) => {
 
 // -----------------------------
 
+export const getSportsEventsWb = async ({
+  page,
+  signal,
+}: {
+  page: number;
+  signal: AbortSignal;
+}) => {
+  const res = await simpleFetch.get(sportsWeb.sports.sportsEvents, {
+    params: { page },
+    signal,
+  });
+  return res.data.data;
+};
+
+// -----------------------------
+
 const formatSportsEventPayload = (data: SportsEventsSchema) => {
   const eventDate =
     data.eventDate instanceof Date ? parseDate(data.eventDate) : null;

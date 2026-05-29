@@ -6,14 +6,16 @@ import {
   WbLoadMore,
 } from '@/components';
 import { titles } from '@/constants';
-import { useAchievementsWb } from '@/tanstack/sports/about-us/about-us.query';
+import type { ISportsEventRow } from '@/interface/sports.interface';
+import { useSportsEventsWb } from '@/tanstack/sports/sports/sports.query';
 import { useEffect, useRef } from 'react';
 
-const SpwAchievements = () => {
-  document.title = `Achievements | ${titles.SPORTS_APP_NAME}`;
+const SpwSportsEvents = () => {
+  document.title = `Sports Events | ${titles.SPORTS_APP_NAME}`;
 
   const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
-    useAchievementsWb();
+    useSportsEventsWb();
+  console.log(data);
 
   const rows = data?.pages.flatMap((page) => page.data) ?? [];
 
@@ -35,11 +37,11 @@ const SpwAchievements = () => {
 
   return (
     <>
-      <SpwPageBanner title="Achievements" />
-      <SpwSectionWrapper className="max-w-7xl mx-auto">
+      <SpwPageBanner title="Sports Events" />
+      <SpwSectionWrapper className="max-w-7xl mx-auto mb-4 md:mb-8 gap-8">
         <ol className="list-disc list-inside md:list-outside marker:text-primary marker:text-sm md:marker:text-2xl">
           {isLoading && <WbLoader />}
-          {rows.map((item) => (
+          {rows.map((item: ISportsEventRow) => (
             <li
               key={item.id}
               className="mb-4 md:mb-8 text-xs md:text-sm font-roboto tracking-normal md:tracking-wider leading-normal md:leading-relaxed text-justify last-of-type:mb-0 ml-0 md:ml-4"
@@ -64,4 +66,4 @@ const SpwAchievements = () => {
     </>
   );
 };
-export default SpwAchievements;
+export default SpwSportsEvents;

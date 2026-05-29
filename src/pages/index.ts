@@ -48,3 +48,4 @@ export { default as SpwKeyPersonnel } from '@/pages/sports/website/about-us/key-
 export { default as SpwAchievements } from '@/pages/sports/website/about-us/achievements/SpwAchievements';
 export { default as SpwSportsCategories } from '@/pages/sports/website/sports/sports-categories/SpwSportsCategories';
 export { default as SpwSportsPersonnel } from '@/pages/sports/website/sports/sports-personnel/SpwSportsPersonnel';
+export { default as SpwSportsEvents } from '@/pages/sports/website/sports/sports-events/SpwSportsEvents';
