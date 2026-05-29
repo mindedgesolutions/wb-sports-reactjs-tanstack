@@ -38,7 +38,7 @@ const SpwSportsEvents = () => {
   return (
     <>
       <SpwPageBanner title="Sports Events" />
-      <SpwSectionWrapper className="max-w-7xl mx-auto mb-4 md:mb-8 gap-8">
+      <SpwSectionWrapper className="max-w-7xl mx-auto">
         <ol className="list-disc list-inside md:list-outside marker:text-primary marker:text-sm md:marker:text-2xl">
           {isLoading && <WbLoader />}
           {rows.map((item: ISportsEventRow) => (

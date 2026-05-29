@@ -5,7 +5,7 @@ import {
   SpwSectionWrapper,
 } from '@/components';
 import { titles } from '@/constants';
-import { data } from './components/lookup';
+import { data } from './lookup';
 import { Button } from '@/components/ui/button';
 
 const SpwSportsCategories = () => {
