@@ -116,6 +116,10 @@ const router = createBrowserRouter([
       { path: 'wbs-advisory-board', element: <pg.SpwAdvisoryBoard /> },
       { path: 'wbs-working-committee', element: <pg.SpwWorkingCommittee /> },
       { path: 'wbs-events', element: <pg.SpwEvents /> },
+      { path: 'khelo-india', element: <pg.SpwKheloIndia /> },
+      { path: 'advertisements', element: <pg.SpwAdvertisements /> },
+      { path: 'announcements/:category', element: <pg.SpwAnnouncements /> },
+      { path: 'guiding-principles', element: <pg.SpwGudingPrinciples /> },
     ],
   },
 ]);

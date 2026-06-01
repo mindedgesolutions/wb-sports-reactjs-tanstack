@@ -8,7 +8,7 @@ const WbLoadMore = ({ className }: { className?: string }) => {
         className,
       )}
     >
-      <span className="text-primary-muted">Loading data ...</span>
+      <span className="text-sm text-primary-muted">Loading data ...</span>
     </div>
   );
 };

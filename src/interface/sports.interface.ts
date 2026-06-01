@@ -146,6 +146,7 @@ export interface IAnnouncementRow {
   start_date: Date | null;
   end_date: Date | null;
   file_path: string | null;
+  file_name: string | null;
   is_active: boolean;
   created_by: number;
   updated_by: number | null;

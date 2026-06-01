@@ -19,7 +19,7 @@ const SpwPageBanner = ({
         <p className="font-roboto text-primary-muted text-2xl md:text-4xl tracking-widest font-medium mb-4 text-center uppercase">
           {title}
         </p>
-        <p className="text-[10px] md:textbase text-primary-foreground font-light tracking-widest mt-1 text-center">
+        <p className="text-[10px] md:text-base text-primary-foreground font-light tracking-widest mt-1 text-center">
           {subtitle || `The official portal of the Government of West Bengal`}
         </p>
       </div>

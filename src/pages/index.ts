@@ -53,3 +53,7 @@ export { default as SpwSportsInfrastructure } from '@/pages/sports/website/sport
 export { default as SpwAdvisoryBoard } from '@/pages/sports/website/wbs-council/advisory-board/SpwAdvisoryBoard';
 export { default as SpwWorkingCommittee } from '@/pages/sports/website/wbs-council/working-committee/SpwWorkingCommittee';
 export { default as SpwEvents } from '@/pages/sports/website/wbs-council/events/SpwEvents';
+export { default as SpwKheloIndia } from '@/pages/sports/website/wbs-council/khelo-india/SpwKheloIndia';
+export { default as SpwAdvertisements } from '@/pages/sports/website/announcements/advertisements/SpwAdvertisements';
+export { default as SpwAnnouncements } from '@/pages/sports/website/announcements/announcements/SpwAnnouncements';
+export { default as SpwGudingPrinciples } from '@/pages/sports/website/announcements/guiding-principles/SpwGudingPrinciples';

@@ -145,19 +145,19 @@ function sportsWebsiteMenus() {
           name: 'Notices',
           desc: 'NA',
           icon: SquareCheckBig,
-          link: `${titles.SPORTS_WEB_URL}/announcements/notices`,
+          link: `${titles.SPORTS_WEB_URL}/announcements/notice`,
         },
         {
           name: 'Circulars',
           desc: 'NA',
           icon: Navigation,
-          link: `${titles.SPORTS_WEB_URL}/announcements/circulars`,
+          link: `${titles.SPORTS_WEB_URL}/announcements/circular`,
         },
         {
           name: 'Tenders',
           desc: 'NA',
           icon: Files,
-          link: `${titles.SPORTS_WEB_URL}/announcements/tenders`,
+          link: `${titles.SPORTS_WEB_URL}/announcements/tender`,
         },
         {
           name: 'Advertisements',

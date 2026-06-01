@@ -100,6 +100,19 @@ export const handleDownload = async (filePath: string, fileName: string) => {
 
 // -----------------------
 
+export const handleFileOpen = (filePath: string, fileName: string) => {
+  const encodedPath = encodeURIComponent(filePath);
+  const encodedName = encodeURIComponent(fileName);
+
+  const endpoint = isPreviewable(encodedPath) ? 'preview' : 'download';
+
+  const url = `${titles.BASE_URL}/api/${endpoint}?filePath=${encodedPath}&fileName=${encodedName}`;
+
+  window.open(url, '_blank');
+};
+
+// -----------------------
+
 export const getYoutubeVideoId = (url: string): string | null => {
   try {
     const parsed = new URL(url);

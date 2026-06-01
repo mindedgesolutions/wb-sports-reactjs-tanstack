@@ -47,7 +47,7 @@ const SpwSportsPersonnel = () => {
         {isLoading && <WbLoader />}
         <div>
           {!isLoading && (
-            <div className="mt-8">
+            <div className="mt-8 max-w-7xl mx-auto">
               <Table className="text-[10px]">
                 <TableHeader>
                   <TableRow>

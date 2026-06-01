@@ -18,7 +18,7 @@ const SpwVisionMission = () => {
             title="Vision"
             className="text-center md:text-left"
           />
-          <SpwParagraphWrapper className="-mt-4 [text-align-last:center] md:[text-align-last:left]">
+          <SpwParagraphWrapper className="[text-align-last:center] md:[text-align-last:left]">
             New possibilities in sports by offering a professional setting that
             equips youth with knowledge, skills, and life skills to develop
             their minds and strengthen the basis of their future.
@@ -29,7 +29,7 @@ const SpwVisionMission = () => {
             title="Mission"
             className="text-center md:text-left"
           />
-          <SpwParagraphWrapper className="-mt-4 [text-align-last:center] md:[text-align-last:left]">
+          <SpwParagraphWrapper className="[text-align-last:center] md:[text-align-last:left]">
             New possibilities in sports by offering a professional setting that
             equips youth with knowledge, skills, and life skills to develop
             their minds and strengthen the basis of their future.

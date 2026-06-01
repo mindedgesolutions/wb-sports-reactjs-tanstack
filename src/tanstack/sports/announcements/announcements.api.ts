@@ -1,5 +1,7 @@
 import { customFetch } from '@/axios/custom.fetch';
+import { simpleFetch } from '@/axios/refresh.fetch';
 import { sportsApp } from '@/constants/api.sports';
+import { sportsWeb } from '@/constants/api.sports.website';
 import type {
   AdvertisementSchema,
   AnnouncementSchema,
@@ -20,6 +22,24 @@ export const getAnnouncements = async ({ page, search, signal }: ListProps) => {
     { params: { page, search }, signal },
   );
   return res.data;
+};
+
+export const getAnnouncementsWb = async ({
+  type,
+  page,
+  search,
+  signal,
+}: {
+  type: string;
+  page: number;
+  search?: string;
+  signal: AbortSignal;
+}) => {
+  const res = await simpleFetch.get(
+    sportsWeb.announcements.announcements(type),
+    { params: { page, search }, signal },
+  );
+  return res.data.data;
 };
 
 // -------------------------------
@@ -99,6 +119,19 @@ export const getAdvertisements = async ({
     { params: { page, search }, signal },
   );
   return res.data;
+};
+
+// -------------------------------
+
+export const getAdvertisementsWb = async ({
+  signal,
+}: {
+  signal: AbortSignal;
+}) => {
+  const res = await simpleFetch.get(sportsWeb.announcements.advertisements, {
+    signal,
+  });
+  return res.data.data;
 };
 
 // -------------------------------

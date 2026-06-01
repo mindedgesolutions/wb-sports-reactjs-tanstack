@@ -9,6 +9,7 @@ import demoImg from '@/assets/images/demo.jpg';
 import defaultBanner from '@/assets/images/default_banner.png';
 // Icons used throughout
 import { GrAttachment } from 'react-icons/gr';
+import { SlCloudDownload } from 'react-icons/sl';
 
 export const titles = {
   SPORTS_APP_NAME: import.meta.env.VITE_SPORTS_APP_NAME,
@@ -50,6 +51,7 @@ export const images = {
 
 export const icons = {
   GrAttachment,
+  download: SlCloudDownload,
 };
 
 // -------------------------------

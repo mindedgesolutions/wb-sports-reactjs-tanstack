@@ -22,4 +22,8 @@ export const sportsWeb = {
     advisoryBoard: `${prefix}/advisory-board`,
     workingCommittee: `${prefix}/working-committee`,
   },
+  announcements: {
+    announcements: (type: string) => `${prefix}/announcements/all/${type}`,
+    advertisements: `${prefix}/advertisements/all`,
+  },
 };
