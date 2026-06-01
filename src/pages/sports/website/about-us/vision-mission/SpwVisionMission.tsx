@@ -14,16 +14,22 @@ const SpwVisionMission = () => {
       <SpwPageBanner title="Vision & Mission" />
       <SpwSectionWrapper className="max-w-7xl mx-auto mb-4 md:mb-8 flex flex-col gap-8 min-h-80">
         <section>
-          <SpwSectionTitleWrapper title="Vision" />
-          <SpwParagraphWrapper className="-mt-4">
+          <SpwSectionTitleWrapper
+            title="Vision"
+            className="text-center md:text-left"
+          />
+          <SpwParagraphWrapper className="-mt-4 [text-align-last:center] md:[text-align-last:left]">
             New possibilities in sports by offering a professional setting that
             equips youth with knowledge, skills, and life skills to develop
             their minds and strengthen the basis of their future.
           </SpwParagraphWrapper>
         </section>
         <section>
-          <SpwSectionTitleWrapper title="Mission" />
-          <SpwParagraphWrapper className="-mt-4">
+          <SpwSectionTitleWrapper
+            title="Mission"
+            className="text-center md:text-left"
+          />
+          <SpwParagraphWrapper className="-mt-4 [text-align-last:center] md:[text-align-last:left]">
             New possibilities in sports by offering a professional setting that
             equips youth with knowledge, skills, and life skills to develop
             their minds and strengthen the basis of their future.

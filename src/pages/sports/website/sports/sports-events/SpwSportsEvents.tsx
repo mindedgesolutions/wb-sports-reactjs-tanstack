@@ -15,7 +15,6 @@ const SpwSportsEvents = () => {
 
   const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useSportsEventsWb();
-  console.log(data);
 
   const rows = data?.pages.flatMap((page) => page.data) ?? [];
 

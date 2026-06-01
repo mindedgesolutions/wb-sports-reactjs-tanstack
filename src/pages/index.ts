@@ -50,3 +50,6 @@ export { default as SpwSportsCategories } from '@/pages/sports/website/sports/sp
 export { default as SpwSportsPersonnel } from '@/pages/sports/website/sports/sports-personnel/SpwSportsPersonnel';
 export { default as SpwSportsEvents } from '@/pages/sports/website/sports/sports-events/SpwSportsEvents';
 export { default as SpwSportsInfrastructure } from '@/pages/sports/website/sports/sports-infrastructure/SpwSportsInfrastructure';
+export { default as SpwAdvisoryBoard } from '@/pages/sports/website/wbs-council/advisory-board/SpwAdvisoryBoard';
+export { default as SpwWorkingCommittee } from '@/pages/sports/website/wbs-council/working-committee/SpwWorkingCommittee';
+export { default as SpwEvents } from '@/pages/sports/website/wbs-council/events/SpwEvents';

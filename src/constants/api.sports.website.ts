@@ -17,4 +17,9 @@ export const sportsWeb = {
       `${prefix}/sports-personnel-web/${sport}`,
     sportsEvents: `${prefix}/events/all`,
   },
+  wbsCouncil: {
+    wbsDesignations: (type: string) => `${prefix}/wbs-designations/${type}`,
+    advisoryBoard: `${prefix}/advisory-board`,
+    workingCommittee: `${prefix}/working-committee`,
+  },
 };

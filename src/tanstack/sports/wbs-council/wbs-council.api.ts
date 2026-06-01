@@ -1,5 +1,7 @@
 import { customFetch } from '@/axios/custom.fetch';
+import { simpleFetch } from '@/axios/refresh.fetch';
 import { sportsApp } from '@/constants/api.sports';
+import { sportsWeb } from '@/constants/api.sports.website';
 import type { WbsCouncilSchema } from '@/schema/sports/wbs-council.schema';
 
 type ListProps = {
@@ -17,12 +19,47 @@ export const getWbsDesignations = async (signal: AbortSignal) => {
 
 // ----------------------------
 
+export const getWbsDesignationsWb = async (
+  type: string,
+  signal: AbortSignal,
+) => {
+  const res = await simpleFetch.get(
+    sportsWeb.wbsCouncil.wbsDesignations(type),
+    {
+      signal,
+    },
+  );
+  return res.data.data;
+};
+
+// ----------------------------
+
 export const getWbsCouncil = async ({ page, search, signal }: ListProps) => {
   const res = await customFetch.get(sportsApp.wbsCouncil.list, {
     params: { page, search },
     signal,
   });
   return res.data;
+};
+
+// ----------------------------
+
+export const getAdvisoryBoardWb = async (signal: AbortSignal) => {
+  const res = await simpleFetch.get(sportsWeb.wbsCouncil.advisoryBoard, {
+    signal,
+  });
+
+  return res.data.data;
+};
+
+// ----------------------------
+
+export const getWorkingCommitteeWb = async (signal: AbortSignal) => {
+  const res = await simpleFetch.get(sportsWeb.wbsCouncil.workingCommittee, {
+    signal,
+  });
+
+  return res.data.data;
 };
 
 // ----------------------------

@@ -20,7 +20,7 @@ const SpwAdminStructure = () => {
       ) : (
         <>
           <SpwSectionWrapper className="max-w-7xl mx-auto">
-            <div className="flex flex-col justify-center items-center gap-1">
+            <div className="flex flex-col justify-center items-center text-center gap-1">
               {data.map((t: IAdminStructureRow, index: number) => {
                 return (
                   <div

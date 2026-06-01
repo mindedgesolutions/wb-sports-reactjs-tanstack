@@ -14,7 +14,7 @@ const SpwSportsInfrastructure = () => {
     <>
       <SpwPageBanner title="Sports Infrastructure" />
       <SpwSectionWrapper className="max-w-7xl mx-auto">
-        <SpwParagraphWrapper className="mb-8">
+        <SpwParagraphWrapper className="mb-8 [text-align-last:center] md:[text-align-last:left]">
           State-level sports infrastructure involves forming facilities that can
           support competitive training, talent development, and hosting of
           district, zonal, and state-level competitions. These infrastructures
@@ -23,7 +23,10 @@ const SpwSportsInfrastructure = () => {
         </SpwParagraphWrapper>
         {data.map((t) => (
           <SpwSectionWrapper key={t.id} className="px-0 md:px-0 -mt-6">
-            <SpwSectionTitleWrapper title={t.title} className="-mb-4 md:mb-0" />
+            <SpwSectionTitleWrapper
+              title={t.title}
+              className="-mb-4 md:mb-0 text-center md:text-left"
+            />
             <SpwParagraphWrapper className="mb-4 md:mb-0">
               <ol className="list-disc list-inside md:list-outside marker:text-primary marker:text-sm md:marker:text-2xl">
                 {t.points.map((p) => (

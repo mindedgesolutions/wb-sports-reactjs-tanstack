@@ -113,6 +113,9 @@ const router = createBrowserRouter([
         path: 'sports-infrastructure',
         element: <pg.SpwSportsInfrastructure />,
       },
+      { path: 'wbs-advisory-board', element: <pg.SpwAdvisoryBoard /> },
+      { path: 'wbs-working-committee', element: <pg.SpwWorkingCommittee /> },
+      { path: 'wbs-events', element: <pg.SpwEvents /> },
     ],
   },
 ]);

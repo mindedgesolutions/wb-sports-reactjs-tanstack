@@ -124,6 +124,19 @@ export interface IWbsCouncilList {
 
 // -----------------------------
 
+export interface IWbsDesignationRow {
+  id: number;
+  type: string;
+  designation: string;
+  slug: string;
+  weight: number;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
+// -----------------------------
+
 export interface IAnnouncementRow {
   id: number;
   type: string;
