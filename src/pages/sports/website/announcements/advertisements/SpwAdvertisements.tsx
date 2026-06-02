@@ -21,12 +21,12 @@ const SpwAdvertisements = () => {
   return (
     <>
       <SpwPageBanner title="Advertisements" />
-      <SpwSectionWrapper className="max-w-7xl mx-auto">
+      <SpwSectionWrapper className="max-w-7xl mx-auto min-h-80">
         {isLoading && <WbLoader />}
         <div>
           {!isLoading && (
             <div className="mt-8">
-              <Table className="text-[10px]">
+              <Table className="text-xs font-roboto text-muted-foreground tracking-wider">
                 <TableHeader>
                   <TableRow>
                     <TableHead>#</TableHead>
@@ -39,17 +39,14 @@ const SpwAdvertisements = () => {
                     <TableRow>
                       <TableCell
                         colSpan={3}
-                        className="text-center text-muted-foreground uppercase tracking-wider"
+                        className="text-center uppercase tracking-wider"
                       >
                         No record found
                       </TableCell>
                     </TableRow>
                   ) : (
                     data?.map((a: IAdvertisementRow, index: number) => (
-                      <TableRow
-                        className="uppercase text-muted-foreground"
-                        key={a.id}
-                      >
+                      <TableRow className="uppercase" key={a.id}>
                         <TableCell>{index + 1}.</TableCell>
                         <TableCell className="whitespace-normal wrap-break-word">
                           {a.title}

@@ -73,6 +73,29 @@ export const sportsCategories = [
 
 // -------------------------------
 
+export const achievementCategories = [
+  { label: 'Archery', value: 'archery' },
+  { label: 'Athletics', value: 'athletics' },
+  { label: 'Badminton', value: 'badminton' },
+  { label: 'Billiards & Snooker', value: 'billiards-snooker' },
+  { label: 'Boxing', value: 'boxing' },
+  { label: 'Chess', value: 'chess' },
+  { label: 'Cricket', value: 'cricket' },
+  { label: 'Cycling', value: 'cycling' },
+  { label: 'Football', value: 'football' },
+  { label: 'Hockey', value: 'hockey' },
+  { label: 'Kabaddi & Weightlifting', value: 'kabaddi-weightlifting' },
+  { label: 'Lawn Tennis', value: 'lawn-tennis' },
+  { label: 'Paralympic Athletics', value: 'paralympic-athletics' },
+  { label: 'Posthumous Award', value: 'posthumous-award' },
+  { label: 'Shooting', value: 'shooting' },
+  { label: 'Table Tennis', value: 'table-tennis' },
+  { label: 'Waterpolo', value: 'waterpolo' },
+  { label: 'Weightlifting', value: 'weightlifting' },
+];
+
+// -------------------------------
+
 export const wbsCommitteeTypes = [
   { label: 'Advisory Board', value: 'advisory-board' },
   { label: 'Working Committee', value: 'working-committee' },

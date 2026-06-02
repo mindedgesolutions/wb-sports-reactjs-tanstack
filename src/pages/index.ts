@@ -57,3 +57,5 @@ export { default as SpwKheloIndia } from '@/pages/sports/website/wbs-council/khe
 export { default as SpwAdvertisements } from '@/pages/sports/website/announcements/advertisements/SpwAdvertisements';
 export { default as SpwAnnouncements } from '@/pages/sports/website/announcements/announcements/SpwAnnouncements';
 export { default as SpwGudingPrinciples } from '@/pages/sports/website/announcements/guiding-principles/SpwGudingPrinciples';
+export { default as SpwAwards } from '@/pages/sports/website/achievements-awards/awards/SpwAwards';
+export { default as SpwPlayersAchievements } from '@/pages/sports/website/achievements-awards/players-achievements/SpwPlayersAchievements';

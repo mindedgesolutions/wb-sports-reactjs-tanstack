@@ -120,6 +120,8 @@ const router = createBrowserRouter([
       { path: 'advertisements', element: <pg.SpwAdvertisements /> },
       { path: 'announcements/:category', element: <pg.SpwAnnouncements /> },
       { path: 'guiding-principles', element: <pg.SpwGudingPrinciples /> },
+      { path: 'players-achievements', element: <pg.SpwPlayersAchievements /> },
+      { path: 'awards', element: <pg.SpwAwards /> },
     ],
   },
 ]);

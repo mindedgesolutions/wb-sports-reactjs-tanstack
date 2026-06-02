@@ -1,5 +1,7 @@
 import { customFetch } from '@/axios/custom.fetch';
+import { simpleFetch } from '@/axios/refresh.fetch';
 import { sportsApp } from '@/constants/api.sports';
+import { sportsWeb } from '@/constants/api.sports.website';
 import type {
   AwardsSchema,
   PlayersAchievementsSchema,
@@ -22,6 +24,22 @@ export const getPlayersAchievements = async ({
     { params: { page, search }, signal },
   );
   return res.data;
+};
+
+// -------------------------------
+
+export const getPlayersAchievementsWb = async ({
+  sport,
+  signal,
+}: {
+  sport: string;
+  signal: AbortSignal;
+}) => {
+  const res = await simpleFetch.get(
+    sportsWeb.achievementsAwards.playersAchievements(sport),
+    { signal },
+  );
+  return res.data.data;
 };
 
 // -------------------------------

@@ -150,3 +150,6 @@ export const getYoutubeVideoId = (url: string): string | null => {
     return null;
   }
 };
+
+export const ucwords = (str: string) =>
+  str.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());

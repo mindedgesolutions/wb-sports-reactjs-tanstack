@@ -10,6 +10,7 @@ import { icons, titles } from '@/constants';
 import { useAnnouncementsWb } from '@/tanstack/sports/announcements/announcements.query';
 import {
   handleFileOpen,
+  ucwords,
   useDebounce,
   type QuickFilterSchema,
 } from '@/utils/functions';
@@ -31,9 +32,6 @@ import { useResetPaginationOnSearch } from '@/hooks/reset-page-on-search';
 
 const SpwAnnouncements = () => {
   const { category } = useParams();
-
-  const ucwords = (str: string) =>
-    str.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
 
   document.title = `${ucwords(category!)} | ${titles.SPORTS_APP_NAME}`;
 
@@ -81,7 +79,7 @@ const SpwAnnouncements = () => {
         <div>
           {!isLoading && (
             <div className="mt-8">
-              <Table className="text-[10px]">
+              <Table className="text-xs font-roboto text-muted-foreground tracking-wider">
                 <TableHeader>
                   <TableRow>
                     <TableHead>#</TableHead>
@@ -96,17 +94,14 @@ const SpwAnnouncements = () => {
                     <TableRow>
                       <TableCell
                         colSpan={5}
-                        className="text-center text-muted-foreground uppercase tracking-wider"
+                        className="text-center uppercase tracking-wider"
                       >
                         No record found
                       </TableCell>
                     </TableRow>
                   ) : (
                     rows?.map((data: IAnnouncementRow, index: number) => (
-                      <TableRow
-                        className="uppercase text-muted-foreground"
-                        key={data.id}
-                      >
+                      <TableRow className="uppercase" key={data.id}>
                         <TableCell>{index + 1}.</TableCell>
                         <TableCell>
                           {data.start_date
@@ -114,7 +109,7 @@ const SpwAnnouncements = () => {
                             : `N/A`}
                         </TableCell>
                         <TableCell>{data.ann_no}</TableCell>
-                        <TableCell className="whitespace-normal wrap-break-word">
+                        <TableCell className="whitespace-normal wrap-break-word leading-loose">
                           {data.subject}
                         </TableCell>
                         <TableCell>

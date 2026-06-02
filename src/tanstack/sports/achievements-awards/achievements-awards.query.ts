@@ -1,5 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { getAwards, getPlayersAchievements } from './achievements-awards.api';
+import {
+  getAwards,
+  getPlayersAchievements,
+  getPlayersAchievementsWb,
+} from './achievements-awards.api';
 
 type ParamProps = {
   page?: number;
@@ -10,6 +14,22 @@ export const usePlayersAchievements = ({ page, search }: ParamProps) => {
   return useQuery({
     queryKey: ['players-achievements', { page, search }],
     queryFn: ({ signal }) => getPlayersAchievements({ page, search, signal }),
+  });
+};
+
+// ------------------------------
+
+export const usePlayersAchievementsWb = ({
+  sport,
+  enabled = true,
+}: {
+  sport: string;
+  enabled: boolean;
+}) => {
+  return useQuery({
+    queryKey: ['players-achievements', { sport }],
+    queryFn: ({ signal }) => getPlayersAchievementsWb({ sport, signal }),
+    enabled,
   });
 };
 

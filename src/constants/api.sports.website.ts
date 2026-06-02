@@ -26,4 +26,8 @@ export const sportsWeb = {
     announcements: (type: string) => `${prefix}/announcements/all/${type}`,
     advertisements: `${prefix}/advertisements/all`,
   },
+  achievementsAwards: {
+    playersAchievements: (sport: string) =>
+      `${prefix}/single-achievement/${sport}`,
+  },
 };
