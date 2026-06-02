@@ -10,6 +10,11 @@ import defaultBanner from '@/assets/images/default_banner.png';
 // Icons used throughout
 import { GrAttachment } from 'react-icons/gr';
 import { SlCloudDownload } from 'react-icons/sl';
+import { FaRegBuilding, FaUserTie } from 'react-icons/fa';
+import { IoLocationOutline } from 'react-icons/io5';
+import { FiPhone } from 'react-icons/fi';
+import { MdMailOutline } from 'react-icons/md';
+import { FiGlobe } from 'react-icons/fi';
 
 export const titles = {
   SPORTS_APP_NAME: import.meta.env.VITE_SPORTS_APP_NAME,
@@ -52,6 +57,12 @@ export const images = {
 export const icons = {
   GrAttachment,
   download: SlCloudDownload,
+  user: FaUserTie,
+  building: FaRegBuilding,
+  location: IoLocationOutline,
+  phone: FiPhone,
+  email: MdMailOutline,
+  internet: FiGlobe,
 };
 
 // -------------------------------

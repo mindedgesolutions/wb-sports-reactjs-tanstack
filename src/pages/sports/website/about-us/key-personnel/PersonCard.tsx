@@ -1,6 +1,5 @@
-import { titles } from '@/constants';
+import { titles, icons } from '@/constants';
 import type { IKeyPersonnelRow } from '@/interface/sports.interface';
-import { FaUserTie } from 'react-icons/fa';
 
 const PersonCard = (t: IKeyPersonnelRow) => {
   return (
@@ -14,7 +13,7 @@ const PersonCard = (t: IKeyPersonnelRow) => {
               className="w-full h-full object-cover"
             />
           ) : (
-            <FaUserTie className="w-full h-full text-muted-foreground/20" />
+            <icons.user className="w-full h-full text-muted-foreground/20" />
           )}
         </div>
       </div>

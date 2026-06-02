@@ -3,9 +3,19 @@ import SpwMenu from '@/components/sports/website/header/SpwMenu';
 import { AppSidebar } from '@/components/sports/website/mobile-menu/app-sidebar';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { FontSizeProvider } from '@/contexts/FontSizeProvider';
-import { Outlet } from 'react-router-dom';
+import { smoothScrollTo } from '@/utils/functions';
+import { useEffect } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 
 const SpwLayout = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setTimeout(() => {
+      smoothScrollTo(0, 0, 500);
+    }, 0);
+  }, [pathname]);
+
   return (
     <>
       {/* Web */}

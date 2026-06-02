@@ -144,6 +144,22 @@ export const getAssociations = async ({ page, search, signal }: ListProps) => {
 
 // -------------------------------
 
+export const getAssociationsWb = async ({
+  page,
+  signal,
+}: {
+  page: number;
+  signal: AbortSignal;
+}) => {
+  const res = await simpleFetch.get(sportsWeb.infoAbout.associations, {
+    params: { page },
+    signal,
+  });
+  return res.data.data;
+};
+
+// -------------------------------
+
 const formatAssociationPayload = (data: AssociationSchema) => {
   const formData = new FormData();
 

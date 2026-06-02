@@ -33,7 +33,7 @@ const SpwStadium = () => {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem className="text-primary/70 tracking-normal md:tracking-wider text-xs md:text-sm font-medium font-roboto hover:text-primary/50">
-              <Link to={`/${titles.SPORTS_WEB_URL}/stadiums`}>STADIUMS</Link>
+              <Link to={`${titles.SPORTS_WEB_URL}/stadiums`}>STADIUMS</Link>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem className="text-primary tracking-normal md:tracking-wider text-xs md:text-sm font-medium font-roboto">
@@ -73,7 +73,7 @@ const SpwStadium = () => {
             </>
           )}
           {data?.stadium_images && data?.stadium_images?.length > 0 && (
-            <div className="flex flex-wrap justify-center gap-2 md:gap-8 mt-8">
+            <div className="flex flex-wrap justify-center md:justify-start gap-2 md:gap-4 mt-8">
               {data?.stadium_images.map((img) => (
                 <div key={img.image_path} className="max-w-40 max-h-40">
                   <img

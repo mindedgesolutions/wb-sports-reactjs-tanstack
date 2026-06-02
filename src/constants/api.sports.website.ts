@@ -34,5 +34,6 @@ export const sportsWeb = {
   infoAbout: {
     stadiums: `${prefix}/stadiums/all`,
     stadium: (slug: string) => `${prefix}/stadium-info/${slug}`,
+    associations: `${prefix}/associations/all`,
   },
 };
