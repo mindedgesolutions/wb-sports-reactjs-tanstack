@@ -2,11 +2,13 @@ import { useQuery, type UseQueryOptions } from '@tanstack/react-query';
 import {
   fetchFifaGallery,
   fetchStadium,
+  fetchStadiumWb,
   getAssociations,
   getAssocSites,
   getFifaGallery,
   getSportsPolicies,
   getStadiums,
+  getStadiumsWb,
 } from './info-about.api';
 
 type ParamProps = {
@@ -23,6 +25,15 @@ export const useStadiums = ({ page, search }: ParamProps) => {
 
 // -------------------------------
 
+export const useStadiumsWb = () => {
+  return useQuery({
+    queryKey: ['stadiums-web'],
+    queryFn: ({ signal }) => getStadiumsWb({ signal }),
+  });
+};
+
+// -------------------------------
+
 type StadiumQueryOptions = Omit<UseQueryOptions<any>, 'queryKey' | 'queryFn'>;
 
 export const useFetchStadium = (id: number, options: StadiumQueryOptions) => {
@@ -31,6 +42,16 @@ export const useFetchStadium = (id: number, options: StadiumQueryOptions) => {
     queryFn: ({ signal }: { signal: AbortSignal }) => fetchStadium(id, signal),
     enabled: true,
     ...options,
+  });
+};
+
+// -------------------------------
+
+export const useFetchStadiumWb = ({ slug }: { slug: string }) => {
+  return useQuery({
+    queryKey: ['fetch-stadium', { slug }],
+    queryFn: ({ signal }: { signal: AbortSignal }) =>
+      fetchStadiumWb(slug, signal),
   });
 };
 

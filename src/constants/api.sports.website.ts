@@ -31,4 +31,8 @@ export const sportsWeb = {
       `${prefix}/single-achievement/${sport}`,
     awards: `${prefix}/awards/all`,
   },
+  infoAbout: {
+    stadiums: `${prefix}/stadiums/all`,
+    stadium: (slug: string) => `${prefix}/stadium-info/${slug}`,
+  },
 };

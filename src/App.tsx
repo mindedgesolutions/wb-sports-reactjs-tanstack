@@ -122,6 +122,12 @@ const router = createBrowserRouter([
       { path: 'guiding-principles', element: <pg.SpwGudingPrinciples /> },
       { path: 'players-achievements', element: <pg.SpwPlayersAchievements /> },
       { path: 'awards', element: <pg.SpwAwards /> },
+      { path: 'stadiums', element: <pg.SpwStadiums /> },
+      { path: 'stadium/:slug', element: <pg.SpwStadium /> },
+      { path: 'associations', element: <pg.SpwAssociations /> },
+      { path: 'fifa-u17-wc', element: <pg.SpwFifaGallery /> },
+      { path: 'sports-policies', element: <pg.SpwSportsPolicies /> },
+      { path: 'associated-sites', element: <pg.SpwAssocSites /> },
     ],
   },
 ]);

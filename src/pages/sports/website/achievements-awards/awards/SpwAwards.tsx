@@ -17,9 +17,9 @@ const SpwAwards = () => {
   return (
     <>
       <SpwPageBanner title="Awards" />
-      <SpwSectionWrapper className="mb-4 md:mb-8 gap-8 min-h-80">
+      <SpwSectionWrapper className="max-w-7xl mx-auto mb-4 md:mb-8 gap-8 min-h-80">
         {isLoading && <WbLoader />}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-2">
           {data?.map((t) => {
             const isSelected = selectedAward === t.slug;
             return (

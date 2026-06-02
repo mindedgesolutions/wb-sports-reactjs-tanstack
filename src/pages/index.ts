@@ -59,3 +59,9 @@ export { default as SpwAnnouncements } from '@/pages/sports/website/announcement
 export { default as SpwGudingPrinciples } from '@/pages/sports/website/announcements/guiding-principles/SpwGudingPrinciples';
 export { default as SpwAwards } from '@/pages/sports/website/achievements-awards/awards/SpwAwards';
 export { default as SpwPlayersAchievements } from '@/pages/sports/website/achievements-awards/players-achievements/SpwPlayersAchievements';
+export { default as SpwAssocSites } from '@/pages/sports/website/info-about/assoc-sites/SpwAssocSites';
+export { default as SpwAssociations } from '@/pages/sports/website/info-about/associations/SpwAssociations';
+export { default as SpwFifaGallery } from '@/pages/sports/website/info-about/fifa-u17/SpwFifaGallery';
+export { default as SpwSportsPolicies } from '@/pages/sports/website/info-about/sports-policies/SpwSportsPolicies';
+export { default as SpwStadiums } from '@/pages/sports/website/info-about/stadiums/SpwStadiums';
+export { default as SpwStadium } from '@/pages/sports/website/info-about/stadiums/SpwStadium';

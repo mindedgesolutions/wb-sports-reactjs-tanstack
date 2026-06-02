@@ -1,5 +1,7 @@
 import { customFetch } from '@/axios/custom.fetch';
+import { simpleFetch } from '@/axios/refresh.fetch';
 import { sportsApp } from '@/constants/api.sports';
+import { sportsWeb } from '@/constants/api.sports.website';
 import type {
   AssociationSchema,
   AssocSiteSchema,
@@ -24,6 +26,15 @@ export const getStadiums = async ({ page, search, signal }: ListProps) => {
     signal,
   });
   return res.data;
+};
+
+// -------------------------------
+
+export const getStadiumsWb = async ({ signal }: { signal: AbortSignal }) => {
+  const res = await simpleFetch.get(sportsWeb.infoAbout.stadiums, {
+    signal,
+  });
+  return res.data.data;
 };
 
 // -------------------------------
@@ -65,7 +76,7 @@ const formatStadiumPayload = (data: StadiumSchema) => {
       return;
     }
 
-    if (value !== '' && value !== undefined && value !== null) {
+    if (value === '' || value === undefined || value === null) {
       return;
     }
 
@@ -105,6 +116,15 @@ export const stadiumUpdate = async (data: StadiumSchema, id: number) => {
 
 export const fetchStadium = async (id: number, signal: AbortSignal) => {
   const res = await customFetch.get(sportsApp.infoAbout.stadiums.show(id), {
+    signal,
+  });
+  return res.data.data;
+};
+
+// -------------------------------
+
+export const fetchStadiumWb = async (slug: string, signal: AbortSignal) => {
+  const res = await simpleFetch.get(sportsWeb.infoAbout.stadium(slug), {
     signal,
   });
   return res.data.data;
