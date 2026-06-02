@@ -102,6 +102,15 @@ export const getAwards = async ({ page, search, signal }: ListProps) => {
 
 // -------------------------------
 
+export const getAwardsWb = async ({ signal }: { signal: AbortSignal }) => {
+  const res = await simpleFetch.get(sportsWeb.achievementsAwards.awards, {
+    signal,
+  });
+  return res.data.data;
+};
+
+// -------------------------------
+
 const formatAwardPayload = (data: AwardsSchema) => {
   const formData = new FormData();
 

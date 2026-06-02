@@ -29,5 +29,6 @@ export const sportsWeb = {
   achievementsAwards: {
     playersAchievements: (sport: string) =>
       `${prefix}/single-achievement/${sport}`,
+    awards: `${prefix}/awards/all`,
   },
 };

@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import {
   getAwards,
+  getAwardsWb,
   getPlayersAchievements,
   getPlayersAchievementsWb,
 } from './achievements-awards.api';
@@ -27,7 +28,7 @@ export const usePlayersAchievementsWb = ({
   enabled: boolean;
 }) => {
   return useQuery({
-    queryKey: ['players-achievements', { sport }],
+    queryKey: ['players-achievements-web', { sport }],
     queryFn: ({ signal }) => getPlayersAchievementsWb({ sport, signal }),
     enabled,
   });
@@ -39,5 +40,14 @@ export const useAwards = ({ page, search }: ParamProps) => {
   return useQuery({
     queryKey: ['awards', { page, search }],
     queryFn: ({ signal }) => getAwards({ page, search, signal }),
+  });
+};
+
+// ------------------------------
+
+export const useAwardsWb = () => {
+  return useQuery({
+    queryKey: ['awards-web'],
+    queryFn: ({ signal }) => getAwardsWb({ signal }),
   });
 };
