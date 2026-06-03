@@ -1,4 +1,4 @@
-import { SpwPageBanner, SpwSectionWrapper } from '@/components';
+import { SpwPageBanner, SpwSectionWrapper, WbLoader } from '@/components';
 import { titles, icons } from '@/constants';
 import { useSportsPoliciesWb } from '@/tanstack/sports/info-about/info-about.query';
 import {
@@ -21,8 +21,9 @@ const SpwSportsPolicies = () => {
     <>
       <SpwPageBanner title="Sports Policies" />
       <SpwSectionWrapper className="max-w-7xl mx-auto mb-4 md:mb-8 gap-8 min-h-80">
+        {isLoading && <WbLoader />}
         {!isLoading && (
-          <Table className="text-xs font-roboto text-muted-foreground tracking-wider">
+          <Table className="text-[10px] md:text-xs font-roboto text-muted-foreground tracking-wider">
             <TableHeader>
               <TableRow>
                 <TableHead>#</TableHead>

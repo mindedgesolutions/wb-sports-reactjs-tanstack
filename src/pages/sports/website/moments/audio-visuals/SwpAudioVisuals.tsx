@@ -14,7 +14,7 @@ const SwpAudioVisuals = () => {
       <SpwPageBanner title="Audio Visuals" />
       <SpwSectionWrapper className="max-w-7xl mx-auto mb-4 md:mb-8 gap-8 min-h-80">
         {isLoading && <WbLoader />}
-        <div className="grid grid-cols-4 gap-4 mt-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-8 mt-4">
           {data?.map((t: IAudioVisualRow) => {
             const videoId = getYoutubeVideoId(t.video_link);
             if (!videoId) return null;

@@ -44,5 +44,7 @@ export const sportsWeb = {
     photoGalleries: `${prefix}/photo-galleries`,
     photoGallery: (slug: string) => `${prefix}/photo-gallery/${slug}`,
     audioVisuals: `${prefix}/audio-visuals/all`,
+    bulletins: `${prefix}/bulletins/all`,
+    amphan: `${prefix}/amphan/all`,
   },
 };

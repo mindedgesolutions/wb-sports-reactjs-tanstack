@@ -107,9 +107,9 @@ const SpwPhotoGallery = () => {
           close={() => setOpen(false)}
           slides={originals}
         />
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-8 mt-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-8 mt-8">
           {data?.description && (
-            <div className="col-span-1 md:col-span-4">
+            <div className="col-span-2 md:col-span-4">
               <SpwParagraphWrapper className="text-justify [text-align-last:center]">
                 <div
                   dangerouslySetInnerHTML={{

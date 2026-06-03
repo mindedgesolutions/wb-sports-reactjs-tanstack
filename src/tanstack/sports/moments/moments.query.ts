@@ -13,6 +13,7 @@ import {
   getPhotoGalleryWb,
   getMomentsPhotoGallery,
   getAudioVisualsWb,
+  getBulletinsWb,
 } from './moments.api';
 
 type ParamProps = {
@@ -109,6 +110,25 @@ export const useBulletins = ({ page, search }: ParamProps) => {
     queryKey: ['bulletins', { page, search }],
     queryFn: ({ signal }: { signal: AbortSignal }) =>
       getBulletins({ page, search, signal }),
+  });
+};
+
+// -------------------------------
+
+export const useBulletinsWb = () => {
+  return useInfiniteQuery({
+    queryKey: ['bulletins-web'],
+    queryFn: ({ pageParam = 1, signal }) =>
+      getBulletinsWb({ page: pageParam, signal }),
+
+    initialPageParam: 1,
+
+    getNextPageParam: (lastPage) => {
+      if (lastPage.current_page < lastPage.last_page) {
+        return lastPage.current_page + 1;
+      }
+      return undefined;
+    },
   });
 };
 

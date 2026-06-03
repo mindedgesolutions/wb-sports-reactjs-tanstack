@@ -42,7 +42,7 @@ const SpwPhotoGalleries = () => {
       <SpwPageBanner title="Photo Galleries" />
       <SpwSectionWrapper className="max-w-7xl mx-auto mb-4 md:mb-8 gap-8 min-h-80">
         {isLoading && <WbLoader />}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
           {rows?.map((t: IPhotoGalleryRow) => {
             const hasImage = t.cover_img && !imageErrors[t.slug];
 

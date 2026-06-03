@@ -66,20 +66,20 @@ const SpwAnnouncements = () => {
   return (
     <>
       <SpwPageBanner title={`${category!}s`} />
-      <SpwSectionWrapper className="max-w-7xl mx-auto">
+      <SpwSectionWrapper className="max-w-full md:max-w-7xl mx-auto">
         <FormInput
           name="search"
           iconStart={<HiOutlineMagnifyingGlass />}
           iconEnd={`${data?.pages[0]?.total || 0} records`}
           register={form.register}
           placeholder="Search by reference no. or subject ..."
-          className="w-96"
+          className="w-full md:w-96"
         />
         {isLoading && <WbLoader />}
         <div>
           {!isLoading && (
             <div className="mt-8">
-              <Table className="text-xs font-roboto text-muted-foreground tracking-wider">
+              <Table className="text-[10px] md:text-xs font-roboto text-muted-foreground tracking-wider">
                 <TableHeader>
                   <TableRow>
                     <TableHead>#</TableHead>

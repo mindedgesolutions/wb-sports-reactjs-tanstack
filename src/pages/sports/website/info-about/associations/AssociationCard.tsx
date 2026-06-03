@@ -6,7 +6,7 @@ const AssociationCard = (assoc: IAssociationRow) => {
   const [imageError, setImageError] = useState<boolean>(false);
 
   return (
-    <div className="p-2 grid grid-cols-5 gap-4">
+    <div className="p-1 md:p-2 grid grid-cols-1 md:grid-cols-5 gap-4">
       <div className="col-span-1 flex justify-center items-center">
         {!imageError && assoc.logo ? (
           <img

@@ -251,6 +251,20 @@ export const getBulletins = async ({ page, search, signal }: ListProps) => {
   return res.data;
 };
 
+export const getBulletinsWb = async ({
+  page,
+  signal,
+}: {
+  page: number;
+  signal: AbortSignal;
+}) => {
+  const res = await customFetch.get(sportsApp.moments.bulletins.list, {
+    params: { page },
+    signal,
+  });
+  return res.data.data;
+};
+
 // -------------------------------
 
 const formatBulletinPayload = (data: BulletinsSchema) => {
