@@ -1,11 +1,18 @@
-import { useQuery, type UseQueryOptions } from '@tanstack/react-query';
+import {
+  useInfiniteQuery,
+  useQuery,
+  type UseQueryOptions,
+} from '@tanstack/react-query';
 import {
   getAmphanPhotos,
   getAudioVisuals,
   getBulletins,
   getPhotoGalleries,
+  getMomentsPhotoGalleries,
   getPhotoGallery,
   getPhotoGalleryWb,
+  getMomentsPhotoGallery,
+  getAudioVisualsWb,
 } from './moments.api';
 
 type ParamProps = {
@@ -18,6 +25,37 @@ export const usePhotoGalleries = ({ search, page }: ParamProps) => {
     queryKey: ['photo-galleries', { search, page }],
     queryFn: ({ signal }: { signal: AbortSignal }) =>
       getPhotoGalleries({ search, page, signal }),
+  });
+};
+
+// -------------------------------
+
+export const useMomentsPhotoGalleries = () => {
+  return useInfiniteQuery({
+    queryKey: ['moments-photo-galleries-web'],
+    queryFn: ({ pageParam = 1, signal }) =>
+      getMomentsPhotoGalleries({
+        page: pageParam,
+        signal,
+      }),
+
+    initialPageParam: 1,
+
+    getNextPageParam: (lastPage) => {
+      if (lastPage.current_page < lastPage.last_page) {
+        return lastPage.current_page + 1;
+      }
+
+      return undefined;
+    },
+  });
+};
+
+export const useMomentsPhotoGallery = (slug: string) => {
+  return useQuery({
+    queryKey: ['moments-photo-gallery-web', slug],
+    queryFn: ({ signal }: { signal: AbortSignal }) =>
+      getMomentsPhotoGallery(slug, signal),
   });
 };
 
@@ -52,6 +90,15 @@ export const useAudioVisuals = ({ page, search }: ParamProps) => {
     queryKey: ['audio-visuals', { page, search }],
     queryFn: ({ signal }: { signal: AbortSignal }) =>
       getAudioVisuals({ page, search, signal }),
+  });
+};
+
+// -------------------------------
+
+export const useAudioVisualsWb = () => {
+  return useQuery({
+    queryKey: ['audio-visuals-web'],
+    queryFn: ({ signal }: { signal: AbortSignal }) => getAudioVisualsWb(signal),
   });
 };
 

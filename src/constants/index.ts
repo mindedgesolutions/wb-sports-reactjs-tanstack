@@ -16,6 +16,7 @@ import { FiPhone } from 'react-icons/fi';
 import { MdMailOutline } from 'react-icons/md';
 import { FiGlobe } from 'react-icons/fi';
 import { GiSoccerBall } from 'react-icons/gi';
+import { TfiGallery } from 'react-icons/tfi';
 
 export const titles = {
   SPORTS_APP_NAME: import.meta.env.VITE_SPORTS_APP_NAME,
@@ -65,6 +66,7 @@ export const icons = {
   email: MdMailOutline,
   internet: FiGlobe,
   football: GiSoccerBall,
+  photoGallery: TfiGallery,
 };
 
 // -------------------------------

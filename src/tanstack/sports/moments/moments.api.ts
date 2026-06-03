@@ -42,6 +42,34 @@ export const getPhotoGallery = async (id: number, signal: AbortSignal) => {
 
 // -------------------------------
 
+export const getMomentsPhotoGalleries = async ({
+  page,
+  signal,
+}: {
+  page: number;
+  signal: AbortSignal;
+}) => {
+  const res = await simpleFetch.get(sportsWeb.moments.photoGalleries, {
+    params: { page },
+    signal,
+  });
+  return res.data.data;
+};
+
+// -------------------------------
+
+export const getMomentsPhotoGallery = async (
+  slug: string,
+  signal: AbortSignal,
+) => {
+  const res = await simpleFetch.get(sportsWeb.moments.photoGallery(slug), {
+    signal,
+  });
+  return res.data.data;
+};
+
+// -------------------------------
+
 export const getPhotoGalleryWb = async (count: number, signal: AbortSignal) => {
   const res = await simpleFetch.get(
     sportsWeb.homepage.visionMissionImages(count),
@@ -162,6 +190,15 @@ export const getAudioVisuals = async ({ page, search, signal }: ListProps) => {
     signal,
   });
   return res.data;
+};
+
+// -------------------------------
+
+export const getAudioVisualsWb = async (signal: AbortSignal) => {
+  const res = await simpleFetch.get(sportsWeb.moments.audioVisuals, {
+    signal,
+  });
+  return res.data.data;
 };
 
 // -------------------------------

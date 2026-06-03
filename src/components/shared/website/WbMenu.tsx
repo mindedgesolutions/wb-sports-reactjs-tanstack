@@ -70,7 +70,7 @@ const WbMenu = ({ menu }: { menu: IWebsiteMenuProps }) => {
                       </div>
 
                       {/* label */}
-                      <h6 className="text-primary-foreground dark:text-primary-foreground text-xs transition-colors duration-300 group-hover/menubox:text-primary-foreground">
+                      <h6 className="text-primary-foreground dark:text-primary-foreground text-sm transition-colors duration-300 group-hover/menubox:text-primary-foreground">
                         {subMenu.name}
                       </h6>
                     </div>

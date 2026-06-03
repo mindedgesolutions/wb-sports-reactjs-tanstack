@@ -66,3 +66,8 @@ export { default as SpwFifaGallery } from '@/pages/sports/website/info-about/fif
 export { default as SpwSportsPolicies } from '@/pages/sports/website/info-about/sports-policies/SpwSportsPolicies';
 export { default as SpwStadiums } from '@/pages/sports/website/info-about/stadiums/SpwStadiums';
 export { default as SpwStadium } from '@/pages/sports/website/info-about/stadiums/SpwStadium';
+export { default as SpwAmphan } from '@/pages/sports/website/moments/amphan/SpwAmphan';
+export { default as SwpAudioVisuals } from '@/pages/sports/website/moments/audio-visuals/SwpAudioVisuals';
+export { default as SpwBulletins } from '@/pages/sports/website/moments/bulletins/SpwBulletins';
+export { default as SpwPhotoGalleries } from '@/pages/sports/website/moments/photo-galleries/SpwPhotoGalleries';
+export { default as SpwPhotoGallery } from '@/pages/sports/website/moments/photo-galleries/SpwPhotoGallery';

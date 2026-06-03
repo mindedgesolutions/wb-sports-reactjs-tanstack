@@ -129,6 +129,11 @@ const router = createBrowserRouter([
       { path: 'fifa-gallery/:slug', element: <pg.SpwFifaGallery /> },
       { path: 'sports-policies', element: <pg.SpwSportsPolicies /> },
       { path: 'associated-sites', element: <pg.SpwAssocSites /> },
+      { path: 'photo-galleries', element: <pg.SpwPhotoGalleries /> },
+      { path: 'photo-gallery/:slug', element: <pg.SpwPhotoGallery /> },
+      { path: 'audio-visuals', element: <pg.SwpAudioVisuals /> },
+      { path: 'bulletins', element: <pg.SpwBulletins /> },
+      { path: 'amphan', element: <pg.SpwAmphan /> },
     ],
   },
 ]);

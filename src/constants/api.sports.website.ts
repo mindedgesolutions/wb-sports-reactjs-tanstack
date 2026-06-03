@@ -40,4 +40,9 @@ export const sportsWeb = {
     sportsPolicies: `${prefix}/sports-policies/all`,
     assocSites: `${prefix}/assoc-sites/all`,
   },
+  moments: {
+    photoGalleries: `${prefix}/photo-galleries`,
+    photoGallery: (slug: string) => `${prefix}/photo-gallery/${slug}`,
+    audioVisuals: `${prefix}/audio-visuals/all`,
+  },
 };
