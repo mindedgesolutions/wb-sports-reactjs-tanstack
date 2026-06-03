@@ -15,6 +15,7 @@ import { IoLocationOutline } from 'react-icons/io5';
 import { FiPhone } from 'react-icons/fi';
 import { MdMailOutline } from 'react-icons/md';
 import { FiGlobe } from 'react-icons/fi';
+import { GiSoccerBall } from 'react-icons/gi';
 
 export const titles = {
   SPORTS_APP_NAME: import.meta.env.VITE_SPORTS_APP_NAME,
@@ -63,6 +64,7 @@ export const icons = {
   phone: FiPhone,
   email: MdMailOutline,
   internet: FiGlobe,
+  football: GiSoccerBall,
 };
 
 // -------------------------------

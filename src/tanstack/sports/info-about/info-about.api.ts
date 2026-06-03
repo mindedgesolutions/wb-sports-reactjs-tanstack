@@ -221,8 +221,26 @@ export const getFifaGallery = async ({ page, search, signal }: ListProps) => {
 
 // -------------------------------
 
+export const getFifaGalleryWb = async ({ signal }: { signal: AbortSignal }) => {
+  const res = await simpleFetch.get(sportsWeb.infoAbout.fifa, {
+    signal,
+  });
+  return res.data.data;
+};
+
+// -------------------------------
+
 export const fetchFifaGallery = async (id: number, signal: AbortSignal) => {
   const res = await customFetch.get(sportsApp.infoAbout.fifa.show(id), {
+    signal,
+  });
+  return res.data.data;
+};
+
+// -------------------------------
+
+export const fetchFifaGalleryWb = async (slug: string, signal: AbortSignal) => {
+  const res = await simpleFetch.get(sportsWeb.infoAbout.fifaGallery(slug), {
     signal,
   });
   return res.data.data;
@@ -340,6 +358,17 @@ export const getSportsPolicies = async ({
   return res.data;
 };
 
+export const getSportsPoliciesWb = async ({
+  signal,
+}: {
+  signal: AbortSignal;
+}) => {
+  const res = await simpleFetch.get(sportsWeb.infoAbout.sportsPolicies, {
+    signal,
+  });
+  return res.data.data;
+};
+
 // -------------------------------
 
 const formatSportsPolicyPayload = (data: SportsPolicySchema) => {
@@ -398,6 +427,15 @@ export const getAssocSites = async ({ page, search, signal }: ListProps) => {
     signal,
   });
   return res.data;
+};
+
+// -------------------------------
+
+export const getAssocSitesWb = async ({ signal }: { signal: AbortSignal }) => {
+  const res = await simpleFetch.get(sportsWeb.infoAbout.assocSites, {
+    signal,
+  });
+  return res.data.data;
 };
 
 // -------------------------------

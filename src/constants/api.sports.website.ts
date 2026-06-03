@@ -35,5 +35,9 @@ export const sportsWeb = {
     stadiums: `${prefix}/stadiums/all`,
     stadium: (slug: string) => `${prefix}/stadium-info/${slug}`,
     associations: `${prefix}/associations/all`,
+    fifa: `${prefix}/fifa/all`,
+    fifaGallery: (slug: string) => `${prefix}/fifa/gallery/${slug}`,
+    sportsPolicies: `${prefix}/sports-policies/all`,
+    assocSites: `${prefix}/assoc-sites/all`,
   },
 };

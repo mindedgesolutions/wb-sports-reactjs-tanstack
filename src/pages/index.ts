@@ -61,6 +61,7 @@ export { default as SpwAwards } from '@/pages/sports/website/achievements-awards
 export { default as SpwPlayersAchievements } from '@/pages/sports/website/achievements-awards/players-achievements/SpwPlayersAchievements';
 export { default as SpwAssocSites } from '@/pages/sports/website/info-about/assoc-sites/SpwAssocSites';
 export { default as SpwAssociations } from '@/pages/sports/website/info-about/associations/SpwAssociations';
+export { default as SpwFifaGalleries } from '@/pages/sports/website/info-about/fifa-u17/SpwFifaGalleries';
 export { default as SpwFifaGallery } from '@/pages/sports/website/info-about/fifa-u17/SpwFifaGallery';
 export { default as SpwSportsPolicies } from '@/pages/sports/website/info-about/sports-policies/SpwSportsPolicies';
 export { default as SpwStadiums } from '@/pages/sports/website/info-about/stadiums/SpwStadiums';

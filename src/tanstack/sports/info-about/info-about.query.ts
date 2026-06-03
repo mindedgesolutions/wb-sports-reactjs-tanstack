@@ -5,13 +5,17 @@ import {
 } from '@tanstack/react-query';
 import {
   fetchFifaGallery,
+  fetchFifaGalleryWb,
   fetchStadium,
   fetchStadiumWb,
   getAssociations,
   getAssociationsWb,
   getAssocSites,
+  getAssocSitesWb,
   getFifaGallery,
+  getFifaGalleryWb,
   getSportsPolicies,
+  getSportsPoliciesWb,
   getStadiums,
   getStadiumsWb,
 } from './info-about.api';
@@ -103,6 +107,15 @@ export const useFifaGalleries = ({ page, search }: ParamProps) => {
 
 // -------------------------------
 
+export const useFifaGalleriesWb = () => {
+  return useQuery({
+    queryKey: ['fifa-galleries-web'],
+    queryFn: ({ signal }) => getFifaGalleryWb({ signal }),
+  });
+};
+
+// -------------------------------
+
 type FifaGalleryQueryOptions = Omit<
   UseQueryOptions<any>,
   'queryKey' | 'queryFn'
@@ -123,6 +136,16 @@ export const useFetchFifaGallery = (
 
 // -------------------------------
 
+export const useFetchFifaGalleryWb = (slug: string) => {
+  return useQuery({
+    queryKey: ['fetch-fifa-gallery-web', { slug }],
+    queryFn: ({ signal }: { signal: AbortSignal }) =>
+      fetchFifaGalleryWb(slug, signal),
+  });
+};
+
+// -------------------------------
+
 export const useSportsPolicies = ({ search, page }: ParamProps) => {
   return useQuery({
     queryKey: ['sports-policies', { search, page }],
@@ -133,9 +156,28 @@ export const useSportsPolicies = ({ search, page }: ParamProps) => {
 
 // -------------------------------
 
+export const useSportsPoliciesWb = () => {
+  return useQuery({
+    queryKey: ['sports-policies-web'],
+    queryFn: ({ signal }: { signal: AbortSignal }) =>
+      getSportsPoliciesWb({ signal }),
+  });
+};
+
+// -------------------------------
+
 export const useAssocSites = ({ search, page }: ParamProps) => {
   return useQuery({
     queryKey: ['assoc-sites', { page, search }],
     queryFn: ({ signal }) => getAssocSites({ page, search, signal }),
+  });
+};
+
+// -------------------------------
+
+export const useAssocSitesWb = () => {
+  return useQuery({
+    queryKey: ['assoc-sites-web'],
+    queryFn: ({ signal }) => getAssocSitesWb({ signal }),
   });
 };
