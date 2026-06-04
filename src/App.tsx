@@ -134,6 +134,9 @@ const router = createBrowserRouter([
       { path: 'audio-visuals', element: <pg.SwpAudioVisuals /> },
       { path: 'bulletins', element: <pg.SpwBulletins /> },
       { path: 'amphan', element: <pg.SpwAmphan /> },
+      { path: 'rti-act-2005', element: <pg.SpwRtiTwoThousandFive /> },
+      { path: 'rti-rules-2006', element: <pg.SpwRtiTwoThousandSix /> },
+      { path: 'rti-notices', element: <pg.SpwRtiNotices /> },
     ],
   },
 ]);

@@ -76,7 +76,7 @@ export const bulletinsSchema = z
     }
 
     if (newFile) {
-      if (!fileTypes().documentTypes.includes(newFile.type)) {
+      if (!fileTypes().anyTypes.includes(newFile.type)) {
         ctx.addIssue({
           code: 'custom',
           path: ['newFile'],

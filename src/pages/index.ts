@@ -71,3 +71,6 @@ export { default as SwpAudioVisuals } from '@/pages/sports/website/moments/audio
 export { default as SpwBulletins } from '@/pages/sports/website/moments/bulletins/SpwBulletins';
 export { default as SpwPhotoGalleries } from '@/pages/sports/website/moments/photo-galleries/SpwPhotoGalleries';
 export { default as SpwPhotoGallery } from '@/pages/sports/website/moments/photo-galleries/SpwPhotoGallery';
+export { default as SpwRtiTwoThousandFive } from '@/pages/sports/website/rti/rti-2005/SpwRtiTwoThousandFive';
+export { default as SpwRtiTwoThousandSix } from '@/pages/sports/website/rti/rti-2006/SpwRtiTwoThousandSix';
+export { default as SpwRtiNotices } from '@/pages/sports/website/rti/notices/SpwRtiNotices';

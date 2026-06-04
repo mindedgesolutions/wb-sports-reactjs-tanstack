@@ -251,6 +251,8 @@ export const getBulletins = async ({ page, search, signal }: ListProps) => {
   return res.data;
 };
 
+// -------------------------------
+
 export const getBulletinsWb = async ({
   page,
   signal,
@@ -258,7 +260,7 @@ export const getBulletinsWb = async ({
   page: number;
   signal: AbortSignal;
 }) => {
-  const res = await customFetch.get(sportsApp.moments.bulletins.list, {
+  const res = await simpleFetch.get(sportsWeb.moments.bulletins, {
     params: { page },
     signal,
   });
@@ -328,6 +330,22 @@ export const getAmphanPhotos = async ({ page, search, signal }: ListProps) => {
     signal,
   });
   return res.data;
+};
+
+// -------------------------------
+
+export const getAmphanPhotosWb = async ({
+  page,
+  signal,
+}: {
+  page: number;
+  signal: AbortSignal;
+}) => {
+  const res = await simpleFetch.get(sportsWeb.moments.amphan, {
+    params: { page },
+    signal,
+  });
+  return res.data.data;
 };
 
 // -------------------------------

@@ -1,3 +1,4 @@
+import { ModeToggle } from '@/components/dark-mode/mode-toggle';
 import { useFontSize } from '@/contexts/FontSizeProvider';
 import { Minus, Plus } from 'lucide-react';
 
@@ -27,7 +28,7 @@ const WbTopButtonContainer = () => {
         >
           <span className="text-xs md:text-sm">A</span>
         </div>
-        {/* <ModeToggleServices /> */}
+        <ModeToggle />
       </div>
     </div>
   );

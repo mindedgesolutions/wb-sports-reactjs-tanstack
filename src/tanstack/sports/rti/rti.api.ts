@@ -1,5 +1,7 @@
 import { customFetch } from '@/axios/custom.fetch';
+import { simpleFetch } from '@/axios/refresh.fetch';
 import { sportsApp } from '@/constants/api.sports';
+import { sportsWeb } from '@/constants/api.sports.website';
 import type { RtiNoticeSchema } from '@/schema/sports/rti.schema';
 import { parseDate } from '@/utils/date.utils';
 
@@ -15,6 +17,16 @@ export const getRtiNotices = async ({ page, search, signal }: ListProps) => {
     signal,
   });
   return res.data;
+};
+
+// -----------------------------------
+
+export const getRtiNoticesWb = async ({ page, search, signal }: ListProps) => {
+  const res = await simpleFetch.get(sportsWeb.rti.notices, {
+    params: { search, page },
+    signal,
+  });
+  return res.data.data;
 };
 
 // -----------------------------------

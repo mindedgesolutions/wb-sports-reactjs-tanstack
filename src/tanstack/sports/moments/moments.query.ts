@@ -14,6 +14,7 @@ import {
   getMomentsPhotoGallery,
   getAudioVisualsWb,
   getBulletinsWb,
+  getAmphanPhotosWb,
 } from './moments.api';
 
 type ParamProps = {
@@ -139,5 +140,24 @@ export const useAmphanPhotos = ({ page, search }: ParamProps) => {
     queryKey: ['amphan-photos', { page, search }],
     queryFn: ({ signal }: { signal: AbortSignal }) =>
       getAmphanPhotos({ page, search, signal }),
+  });
+};
+
+// -------------------------------
+
+export const useAmphanPhotosWb = () => {
+  return useInfiniteQuery({
+    queryKey: ['amphan-photos-web'],
+    queryFn: ({ pageParam = 1, signal }) =>
+      getAmphanPhotosWb({ page: pageParam, signal }),
+
+    initialPageParam: 1,
+
+    getNextPageParam: (lastPage) => {
+      if (lastPage.current_page < lastPage.last_page) {
+        return lastPage.current_page + 1;
+      }
+      return undefined;
+    },
   });
 };
