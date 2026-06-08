@@ -74,3 +74,7 @@ export { default as SpwPhotoGallery } from '@/pages/sports/website/moments/photo
 export { default as SpwRtiTwoThousandFive } from '@/pages/sports/website/rti/rti-2005/SpwRtiTwoThousandFive';
 export { default as SpwRtiTwoThousandSix } from '@/pages/sports/website/rti/rti-2006/SpwRtiTwoThousandSix';
 export { default as SpwRtiNotices } from '@/pages/sports/website/rti/notices/SpwRtiNotices';
+export { default as SpwContactUs } from '@/pages/sports/website/contact-us/SpwContactUs';
+export { default as SpwPrivacyPolicies } from '@/pages/sports/website/privacy-policies/SpwPrivacyPolicies';
+export { default as SpwFeedback } from '@/pages/sports/website/feedback/SpwFeedback';
+export { default as SpwSitemap } from '@/pages/sports/website/sitemap/SpwSitemap';

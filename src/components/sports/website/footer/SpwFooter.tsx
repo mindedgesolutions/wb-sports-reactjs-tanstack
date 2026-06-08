@@ -1,15 +1,12 @@
+import SpwFooterBottom from './SpwFooterBottom';
+import SpwFooterTop from './SpwFooterTop';
+
 const SpwFooter = () => {
   return (
-    <div>
-      <div
-        className="h-44 opacity-20 bg-repeat-x bg-bottom"
-        style={{
-          backgroundImage: "url('/kolkata.png')",
-          backgroundSize: '600px auto',
-        }}
-      />
-      SpwFooter
-    </div>
+    <>
+      <SpwFooterTop />
+      <SpwFooterBottom />
+    </>
   );
 };
 export default SpwFooter;

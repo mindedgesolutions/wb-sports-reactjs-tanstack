@@ -137,6 +137,10 @@ const router = createBrowserRouter([
       { path: 'rti-act-2005', element: <pg.SpwRtiTwoThousandFive /> },
       { path: 'rti-rules-2006', element: <pg.SpwRtiTwoThousandSix /> },
       { path: 'rti-notices', element: <pg.SpwRtiNotices /> },
+      { path: 'contact-us', element: <pg.SpwContactUs /> },
+      { path: 'feedback', element: <pg.SpwFeedback /> },
+      { path: 'privacy-policies', element: <pg.SpwPrivacyPolicies /> },
+      { path: 'site-map', element: <pg.SpwSitemap /> },
     ],
   },
 ]);

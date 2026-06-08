@@ -3,6 +3,7 @@ import nicLogo from '@/assets/images/NIC_Logo.png';
 import spSignin from '@/assets/images/sp-signin.jpg';
 import profileImg from '@/assets/images/000m.jpg';
 import nationalEmblem from '@/assets/images/national-emblem.png';
+import nationalEmblemInverted from '@/assets/images/national-emblem-inverted.png';
 import cmImg from '@/assets/images/subhendu.jpeg';
 import micImg from '@/assets/images/Shri_Nisith_Pramanik_Minister.jpeg';
 import demoImg from '@/assets/images/demo.jpg';
@@ -54,6 +55,7 @@ export const images = {
   micImg,
   demoImg,
   defaultBanner,
+  nationalEmblemInverted,
 };
 
 // -------------------------------
