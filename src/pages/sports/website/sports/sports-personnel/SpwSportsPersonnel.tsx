@@ -50,7 +50,7 @@ const SpwSportsPersonnel = () => {
         <div>
           {!isLoading && (
             <div className="mt-8 max-w-7xl mx-auto">
-              <Table className="text-[10px] md:text-xs font-roboto text-muted-foreground tracking-wider">
+              <Table className="text-[10px] md:text-xs font-inter text-muted-foreground tracking-wider">
                 <TableHeader>
                   <TableRow>
                     <TableHead>#</TableHead>

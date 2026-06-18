@@ -74,7 +74,7 @@ const SpwPhotoGalleries = () => {
                     )}
                   </Link>
                 </div>
-                <div className="p-2 text-xs font-roboto tracking-wider text-center leading-5 uppercase">
+                <div className="p-2 text-xs font-inter tracking-wider text-center leading-5 uppercase">
                   {t.title}
                 </div>
               </div>

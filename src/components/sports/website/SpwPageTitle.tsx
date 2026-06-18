@@ -10,10 +10,10 @@ const SpwPageTitle = ({
   className?: string;
 }) => {
   return (
-    <div className="flex flex-col justify-center items-center font-roboto mb-4 md:mb-8">
+    <div className="flex flex-col justify-center items-center font-inter mb-4 md:mb-8">
       <span
         className={cn(
-          'uppercase tracking-wider font-semibold text-base md:text-2xl text-primary',
+          'uppercase tracking-wider font-semibold font-oswald text-base md:text-2xl text-primary',
           className,
         )}
       >

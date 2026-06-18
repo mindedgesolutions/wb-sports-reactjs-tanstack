@@ -4,8 +4,9 @@ import spSignin from '@/assets/images/sp-signin.jpg';
 import profileImg from '@/assets/images/000m.jpg';
 import nationalEmblem from '@/assets/images/national-emblem.png';
 import nationalEmblemInverted from '@/assets/images/national-emblem-inverted.png';
-import cmImg from '@/assets/images/subhendu.jpeg';
-import micImg from '@/assets/images/Shri_Nisith_Pramanik_Minister.jpeg';
+import saImg from '@/assets/images/sports/ministers/subhendu.jpg.jpeg';
+import npImg from '@/assets/images/sports/ministers/indranil-khan.jpeg';
+import rpImg from '@/assets/images/sports/ministers/rajesh-pandey.jpg';
 import demoImg from '@/assets/images/demo.jpg';
 import defaultBanner from '@/assets/images/default_banner.png';
 // Icons used throughout
@@ -51,8 +52,8 @@ export const images = {
   spSignin,
   profileImg,
   nationalEmblem,
-  cmImg,
-  micImg,
+  saImg,
+  npImg,
   demoImg,
   defaultBanner,
   nationalEmblemInverted,
@@ -134,13 +135,21 @@ export const spAnnouncementTypes = [
 
 export const homepageMentions: IHomepageMention[] = [
   {
-    name: 'Suvendu Adhikari',
+    name: 'Shri Suvendu Adhikari',
     designation: `Hon'ble Chief Minister`,
-    image: images.cmImg,
+    image: saImg,
+    gov: 'Government of West Bengal',
   },
   {
-    name: 'Nisith Pramanik',
-    designation: `Hon'ble MIC`,
-    image: images.micImg,
+    name: 'Dr. Indranil Khan',
+    designation: `MOS (Independent Charge)`,
+    image: npImg,
+    gov: 'Department of Youth Services and Sports',
+  },
+  {
+    name: 'Shri Rajesh Pandey',
+    designation: 'Additional Chief Secretary',
+    image: rpImg,
+    gov: 'Department of Youth Services and Sports',
   },
 ];

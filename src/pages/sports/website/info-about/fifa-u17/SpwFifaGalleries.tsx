@@ -42,7 +42,7 @@ const SpwFifaGalleries = () => {
                 ) : (
                   <icons.football className="h-full w-full p-8 text-muted-foreground/20" />
                 )}
-                <h1 className="text-xs font-roboto font-normal md:font-medium text-center tracking-widest md:uppercase">
+                <h1 className="text-xs font-inter font-normal md:font-medium text-center tracking-widest md:uppercase">
                   {gallery.name}
                 </h1>
               </Link>

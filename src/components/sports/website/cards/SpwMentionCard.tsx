@@ -9,7 +9,7 @@ const SpwMentionCard = ({
   className?: string;
 }) => {
   return (
-    <div className={cn('p-2 w-60 font-roboto', className)}>
+    <div className={cn('p-2 w-60 font-inter', className)}>
       <div className="flex flex-col items-center gap-4">
         <div className="w-32 h-32 rounded-full overflow-hidden">
           {mention.image ? (
@@ -22,11 +22,11 @@ const SpwMentionCard = ({
             <User className="p-8 w-full h-full bg-muted text-muted-foreground/50" />
           )}
         </div>
-        <div className="flex flex-col items-center gap-1.5">
-          <span className="text-primary uppercase text-base font-semibold tracking-wider">
+        <div className="flex flex-col items-center">
+          <span className="mt-4 text-sm font-semibold font-inter uppercase tracking-wider text-primary">
             {mention.name}
           </span>
-          <span className="text-muted-foreground text-sm font-medium tracking-wider">
+          <span className="mt-2 text-muted-foreground/70 tracking-widest text-xs font-inter">
             {mention.designation}
           </span>
         </div>

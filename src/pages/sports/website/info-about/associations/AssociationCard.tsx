@@ -21,18 +21,18 @@ const AssociationCard = (assoc: IAssociationRow) => {
         )}
       </div>
       <div className="col-span-4 flex flex-col gap-4">
-        <h1 className="text-sm font-roboto tracking-wider font-medium uppercase text-primary">
+        <h1 className="text-sm font-inter tracking-wider font-medium uppercase text-primary">
           {assoc.name}
         </h1>
         <div className="flex flex-col gap-4">
           <span className="flex flex-row items-center gap-2">
             <icons.location />
-            <p className="text-xs font-roboto tracking-wider font-normal uppercase">
+            <p className="text-xs font-inter tracking-wider font-normal uppercase">
               {assoc.address || `N/A`}
             </p>
           </span>
           {(assoc.phone_1 || assoc.phone_2) && (
-            <div className="flex flex-col gap-2 text-xs font-roboto tracking-wider font-normal uppercase">
+            <div className="flex flex-col gap-2 text-xs font-inter tracking-wider font-normal uppercase">
               {assoc.phone_1 && (
                 <span className="flex flex-row justify-start items-center gap-2">
                   <icons.phone />
@@ -50,7 +50,7 @@ const AssociationCard = (assoc: IAssociationRow) => {
           {assoc.email && (
             <span className="flex flex-row justify-start items-center gap-2">
               <icons.email />
-              <span className="text-xs font-roboto tracking-wider font-normal">
+              <span className="text-xs font-inter tracking-wider font-normal">
                 {assoc.email}
               </span>
             </span>
@@ -62,7 +62,7 @@ const AssociationCard = (assoc: IAssociationRow) => {
                 href={assoc.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-roboto tracking-wider font-normal"
+                className="text-xs font-inter tracking-wider font-normal"
               >
                 <span>{assoc.website}</span>
               </a>

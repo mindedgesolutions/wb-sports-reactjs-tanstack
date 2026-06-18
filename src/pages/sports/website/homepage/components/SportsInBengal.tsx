@@ -15,14 +15,14 @@ const SportsInBengal = () => {
             title="Sports in Bengal"
             className="text-card-foreground text-center md:text-left"
           />
-          <SpwParagraphWrapper className="mb-4 md:mb-8 text-justify [text-align-last:center] md:[text-align-last:left]">
+          <SpwParagraphWrapper className="mb-8 text-justify [text-align-last:center] md:[text-align-last:left]">
             Bengal's sports culture is vibrant, despite of absence of
             world-class performance by participants. It's the love for sports
             and games among the people that creates this vibrancy. That love may
             remain unrewarded with trophies, yet ardent passion for sports
             continues unabated.
           </SpwParagraphWrapper>
-          <SpwParagraphWrapper className="mb-4 md:mb-8 text-justify [text-align-last:center] md:[text-align-last:left]">
+          <SpwParagraphWrapper className="mb-8 text-justify [text-align-last:center] md:[text-align-last:left]">
             Kolkata (Calcutta) can easily draw in more than 100,000 spectators
             to even a domestic soccer encounter whereas even international
             football elsewhere will find it difficult to duplicate that kind of

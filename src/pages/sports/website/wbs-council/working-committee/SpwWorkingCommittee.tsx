@@ -49,7 +49,7 @@ const SpwWorkingCommittee = () => {
                         className="list-disc md:text-base marker:text-primary marker:text-2xl list-inside"
                         key={d.id}
                       >
-                        <li className="font-roboto text-xs md:text-sm tracking-wider">
+                        <li className="font-inter text-xs md:text-sm tracking-wider">
                           {d.name}
                         </li>
                       </ol>

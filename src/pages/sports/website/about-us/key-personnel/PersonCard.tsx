@@ -19,13 +19,13 @@ const PersonCard = (t: IKeyPersonnelRow) => {
       </div>
       <div className="relative w-full bg-primary/50 p-5 md:p-10 rounded-t-lg md:rounded-t-2xl"></div>
       <div className="mt-0 md:mt-2.5 flex flex-col items-center">
-        <span className="text-primary min-h-10 md:min-h-auto text-center leading-tight md:leading-normal font-roboto font-semibold tracking-wider text-sm md:text-lg">
+        <span className="text-primary min-h-10 md:min-h-auto text-center leading-tight md:leading-normal font-inter font-semibold tracking-normal text-base">
           {t.name}
         </span>
-        <span className="mt-2 md:mt-4 min-h-10 md:min-h-10 text-center text-card-foreground text-xs md:text-sm font-roboto tracking-wider leading-4 [text-align-last:center]">
+        <span className="mt-4 min-h-10 md:min-h-8 text-center text-card-foreground text-xs font-medium font-inter tracking-wider leading-4 [text-align-last:center]">
           {t.designation}
         </span>
-        <span className="text-muted-foreground text-xs font-roboto tracking-wider">
+        <span className="text-muted-foreground text-xs font-inter tracking-wider">
           Govt. of West Bengal
         </span>
       </div>

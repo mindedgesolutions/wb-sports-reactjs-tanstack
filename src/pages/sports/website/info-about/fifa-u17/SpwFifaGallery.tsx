@@ -68,13 +68,13 @@ const SpwFifaGallery = () => {
         {isLoading && <WbLoader />}
         <Breadcrumb>
           <BreadcrumbList>
-            <BreadcrumbItem className="text-primary/70 tracking-normal md:tracking-wider text-xs md:text-sm font-medium font-roboto hover:text-primary/50">
+            <BreadcrumbItem className="text-primary/70 tracking-normal md:tracking-wider text-xs md:text-sm font-medium font-inter hover:text-primary/50">
               <Link to={`${titles.SPORTS_WEB_URL}/fifa-u17-wc`}>
                 FIFA U-17 World Cup
               </Link>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
-            <BreadcrumbItem className="text-primary tracking-normal md:tracking-wider text-xs md:text-sm font-medium font-roboto">
+            <BreadcrumbItem className="text-primary tracking-normal md:tracking-wider text-xs md:text-sm font-medium font-inter">
               {data?.name}
             </BreadcrumbItem>
           </BreadcrumbList>
@@ -134,7 +134,7 @@ const SpwFifaGallery = () => {
             ) : (
               <div className="flex flex-col justify-center items-center">
                 <icons.football className="h-32 w-32 text-muted-foreground/20" />
-                <span className="text-xs font-roboto tracking-wider mt-4">{`<File missing>`}</span>
+                <span className="text-xs font-inter tracking-wider mt-4">{`<File missing>`}</span>
               </div>
             );
           })}

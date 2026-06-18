@@ -9,24 +9,24 @@ const WbTopButtonContainer = () => {
     <div className="mr-2 md:mr-8">
       <div className="flex flex-row justify-center items-center gap-2 rounded-md">
         <div
-          className="h-5 md:h-7 w-7 md:w-9 cursor-pointer flex flex-row justify-center items-center gap-0.5 text-muted-foreground border"
+          className="py-0.5 w-8 border cursor-pointer flex flex-row justify-center items-center gap-0.5 hover:bg-card"
           onClick={increase}
         >
-          <span className="text-xs md:text-sm">A</span>
-          <Plus className="size-2" />
+          <span className="text-xs">A</span>
+          <Plus size={8} />
         </div>
         <div
-          className="h-5 md:h-7 w-7 md:w-9 cursor-pointer flex flex-row justify-center items-center gap-0.5 text-muted-foreground border"
+          className="py-0.5 w-8 border cursor-pointer flex flex-row justify-center items-center gap-0.5 hover:bg-card"
           onClick={decrease}
         >
-          <span className="text-xs md:text-sm">A</span>
-          <Minus className="size-2" />
+          <span className="text-xs">A</span>
+          <Minus size={8} />
         </div>
         <div
-          className="h-5 md:h-7 w-7 md:w-9 cursor-pointer flex flex-row justify-center items-center gap-0.5 text-muted-foreground border"
+          className="py-0.5 w-8 border cursor-pointer flex flex-row justify-center items-center gap-0.5 hover:bg-card"
           onClick={reset}
         >
-          <span className="text-xs md:text-sm">A</span>
+          <span className="text-xs">A</span>
         </div>
         <ModeToggle />
       </div>

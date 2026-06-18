@@ -115,7 +115,7 @@ const SpwAmphan = () => {
             ) : (
               <div className="flex flex-col justify-center items-center">
                 <icons.amphan className="h-32 w-32 text-muted-foreground/20" />
-                <span className="text-xs font-roboto tracking-wider mt-4">{`<File missing>`}</span>
+                <span className="text-xs font-inter tracking-wider mt-4">{`<File missing>`}</span>
               </div>
             );
           })}

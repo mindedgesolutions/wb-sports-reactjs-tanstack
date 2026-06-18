@@ -54,7 +54,7 @@ const SpwBulletins = () => {
                     <div className="w-full p-10 overflow-hidden">
                       <icons.pdf className="h-full w-full object-cover text-muted-foreground/20" />
                     </div>
-                    <div className="p-2 text-center text-xs font-roboto tracking-wider uppercase">
+                    <div className="p-2 text-center text-xs font-inter tracking-wider uppercase">
                       {t.name}
                     </div>
                   </div>

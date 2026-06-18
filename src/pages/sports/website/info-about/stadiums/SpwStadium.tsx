@@ -32,11 +32,11 @@ const SpwStadium = () => {
         {isLoading && <WbLoader />}
         <Breadcrumb>
           <BreadcrumbList>
-            <BreadcrumbItem className="text-primary/70 tracking-normal md:tracking-wider text-xs md:text-sm font-medium font-roboto hover:text-primary/50">
+            <BreadcrumbItem className="text-primary/70 tracking-normal md:tracking-wider text-xs md:text-sm font-medium font-inter hover:text-primary/50">
               <Link to={`${titles.SPORTS_WEB_URL}/stadiums`}>STADIUMS</Link>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
-            <BreadcrumbItem className="text-primary tracking-normal md:tracking-wider text-xs md:text-sm font-medium font-roboto">
+            <BreadcrumbItem className="text-primary tracking-normal md:tracking-wider text-xs md:text-sm font-medium font-inter">
               {data?.name}
             </BreadcrumbItem>
           </BreadcrumbList>
@@ -63,7 +63,7 @@ const SpwStadium = () => {
                   {data?.stadium_highlights.map((highlight, index: number) => (
                     <li
                       key={index}
-                      className="mb-2 md:mb-4 last-of-type:mb-0 ml-0 md:ml-4 text-xs md:text-sm font-roboto"
+                      className="mb-2 md:mb-4 last-of-type:mb-0 ml-0 md:ml-4 text-xs md:text-sm font-inter"
                     >
                       {highlight.title}
                     </li>

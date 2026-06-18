@@ -25,7 +25,7 @@ const SpwGudingPrinciples = () => {
                 {t.points.map((p) => (
                   <li
                     key={p.id}
-                    className="mb-4 text-xs md:text-sm font-roboto tracking-normal md:tracking-wider leading-normal md:leading-relaxed text-justify last-of-type:mb-0 ml-0 md:ml-4"
+                    className="mb-4 text-xs md:text-sm font-inter tracking-normal md:tracking-wider leading-normal md:leading-relaxed text-justify last-of-type:mb-0 ml-0 md:ml-4"
                   >
                     {p.description}
                   </li>

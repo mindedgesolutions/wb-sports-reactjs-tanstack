@@ -58,4 +58,5 @@ interface IHomepageMention {
   name: string;
   designation: string;
   image?: string;
+  gov?: string;
 }

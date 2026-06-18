@@ -20,7 +20,7 @@ const SpwAssocSites = () => {
               href={site.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mb-1 last-of-type:mb-0 ml-0 md:ml-4 font-roboto tracking-wider text-justify hover:text-primary"
+              className="mb-1 last-of-type:mb-0 ml-0 md:ml-4 font-inter tracking-wider text-justify hover:text-primary"
             >
               <li>{site.title}</li>
             </a>

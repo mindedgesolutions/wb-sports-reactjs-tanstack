@@ -69,13 +69,13 @@ const SpwPhotoGallery = () => {
       <SpwSectionWrapper className="max-w-7xl mx-auto mb-4 md:mb-8 gap-8 min-h-80">
         <Breadcrumb>
           <BreadcrumbList>
-            <BreadcrumbItem className="text-primary/70 tracking-normal md:tracking-wider text-xs md:text-sm font-medium font-roboto hover:text-primary/50 uppercase">
+            <BreadcrumbItem className="text-primary/70 tracking-normal md:tracking-wider text-xs md:text-sm font-medium font-inter hover:text-primary/50 uppercase">
               <Link to={`${titles.SPORTS_WEB_URL}/photo-galleries`}>
                 Photo Galleries
               </Link>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
-            <BreadcrumbItem className="text-primary tracking-normal md:tracking-wider text-xs md:text-sm font-medium font-roboto uppercase">
+            <BreadcrumbItem className="text-primary tracking-normal md:tracking-wider text-xs md:text-sm font-medium font-inter uppercase">
               {data?.title}
             </BreadcrumbItem>
           </BreadcrumbList>
@@ -140,7 +140,7 @@ const SpwPhotoGallery = () => {
             ) : (
               <div className="flex flex-col justify-center items-center">
                 <icons.football className="h-32 w-32 text-muted-foreground/20" />
-                <span className="text-xs font-roboto tracking-wider mt-4">{`<File missing>`}</span>
+                <span className="text-xs font-inter tracking-wider mt-4">{`<File missing>`}</span>
               </div>
             );
           })}
