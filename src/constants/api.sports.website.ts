@@ -48,4 +48,5 @@ export const sportsWeb = {
     amphan: `${prefix}/amphan/all`,
   },
   rti: { notices: `${prefix}/rti-notices/all` },
+  contactUs: { contactUs: `${prefix}/contacts/all` },
 };
