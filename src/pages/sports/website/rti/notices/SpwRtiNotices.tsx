@@ -75,7 +75,7 @@ const SpwRtiNotices = () => {
         <div>
           {!isLoading && (
             <div className="mt-8">
-              <Table className="text-[10px] md:text-xs font-inter text-muted-foreground tracking-wider">
+              <Table className="text-[10px] md:text-[11px] font-inter text-muted-foreground tracking-wider">
                 <TableHeader>
                   <TableRow>
                     <TableHead>#</TableHead>

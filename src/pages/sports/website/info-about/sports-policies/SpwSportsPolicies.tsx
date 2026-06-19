@@ -23,7 +23,7 @@ const SpwSportsPolicies = () => {
       <SpwSectionWrapper className="max-w-7xl mx-auto mb-4 md:mb-8 gap-8 min-h-80">
         {isLoading && <WbLoader />}
         {!isLoading && (
-          <Table className="text-[10px] md:text-xs font-inter text-muted-foreground tracking-wider">
+          <Table className="text-[10px] md:text-[11px] font-inter text-muted-foreground tracking-wider">
             <TableHeader>
               <TableRow>
                 <TableHead>#</TableHead>

@@ -139,17 +139,20 @@ export const homepageMentions: IHomepageMention[] = [
     designation: `Hon'ble Chief Minister`,
     image: saImg,
     gov: 'Government of West Bengal',
+    cm: true,
   },
   {
     name: 'Dr. Indranil Khan',
     designation: `MOS (Independent Charge)`,
     image: npImg,
     gov: 'Department of Youth Services and Sports',
+    cm: false,
   },
   {
     name: 'Shri Rajesh Pandey',
     designation: 'Additional Chief Secretary',
     image: rpImg,
     gov: 'Department of Youth Services and Sports',
+    cm: false,
   },
 ];

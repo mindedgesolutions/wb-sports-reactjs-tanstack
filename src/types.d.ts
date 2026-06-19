@@ -59,4 +59,5 @@ interface IHomepageMention {
   designation: string;
   image?: string;
   gov?: string;
+  cm: boolean;
 }
