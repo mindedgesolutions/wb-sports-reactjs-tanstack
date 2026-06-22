@@ -12,20 +12,24 @@ import {
 import { images, titles } from '@/constants';
 import { useLogout } from '@/tanstack/shared/auth/auth.mutation';
 import { useCurrentUser } from '@/tanstack/shared/auth/auth.query';
+import { getDomainFromPath } from '@/utils/functions';
 import { LogOut, User } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FiUser } from 'react-icons/fi';
 
 const AppProfileContainer = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const domain = pathname.includes(titles.SPORTS_APP_URL)
-    ? 'sports'
-    : 'services';
+  const domain = getDomainFromPath(pathname);
   const redirect = pathname.includes(titles.SPORTS_APP_URL)
     ? titles.SPORTS_APP_URL
     : titles.SERVICES_APP_URL;
-  const logout = useLogout(domain);
-  const user = useCurrentUser().data as IUser;
+
+  const logout = useLogout(domain!);
+  const { data: user, isLoading } = useCurrentUser(domain) as {
+    data: IUser;
+    isLoading: boolean;
+  };
 
   // ------------------------
 
@@ -48,14 +52,16 @@ const AppProfileContainer = () => {
       <DropdownMenuTrigger asChild className="mr-1">
         <div className="flex flex-row flex-wrap items-center gap-2 md:gap-3 px-4 mr-2 md:mr-4 cursor-pointer">
           <section className="text-xs tracking-wider text-muted-foreground">
-            Welcome, {user?.name || 'Guest'}
+            Welcome, {isLoading ? 'Loading ...' : user?.name}
           </section>
           <Avatar>
             <AvatarImage
               src={user?.user_details.profile_img || images.profileImg}
               alt={user?.name}
             />
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarFallback>
+              <FiUser />
+            </AvatarFallback>
           </Avatar>
         </div>
       </DropdownMenuTrigger>
@@ -71,7 +77,9 @@ const AppProfileContainer = () => {
                   src={user?.user_details.profile_img || images.profileImg}
                   alt={user?.name}
                 />
-                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                <AvatarFallback>
+                  <FiUser />
+                </AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-xs leading-tight">
                 <span className="truncate font-medium">{user?.name}</span>

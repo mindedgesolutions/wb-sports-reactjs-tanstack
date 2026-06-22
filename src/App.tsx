@@ -157,7 +157,10 @@ const router = createBrowserRouter([
   {
     path: ysa,
     element: <pg.YsaLayout />,
-    children: [],
+    children: [
+      { path: 'dashboard', element: <pg.YsaDashboard /> },
+      { path: 'banners', element: <pg.YsaBanners /> },
+    ],
   },
   // Youth Services CMS routes end
 

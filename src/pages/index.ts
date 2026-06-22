@@ -82,6 +82,8 @@ export { default as SpwSitemap } from '@/pages/sports/website/sitemap/SpwSitemap
 // Youth Services CMS starts --------
 export { default as YsaSignin } from '@/pages/services/app/YsaSignin';
 export { default as YsaLayout } from '@/pages/services/app/YsaLayout';
+export { default as YsaDashboard } from '@/pages/services/app/dashboard/YsaDashboard';
+export { default as YsaBanners } from '@/pages/services/app/banners/YsaBanners';
 
 // Youth Services website starts --------
 export { default as YswLayout } from '@/pages/services/website/YswLayout';

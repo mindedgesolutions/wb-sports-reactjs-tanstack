@@ -14,10 +14,11 @@ export const useGetCaptcha = () => {
 
 // ------------------------
 
-export const useCurrentUser = () => {
+export const useCurrentUser = (org?: 'sports' | 'services') => {
   return useQuery({
-    queryKey: ['current-user'],
-    queryFn: currentUser,
+    queryKey: ['current-user', org],
+    queryFn: () => currentUser(org!),
+    enabled: !!org,
     retry: false,
   });
 };

@@ -16,13 +16,13 @@ export const login = async (data: any) => {
 // ------------------------
 
 export const logout = async (org: string) => {
-  const res = await customFetch.post(`/auth/logout/${org}`);
+  const res = await customFetch.post(`/${org}/auth/logout/${org}`);
   return res;
 };
 
 // ------------------------
 
-export const currentUser = async () => {
-  const res = await customFetch.get(`/auth/me`);
+export const currentUser = async (org: string) => {
+  const res = await customFetch.get(`/${org}/auth/me`);
   return res.data.data;
 };

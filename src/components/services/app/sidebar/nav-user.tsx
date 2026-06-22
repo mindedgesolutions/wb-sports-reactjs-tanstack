@@ -21,8 +21,8 @@ import { useCurrentUser } from '@/tanstack/shared/auth/auth.query';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getDomainFromPath } from '@/utils/functions';
 import { useLogout } from '@/tanstack/shared/auth/auth.mutation';
-import { FiUser } from 'react-icons/fi';
 import { showSuccess } from '@/alerts/show.success';
+import { FiUser } from 'react-icons/fi';
 
 export function NavUser() {
   const { isMobile } = useSidebar();
@@ -91,13 +91,8 @@ export function NavUser() {
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage
-                    src={user?.user_details.profile_img || images.profileImg}
-                    alt={user?.name}
-                  />
-                  <AvatarFallback>
-                    <FiUser />
-                  </AvatarFallback>
+                  <AvatarImage src={images.profileImg} alt={user?.name} />
+                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-xs leading-tight">
                   <span className="truncate font-medium">{user?.name}</span>

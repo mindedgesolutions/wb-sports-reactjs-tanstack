@@ -181,3 +181,14 @@ export function smoothScrollTo(x: number, y: number, duration: number) {
 
   scroll();
 }
+
+// -----------------------
+
+export const getDomainFromPath = (
+  pathname: string,
+): 'sports' | 'services' | undefined => {
+  if (pathname.startsWith(titles.SPORTS_APP_URL)) return 'sports';
+  if (pathname.startsWith(titles.SERVICES_APP_URL)) return 'services';
+
+  return undefined;
+};
