@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 
 const SpwHeaderTop = ({ className }: { className?: string }) => {
   return (
-    <div className={cn('flex justify-end items-center py-0.5', className)}>
+    <div className={cn('flex justify-end items-center py-0', className)}>
       <WbTopButtonContainer />
     </div>
   );

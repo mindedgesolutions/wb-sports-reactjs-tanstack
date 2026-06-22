@@ -9,7 +9,7 @@ const Introduction = () => {
     <SpwSectionWrapper className="max-w-7xl mx-auto mb-4 md:mb-8">
       <SpwPageTitle
         title="Welcome to Department of youth Services and Sports (Sports Wing)"
-        className="text-center"
+        className="text-center mb-4 md:mb-0"
       />
       <SpwParagraphWrapper className="[text-align-last:center]">
         It is universally accepted that sports is an essential prerequisite for

@@ -1,26 +1,26 @@
+import { showError } from '@/alerts/show.error';
 import { titles } from '@/constants';
+import { signinSchema, type SigninSchema } from '@/schema/auth.schema';
+import { useLogin } from '@/tanstack/shared/auth/auth.mutation';
+import { useGetCaptcha } from '@/tanstack/shared/auth/auth.query';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
 } from '@/components/ui/field';
-import { Link, useNavigate } from 'react-router-dom';
-import { FormInput, FormPassword, SubmitBtn } from '@/components';
-import { useForm } from 'react-hook-form';
-import { signinSchema, type SigninSchema } from '@/schema/auth.schema';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { LockKeyhole, RefreshCcw, User } from 'lucide-react';
-import { useGetCaptcha } from '@/tanstack/shared/auth/auth.query';
+import { FormInput, FormPassword, SubmitBtn } from '@/components';
 import { Spinner } from '@/components/ui/spinner';
-import { useLogin } from '@/tanstack/shared/auth/auth.mutation';
-import { showError } from '@/alerts/show.error';
-import { useEffect, useState } from 'react';
 
 const relativePath = '../../../../';
 
-const SpaSignin = () => {
-  document.title = `Admin Sign In | ${titles.SPORTS_APP_NAME}`;
+const YsaSignin = () => {
+  document.title = `Admin Sign In | ${titles.SERVICES_APP_NAME}`;
   const {
     data: captcha,
     isLoading: captchaLoading,
@@ -31,7 +31,7 @@ const SpaSignin = () => {
     ...form
   } = useForm<SigninSchema>({
     defaultValues: {
-      username: 'souvik_sports@test.com',
+      username: 'souvik_services@test.com',
       password: 'password',
       enteredCaptcha: '',
     },
@@ -114,7 +114,7 @@ const SpaSignin = () => {
 
     login.mutate(final, {
       onSuccess: () => {
-        navigate(`/${titles.SPORTS_APP_URL}/dashboard`);
+        navigate(`/${titles.SERVICES_APP_URL}/dashboard`);
       },
       onError: (error) => {
         if ((error as any).status === 422) {
@@ -147,18 +147,18 @@ const SpaSignin = () => {
       <div className="flex flex-col gap-4 p-6 md:p-10">
         <div className="flex justify-center gap-2 md:justify-start">
           <Link
-            to={titles.SPORTS_WEB_URL}
+            to={titles.SERVICES_WEB_URL}
             className="flex items-center gap-2 font-medium"
           >
             {/* for desktop */}
             <img
-              src={`${relativePath}/logo/sports-logo.png`}
+              src={`${relativePath}/logo/youth-services.png`}
               alt={titles.SPORTS_APP_NAME}
               className="h-12 hidden md:block"
             />
             {/* for mobile */}
             <img
-              src={`${relativePath}/logo/sports-mobile.png`}
+              src={`${relativePath}/logo/ys-mobile.png`}
               alt={titles.SPORTS_APP_NAME}
               className="h-20 block md:hidden"
             />
@@ -276,12 +276,12 @@ const SpaSignin = () => {
       </div>
       <div className="relative hidden bg-muted lg:block">
         <img
-          src={`${relativePath}/sports/sp-signin.jpg`}
-          alt={titles.SPORTS_APP_NAME}
+          src={`${relativePath}/youth-services/ys-signin.jpg`}
+          alt={titles.SERVICES_APP_NAME}
           className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
         />
       </div>
     </div>
   );
 };
-export default SpaSignin;
+export default YsaSignin;

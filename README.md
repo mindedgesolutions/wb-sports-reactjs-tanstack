@@ -166,3 +166,12 @@ for overriding default border:
 2. make copy inside public folder: publuc > oxide > skin.css
 3. do changes (.tox .tox-edit-area::before)
 4. import skin.css from public folder (import '../../../../public/tinymce-skins/oxide/skin.css')
+
+---
+
+Abbreviations:
+
+spa : Sports app
+spw : Sports website
+ysa : Youth Services app
+ysw : Youth Services website

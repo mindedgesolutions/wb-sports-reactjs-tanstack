@@ -4,9 +4,13 @@ import { titles } from '@/constants';
 
 const spa = titles.SPORTS_APP_URL;
 const spw = titles.SPORTS_WEB_URL;
+const ysa = titles.SERVICES_APP_URL;
+const ysw = titles.SERVICES_WEB_URL;
 
 const router = createBrowserRouter([
   { path: `/`, element: <pg.RootLanding /> },
+
+  // Sports CMS routes start
   { path: `${spa}/sign-in`, element: <pg.SpaSignin /> },
   {
     path: spa,
@@ -96,6 +100,9 @@ const router = createBrowserRouter([
       { path: 'profile', element: <pg.SpaProfile /> },
     ],
   },
+  // Sports CMS routes end
+
+  // Sports website routes start
   {
     path: spw,
     element: <pg.SpwLayout />,
@@ -143,6 +150,24 @@ const router = createBrowserRouter([
       { path: 'site-map', element: <pg.SpwSitemap /> },
     ],
   },
+  // Sports website routes end
+
+  // Youth Services CMS routes start
+  { path: `${ysa}/sign-in`, element: <pg.YsaSignin /> },
+  {
+    path: ysa,
+    element: <pg.YsaLayout />,
+    children: [],
+  },
+  // Youth Services CMS routes end
+
+  // Youth Services website routes start
+  {
+    path: ysw,
+    element: <pg.YswLayout />,
+    children: [],
+  },
+  // Youth Services website routes end
 ]);
 
 function App() {

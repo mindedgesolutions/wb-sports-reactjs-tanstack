@@ -1,6 +1,4 @@
-import logo from '@/assets/images/sports-logo.png';
 import nicLogo from '@/assets/images/NIC_Logo.png';
-import spSignin from '@/assets/images/sp-signin.jpg';
 import profileImg from '@/assets/images/000m.jpg';
 import nationalEmblem from '@/assets/images/national-emblem.png';
 import nationalEmblemInverted from '@/assets/images/national-emblem-inverted.png';
@@ -47,9 +45,7 @@ export const titles = {
 // -------------------------------
 
 export const images = {
-  logo,
   nicLogo,
-  spSignin,
   profileImg,
   nationalEmblem,
   saImg,

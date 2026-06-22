@@ -1,4 +1,4 @@
-// Sports app starts --------
+// Sports CMS starts --------
 export { default as RootLanding } from '@/pages/RootLanding';
 export { default as SpaSignin } from '@/pages/sports/app/SpaSignin';
 export { default as SpaLayout } from '@/pages/sports/app/SpaLayout';
@@ -78,3 +78,10 @@ export { default as SpwContactUs } from '@/pages/sports/website/contact-us/SpwCo
 export { default as SpwPrivacyPolicies } from '@/pages/sports/website/privacy-policies/SpwPrivacyPolicies';
 export { default as SpwFeedback } from '@/pages/sports/website/feedback/SpwFeedback';
 export { default as SpwSitemap } from '@/pages/sports/website/sitemap/SpwSitemap';
+
+// Youth Services CMS starts --------
+export { default as YsaSignin } from '@/pages/services/app/YsaSignin';
+export { default as YsaLayout } from '@/pages/services/app/YsaLayout';
+
+// Youth Services website starts --------
+export { default as YswLayout } from '@/pages/services/website/YswLayout';
