@@ -16,7 +16,7 @@ export function AppSidebar({ ...props }) {
       <SidebarHeader className="bg-primary">
         <TeamSwitcher />
       </SidebarHeader>
-      <SidebarContent className="bg-primary">
+      <SidebarContent className="bg-primary dark:bg-card">
         <NavMain items={spMenus} />
       </SidebarContent>
       <SidebarRail />

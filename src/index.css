@@ -177,7 +177,7 @@ body {
 }
 
 .sub-menu {
-  @apply absolute top-11 p-2 rounded-sm bg-primary origin-[50%_-70px];
+  @apply absolute top-11 p-2 rounded-sm bg-primary dark:bg-card origin-[50%_-70px];
 }
 
 ::selection {

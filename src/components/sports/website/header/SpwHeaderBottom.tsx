@@ -10,7 +10,12 @@ const SpwHeaderBottom = ({ className }: { className?: string }) => {
           <img
             src={images.nationalEmblem}
             alt="National Emblem"
-            className="max-h-8 md:max-h-16"
+            className="max-h-8 md:max-h-16 block dark:hidden"
+          />
+          <img
+            src={images.nationalEmblemInverted}
+            alt="National Emblem"
+            className="max-h-8 md:max-h-16 hidden dark:block"
           />
           <div className="flex flex-col gap-1">
             {/* Desktop starts */}

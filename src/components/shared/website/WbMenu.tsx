@@ -32,7 +32,7 @@ const WbMenu = ({ menu }: { menu: IWebsiteMenuProps }) => {
       {/* main menu */}
       <Link
         to={menu.link || '#'}
-        className="flex items-center gap-1 cursor-pointer px-2 py-2.5 bg-primary/30 hover:bg-primary/40 duration-200 text-primary-foreground tracking-widest text-xs"
+        className="flex items-center gap-1 cursor-pointer px-2 py-2.5 bg-primary/30 hover:bg-primary/40 duration-200 text-primary-foreground dark:bg-card tracking-widest text-xs"
       >
         {menu.name}
 
@@ -54,7 +54,7 @@ const WbMenu = ({ menu }: { menu: IWebsiteMenuProps }) => {
               className={`sub-menu absolute top-full left-0 mt-1 ${widthClass} bg-primary`}
               style={{ transformOrigin: 'top center' }}
             >
-              <div className={`grid ${gridColsClass} gap-4`}>
+              <div className={`grid ${gridColsClass} gap-4 dark:bg-card`}>
                 {menu.subMenus?.map((subMenu, index) => (
                   <Link
                     to={subMenu.link}

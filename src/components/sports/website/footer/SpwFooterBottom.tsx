@@ -2,8 +2,8 @@ import { images } from '@/constants';
 
 const SpwFooterBottom = () => {
   return (
-    <div className="bg-card-foreground dark:bg-card-foreground p-2 py-4 md:p-2.5 md:py-2 flex flex-col md:flex-row gap-4 md:gap-0 justify-center items-center">
-      <span className="flex flex-row justify-start md:justify-center text-justify items-center gap-2 text-primary font-inter tracking-wider text-[11px]">
+    <div className="bg-primary p-2 py-4 md:p-2.5 md:py-2 flex flex-col md:flex-row gap-4 md:gap-0 justify-center items-center">
+      <span className="flex flex-row justify-start md:justify-center text-justify items-center gap-2 text-card-foreground font-inter tracking-wider text-[11px]">
         <p className="mr-1">
           This site is designed by National Informatics Centre (NIC). Content,
           DATA, Process and Operation owned and maintained by Department of

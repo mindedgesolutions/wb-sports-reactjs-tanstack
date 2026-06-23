@@ -27,7 +27,7 @@ const SpwAdminStructure = () => {
                     key={t.show_order}
                     className="flex flex-col items-center"
                   >
-                    <section className="p-4 min-w-48 bg-primary text-primary-foreground font-inter text-xs tracking-wider">
+                    <section className="p-4 min-w-48 bg-primary dark:bg-card text-primary-foreground font-inter text-xs tracking-wider">
                       {t.designation}
                     </section>
                     {index !== data.length - 1 && (

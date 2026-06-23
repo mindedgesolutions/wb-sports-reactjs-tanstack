@@ -19,22 +19,6 @@ const links = [
     value: `${titles.SPORTS_WEB_URL}/announcements/circular`,
   },
   {
-    label: 'Feedback',
-    value: `${titles.SPORTS_WEB_URL}/feedback`,
-  },
-  {
-    label: 'Contact Us',
-    value: `${titles.SPORTS_WEB_URL}/contact-us`,
-  },
-  {
-    label: 'Privacy Policies',
-    value: `${titles.SPORTS_WEB_URL}/privacy-policies`,
-  },
-  {
-    label: 'Site Map',
-    value: `${titles.SPORTS_WEB_URL}/site-map`,
-  },
-  {
     label: 'Stadiums',
     value: `${titles.SPORTS_WEB_URL}/stadiums`,
   },
@@ -49,6 +33,22 @@ const links = [
   {
     label: 'Achievements',
     value: `${titles.SPORTS_WEB_URL}/achievements`,
+  },
+  {
+    label: 'Contact Us',
+    value: `${titles.SPORTS_WEB_URL}/contact-us`,
+  },
+  {
+    label: 'Feedback',
+    value: `${titles.SPORTS_WEB_URL}/feedback`,
+  },
+  {
+    label: 'Privacy Policies',
+    value: `${titles.SPORTS_WEB_URL}/privacy-policies`,
+  },
+  {
+    label: 'Site Map',
+    value: `${titles.SPORTS_WEB_URL}/site-map`,
   },
 ];
 

@@ -25,6 +25,7 @@ export interface RHFRadioProps<T extends FieldValues> {
   options: OptionItem[];
   description?: string;
   className?: string;
+  classNameLabel?: string;
 }
 
 const FormRadio = <T extends FieldValues>({
@@ -33,6 +34,7 @@ const FormRadio = <T extends FieldValues>({
   options,
   description,
   className,
+  classNameLabel,
 }: RHFRadioProps<T>) => {
   return (
     <>
@@ -47,10 +49,14 @@ const FormRadio = <T extends FieldValues>({
           >
             {options.map((option) => {
               return (
-                <FieldLabel key={option.value} htmlFor={option.value}>
+                <FieldLabel
+                  key={option.value}
+                  htmlFor={option.value}
+                  className="cursor-pointer"
+                >
                   <Field orientation="horizontal">
                     <FieldContent>
-                      <FieldTitle className="text-xs">
+                      <FieldTitle className={cn('text-xs', classNameLabel)}>
                         {option.label}
                       </FieldTitle>
                     </FieldContent>

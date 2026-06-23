@@ -33,7 +33,7 @@ const WbTopImageSlider = ({
           <motion.img
             key={slides[current].id}
             src={`${titles.BASE_URL}${slides[current].path}`}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover dark:grayscale-100"
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
@@ -41,7 +41,8 @@ const WbTopImageSlider = ({
           />
         </AnimatePresence>
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-secondary-foreground/60 " />
+        {/* <div className="absolute inset-0 bg-secondary-foreground/60" /> */}
+        <div className="absolute inset-0" />
         {/* This part is for animated quotation and custom buttons - don't delete */}
 
         {/* <div className="relative  flex flex-col items-center justify-center h-full text-center px-6">

@@ -25,7 +25,7 @@ const SpwLayout = () => {
             <SpwHeaderTop className="max-w-7xl mx-auto" />
           </section>
           <SpwHeaderBottom className="max-w-7xl mx-auto px-2 md:px-0" />
-          <div className="bg-primary h-8 md:h-10 flex items-center">
+          <div className="bg-primary dark:bg-card h-8 md:h-10 flex items-center">
             <div className="hidden md:flex max-w-7xl mx-auto flex-row justify-center items-center">
               <SpwMenu />
             </div>
