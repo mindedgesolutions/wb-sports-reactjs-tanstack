@@ -84,6 +84,14 @@ export { default as YsaSignin } from '@/pages/services/app/YsaSignin';
 export { default as YsaLayout } from '@/pages/services/app/YsaLayout';
 export { default as YsaDashboard } from '@/pages/services/app/dashboard/YsaDashboard';
 export { default as YsaBanners } from '@/pages/services/app/banners/YsaBanners';
+export { default as YsaAboutDepartment } from '@/pages/services/app/about-us/about-department/YsaAboutDepartment';
+export { default as YsaAddressDepartment } from '@/pages/services/app/about-us/address-department/YsaAddressDepartment';
+export { default as YsaDistrictOffices } from '@/pages/services/app/about-us/district-offices/YsaDistrictOffices';
+export { default as YsaHelpline } from '@/pages/services/app/about-us/helpline/YsaHelpline';
+export { default as YsaOrgChart } from '@/pages/services/app/about-us/org-chart/YsaOrgChart';
+export { default as YsaCourseDetails } from '@/pages/services/app/youth-traning-program/computer-training/course-details/YsaCourseDetails';
+export { default as YsaCourseSyllabus } from '@/pages/services/app/youth-traning-program/computer-training/course-syllabus/YsaCourseSyllabus';
+export { default as YsaTrainingCentres } from '@/pages/services/app/youth-traning-program/computer-training/training-centres/YsaTrainingCentres';
 
 // Youth Services website starts --------
 export { default as YswLayout } from '@/pages/services/website/YswLayout';

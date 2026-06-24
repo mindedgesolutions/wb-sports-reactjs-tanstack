@@ -160,6 +160,30 @@ const router = createBrowserRouter([
     children: [
       { path: 'dashboard', element: <pg.YsaDashboard /> },
       { path: 'banners', element: <pg.YsaBanners /> },
+      {
+        path: 'about-us',
+        children: [
+          { path: 'about-department', element: <pg.YsaAboutDepartment /> },
+          { path: 'address-department', element: <pg.YsaAddressDepartment /> },
+          { path: 'district-offices', element: <pg.YsaDistrictOffices /> },
+          { path: 'helpline', element: <pg.YsaHelpline /> },
+          { path: 'organisation-chart', element: <pg.YsaOrgChart /> },
+        ],
+      },
+      {
+        path: 'youth-training-program',
+        children: [
+          {
+            path: 'computer-training',
+            children: [
+              { path: 'course-details', element: <pg.YsaCourseDetails /> },
+              { path: 'course-syllabus', element: <pg.YsaCourseSyllabus /> },
+              { path: 'training-centres', element: <pg.YsaTrainingCentres /> },
+            ],
+          },
+          { path: 'vocational-training', children: [] },
+        ],
+      },
     ],
   },
   // Youth Services CMS routes end

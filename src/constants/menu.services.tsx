@@ -30,12 +30,51 @@ export const servicesAppMenu = () => {
           pathname.includes(`${titles.SERVICES_APP_URL}/about-us/`) ?? false,
         items: [
           {
-            title: 'District / Block Offices',
-            url: `${titles.SERVICES_APP_URL}/about-us/district-offices`,
+            title: 'About Department',
+            url: `${titles.SERVICES_APP_URL}/about-us/about-department`,
           },
           {
             title: 'Organisation Chart',
             url: `${titles.SERVICES_APP_URL}/about-us/organisation-chart`,
+          },
+          {
+            title: 'Address Department / Director',
+            url: `${titles.SERVICES_APP_URL}/about-us/address-department`,
+          },
+          {
+            title: 'District / Block Offices',
+            url: `${titles.SERVICES_APP_URL}/about-us/district-offices`,
+          },
+          {
+            title: 'Helpline',
+            url: `${titles.SERVICES_APP_URL}/about-us/helpline`,
+          },
+        ],
+      },
+      {
+        title: 'Youth Training Program',
+        url: '#',
+        icon: MdOutlineFolderCopy,
+        isActive:
+          pathname.includes(
+            `${titles.SERVICES_APP_URL}/youth-training-program/computer-training/`,
+          ) ?? false,
+        items: [
+          {
+            title: 'Course Details',
+            url: `${titles.SERVICES_APP_URL}/youth-training-program/computer-training/course-details`,
+          },
+          {
+            title: 'Course Syllabus',
+            url: `${titles.SERVICES_APP_URL}/youth-training-program/computer-training/course-syllabus`,
+          },
+          {
+            title: 'Training Centres',
+            url: `${titles.SERVICES_APP_URL}/youth-training-program/computer-training/training-centres`,
+          },
+          {
+            title: 'Vocational Training',
+            url: `${titles.SERVICES_APP_URL}/youth-traning-program/vocational-training`,
           },
         ],
       },

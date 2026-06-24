@@ -10,6 +10,13 @@ interface ISubmenu {
   title: string;
   url: string;
   isActive?: boolean;
+  items?: ISubSubmenu[];
+}
+
+interface ISubSubmenu {
+  title: string;
+  url: string;
+  isActive?: boolean;
 }
 
 interface IUser {
