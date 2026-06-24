@@ -92,6 +92,18 @@ export { default as YsaOrgChart } from '@/pages/services/app/about-us/org-chart/
 export { default as YsaCourseDetails } from '@/pages/services/app/youth-traning-program/computer-training/course-details/YsaCourseDetails';
 export { default as YsaCourseSyllabus } from '@/pages/services/app/youth-traning-program/computer-training/course-syllabus/YsaCourseSyllabus';
 export { default as YsaTrainingCentres } from '@/pages/services/app/youth-traning-program/computer-training/training-centres/YsaTrainingCentres';
+export { default as YsaSchemes } from '@/pages/services/app/youth-traning-program/vocational-training/schemes/YsaSchemes';
+export { default as YsaVocationalCentres } from '@/pages/services/app/youth-traning-program/vocational-training/training-centres/YsaVocationalCentres';
+export { default as YsaMountaineeringCourse } from '@/pages/services/app/mountaineering/course-details/YsaMountaineeringCourse';
+export { default as YsaMountaineeringGbm } from '@/pages/services/app/mountaineering/general-body-members/YsaMountaineeringGbm';
+export { default as YsaFairPrograms } from '@/pages/services/app/fair-programs/YsaFairPrograms';
+export { default as YsaFairProgram } from '@/pages/services/app/fair-programs/YsaFairProgam';
+export { default as YsaNewsEvents } from '@/pages/services/app/news-events/YsaNewsEvents';
+export { default as YsaHostelsList } from '@/pages/services/app/youth-hostels/hostel-list/YsaHostelsList';
+export { default as YsaYouthHostel } from '@/pages/services/app/youth-hostels/hostel-list/YsaYouthHostel';
+export { default as YsaHowToBook } from '@/pages/services/app/youth-hostels/how-to-book/YsaHowToBook';
+export { default as YsaPhotoGalleries } from '@/pages/services/app/photo-galleries/YsaPhotoGalleries';
+export { default as YsaPhotoGallery } from '@/pages/services/app/photo-galleries/YsaPhotoGallery';
 
 // Youth Services website starts --------
 export { default as YswLayout } from '@/pages/services/website/YswLayout';

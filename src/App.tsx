@@ -181,7 +181,49 @@ const router = createBrowserRouter([
               { path: 'training-centres', element: <pg.YsaTrainingCentres /> },
             ],
           },
-          { path: 'vocational-training', children: [] },
+          {
+            path: 'vocational-training',
+            children: [
+              { path: 'schemes', element: <pg.YsaSchemes /> },
+              {
+                path: 'training-centres',
+                element: <pg.YsaVocationalCentres />,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        path: 'mountaineering',
+        children: [
+          { path: 'course-details', element: <pg.YsaMountaineeringCourse /> },
+          {
+            path: 'general-body-members',
+            element: <pg.YsaMountaineeringGbm />,
+          },
+        ],
+      },
+      {
+        path: 'fair-programs',
+        children: [
+          { index: true, element: <pg.YsaFairPrograms /> },
+          { path: 'fair-program/:id?', element: <pg.YsaFairProgram /> },
+        ],
+      },
+      { path: 'news-events', element: <pg.YsaNewsEvents /> },
+      {
+        path: 'youth-hostels',
+        children: [
+          { index: true, element: <pg.YsaHostelsList /> },
+          { path: 'youth-hostel/:id?', element: <pg.YsaYouthHostel /> },
+          { path: 'how-to-book', element: <pg.YsaHowToBook /> },
+        ],
+      },
+      {
+        path: 'photo-galleries',
+        children: [
+          { index: true, element: <pg.YsaPhotoGalleries /> },
+          { path: 'photo-gallery/:id?', element: <pg.YsaPhotoGallery /> },
         ],
       },
     ],

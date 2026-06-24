@@ -1,7 +1,12 @@
 import { MdOutlineFolderCopy } from 'react-icons/md';
 import { LuCircleUserRound } from 'react-icons/lu';
 import { MdOutlineHome } from 'react-icons/md';
-import { FaRegImage } from 'react-icons/fa';
+import { FaRegImage, FaRegImages } from 'react-icons/fa';
+import { RiComputerLine } from 'react-icons/ri';
+import { LuMountainSnow } from 'react-icons/lu';
+import { MdOutlineRssFeed } from 'react-icons/md';
+import { FaRegBuilding } from 'react-icons/fa';
+
 import { useLocation } from 'react-router-dom';
 import { titles } from '.';
 
@@ -49,36 +54,115 @@ export const servicesAppMenu = () => {
             title: 'Helpline',
             url: `${titles.SERVICES_APP_URL}/about-us/helpline`,
           },
-        ],
+        ] as ISubmenu[],
       },
       {
         title: 'Youth Training Program',
         url: '#',
-        icon: MdOutlineFolderCopy,
+        icon: RiComputerLine,
         isActive:
           pathname.includes(
-            `${titles.SERVICES_APP_URL}/youth-training-program/computer-training/`,
+            `${titles.SERVICES_APP_URL}/youth-training-program/`,
           ) ?? false,
         items: [
           {
-            title: 'Course Details',
-            url: `${titles.SERVICES_APP_URL}/youth-training-program/computer-training/course-details`,
-          },
-          {
-            title: 'Course Syllabus',
-            url: `${titles.SERVICES_APP_URL}/youth-training-program/computer-training/course-syllabus`,
-          },
-          {
-            title: 'Training Centres',
-            url: `${titles.SERVICES_APP_URL}/youth-training-program/computer-training/training-centres`,
+            title: 'Computer Training',
+            url: `#`,
+            isActive:
+              pathname.includes(
+                `${titles.SERVICES_APP_URL}/youth-training-program/computer-training/`,
+              ) ?? false,
+            items: [
+              {
+                title: 'Course Details',
+                url: `${titles.SERVICES_APP_URL}/youth-training-program/computer-training/course-details`,
+              },
+              {
+                title: 'Course Syllabus',
+                url: `${titles.SERVICES_APP_URL}/youth-training-program/computer-training/course-syllabus`,
+              },
+              {
+                title: 'Training Centres',
+                url: `${titles.SERVICES_APP_URL}/youth-training-program/computer-training/training-centres`,
+              },
+            ] as ISubSubmenu[],
           },
           {
             title: 'Vocational Training',
-            url: `${titles.SERVICES_APP_URL}/youth-traning-program/vocational-training`,
+            url: `#`,
+            isActive:
+              pathname.includes(
+                `${titles.SERVICES_APP_URL}/youth-training-program/vocational-training/`,
+              ) ?? false,
+            items: [
+              {
+                title: 'Schemes',
+                url: `${titles.SERVICES_APP_URL}/youth-training-program/vocational-training/schemes`,
+              },
+              {
+                title: 'Training Centres',
+                url: `${titles.SERVICES_APP_URL}/youth-training-program/vocational-training/training-centres`,
+              },
+            ] as ISubSubmenu[],
           },
-        ],
+        ] as ISubmenu[],
       },
-    ],
+      {
+        title: 'Mountaineering',
+        url: '#',
+        icon: LuMountainSnow,
+        isActive:
+          pathname.includes(`${titles.SERVICES_APP_URL}/mountaineering/`) ??
+          false,
+        items: [
+          {
+            title: 'General Body Members',
+            url: `${titles.SERVICES_APP_URL}/mountaineering/general-body-members`,
+          },
+          {
+            title: 'Course Details',
+            url: `${titles.SERVICES_APP_URL}/mountaineering/course-details`,
+          },
+        ] as ISubmenu[],
+      },
+      {
+        title: 'Fair & Programs',
+        url: `${titles.SERVICES_APP_URL}/fair-programs`,
+        icon: FaRegImage,
+        isActive: pathname === `${titles.SERVICES_APP_URL}/fair-programs`,
+      },
+      {
+        title: 'News & Events',
+        url: `${titles.SERVICES_APP_URL}/news-events`,
+        icon: MdOutlineRssFeed,
+        isActive: pathname === `${titles.SERVICES_APP_URL}/news-events`,
+      },
+      {
+        title: 'Youth Hostels',
+        url: '#',
+        icon: FaRegBuilding,
+        isActive:
+          pathname.includes(`${titles.SERVICES_APP_URL}/youth-hostels/`) ??
+          false,
+        items: [
+          {
+            title: 'List of Hostels',
+            url: `${titles.SERVICES_APP_URL}/youth-hostels`,
+          },
+          {
+            title: 'How to Book',
+            url: `${titles.SERVICES_APP_URL}/youth-hostels/how-to-book`,
+          },
+        ] as ISubmenu[],
+      },
+      {
+        title: 'Photo Gallery',
+        url: `${titles.SERVICES_APP_URL}/photo-galleries`,
+        icon: FaRegImages,
+        isActive: pathname === `${titles.SERVICES_APP_URL}/photo-galleries`,
+      },
+    ] as IMenu[],
+
     settings: [
       {
         title: 'Profile',

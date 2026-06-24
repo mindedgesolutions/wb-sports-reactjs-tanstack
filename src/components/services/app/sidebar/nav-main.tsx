@@ -41,19 +41,24 @@ export function NavMain({ items }: { items: IMenu[] }) {
                 </CollapsibleTrigger>
                 <CollapsibleContent>
                   <SidebarMenuSub>
-                    {item.items?.map((subItem: ISubmenu) => (
-                      <SidebarMenuSubItem key={subItem.title}>
-                        <SidebarMenuSubButton
-                          asChild
-                          className="text-xs"
-                          isActive={pathname === subItem.url}
-                        >
-                          <Link to={subItem.url}>
-                            <span className="text-xs">{subItem.title}</span>
-                          </Link>
-                        </SidebarMenuSubButton>
-                      </SidebarMenuSubItem>
-                    ))}
+                    {item.items?.map((subItem: ISubmenu) => {
+                      if (!subItem.items) {
+                        return (
+                          <SidebarMenuSubItem key={subItem.title}>
+                            <SidebarMenuSubButton
+                              asChild
+                              className="text-xs"
+                              isActive={pathname === subItem.url}
+                            >
+                              <Link to={subItem.url}>
+                                <span className="text-xs">{subItem.title}</span>
+                              </Link>
+                            </SidebarMenuSubButton>
+                          </SidebarMenuSubItem>
+                        );
+                      }
+                      return <SubTree item={subItem} pathname={pathname} />;
+                    })}
                   </SidebarMenuSub>
                 </CollapsibleContent>
               </SidebarMenuItem>
@@ -71,5 +76,48 @@ export function NavMain({ items }: { items: IMenu[] }) {
         })}
       </SidebarMenu>
     </SidebarGroup>
+  );
+}
+
+function SubTree({ item, pathname }: { item: ISubmenu; pathname: string }) {
+  return (
+    <Collapsible
+      key={item.title}
+      asChild
+      defaultOpen={item.isActive}
+      className="group/collapsible-submenu"
+    >
+      <SidebarMenuItem>
+        <CollapsibleTrigger asChild>
+          <SidebarMenuButton tooltip={item.title} className="text-xs">
+            <span>{item.title}</span>
+            {item.items && (
+              <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible-submenu:rotate-90" />
+            )}
+          </SidebarMenuButton>
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <SidebarMenuSub>
+            {item.items?.map((subItem: ISubmenu) => {
+              if (!subItem.items) {
+                return (
+                  <SidebarMenuSubItem key={subItem.title}>
+                    <SidebarMenuSubButton
+                      asChild
+                      className="text-xs"
+                      isActive={pathname === subItem.url}
+                    >
+                      <Link to={subItem.url}>
+                        <span className="text-xs">{subItem.title}</span>
+                      </Link>
+                    </SidebarMenuSubButton>
+                  </SidebarMenuSubItem>
+                );
+              }
+            })}
+          </SidebarMenuSub>
+        </CollapsibleContent>
+      </SidebarMenuItem>
+    </Collapsible>
   );
 }
