@@ -1,5 +1,5 @@
 import { SpwPageBanner, SpwSectionWrapper, WbLoader } from '@/components';
-import { titles, icons } from '@/constants';
+import { titles, defaultIcons } from '@/constants';
 import type { IFifaGalleryRow } from '@/interface/sports.interface';
 import { useFifaGalleriesWb } from '@/tanstack/sports/info-about/info-about.query';
 import { useState } from 'react';
@@ -40,7 +40,7 @@ const SpwFifaGalleries = () => {
                     }
                   />
                 ) : (
-                  <icons.football className="h-full w-full p-8 text-muted-foreground/20" />
+                  <defaultIcons.football className="h-full w-full p-8 text-muted-foreground/20" />
                 )}
                 <h1 className="text-xs font-inter font-normal md:font-medium text-center tracking-widest md:uppercase">
                   {gallery.name}

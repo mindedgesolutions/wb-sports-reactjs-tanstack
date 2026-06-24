@@ -6,7 +6,7 @@ import {
   WbLoader,
   WbLoadMore,
 } from '@/components';
-import { titles, icons } from '@/constants';
+import { titles, defaultIcons } from '@/constants';
 import { useResetPaginationOnSearch } from '@/hooks/reset-page-on-search';
 import { useRtiNoticesWb } from '@/tanstack/sports/rti/rti.query';
 import {
@@ -111,7 +111,7 @@ const SpwRtiNotices = () => {
                           <div className="text-wrap">{data?.subject}</div>
                         </TableCell>
                         <TableCell>
-                          <icons.download
+                          <defaultIcons.download
                             size={20}
                             className="text-primary cursor-pointer"
                             onClick={() =>

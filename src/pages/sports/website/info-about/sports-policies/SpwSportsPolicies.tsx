@@ -1,5 +1,5 @@
 import { SpwPageBanner, SpwSectionWrapper, WbLoader } from '@/components';
-import { titles, icons } from '@/constants';
+import { titles, defaultIcons } from '@/constants';
 import { useSportsPoliciesWb } from '@/tanstack/sports/info-about/info-about.query';
 import {
   Table,
@@ -47,7 +47,7 @@ const SpwSportsPolicies = () => {
                     <TableCell>{index + 1}.</TableCell>
                     <TableCell>{sp.name}</TableCell>
                     <TableCell>
-                      <icons.download
+                      <defaultIcons.download
                         size={20}
                         className="text-primary cursor-pointer"
                         onClick={() =>

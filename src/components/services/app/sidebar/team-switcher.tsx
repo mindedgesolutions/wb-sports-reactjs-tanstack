@@ -17,7 +17,7 @@ export function TeamSwitcher() {
     <SidebarMenu>
       <SidebarMenuItem>
         <DropdownMenu>
-          <Link to={`${titles.SPORTS_APP_URL}/dashboard`}>
+          <Link to={`${titles.SERVICES_APP_URL}/dashboard`}>
             <DropdownMenuTrigger asChild>
               <SidebarMenuButton
                 size="lg"
@@ -31,11 +31,11 @@ export function TeamSwitcher() {
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight gap-0.5">
                   <AppTooltip
-                    text={titles.SPORTS_APP_NAME}
-                    cropped={showLess(titles.SPORTS_APP_NAME, 20)}
+                    text={titles.SERVICES_APP_NAME}
+                    cropped={showLess(titles.SERVICES_APP_NAME, 20)}
                   />
                   <span className="truncate text-xs text-muted-foreground">
-                    Sports Wing
+                    Services Wing
                   </span>
                 </div>
               </SidebarMenuButton>

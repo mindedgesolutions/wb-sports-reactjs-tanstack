@@ -1,6 +1,6 @@
 import type { IAssociationRow } from '@/interface/sports.interface';
 import { useState } from 'react';
-import { icons } from '@/constants';
+import { defaultIcons } from '@/constants';
 
 const AssociationCard = (assoc: IAssociationRow) => {
   const [imageError, setImageError] = useState<boolean>(false);
@@ -16,7 +16,7 @@ const AssociationCard = (assoc: IAssociationRow) => {
           />
         ) : (
           <div className="rounded-full overflow-hidden bg-muted p-4">
-            <icons.building className="w-full min-h-12 h-full text-muted-foreground/20" />
+            <defaultIcons.building className="w-full min-h-12 h-full text-muted-foreground/20" />
           </div>
         )}
       </div>
@@ -26,7 +26,7 @@ const AssociationCard = (assoc: IAssociationRow) => {
         </h1>
         <div className="flex flex-col gap-4">
           <span className="flex flex-row items-center gap-2">
-            <icons.location />
+            <defaultIcons.location />
             <p className="text-xs font-inter tracking-wider font-normal uppercase">
               {assoc.address || `N/A`}
             </p>
@@ -35,13 +35,13 @@ const AssociationCard = (assoc: IAssociationRow) => {
             <div className="flex flex-col gap-2 text-xs font-inter tracking-wider font-normal uppercase">
               {assoc.phone_1 && (
                 <span className="flex flex-row justify-start items-center gap-2">
-                  <icons.phone />
+                  <defaultIcons.phone />
                   <span>{assoc.phone_1}</span>
                 </span>
               )}
               {assoc.phone_2 && (
                 <span className="flex flex-row justify-start items-center gap-2">
-                  <icons.phone />
+                  <defaultIcons.phone />
                   <span>{assoc.phone_2}</span>
                 </span>
               )}
@@ -49,7 +49,7 @@ const AssociationCard = (assoc: IAssociationRow) => {
           )}
           {assoc.email && (
             <span className="flex flex-row justify-start items-center gap-2">
-              <icons.email />
+              <defaultIcons.email />
               <span className="text-xs font-inter tracking-wider font-normal">
                 {assoc.email}
               </span>
@@ -57,7 +57,7 @@ const AssociationCard = (assoc: IAssociationRow) => {
           )}
           {assoc.website && (
             <span className="flex flex-row justify-start items-center gap-2 hover:text-primary-muted">
-              <icons.internet />
+              <defaultIcons.internet />
               <a
                 href={assoc.website}
                 target="_blank"

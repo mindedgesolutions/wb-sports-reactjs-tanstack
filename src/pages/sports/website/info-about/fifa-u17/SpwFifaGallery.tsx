@@ -29,7 +29,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { titles, icons } from '@/constants';
+import { titles, defaultIcons } from '@/constants';
 import { useRef, useState } from 'react';
 
 const SpwFifaGallery = () => {
@@ -133,7 +133,7 @@ const SpwFifaGallery = () => {
               </div>
             ) : (
               <div className="flex flex-col justify-center items-center">
-                <icons.football className="h-32 w-32 text-muted-foreground/20" />
+                <defaultIcons.football className="h-32 w-32 text-muted-foreground/20" />
                 <span className="text-xs font-inter tracking-wider mt-4">{`<File missing>`}</span>
               </div>
             );

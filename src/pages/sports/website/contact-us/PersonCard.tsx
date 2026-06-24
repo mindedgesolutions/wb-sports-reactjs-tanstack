@@ -1,5 +1,5 @@
 import type { IContactUsRow } from '@/interface/sports.interface';
-import { icons } from '@/constants';
+import { defaultIcons } from '@/constants';
 import { Mail, Phone } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Label } from '@/components/ui/label';
@@ -9,7 +9,7 @@ const PersonCard = (data: IContactUsRow) => {
     <div className="relative flex flex-col items-center gap-4">
       <div className="absolute -top-4 w-16 md:w-28 h-16 md:h-28 rounded-full bg-background p-0.5 md:p-1 z-10">
         <div className="w-full h-full rounded-full overflow-hidden">
-          <icons.user className="w-full h-full text-muted-foreground/20" />
+          <defaultIcons.user className="w-full h-full text-muted-foreground/20" />
         </div>
       </div>
       <div className="relative w-full bg-primary/50 p-5 md:p-10 rounded-t-lg md:rounded-t-2xl"></div>

@@ -1,5 +1,5 @@
 import { SpwPageBanner, SpwSectionWrapper } from '@/components';
-import { titles, icons } from '@/constants';
+import { titles, defaultIcons } from '@/constants';
 import {
   Table,
   TableBody,
@@ -36,7 +36,7 @@ const SpwRtiTwoThousandFive = () => {
                     href={`${relativePath}/rti act, 2005 (amended)-english version.pdf`}
                     target="_blank"
                   >
-                    <icons.download
+                    <defaultIcons.download
                       size={20}
                       className="text-primary cursor-pointer"
                     />

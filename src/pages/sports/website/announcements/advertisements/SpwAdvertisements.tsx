@@ -10,7 +10,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import type { IAdvertisementRow } from '@/interface/sports.interface';
-import { icons } from '@/constants';
+import { defaultIcons } from '@/constants';
 import { handleFileOpen } from '@/utils/functions';
 
 const SpwAdvertisements = () => {
@@ -52,7 +52,7 @@ const SpwAdvertisements = () => {
                           {a.title}
                         </TableCell>
                         <TableCell>
-                          <icons.download
+                          <defaultIcons.download
                             size={20}
                             className="text-primary cursor-pointer"
                             onClick={() =>

@@ -1,5 +1,5 @@
 import { SpwPageBanner, SpwSectionWrapper } from '@/components';
-import { titles, icons } from '@/constants';
+import { titles, defaultIcons } from '@/constants';
 import {
   Table,
   TableBody,
@@ -33,7 +33,7 @@ const SpwRtiTwoThousandSix = () => {
                 <TableCell>West Bengal RTI Rules, 2006 (Amended)</TableCell>
                 <TableCell>
                   <a href={`${relativePath}/rti rules.pdf`} target="_blank">
-                    <icons.download
+                    <defaultIcons.download
                       size={20}
                       className="text-primary cursor-pointer"
                     />

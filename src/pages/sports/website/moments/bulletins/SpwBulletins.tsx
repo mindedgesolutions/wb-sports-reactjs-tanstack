@@ -5,7 +5,7 @@ import {
   WbLoader,
   WbLoadMore,
 } from '@/components';
-import { titles, icons } from '@/constants';
+import { titles, defaultIcons } from '@/constants';
 import type { IBulletinRow } from '@/interface/sports.interface';
 import { useBulletinsWb } from '@/tanstack/sports/moments/moments.query';
 import { useEffect, useRef } from 'react';
@@ -52,7 +52,7 @@ const SpwBulletins = () => {
                 {t?.file_path.endsWith('.pdf') ? (
                   <div className="w-full h-full">
                     <div className="w-full p-10 overflow-hidden">
-                      <icons.pdf className="h-full w-full object-cover text-muted-foreground/20" />
+                      <defaultIcons.pdf className="h-full w-full object-cover text-muted-foreground/20" />
                     </div>
                     <div className="p-2 text-center text-xs font-inter tracking-wider uppercase">
                       {t.name}

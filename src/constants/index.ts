@@ -18,7 +18,7 @@ import { FiGlobe } from 'react-icons/fi';
 import { GiSoccerBall } from 'react-icons/gi';
 import { TfiGallery } from 'react-icons/tfi';
 import { BsFiletypePdf } from 'react-icons/bs';
-import { FaCloudRain } from 'react-icons/fa';
+import { FaCloudRain, FaRegImage } from 'react-icons/fa';
 
 export const titles = {
   SPORTS_APP_NAME: import.meta.env.VITE_SPORTS_APP_NAME,
@@ -57,7 +57,7 @@ export const images = {
 
 // -------------------------------
 
-export const icons = {
+export const defaultIcons = {
   GrAttachment,
   download: SlCloudDownload,
   user: FaUserTie,
@@ -68,6 +68,7 @@ export const icons = {
   internet: FiGlobe,
   football: GiSoccerBall,
   photoGallery: TfiGallery,
+  banner: FaRegImage,
   pdf: BsFiletypePdf,
   amphan: FaCloudRain,
 };

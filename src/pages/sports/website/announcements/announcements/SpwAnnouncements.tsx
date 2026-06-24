@@ -6,7 +6,7 @@ import {
   WbLoader,
   WbLoadMore,
 } from '@/components';
-import { icons, titles } from '@/constants';
+import { defaultIcons, titles } from '@/constants';
 import { useAnnouncementsWb } from '@/tanstack/sports/announcements/announcements.query';
 import {
   handleFileOpen,
@@ -113,7 +113,7 @@ const SpwAnnouncements = () => {
                           {data.subject}
                         </TableCell>
                         <TableCell>
-                          <icons.download
+                          <defaultIcons.download
                             size={20}
                             className="text-primary cursor-pointer"
                             onClick={() =>

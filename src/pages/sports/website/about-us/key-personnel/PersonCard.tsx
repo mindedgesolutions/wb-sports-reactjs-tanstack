@@ -1,4 +1,4 @@
-import { titles, icons } from '@/constants';
+import { titles, defaultIcons } from '@/constants';
 import type { IKeyPersonnelRow } from '@/interface/sports.interface';
 
 const PersonCard = (t: IKeyPersonnelRow) => {
@@ -13,7 +13,7 @@ const PersonCard = (t: IKeyPersonnelRow) => {
               className="w-full h-full object-cover"
             />
           ) : (
-            <icons.user className="w-full h-full text-muted-foreground/20" />
+            <defaultIcons.user className="w-full h-full text-muted-foreground/20" />
           )}
         </div>
       </div>

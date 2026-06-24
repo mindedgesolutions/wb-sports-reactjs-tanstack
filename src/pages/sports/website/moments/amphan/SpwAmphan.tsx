@@ -5,7 +5,7 @@ import {
   WbLoader,
   WbLoadMore,
 } from '@/components';
-import { titles, icons } from '@/constants';
+import { titles, defaultIcons } from '@/constants';
 import type { IAmphanPhotoRow } from '@/interface/sports.interface';
 import { useAmphanPhotosWb } from '@/tanstack/sports/moments/moments.query';
 import { useEffect, useRef, useState } from 'react';
@@ -114,7 +114,7 @@ const SpwAmphan = () => {
               </div>
             ) : (
               <div className="flex flex-col justify-center items-center">
-                <icons.amphan className="h-32 w-32 text-muted-foreground/20" />
+                <defaultIcons.amphan className="h-32 w-32 text-muted-foreground/20" />
                 <span className="text-xs font-inter tracking-wider mt-4">{`<File missing>`}</span>
               </div>
             );

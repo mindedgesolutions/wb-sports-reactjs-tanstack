@@ -5,7 +5,7 @@ import {
   WbLoader,
   WbLoadMore,
 } from '@/components';
-import { titles, icons } from '@/constants';
+import { titles, defaultIcons } from '@/constants';
 import type { IPhotoGalleryRow } from '@/interface/sports.interface';
 import { useMomentsPhotoGalleries } from '@/tanstack/sports/moments/moments.query';
 import { useEffect, useRef, useState } from 'react';
@@ -70,7 +70,7 @@ const SpwPhotoGalleries = () => {
                         }
                       />
                     ) : (
-                      <icons.photoGallery className="h-40 w-40 p-4 text-muted-foreground/20" />
+                      <defaultIcons.photoGallery className="h-40 w-40 p-4 text-muted-foreground/20" />
                     )}
                   </Link>
                 </div>
