@@ -4,6 +4,7 @@ import z from 'zod';
 export const bannersSchema = z
   .object({
     page: z.string().nonempty('Select a page'),
+    title: z.string().optional(),
     oldImg: z.string().optional(),
     newImg: z.instanceof(File).optional().or(z.undefined()),
   })

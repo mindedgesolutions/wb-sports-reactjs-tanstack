@@ -38,6 +38,7 @@ export { default as WbMenu } from '@/components/shared/website/WbMenu';
 export { default as WbSliderPlaceholder } from '@/components/shared/website/WbSliderPlaceholder';
 export { default as WbLoader } from '@/components/shared/website/WbLoader';
 export { default as WbLoadMore } from '@/components/shared/website/WbLoadMore';
+export { default as AppHandleBrokenImg } from '@/components/shared/app/AppHandleBrokenImg';
 
 // Sports Website Components
 export { default as SpwHeaderTop } from '@/components/sports/website/header/SpwHeaderTop';

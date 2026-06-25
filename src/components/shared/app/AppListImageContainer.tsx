@@ -1,6 +1,5 @@
-import { titles } from '@/constants';
 import AppTooltip from './AppTooltip';
-import { useState } from 'react';
+import AppHandleBrokenImg from './AppHandleBrokenImg';
 
 type AppListImageContainerProps = {
   img?: string | undefined;
@@ -20,17 +19,16 @@ const AppListImageContainer = ({
   second,
   third,
 }: AppListImageContainerProps) => {
-  const [hasError, setHasError] = useState(false);
-
   return (
     <div className="flex justify-start items-center gap-2">
       <div className="w-12 h-12">
-        {img && !hasError ? (
-          <img
-            src={`${titles.BASE_URL}${img}`}
+        {img ? (
+          <AppHandleBrokenImg
+            icon={NoImg}
+            imagePath={img}
             alt={first}
             className="w-full h-full border border-dashed object-cover"
-            onError={() => setHasError(true)}
+            size={18}
           />
         ) : (
           <div className="w-full h-full bg-muted flex items-center justify-center">

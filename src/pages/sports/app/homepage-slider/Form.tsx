@@ -19,9 +19,8 @@ import {
 import { Label } from '@/components/ui/label';
 import { FormUploadSingle, SubmitBtn } from '@/components';
 import { Button } from '@/components/ui/button';
-import { titles } from '@/constants';
+import { titles, defaultIcons } from '@/constants';
 import { fileSizes } from '@/utils/format.validation';
-import { PiUserCircleLight } from 'react-icons/pi';
 import { Trash2 } from 'lucide-react';
 
 const Form = () => {
@@ -84,12 +83,12 @@ const Form = () => {
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
                 <Label htmlFor="newImg">Upload an image</Label>
-                <div className="flex p-1 border border-muted-foreground/30 border-dashed w-64 md:w-80 h-32 relative">
+                <div className="p-1 border border-muted-foreground/30 border-dashed w-64 md:w-80 h-24 flex justify-center items-center relative">
                   {form.getValues('existingImage') && files.length === 0 && (
                     <img
                       src={`${titles.BASE_URL}${form.getValues('existingImage')}`}
                       alt="Existing"
-                      className="w-full max-h-28 object-cover"
+                      className="w-full max-h-24 object-cover"
                     />
                   )}
                   {files.length > 0 &&
@@ -97,18 +96,18 @@ const Form = () => {
                       <img
                         src={URL.createObjectURL(files[0].file)}
                         alt=""
-                        className="w-full max-h-28 object-cover"
+                        className="w-full max-h-24 object-cover"
                       />
                     )}
                   {!form.getValues('existingImage') && files.length === 0 && (
-                    <PiUserCircleLight className="w-full h-full text-muted" />
+                    <defaultIcons.banner className="w-full h-full text-muted" />
                   )}
                   <FormUploadSingle
                     setFiles={setFiles}
                     files={files}
                     setFormImg={(file: File) => form.setValue('newImage', file)}
                     maxAllowed={fileSizes().max1mb}
-                    aspectRatio={16 / 9}
+                    aspectRatio={titles.SPORTS_BANNER}
                   />
                   <Button
                     size={'icon-xs'}

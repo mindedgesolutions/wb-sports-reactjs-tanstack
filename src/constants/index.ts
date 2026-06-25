@@ -40,6 +40,9 @@ export const titles = {
   FOOTER_TEXT_SPORTS: import.meta.env.VITE_FOOTER_TEXT_SPORTS,
   FOOTER_TEXT_SERVICES: import.meta.env.VITE_FOOTER_TEXT_SERVICES,
   FOOTER_TEXT_COMMON: import.meta.env.VITE_FOOTER_TEXT_COMMON,
+
+  SPORTS_BANNER: import.meta.env.VITE_BANNER_ASPECT_RATO_SPORTS,
+  SERVICES_BANNER: import.meta.env.VITE_BANNER_ASPECT_RATO_SERVICES,
 };
 
 // -------------------------------

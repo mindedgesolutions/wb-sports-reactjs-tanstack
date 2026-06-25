@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/table';
 import {
   AppDeleteModal,
+  AppHandleBrokenImg,
   AppPaginationContainer,
   AppSkeletonRow,
   AppTooltip,
@@ -19,8 +20,7 @@ import { Button } from '@/components/ui/button';
 import { queryClient } from '@/tanstack/query.client';
 import type { IBannerList } from '@/interface/services.interface';
 import { servicesApp } from '@/constants/api.services';
-import { useState } from 'react';
-import { titles, defaultIcons } from '@/constants';
+import { defaultIcons } from '@/constants';
 
 const List = ({
   data,
@@ -28,8 +28,6 @@ const List = ({
   page,
   onPageChange,
 }: IListProps<IBannerList>) => {
-  const [imageError, setImageError] = useState(false);
-
   return (
     <div>
       <Table className="text-[10px]">
@@ -60,57 +58,59 @@ const List = ({
               </TableCell>
             </TableRow>
           ) : (
-            data?.data?.map((data, index) => (
-              <TableRow
-                className="uppercase text-muted-foreground grayscale-100 hover:grayscale-0 transition-all"
-                key={data.id}
-              >
-                <TableCell>{serialNo({ page, index })}.</TableCell>
-                <TableCell>
-                  {data.image_path && !imageError ? (
-                    <img
-                      src={`${titles.BASE_URL}${data.image_path}`}
+            data?.data?.map((data, index) => {
+              return (
+                <TableRow
+                  className="uppercase text-muted-foreground grayscale-100 hover:grayscale-0 transition-all group"
+                  key={data.id}
+                >
+                  <TableCell>{serialNo({ page, index })}.</TableCell>
+                  <TableCell>
+                    <AppHandleBrokenImg
+                      imagePath={data.image_path}
+                      icon={defaultIcons.banner}
                       alt={data.page_title}
-                      onError={() => setImageError(true)}
+                      className="w-32 h-auto"
+                      size={24}
                     />
-                  ) : (
-                    <defaultIcons.banner size={24} />
-                  )}
-                </TableCell>
-                <TableCell>
-                  <AppTooltip text={data.page_title} cropLen={40} />
-                </TableCell>
-                <TableCell>
-                  <FormToggle
-                    checked={data.is_active}
-                    api={servicesApp.banners.banners.toggle(Number(data.id))}
-                    queryKey="page-banner"
-                  />
-                </TableCell>
-                <TableCell>
-                  <span className="flex gap-6">
-                    <Button
-                      variant="ghost"
-                      size={'icon-xs'}
-                      onClick={() => {
-                        queryClient.setQueryData(
-                          ['page-banner-selected'],
-                          data,
-                        );
-                      }}
-                    >
-                      <HiOutlinePencilAlt className="size-4 text-warn" />
-                    </Button>
-                    <AppDeleteModal
-                      api={servicesApp.banners.banners.delete(Number(data.id))}
-                      queryKey="page-banners"
-                      deleteQueryKey="page-banner-selected"
-                      id={data.id}
+                  </TableCell>
+                  <TableCell>
+                    <AppTooltip text={data.page_title} cropLen={40} />
+                  </TableCell>
+                  <TableCell>
+                    <FormToggle
+                      checked={data.is_active}
+                      api={servicesApp.banners.banners.toggle(Number(data.id))}
+                      queryKey="page-banner"
                     />
-                  </span>
-                </TableCell>
-              </TableRow>
-            ))
+                  </TableCell>
+                  <TableCell>
+                    <span className="flex gap-6">
+                      <Button
+                        variant="ghost"
+                        size={'icon-xs'}
+                        onClick={() => {
+                          queryClient.setQueryData(
+                            ['page-banner-selected'],
+                            data,
+                          );
+                        }}
+                      >
+                        <HiOutlinePencilAlt className="size-4 text-warn" />
+                      </Button>
+                      <AppDeleteModal
+                        api={servicesApp.banners.banners.delete(
+                          Number(data.id),
+                        )}
+                        queryKey="page-banners"
+                        deleteQueryKey="page-banner-selected"
+                        id={data.id}
+                      />
+                    </span>
+                  </TableCell>
+                </TableRow>
+              );
+            })
           )}
         </TableBody>
       </Table>

@@ -36,7 +36,7 @@ import { Trash2 } from 'lucide-react';
 
 const Form = () => {
   const {
-    formState: { isSubmitting, errors },
+    formState: { errors },
     ...form
   } = useForm<BannersSchema>({
     defaultValues: { page: '', newImg: undefined, oldImg: '' },
@@ -81,6 +81,9 @@ const Form = () => {
   // ---------------------------------
 
   const handleSubmit = async (data: BannersSchema) => {
+    const title = formattedMenus.find((f) => f.value === data.page)?.label;
+    data = { ...data, title };
+
     const mutation = selected ? update : add;
     const payload = selected ? { id: selected.id, data } : data;
     const msg = selected ? 'updated' : 'added';
@@ -134,7 +137,7 @@ const Form = () => {
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>
-        <CardTitle>{selected ? 'Edit' : 'Add new'} key personnel</CardTitle>
+        <CardTitle>{selected ? 'Edit' : 'Add new'} page banner</CardTitle>
       </CardHeader>
       <form onSubmit={form.handleSubmit(handleSubmit)} autoComplete="off">
         <fieldset disabled={isLoading}>
@@ -154,12 +157,12 @@ const Form = () => {
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="newImg">Upload an image</Label>
-                <div className="p-1 border border-muted-foreground/30 border-dashed w-32 h-32 relative">
+                <div className="p-1 border border-muted-foreground/30 border-dashed w-64 md:w-80 h-24 flex justify-center items-center relative">
                   {form.getValues('oldImg') && files.length === 0 && (
                     <img
                       src={`${titles.BASE_URL}${form.getValues('oldImg')}`}
                       alt="Existing"
-                      className="w-full max-h-28 object-cover"
+                      className="w-full max-h-24 object-cover"
                     />
                   )}
                   {files.length > 0 &&
@@ -167,7 +170,7 @@ const Form = () => {
                       <img
                         src={URL.createObjectURL(files[0].file)}
                         alt=""
-                        className="w-full max-h-28 object-cover"
+                        className="w-full max-h-24 object-cover"
                       />
                     )}
                   {!form.getValues('oldImg') && files.length === 0 && (
@@ -177,7 +180,8 @@ const Form = () => {
                     setFiles={setFiles}
                     files={files}
                     setFormImg={(file: File) => form.setValue('newImg', file)}
-                    maxAllowed={fileSizes().max1mb}
+                    maxAllowed={fileSizes().max10mb}
+                    aspectRatio={3}
                   />
                   <Button
                     size={'icon-xs'}

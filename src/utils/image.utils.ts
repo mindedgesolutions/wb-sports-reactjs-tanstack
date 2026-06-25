@@ -7,6 +7,8 @@ const createImage = (url: string) =>
     img.onload = () => resolve(img);
   });
 
+// -----------------------------------
+
 export async function getCroppedImg(imageSrc: string, crop: any) {
   const image = await createImage(imageSrc);
   const canvas = document.createElement('canvas');
