@@ -66,10 +66,10 @@ const List = ({
               >
                 <TableCell>{serialNo({ page, index })}.</TableCell>
                 <TableCell>
-                  <AppTooltip text={data.title} cropLen={40} />
+                  <AppTooltip text={data.title} cropLen={30} />
                 </TableCell>
                 <TableCell>
-                  <AppTooltip text={data.description || 'N/A'} cropLen={40} />
+                  <AppTooltip text={data.description || 'N/A'} cropLen={30} />
                 </TableCell>
                 <TableCell>
                   <AppTooltip

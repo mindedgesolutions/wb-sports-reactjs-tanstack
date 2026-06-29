@@ -28,6 +28,8 @@ const AppListImageContainer = ({
             imagePath={img}
             alt={first}
             className="w-full h-full border border-dashed object-cover"
+            iconClass="size-6 text-muted-foreground"
+            iconContainerClass="w-full h-full bg-muted flex items-center justify-center"
             size={18}
           />
         ) : (

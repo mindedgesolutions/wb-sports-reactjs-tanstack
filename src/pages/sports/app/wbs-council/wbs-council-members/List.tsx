@@ -75,6 +75,7 @@ const List = ({
                     img={data.image_path || undefined}
                     defaultImg={User}
                     first={data.name}
+                    showSecond={true}
                     second={data.designation_label || undefined}
                   />
                 </TableCell>
