@@ -8,12 +8,12 @@ import { titles } from '@/constants';
 import { useResetPaginationOnSearch } from '@/hooks/reset-page-on-search';
 import { useFifaGalleries } from '@/tanstack/sports/info-about/info-about.query';
 import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import List from './List';
 import { Button } from '@/components/ui/button';
+import { useEnsureValidPage, usePageParam } from '@/hooks/use-pagination';
 
 const SpaFifaGallery = () => {
   document.title = `FIFA U-17 World Cup galleries | ${titles.SPORTS_APP_NAME}`;
@@ -25,15 +25,14 @@ const SpaFifaGallery = () => {
   const debounced = useDebounce(search, 500);
   useResetPaginationOnSearch(search);
 
-  const [page, setPage] = useState(1);
-  const [searchParams] = useSearchParams();
-  const currentPage = Number(searchParams.get('page')) || page;
+  const { currentPage, onPageChange } = usePageParam();
 
   const { data, isLoading, isFetching, isError, error } = useFifaGalleries({
-    page: currentPage || page,
+    page: currentPage,
     search: debounced,
   });
-  console.log(data);
+
+  useEnsureValidPage(currentPage, data?.meta?.last_page);
 
   if (isError) console.log(error);
 
@@ -74,7 +73,7 @@ const SpaFifaGallery = () => {
               data={data}
               isLoading={isLoading}
               page={currentPage}
-              onPageChange={setPage}
+              onPageChange={onPageChange}
             />
           </div>
         </div>

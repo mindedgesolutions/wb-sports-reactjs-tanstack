@@ -1,21 +1,20 @@
 import { AppBodyWrapper, AppTitleWrapper } from '@/components';
 import { titles } from '@/constants';
 import { useHomepageSlider } from '@/tanstack/sports/homepage-sliders/homepage-sliders.query';
-import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import List from './List';
 import Form from './Form';
+import { useEnsureValidPage, usePageParam } from '@/hooks/use-pagination';
 
 const SpaHomepageSlider = () => {
   document.title = `Homepage Slider Images | ${titles.SPORTS_APP_NAME}`;
 
-  const [page, setPage] = useState(1);
-  const [searchParams] = useSearchParams();
-  const currentPage = Number(searchParams.get('page')) || page;
+  const { currentPage, onPageChange } = usePageParam();
 
   const { data, isLoading, isFetching, isError, error } = useHomepageSlider({
-    page: currentPage || page,
+    page: currentPage,
   });
+
+  useEnsureValidPage(currentPage, data?.meta?.last_page);
 
   if (isError) console.log(error);
 
@@ -32,7 +31,7 @@ const SpaHomepageSlider = () => {
               data={data}
               isLoading={isLoading}
               page={currentPage}
-              onPageChange={setPage}
+              onPageChange={onPageChange}
             />
           </div>
           <Form />

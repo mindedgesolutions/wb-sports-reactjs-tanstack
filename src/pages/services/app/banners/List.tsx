@@ -81,7 +81,7 @@ const List = ({
                     <FormToggle
                       checked={data.is_active}
                       api={servicesApp.banners.banners.toggle(Number(data.id))}
-                      queryKey="page-banner"
+                      queryKey="page-banners"
                     />
                   </TableCell>
                   <TableCell>

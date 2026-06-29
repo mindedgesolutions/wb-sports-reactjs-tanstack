@@ -12,14 +12,13 @@ import Form from './Form';
 import { useForm } from 'react-hook-form';
 import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
 import { useResetPaginationOnSearch } from '@/hooks/reset-page-on-search';
-import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import {
   useKeyPersonnel,
   useKeyPersonnelAll,
 } from '@/tanstack/sports/about-us/about-us.query';
 import type { IKeyPersonnelRow } from '@/interface/sports.interface';
 import { sportsApp } from '@/constants/api.sports';
+import { useEnsureValidPage, usePageParam } from '@/hooks/use-pagination';
 
 const SpaKeyPersonnel = () => {
   document.title = `Key Personnel | ${titles.SPORTS_APP_NAME}`;
@@ -31,14 +30,14 @@ const SpaKeyPersonnel = () => {
   const debounced = useDebounce(search, 500);
   useResetPaginationOnSearch(search);
 
-  const [page, setPage] = useState(1);
-  const [searchParams] = useSearchParams();
-  const currentPage = Number(searchParams.get('page')) || page;
+  const { currentPage, onPageChange } = usePageParam();
 
   const { data, isLoading, isFetching, isError, error } = useKeyPersonnel({
-    page: currentPage || page,
+    page: currentPage,
     search: debounced,
   });
+
+  useEnsureValidPage(currentPage, data?.meta?.last_page);
 
   const {
     data: all,
@@ -91,9 +90,9 @@ const SpaKeyPersonnel = () => {
             </div>
             <List
               data={data}
-              isLoading={isLoading}
               page={currentPage}
-              onPageChange={setPage}
+              onPageChange={onPageChange}
+              isLoading={isLoading}
             />
           </div>
           <Form />

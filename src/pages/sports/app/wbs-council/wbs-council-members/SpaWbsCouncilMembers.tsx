@@ -11,9 +11,8 @@ import Form from './Form';
 import { useForm } from 'react-hook-form';
 import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
 import { useResetPaginationOnSearch } from '@/hooks/reset-page-on-search';
-import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { useWbsCouncil } from '@/tanstack/sports/wbs-council/wbs-council.query';
+import { useEnsureValidPage, usePageParam } from '@/hooks/use-pagination';
 
 const SpaWbsCouncilMembers = () => {
   document.title = `WBS Council Members | ${titles.SPORTS_APP_NAME}`;
@@ -25,14 +24,14 @@ const SpaWbsCouncilMembers = () => {
   const debounced = useDebounce(search, 500);
   useResetPaginationOnSearch(search);
 
-  const [page, setPage] = useState(1);
-  const [searchParams] = useSearchParams();
-  const currentPage = Number(searchParams.get('page')) || page;
+  const { currentPage, onPageChange } = usePageParam();
 
   const { data, isLoading, isFetching, isError, error } = useWbsCouncil({
-    page: currentPage || page,
+    page: currentPage,
     search: debounced,
   });
+
+  useEnsureValidPage(currentPage, data?.meta?.last_page);
 
   if (isError) console.log(error);
 
@@ -71,7 +70,7 @@ const SpaWbsCouncilMembers = () => {
               data={data}
               isLoading={isLoading}
               page={currentPage}
-              onPageChange={setPage}
+              onPageChange={onPageChange}
             />
           </div>
         </div>

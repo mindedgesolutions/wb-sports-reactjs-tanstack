@@ -8,12 +8,11 @@ import { titles } from '@/constants';
 import { useResetPaginationOnSearch } from '@/hooks/reset-page-on-search';
 import { useAwards } from '@/tanstack/sports/achievements-awards/achievements-awards.query';
 import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
-import { useSearchParams } from 'react-router-dom';
 import List from './List';
 import Form from './Form';
+import { useEnsureValidPage, usePageParam } from '@/hooks/use-pagination';
 
 const SpaAwards = () => {
   document.title = `Awards | ${titles.SPORTS_APP_NAME}`;
@@ -25,14 +24,14 @@ const SpaAwards = () => {
   const debounced = useDebounce(search, 500);
   useResetPaginationOnSearch(search);
 
-  const [page, setPage] = useState(1);
-  const [searchParams] = useSearchParams();
-  const currentPage = Number(searchParams.get('page')) || page;
+  const { currentPage, onPageChange } = usePageParam();
 
   const { data, isLoading, isFetching, isError, error } = useAwards({
-    page: currentPage || page,
+    page: currentPage,
     search: debounced,
   });
+
+  useEnsureValidPage(currentPage, data?.meta?.last_page);
 
   if (isError) console.log(error);
 
@@ -64,7 +63,7 @@ const SpaAwards = () => {
               data={data}
               isLoading={isLoading}
               page={currentPage}
-              onPageChange={setPage}
+              onPageChange={onPageChange}
             />
           </div>
           <Form />

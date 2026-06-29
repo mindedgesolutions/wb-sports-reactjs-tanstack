@@ -12,14 +12,13 @@ import {
   useContactUsAll,
 } from '@/tanstack/sports/contact-us/contact-us.query';
 import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
-import { useSearchParams } from 'react-router-dom';
 import List from './List';
 import Form from './Form';
 import { sportsApp } from '@/constants/api.sports';
 import type { IContactUsRow } from '@/interface/sports.interface';
+import { useEnsureValidPage, usePageParam } from '@/hooks/use-pagination';
 
 const SpaContactUs = () => {
   document.title = `Contact Us | ${titles.SPORTS_APP_NAME}`;
@@ -31,14 +30,15 @@ const SpaContactUs = () => {
   const debounced = useDebounce(search, 500);
   useResetPaginationOnSearch(search);
 
-  const [page, setPage] = useState(1);
-  const [searchParams] = useSearchParams();
-  const currentPage = Number(searchParams.get('page')) || page;
+  const { currentPage, onPageChange } = usePageParam();
 
   const { data, isLoading, isFetching, isError, error } = useContactUs({
-    page: currentPage || page,
+    page: currentPage,
     search: debounced,
   });
+
+  useEnsureValidPage(currentPage, data?.meta?.last_page);
+
   const { data: all } = useContactUsAll();
 
   const sortData = all?.data?.map((item: IContactUsRow) => ({
@@ -88,7 +88,7 @@ const SpaContactUs = () => {
               data={data}
               isLoading={isLoading}
               page={currentPage}
-              onPageChange={setPage}
+              onPageChange={onPageChange}
             />
           </div>
           <Form />

@@ -7,13 +7,13 @@ import {
 import { titles } from '@/constants';
 import { useResetPaginationOnSearch } from '@/hooks/reset-page-on-search';
 import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import List from './List';
 import { Button } from '@/components/ui/button';
 import { usePhotoGalleries } from '@/tanstack/sports/moments/moments.query';
+import { useEnsureValidPage, usePageParam } from '@/hooks/use-pagination';
 
 const SpaPhotoGallery = () => {
   document.title = `Photo Galleries | ${titles.SPORTS_APP_NAME}`;
@@ -25,14 +25,14 @@ const SpaPhotoGallery = () => {
   const debounced = useDebounce(search, 500);
   useResetPaginationOnSearch(search);
 
-  const [page, setPage] = useState(1);
-  const [searchParams] = useSearchParams();
-  const currentPage = Number(searchParams.get('page')) || page;
+  const { currentPage, onPageChange } = usePageParam();
 
   const { data, isLoading, isFetching, isError, error } = usePhotoGalleries({
-    page: currentPage || page,
+    page: currentPage,
     search: debounced,
   });
+
+  useEnsureValidPage(currentPage, data?.meta?.last_page);
 
   if (isError) console.log(error);
 
@@ -73,7 +73,7 @@ const SpaPhotoGallery = () => {
               data={data}
               isLoading={isLoading}
               page={currentPage}
-              onPageChange={setPage}
+              onPageChange={onPageChange}
             />
           </div>
         </div>

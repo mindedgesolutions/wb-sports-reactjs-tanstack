@@ -20,6 +20,7 @@ import { queryClient } from '@/tanstack/query.client';
 import type { IAwardList } from '@/interface/sports.interface';
 import { sportsApp } from '@/constants/api.sports';
 import { GrAttachment } from 'react-icons/gr';
+import { titles } from '@/constants';
 
 const List = ({
   data,
@@ -67,9 +68,14 @@ const List = ({
                   <AppTooltip text={data.name} cropLen={40} />
                 </TableCell>
                 <TableCell>
-                  <Button variant={'ghost'}>
-                    <GrAttachment className="size-4 text-success cursor-pointer" />
-                  </Button>
+                  <a
+                    href={`${titles.BASE_URL}${data.file_path}`}
+                    target="_blank"
+                  >
+                    <Button variant={'ghost'}>
+                      <GrAttachment className="size-4 text-success cursor-pointer" />
+                    </Button>
+                  </a>
                 </TableCell>
                 <TableCell>
                   <FormToggle

@@ -70,7 +70,7 @@ const List = ({
                 <TableCell>
                   <AppTooltip
                     text={data.description?.trim() || 'N/A'}
-                    cropLen={40}
+                    cropLen={30}
                   />
                 </TableCell>
                 <TableCell>

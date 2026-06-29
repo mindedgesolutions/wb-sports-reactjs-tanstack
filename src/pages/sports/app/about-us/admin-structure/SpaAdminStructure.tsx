@@ -15,11 +15,10 @@ import Form from './Form';
 import { useForm } from 'react-hook-form';
 import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
 import { useResetPaginationOnSearch } from '@/hooks/reset-page-on-search';
-import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
 import { sportsApp } from '@/constants/api.sports';
 import type { IAdminStructureRow } from '@/interface/sports.interface';
+import { useEnsureValidPage, usePageParam } from '@/hooks/use-pagination';
 
 const SpaAdminStructure = () => {
   document.title = `Administrative Structure | ${titles.SPORTS_APP_NAME}`;
@@ -31,14 +30,14 @@ const SpaAdminStructure = () => {
   const debounced = useDebounce(search, 500);
   useResetPaginationOnSearch(search);
 
-  const [page, setPage] = useState(1);
-  const [searchParams] = useSearchParams();
-  const currentPage = Number(searchParams.get('page')) || page;
+  const { currentPage, onPageChange } = usePageParam();
 
   const { data, isLoading, isFetching, isError, error } = useAdminStructure({
-    page: currentPage || page,
+    page: currentPage,
     search: debounced,
   });
+
+  useEnsureValidPage(currentPage, data?.meta?.last_page);
 
   const {
     data: all,
@@ -93,7 +92,7 @@ const SpaAdminStructure = () => {
               data={data}
               isLoading={isLoading}
               page={currentPage}
-              onPageChange={setPage}
+              onPageChange={onPageChange}
             />
           </div>
           <Form />
