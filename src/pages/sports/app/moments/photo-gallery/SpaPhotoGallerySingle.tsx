@@ -109,7 +109,7 @@ const SpaPhotoGallerySingle = () => {
       methods.reset({
         title: data.title,
         description: data.description || '',
-        eventDate: data.event_date || undefined,
+        eventDate: data.event_date ? new Date(data.event_date) : undefined,
         coverImg: undefined,
         existingCoverImg: data.cover_img || '',
         galleryImg: [],

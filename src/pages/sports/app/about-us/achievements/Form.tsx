@@ -102,7 +102,9 @@ const Form = () => {
       form.reset({
         title: selected.title,
         description: selected.description || '',
-        achievementDate: selected.achievement_date || undefined,
+        achievementDate: selected.achievement_date
+          ? new Date(selected.achievement_date)
+          : undefined,
       });
     } else {
       form.reset({

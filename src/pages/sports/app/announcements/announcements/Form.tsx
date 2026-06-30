@@ -116,8 +116,10 @@ const Form = () => {
         type: selected.type,
         annNo: selected.ann_no,
         subject: selected.subject,
-        startDate: selected.start_date || undefined,
-        endDate: selected.end_date || undefined,
+        startDate: selected.start_date
+          ? new Date(selected.start_date)
+          : undefined,
+        endDate: selected.end_date ? new Date(selected.end_date) : undefined,
         oldFile: selected.file_path || undefined,
         newFile: undefined,
       });

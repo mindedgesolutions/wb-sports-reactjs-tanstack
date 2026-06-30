@@ -10,10 +10,9 @@ import Form from './Form';
 import { useForm } from 'react-hook-form';
 import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
 import { useResetPaginationOnSearch } from '@/hooks/reset-page-on-search';
-import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { useBanners } from '@/tanstack/services/banners/banners.query';
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
+import { useEnsureValidPage, usePageParam } from '@/hooks/use-pagination';
 
 const YsaBanners = () => {
   document.title = `Page Banners | ${titles.SERVICES_APP_NAME}`;
@@ -25,14 +24,14 @@ const YsaBanners = () => {
   const debounced = useDebounce(search, 500);
   useResetPaginationOnSearch(search);
 
-  const [page, setPage] = useState(1);
-  const [searchParams] = useSearchParams();
-  const currentPage = Number(searchParams.get('page')) || page;
+  const { currentPage, onPageChange } = usePageParam();
 
   const { data, isLoading, isFetching, isError, error } = useBanners({
-    page: currentPage || page,
+    page: currentPage,
     search: debounced,
   });
+
+  useEnsureValidPage(currentPage, data?.meta?.last_page);
 
   if (isError) console.log(error);
 
@@ -67,7 +66,7 @@ const YsaBanners = () => {
               data={data}
               isLoading={isLoading}
               page={currentPage}
-              onPageChange={setPage}
+              onPageChange={onPageChange}
             />
           </div>
           <Form />

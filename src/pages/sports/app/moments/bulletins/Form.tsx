@@ -107,7 +107,9 @@ const Form = () => {
     if (selected) {
       form.reset({
         name: selected.name,
-        eventDate: selected.event_date || undefined,
+        eventDate: selected.event_date
+          ? new Date(selected.event_date)
+          : undefined,
         newFile: undefined,
         oldFile: selected.file_path,
       });

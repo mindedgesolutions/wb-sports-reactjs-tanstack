@@ -12,7 +12,7 @@ export const keyPersonnelSchema = z
   .object({
     name: z
       .string()
-      .min(1, 'Name is required')
+      .nonempty('Name is required')
       .max(255, 'Name must be less than 255 characters'),
     rank: z
       .string()
@@ -20,7 +20,7 @@ export const keyPersonnelSchema = z
       .optional(),
     designation: z
       .string()
-      .min(1, 'Designation is required')
+      .nonempty('Designation is required')
       .max(255, 'Designation must be less than 255 characters'),
     oldImg: z.string().optional(),
     newImg: z.instanceof(File).optional().or(z.undefined()),

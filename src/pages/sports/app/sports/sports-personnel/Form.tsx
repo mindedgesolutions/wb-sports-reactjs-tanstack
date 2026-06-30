@@ -112,7 +112,7 @@ const Form = () => {
       form.reset({
         sport: selected.sport,
         name: selected.name,
-        dob: selected.dob,
+        dob: selected.dob ? new Date(selected.dob) : undefined,
         address: selected.address || '',
         contactOne: selected.contact_1 || '',
         contactTwo: selected.contact_2 || '',

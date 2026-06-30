@@ -105,7 +105,7 @@ const SpaFifaGallerySingle = () => {
       methods.reset({
         title: data.name,
         description: data.description || '',
-        eventDate: data.event_date,
+        eventDate: data.event_date ? new Date(data.event_date) : undefined,
         newGalleryImg: [],
         existingGalleryImg:
           data?.photos?.map((item: any) => String(item.image_path)) || [],

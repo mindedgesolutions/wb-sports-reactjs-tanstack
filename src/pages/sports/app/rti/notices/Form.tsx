@@ -118,8 +118,10 @@ const Form = () => {
         noticeNo: selected.notice_no,
         subject: selected.subject,
         isNew: String(selected.is_new),
-        startDate: selected.start_date || undefined,
-        endDate: selected.end_date || undefined,
+        startDate: selected.start_date
+          ? new Date(selected.start_date)
+          : undefined,
+        endDate: selected.end_date ? new Date(selected.end_date) : undefined,
         newFile: undefined,
         existingFile: selected.file_path,
       });

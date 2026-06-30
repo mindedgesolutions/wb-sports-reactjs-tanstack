@@ -109,7 +109,7 @@ const Form = () => {
       form.reset({
         title: selected.title,
         description: selected.description || undefined,
-        adDate: selected.ad_date || undefined,
+        adDate: selected.ad_date ? new Date(selected.ad_date) : undefined,
         newFile: undefined,
         oldFile: selected.file_path || undefined,
       });
