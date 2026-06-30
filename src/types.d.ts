@@ -75,3 +75,12 @@ interface IHomepageMention {
   gov?: string;
   cm: boolean;
 }
+
+interface IDistrict {
+  id: number;
+  name: string;
+  district_code: string | null;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}

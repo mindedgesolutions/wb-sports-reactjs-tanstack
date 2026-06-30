@@ -5,7 +5,6 @@ import {
   FormInput,
   FormSelect,
   FormTextarea,
-  FormUploadSingle,
   SubmitBtn,
 } from '@/components';
 import { Button } from '@/components/ui/button';
@@ -19,8 +18,9 @@ import {
 } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { titles, wbsCommitteeTypes } from '@/constants';
+import { fetchDistricts } from '@/features/common.slice';
 import type { IDistrictBlockOffice } from '@/interface/services.interface';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import {
   districtBlockOfficeSchema,
   type DistrictBlockOfficeSchema,
@@ -31,14 +31,28 @@ import {
   useDistrictBlockOfficeUpdate,
 } from '@/tanstack/services/about-us/about-us.mutation';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Mail, Phone, Trash2, User } from 'lucide-react';
-import { useState } from 'react';
+import { Mail, Phone, User } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { CiMobile1 } from 'react-icons/ci';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
-import { MdWorkOutline } from 'react-icons/md';
-import { PiUserCircleLight } from 'react-icons/pi';
+import { SlBadge } from 'react-icons/sl';
 
 const Form = ({ office }: { office?: IDistrictBlockOffice }) => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchDistricts());
+  }, [dispatch]);
+
+  const { districts } = useAppSelector((state) => state.common) as {
+    districts: IDistrict[] | null;
+  };
+  const districtOptions = districts?.map((d) => ({
+    value: d.id,
+    label: d.name,
+  })) as [];
+
   const [open, setOpen] = useState(false);
   const openModal = (state: boolean) => {
     setOpen(state);
@@ -148,7 +162,7 @@ const Form = ({ office }: { office?: IDistrictBlockOffice }) => {
               );
             }}
           >
-            <HiOutlinePencilAlt className="size-4 text-chart-4" />
+            <HiOutlinePencilAlt className="size-4 text-warn" />
           </Button>
         ) : (
           <Button type="button" size={'sm'} className="rounded-sm">
@@ -170,149 +184,148 @@ const Form = ({ office }: { office?: IDistrictBlockOffice }) => {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="">
                     <Label className="mb-2" htmlFor="type">
-                      Committee type <AppRequired />
+                      District <AppRequired />
                     </Label>
                     <FormSelect
                       control={form.control}
-                      name="type"
-                      options={wbsCommitteeTypes}
-                      placeholder="Select a commitee type"
-                      description={errors.type?.message}
+                      name="districtId"
+                      options={districtOptions}
+                      description={errors.districtId?.message}
+                      placeholder="Select district"
                       className="mb-2"
                     />
                   </div>
                   <div className=""></div>
-                  <div className="">
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="col-span-2">
                     <Label className="mb-2" htmlFor="designation">
-                      Name <AppRequired />
+                      Office name <AppRequired />
                     </Label>
                     <FormInput
                       register={form.register}
                       name="name"
-                      placeholder="Enter name"
+                      placeholder="Enter office name"
                       description={errors.name?.message}
                       iconStart={<User />}
                       className="mb-2"
                     />
                   </div>
-                  <div className="">
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="col-span-2">
                     <Label className="mb-2" htmlFor="designation">
-                      Designation <AppRequired />
-                    </Label>
-                    <FormSelect
-                      control={form.control}
-                      name="designation"
-                      options={filteredDesignations}
-                      placeholder="Select a designation"
-                      description={errors.designation?.message}
-                      className="mb-2"
-                      disabled={isDesignationsPending}
-                    />
-                  </div>
-                  <div className="">
-                    <Label className="mb-2" htmlFor="designationLabel">
-                      Designation label
-                    </Label>
-                    <FormInput
-                      register={form.register}
-                      name="designationLabel"
-                      placeholder="Enter designation label"
-                      description={errors.designationLabel?.message}
-                      iconStart={<MdWorkOutline />}
-                      className="mb-2"
-                    />
-                  </div>
-                  <div className=""></div>
-                  <div className="col-span-2 ">
-                    <Label className="mb-2" htmlFor="address">
-                      Address
+                      Office address <AppRequired />
                     </Label>
                     <FormTextarea
                       register={form.register}
                       name="address"
-                      placeholder="Enter address"
+                      placeholder="Enter office address"
                       description={errors.address?.message}
+                      className="mb-2"
+                      maxLen={255}
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="">
+                    <Label className="mb-2" htmlFor="designationLabel">
+                      Landline no.
+                    </Label>
+                    <FormInput
+                      register={form.register}
+                      name="landline"
+                      placeholder="Format 33XXXXXXXX"
+                      description={errors.landline?.message}
+                      iconStart={<Phone />}
                       className="mb-2"
                     />
                   </div>
                   <div className="">
-                    <Label className="mb-2" htmlFor="email">
+                    <Label className="mb-2" htmlFor="designationLabel">
                       Email
                     </Label>
                     <FormInput
                       register={form.register}
                       name="email"
-                      placeholder="Enter email"
+                      placeholder="Enter email address"
                       description={errors.email?.message}
                       iconStart={<Mail />}
                       className="mb-2"
                     />
                   </div>
-                  <div className=""></div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
                   <div className="">
-                    <Label className="mb-2" htmlFor="phone">
-                      Phone no.
+                    <Label className="mb-2" htmlFor="designationLabel">
+                      Mobile no. 1
                     </Label>
                     <FormInput
                       register={form.register}
-                      name="phone"
-                      placeholder="Enter phone number"
-                      description={errors.phone?.message}
-                      iconStart={<Phone />}
+                      name="mobile_1"
+                      placeholder="Enter mobile no."
+                      description={errors.mobile_1?.message}
+                      iconStart={<CiMobile1 />}
                       className="mb-2"
                     />
                   </div>
                   <div className="">
-                    <Label className="mb-2" htmlFor="fax">
-                      FAX
+                    <Label className="mb-2" htmlFor="designationLabel">
+                      Mobile no. 2
                     </Label>
                     <FormInput
                       register={form.register}
-                      name="fax"
-                      placeholder="Enter fax number"
-                      description={errors.fax?.message}
-                      iconStart={<Phone />}
+                      name="mobile_2"
+                      placeholder="Enter mobile no."
+                      description={errors.mobile_2?.message}
+                      iconStart={<CiMobile1 />}
                       className="mb-2"
                     />
                   </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="designation">Upload an image</Label>
-                    <div className="p-1 border border-muted-foreground/30 border-dashed w-32 h-32 relative">
-                      {form.getValues('oldImg') && files.length === 0 && (
-                        <img
-                          src={`${titles.BASE_URL}${form.getValues('oldImg')}`}
-                          alt="Existing"
-                          className="w-full max-h-28 object-cover"
-                        />
-                      )}
-                      {files.length > 0 &&
-                        files[0].file.size <= fileSizes().max2mb && (
-                          <img
-                            src={URL.createObjectURL(files[0].file)}
-                            alt=""
-                            className="w-full max-h-28 object-cover"
-                          />
-                        )}
-                      {!form.getValues('oldImg') && files.length === 0 && (
-                        <PiUserCircleLight className="w-full h-full text-muted" />
-                      )}
-                      <FormUploadSingle
-                        setFiles={setFiles}
-                        files={files}
-                        setFormImg={(file: File) =>
-                          form.setValue('newImg', file)
-                        }
-                      />
-                      <Button
-                        size={'icon-xs'}
-                        type="button"
-                        variant={'ghost'}
-                        className="absolute -right-7 bottom-0"
-                        onClick={() => setFiles([])}
-                      >
-                        <Trash2 className="size-4 text-destructive" />
-                      </Button>
-                    </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="col-span-2">
+                    <Label className="mb-2" htmlFor="designation">
+                      Officer's name
+                    </Label>
+                    <FormInput
+                      register={form.register}
+                      name="officerName"
+                      placeholder="Enter office's name"
+                      description={errors.officerName?.message}
+                      iconStart={<User />}
+                      className="mb-2"
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="col-span-2">
+                    <Label className="mb-2" htmlFor="designation">
+                      Officer's designation <AppRequired />
+                    </Label>
+                    <FormInput
+                      register={form.register}
+                      name="officerDesignation"
+                      placeholder="Enter office's designation"
+                      description={errors.officerDesignation?.message}
+                      iconStart={<SlBadge />}
+                      className="mb-2"
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="">
+                    <Label className="mb-2" htmlFor="designationLabel">
+                      Officer's mobile no.
+                    </Label>
+                    <FormInput
+                      register={form.register}
+                      name="officerMobile"
+                      placeholder="Enter officer's mobile no."
+                      description={errors.officerMobile?.message}
+                      iconStart={<CiMobile1 />}
+                      className="mb-2"
+                    />
                   </div>
                 </div>
               </div>
