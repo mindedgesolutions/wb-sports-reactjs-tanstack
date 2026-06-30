@@ -31,7 +31,7 @@ import {
   useDistrictBlockOfficeUpdate,
 } from '@/tanstack/services/about-us/about-us.mutation';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Mail, Phone, User } from 'lucide-react';
+import { Building, Mail, Phone, User } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { CiMobile1 } from 'react-icons/ci';
@@ -207,7 +207,7 @@ const Form = ({ office }: { office?: IDistrictBlockOffice }) => {
                       name="name"
                       placeholder="Enter office name"
                       description={errors.name?.message}
-                      iconStart={<User />}
+                      iconStart={<Building />}
                       className="mb-2"
                     />
                   </div>

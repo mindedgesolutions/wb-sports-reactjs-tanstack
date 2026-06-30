@@ -31,7 +31,11 @@ export function NavMain({ items }: { items: IMenu[] }) {
             >
               <SidebarMenuItem>
                 <CollapsibleTrigger asChild>
-                  <SidebarMenuButton tooltip={item.title} className="text-xs">
+                  <SidebarMenuButton
+                    tooltip={item.title}
+                    title={item.title}
+                    className="text-xs"
+                  >
                     {item.icon && <item.icon />}
                     <span>{item.title}</span>
                     {item.items && (
@@ -44,7 +48,10 @@ export function NavMain({ items }: { items: IMenu[] }) {
                     {item.items?.map((subItem: ISubmenu) => {
                       if (!subItem.items) {
                         return (
-                          <SidebarMenuSubItem key={subItem.title}>
+                          <SidebarMenuSubItem
+                            key={subItem.title}
+                            title={subItem.title}
+                          >
                             <SidebarMenuSubButton
                               asChild
                               className="text-xs"
@@ -89,7 +96,11 @@ function SubTree({ item, pathname }: { item: ISubmenu; pathname: string }) {
     >
       <SidebarMenuItem>
         <CollapsibleTrigger asChild>
-          <SidebarMenuButton tooltip={item.title} className="text-xs">
+          <SidebarMenuButton
+            tooltip={item.title}
+            title={item.title}
+            className="text-xs"
+          >
             <span>{item.title}</span>
             {item.items && (
               <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible-submenu:rotate-90" />
@@ -101,7 +112,7 @@ function SubTree({ item, pathname }: { item: ISubmenu; pathname: string }) {
             {item.items?.map((subItem: ISubmenu) => {
               if (!subItem.items) {
                 return (
-                  <SidebarMenuSubItem key={subItem.title}>
+                  <SidebarMenuSubItem key={subItem.title} title={subItem.title}>
                     <SidebarMenuSubButton
                       asChild
                       className="text-xs"

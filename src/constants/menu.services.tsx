@@ -78,7 +78,7 @@ export const servicesAppMenu = () => {
                 url: `${titles.SERVICES_APP_URL}/youth-training-program/computer-training/course-details`,
               },
               {
-                title: 'Course Syllabus',
+                title: 'Course Syllabus (PDF)',
                 url: `${titles.SERVICES_APP_URL}/youth-training-program/computer-training/course-syllabus`,
               },
               {

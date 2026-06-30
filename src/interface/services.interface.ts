@@ -68,3 +68,26 @@ export interface IDistrictBlockOfficeList {
   data: IDistrictBlockOffice[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+export interface ICompCourseDetails {
+  id: number;
+  course_type: string;
+  course_name: string;
+  course_slug: string | null;
+  course_duration: string | null;
+  course_eligibility: string | null;
+  course_fees: number;
+  organisation: string | null;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface ICompCourseDetailsList {
+  data: ICompCourseDetails[];
+  meta: IPagination;
+}
+
+// -----------------------------

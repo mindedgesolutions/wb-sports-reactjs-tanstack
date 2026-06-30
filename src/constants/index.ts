@@ -156,3 +156,17 @@ export const homepageMentions: IHomepageMention[] = [
     cm: false,
   },
 ];
+
+// -------------------------------
+
+export const compCourseTypes = [
+  { label: 'Certificate', value: 'certificate' },
+  { label: 'Diploma', value: 'diploma' },
+  { label: 'Advanced Diploma', value: 'advanced diploma' },
+];
+
+export const compCourseDuration = [
+  { label: '6 months', value: '6 months' },
+  { label: '1 year', value: '1 year' },
+  { label: '1 year 6 months', value: '1 year 6 months' },
+];

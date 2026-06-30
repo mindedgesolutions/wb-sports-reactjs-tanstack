@@ -27,4 +27,30 @@ export const servicesApp = {
       delete: (id: number) => `/services/about-us/district-block-offices/${id}`,
     },
   },
+  youthTraining: {
+    compTraining: {
+      courseDetails: {
+        create: `/services/computer-training/course-details`,
+        list: `/services/computer-training/course-details`,
+        toggle: (id: number) =>
+          `/services/computer-training/course-details/toggle/${id}`,
+        update: (id: number) =>
+          `/services/computer-training/course-details/${id}`,
+        delete: (id: number) =>
+          `/services/computer-training/course-details/${id}`,
+      },
+      courseSyllabus: {
+        create: `/services/computer-training/course-syllabus`,
+        list: `/services/computer-training/course-syllabus`,
+        toggle: (id: number) =>
+          `/services/computer-training/course-syllabus/toggle/${id}`,
+        update: (id: number) =>
+          `/services/computer-training/course-syllabus/${id}`,
+        delete: (id: number) =>
+          `/services/computer-training/course-syllabus/${id}`,
+      },
+      trainingCentres: {},
+    },
+    vocTraining: {},
+  },
 };
