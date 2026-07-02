@@ -425,6 +425,7 @@ export interface IBulletinRow {
   name: string;
   slug: string;
   file_path: string;
+  file_name: string;
   event_date: Date | null;
   is_active: boolean;
   created_at: Date;

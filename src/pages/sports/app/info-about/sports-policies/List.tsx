@@ -14,12 +14,12 @@ import {
   AppTooltip,
   FormToggle,
 } from '@/components';
-import { serialNo } from '@/utils/functions';
+import { handleFileOpen, serialNo } from '@/utils/functions';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
 import { Button } from '@/components/ui/button';
 import { queryClient } from '@/tanstack/query.client';
 import { sportsApp } from '@/constants/api.sports';
-import { GrAttachment } from 'react-icons/gr';
+import { defaultIcons } from '@/constants';
 
 const List = ({
   data,
@@ -57,55 +57,66 @@ const List = ({
               </TableCell>
             </TableRow>
           ) : (
-            data?.data?.map((data, index) => (
-              <TableRow
-                className="uppercase text-muted-foreground grayscale-100 hover:grayscale-0 transition-all"
-                key={data.id}
-              >
-                <TableCell>{serialNo({ page, index })}.</TableCell>
-                <TableCell>
-                  <AppTooltip text={data.name} cropLen={40} />
-                </TableCell>
-                <TableCell>
-                  <Button variant={'ghost'}>
-                    <GrAttachment className="size-4 text-success cursor-pointer" />
-                  </Button>
-                </TableCell>
-                <TableCell>
-                  <FormToggle
-                    checked={data.is_active}
-                    api={sportsApp.infoAbout.sportsPolicies.toggle(
-                      Number(data.id),
-                    )}
-                    queryKey="sports-policies"
-                  />
-                </TableCell>
-                <TableCell>
-                  <span className="flex gap-6">
+            data?.data?.map((data, index) => {
+              const handleView = () => {
+                handleFileOpen(data.file_path!, data.file_name!);
+              };
+
+              return (
+                <TableRow
+                  className="uppercase text-muted-foreground grayscale-100 hover:grayscale-0 transition-all"
+                  key={data.id}
+                >
+                  <TableCell>{serialNo({ page, index })}.</TableCell>
+                  <TableCell>
+                    <AppTooltip text={data.name} cropLen={40} />
+                  </TableCell>
+                  <TableCell>
                     <Button
-                      variant="ghost"
-                      size={'icon-xs'}
-                      onClick={() => {
-                        queryClient.setQueryData(
-                          ['sports-policy-selected'],
-                          data,
-                        );
-                      }}
+                      type="button"
+                      size={'xs'}
+                      variant={'ghost'}
+                      onClick={handleView}
                     >
-                      <HiOutlinePencilAlt className="size-4 text-warn" />
+                      <defaultIcons.attachment className="size-4 text-success cursor-pointer" />
                     </Button>
-                    <AppDeleteModal
-                      api={sportsApp.infoAbout.sportsPolicies.delete(
+                  </TableCell>
+                  <TableCell>
+                    <FormToggle
+                      checked={data.is_active}
+                      api={sportsApp.infoAbout.sportsPolicies.toggle(
                         Number(data.id),
                       )}
                       queryKey="sports-policies"
-                      deleteQueryKey="sports-policy-selected"
-                      id={data.id}
                     />
-                  </span>
-                </TableCell>
-              </TableRow>
-            ))
+                  </TableCell>
+                  <TableCell>
+                    <span className="flex gap-6">
+                      <Button
+                        variant="ghost"
+                        size={'icon-xs'}
+                        onClick={() => {
+                          queryClient.setQueryData(
+                            ['sports-policy-selected'],
+                            data,
+                          );
+                        }}
+                      >
+                        <HiOutlinePencilAlt className="size-4 text-warn" />
+                      </Button>
+                      <AppDeleteModal
+                        api={sportsApp.infoAbout.sportsPolicies.delete(
+                          Number(data.id),
+                        )}
+                        queryKey="sports-policies"
+                        deleteQueryKey="sports-policy-selected"
+                        id={data.id}
+                      />
+                    </span>
+                  </TableCell>
+                </TableRow>
+              );
+            })
           )}
         </TableBody>
       </Table>

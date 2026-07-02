@@ -13,13 +13,14 @@ import {
   AppTooltip,
   FormToggle,
 } from '@/components';
-import { serialNo } from '@/utils/functions';
+import { handleFileOpen, serialNo } from '@/utils/functions';
 import type { IRtiNoticeList } from '@/interface/sports.interface';
 import { sportsApp } from '@/constants/api.sports';
 import dayjs from 'dayjs';
 import { Button } from '@/components/ui/button';
 import { queryClient } from '@/tanstack/query.client';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
+import { defaultIcons } from '@/constants';
 
 const List = ({
   data,
@@ -59,51 +60,69 @@ const List = ({
               </TableCell>
             </TableRow>
           ) : (
-            data?.data?.map((data, index) => (
-              <TableRow
-                className="uppercase text-muted-foreground grayscale-100 hover:grayscale-0 transition-all"
-                key={data.id}
-              >
-                <TableCell>{serialNo({ page, index })}.</TableCell>
-                <TableCell>{data.notice_no}</TableCell>
-                <TableCell>
-                  <AppTooltip text={data.subject} cropLen={40} />
-                </TableCell>
-                <TableCell>
-                  {data.start_date &&
-                    dayjs(data.start_date).format('DD/MM/YYYY')}
-                  {data.end_date &&
-                    `-${dayjs(data.end_date).format('DD/MM/YYYY')}`}
-                </TableCell>
-                <TableCell></TableCell>
-                <TableCell>
-                  <FormToggle
-                    checked={data.is_active}
-                    api={sportsApp.rti.notices.toggle(Number(data.id))}
-                    queryKey="rti-notices"
-                  />
-                </TableCell>
-                <TableCell>
-                  <span className="flex gap-6">
+            data?.data?.map((data, index) => {
+              const handleView = () => {
+                handleFileOpen(data.file_path!, data.file_name!);
+              };
+
+              return (
+                <TableRow
+                  className="uppercase text-muted-foreground grayscale-100 hover:grayscale-0 transition-all"
+                  key={data.id}
+                >
+                  <TableCell>{serialNo({ page, index })}.</TableCell>
+                  <TableCell>{data.notice_no}</TableCell>
+                  <TableCell>
+                    <AppTooltip text={data.subject} cropLen={40} />
+                  </TableCell>
+                  <TableCell>
+                    {data.start_date &&
+                      dayjs(data.start_date).format('DD/MM/YYYY')}
+                    {data.end_date &&
+                      `-${dayjs(data.end_date).format('DD/MM/YYYY')}`}
+                  </TableCell>
+                  <TableCell>
                     <Button
-                      variant="ghost"
-                      size={'icon-xs'}
-                      onClick={() => {
-                        queryClient.setQueryData(['rti-notice-selected'], data);
-                      }}
+                      type="button"
+                      size={'xs'}
+                      variant={'ghost'}
+                      onClick={handleView}
                     >
-                      <HiOutlinePencilAlt className="size-4 text-warn" />
+                      <defaultIcons.attachment className="size-4 text-success cursor-pointer" />
                     </Button>
-                    <AppDeleteModal
-                      api={sportsApp.rti.notices.delete(Number(data.id))}
+                  </TableCell>
+                  <TableCell>
+                    <FormToggle
+                      checked={data.is_active}
+                      api={sportsApp.rti.notices.toggle(Number(data.id))}
                       queryKey="rti-notices"
-                      deleteQueryKey="rti-notice-selected"
-                      id={data.id}
                     />
-                  </span>
-                </TableCell>
-              </TableRow>
-            ))
+                  </TableCell>
+                  <TableCell>
+                    <span className="flex gap-6">
+                      <Button
+                        variant="ghost"
+                        size={'icon-xs'}
+                        onClick={() => {
+                          queryClient.setQueryData(
+                            ['rti-notice-selected'],
+                            data,
+                          );
+                        }}
+                      >
+                        <HiOutlinePencilAlt className="size-4 text-warn" />
+                      </Button>
+                      <AppDeleteModal
+                        api={sportsApp.rti.notices.delete(Number(data.id))}
+                        queryKey="rti-notices"
+                        deleteQueryKey="rti-notice-selected"
+                        id={data.id}
+                      />
+                    </span>
+                  </TableCell>
+                </TableRow>
+              );
+            })
           )}
         </TableBody>
       </Table>

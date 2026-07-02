@@ -30,9 +30,9 @@ import {
   SubmitBtn,
 } from '@/components';
 import { Button } from '@/components/ui/button';
-import { titles } from '@/constants';
-import { GoFile } from 'react-icons/go';
+import { defaultIcons } from '@/constants';
 import { X } from 'lucide-react';
+import { handleFileOpen } from '@/utils/functions';
 
 const Form = () => {
   const {
@@ -123,6 +123,12 @@ const Form = () => {
     }
   }, [selected]);
 
+  // ---------------------------------
+
+  const handleView = () => {
+    selected && handleFileOpen(selected.file_path!, selected.file_name!);
+  };
+
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>
@@ -169,12 +175,10 @@ const Form = () => {
                 />
               </div>
               {selected && (
-                <a
-                  href={`${titles.BASE_URL}${selected.file_path}`}
-                  target="_blank"
-                >
-                  <GoFile className="size-12 text-muted-foreground/20" />
-                </a>
+                <defaultIcons.fileAttachment
+                  className="size-12 text-muted-foreground/20 cursor-pointer"
+                  onClick={handleView}
+                />
               )}
             </div>
           </CardContent>

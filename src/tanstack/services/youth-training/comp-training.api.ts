@@ -1,6 +1,9 @@
 import { customFetch } from '@/axios/custom.fetch';
 import { servicesApp } from '@/constants/api.services';
-import type { CompCourseDetailsSchema } from '@/schema/services/youth-training.schema';
+import type {
+  CompCourseDetailsSchema,
+  CourseSyllabusSchema,
+} from '@/schema/services/youth-training.schema';
 
 type ListProps = {
   page?: number;
@@ -51,6 +54,54 @@ export const getCompSyllabus = async ({ page, search, signal }: ListProps) => {
   const res = await customFetch.get(
     servicesApp.youthTraining.compTraining.courseSyllabus.list,
     { params: { page, search }, signal },
+  );
+  return res.data;
+};
+
+// -----------------------------
+
+const formatSyllabusPayload = (data: CourseSyllabusSchema) => {
+  const formData = new FormData();
+
+  Object.entries(data).forEach(([key, value]) => {
+    if (key === 'newFile' && value instanceof File) {
+      formData.append('newFile', value);
+      return;
+    }
+    if (value !== '' && value !== undefined && value !== null) {
+      formData.append(key, String(value));
+    }
+  });
+
+  return formData;
+};
+
+// -----------------------------
+
+export const compSyllabusCreate = async (data: CourseSyllabusSchema) => {
+  const formData = formatSyllabusPayload(data);
+
+  const res = await customFetch.post(
+    servicesApp.youthTraining.compTraining.courseSyllabus.create,
+    formData,
+    { headers: { 'Content-Type': 'Multipart/form-data' } },
+  );
+  return res.data;
+};
+
+// -----------------------------
+
+export const compSyllabusUpdate = async (
+  id: number,
+  data: CourseSyllabusSchema,
+) => {
+  const formData = formatSyllabusPayload(data);
+  formData.append('_method', 'PUT');
+
+  const res = await customFetch.post(
+    servicesApp.youthTraining.compTraining.courseSyllabus.update(id),
+    formData,
+    { headers: { 'Content-Type': 'Multipart/form-data' } },
   );
   return res.data;
 };

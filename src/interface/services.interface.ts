@@ -91,3 +91,22 @@ export interface ICompCourseDetailsList {
 }
 
 // -----------------------------
+
+export interface ICourseSyllabus {
+  id: number;
+  name: string;
+  slug: string;
+  file_path: string;
+  file_name: string;
+  organisation: string | null;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface ICourseSyllabusList {
+  data: ICourseSyllabus[];
+  meta: IPagination;
+}
+
+// -----------------------------

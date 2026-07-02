@@ -14,11 +14,12 @@ import {
   AppTooltip,
   FormToggle,
 } from '@/components';
-import { serialNo } from '@/utils/functions';
+import { handleFileOpen, serialNo } from '@/utils/functions';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
 import { Button } from '@/components/ui/button';
 import { queryClient } from '@/tanstack/query.client';
 import { sportsApp } from '@/constants/api.sports';
+import { defaultIcons } from '@/constants';
 
 const List = ({
   data,
@@ -56,44 +57,61 @@ const List = ({
               </TableCell>
             </TableRow>
           ) : (
-            data?.data?.map((data, index) => (
-              <TableRow
-                className="uppercase text-muted-foreground grayscale-100 hover:grayscale-0 transition-all"
-                key={data.id}
-              >
-                <TableCell>{serialNo({ page, index })}.</TableCell>
-                <TableCell>
-                  <AppTooltip text={data.name || ''} cropLen={40} />
-                </TableCell>
-                <TableCell></TableCell>
-                <TableCell>
-                  <FormToggle
-                    checked={data.is_active}
-                    api={sportsApp.moments.bulletins.toggle(Number(data.id))}
-                    queryKey="bulletins"
-                  />
-                </TableCell>
-                <TableCell>
-                  <span className="flex gap-6">
+            data?.data?.map((data, index) => {
+              const handleView = () => {
+                handleFileOpen(data.file_path!, data.file_name!);
+              };
+
+              return (
+                <TableRow
+                  className="uppercase text-muted-foreground grayscale-100 hover:grayscale-0 transition-all"
+                  key={data.id}
+                >
+                  <TableCell>{serialNo({ page, index })}.</TableCell>
+                  <TableCell>
+                    <AppTooltip text={data.name || ''} cropLen={40} />
+                  </TableCell>
+                  <TableCell>
                     <Button
-                      variant="ghost"
-                      size={'icon-xs'}
-                      onClick={() => {
-                        queryClient.setQueryData(['bulletin-selected'], data);
-                      }}
+                      type="button"
+                      size={'xs'}
+                      variant={'ghost'}
+                      onClick={handleView}
                     >
-                      <HiOutlinePencilAlt className="size-4 text-warn" />
+                      <defaultIcons.attachment className="size-4 text-success cursor-pointer" />
                     </Button>
-                    <AppDeleteModal
-                      api={sportsApp.moments.bulletins.delete(Number(data.id))}
+                  </TableCell>
+                  <TableCell>
+                    <FormToggle
+                      checked={data.is_active}
+                      api={sportsApp.moments.bulletins.toggle(Number(data.id))}
                       queryKey="bulletins"
-                      deleteQueryKey="bulletin-selected"
-                      id={data.id}
                     />
-                  </span>
-                </TableCell>
-              </TableRow>
-            ))
+                  </TableCell>
+                  <TableCell>
+                    <span className="flex gap-6">
+                      <Button
+                        variant="ghost"
+                        size={'icon-xs'}
+                        onClick={() => {
+                          queryClient.setQueryData(['bulletin-selected'], data);
+                        }}
+                      >
+                        <HiOutlinePencilAlt className="size-4 text-warn" />
+                      </Button>
+                      <AppDeleteModal
+                        api={sportsApp.moments.bulletins.delete(
+                          Number(data.id),
+                        )}
+                        queryKey="bulletins"
+                        deleteQueryKey="bulletin-selected"
+                        id={data.id}
+                      />
+                    </span>
+                  </TableCell>
+                </TableRow>
+              );
+            })
           )}
         </TableBody>
       </Table>

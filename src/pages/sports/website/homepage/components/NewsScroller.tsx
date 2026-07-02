@@ -16,7 +16,7 @@ const ReviewCard = ({
     <figure className="relative h-full w-full cursor-pointer overflow-hidden rounded-sm p-2">
       <a href={previewUrl} target="_blank">
         <div className="flex flex-row items-center gap-3">
-          <defaultIcons.GrAttachment size={16} className="text-primary" />
+          <defaultIcons.attachment size={16} className="text-primary" />
           <div className="flex flex-col">
             <figcaption className="text-xs font-inter text-muted-foreground tracking-wide leading-relaxed text-justify hover:text-card-foreground dark:text-primary-foreground">
               {title.length > 70 ? title.slice(0, 70) + ` ...` : title}

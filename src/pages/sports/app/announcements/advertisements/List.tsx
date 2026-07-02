@@ -13,13 +13,14 @@ import {
   AppTooltip,
   FormToggle,
 } from '@/components';
-import { serialNo } from '@/utils/functions';
+import { handleFileOpen, serialNo } from '@/utils/functions';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
 import { Button } from '@/components/ui/button';
 import { queryClient } from '@/tanstack/query.client';
 import type { IAdvertisementList } from '@/interface/sports.interface';
 import { sportsApp } from '@/constants/api.sports';
 import dayjs from 'dayjs';
+import { defaultIcons } from '@/constants';
 
 const List = ({
   data,
@@ -59,62 +60,78 @@ const List = ({
               </TableCell>
             </TableRow>
           ) : (
-            data?.data?.map((data, index) => (
-              <TableRow
-                className="uppercase text-muted-foreground grayscale-100 hover:grayscale-0 transition-all"
-                key={data.id}
-              >
-                <TableCell>{serialNo({ page, index })}.</TableCell>
-                <TableCell>
-                  <AppTooltip text={data.title} cropLen={40} />
-                </TableCell>
-                <TableCell>
-                  {data.description ? (
-                    <AppTooltip text={data.description} />
-                  ) : (
-                    'N/A'
-                  )}
-                </TableCell>
-                <TableCell>
-                  {data.ad_date
-                    ? dayjs(data.ad_date).format('DD/MM/YYYY')
-                    : 'N/A'}
-                </TableCell>
-                <TableCell>
-                  <FormToggle
-                    checked={data.is_active}
-                    api={sportsApp.announcements.advertisements.toggle(
-                      Number(data.id),
+            data?.data?.map((data, index) => {
+              const handleView = () => {
+                handleFileOpen(data.file_path!, data.file_name!);
+              };
+
+              return (
+                <TableRow
+                  className="uppercase text-muted-foreground grayscale-100 hover:grayscale-0 transition-all"
+                  key={data.id}
+                >
+                  <TableCell>{serialNo({ page, index })}.</TableCell>
+                  <TableCell>
+                    <AppTooltip text={data.title} cropLen={40} />
+                  </TableCell>
+                  <TableCell>
+                    {data.description ? (
+                      <AppTooltip text={data.description} />
+                    ) : (
+                      'N/A'
                     )}
-                    queryKey="advertisements"
-                  />
-                </TableCell>
-                <TableCell>
-                  <span className="flex gap-6">
+                  </TableCell>
+                  <TableCell>
+                    {data.ad_date
+                      ? dayjs(data.ad_date).format('DD/MM/YYYY')
+                      : 'N/A'}
+                  </TableCell>
+                  <TableCell>
                     <Button
-                      variant="ghost"
-                      size={'icon-xs'}
-                      onClick={() => {
-                        queryClient.setQueryData(
-                          ['advertisement-selected'],
-                          data,
-                        );
-                      }}
+                      type="button"
+                      size={'xs'}
+                      variant={'ghost'}
+                      onClick={handleView}
                     >
-                      <HiOutlinePencilAlt className="size-4 text-warn" />
+                      <defaultIcons.attachment className="size-4 text-success cursor-pointer" />
                     </Button>
-                    <AppDeleteModal
-                      api={sportsApp.announcements.advertisements.delete(
+                  </TableCell>
+                  <TableCell>
+                    <FormToggle
+                      checked={data.is_active}
+                      api={sportsApp.announcements.advertisements.toggle(
                         Number(data.id),
                       )}
                       queryKey="advertisements"
-                      deleteQueryKey="advertisement-selected"
-                      id={data.id}
                     />
-                  </span>
-                </TableCell>
-              </TableRow>
-            ))
+                  </TableCell>
+                  <TableCell>
+                    <span className="flex gap-6">
+                      <Button
+                        variant="ghost"
+                        size={'icon-xs'}
+                        onClick={() => {
+                          queryClient.setQueryData(
+                            ['advertisement-selected'],
+                            data,
+                          );
+                        }}
+                      >
+                        <HiOutlinePencilAlt className="size-4 text-warn" />
+                      </Button>
+                      <AppDeleteModal
+                        api={sportsApp.announcements.advertisements.delete(
+                          Number(data.id),
+                        )}
+                        queryKey="advertisements"
+                        deleteQueryKey="advertisement-selected"
+                        id={data.id}
+                      />
+                    </span>
+                  </TableCell>
+                </TableRow>
+              );
+            })
           )}
         </TableBody>
       </Table>

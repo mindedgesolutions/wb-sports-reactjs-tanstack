@@ -1,8 +1,13 @@
-import type { CompCourseDetailsSchema } from '@/schema/services/youth-training.schema';
+import type {
+  CompCourseDetailsSchema,
+  CourseSyllabusSchema,
+} from '@/schema/services/youth-training.schema';
 import { useMutation } from '@tanstack/react-query';
 import {
   compCourseDetailsCreate,
   compCourseDetailsUpdate,
+  compSyllabusCreate,
+  compSyllabusUpdate,
 } from './comp-training.api';
 import { queryClient } from '@/tanstack/query.client';
 
@@ -34,6 +39,36 @@ export const useCompCourseDetailsUpdate = () => {
       queryClient.invalidateQueries({
         queryKey: ['comp-course-details-selected'],
       });
+    },
+  });
+};
+
+// -----------------------------
+
+export const useCompSyllabusCreate = () => {
+  return useMutation({
+    mutationFn: compSyllabusCreate,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['comp-syllabus'] });
+      queryClient.invalidateQueries({ queryKey: ['comp-syllabus-selected'] });
+    },
+  });
+};
+
+// -----------------------------
+
+type CompSyllabusPayload = {
+  id: number;
+  data: CourseSyllabusSchema;
+};
+
+export const useCompSyllabusUpdate = () => {
+  return useMutation({
+    mutationFn: ({ id, data }: CompSyllabusPayload) =>
+      compSyllabusUpdate(id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['comp-syllabus'] });
+      queryClient.invalidateQueries({ queryKey: ['comp-syllabus-selected'] });
     },
   });
 };

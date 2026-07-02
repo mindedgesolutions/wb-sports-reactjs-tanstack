@@ -14,6 +14,8 @@ export const useCompCourseDetails = ({ page, search }: ParamProps) => {
   });
 };
 
+// -----------------------------
+
 export const useCompSyllabus = ({ page, search }: ParamProps) => {
   return useQuery({
     queryKey: ['comp-syllabus', { page, search }],
