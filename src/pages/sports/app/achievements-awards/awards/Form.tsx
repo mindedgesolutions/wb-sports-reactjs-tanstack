@@ -22,6 +22,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import {
+  AppModalTooltip,
   AppRequired,
   FormInput,
   FormSimpleFileUpload,
@@ -32,6 +33,11 @@ import { AiOutlineTrophy } from 'react-icons/ai';
 import { defaultIcons } from '@/constants';
 import { Button } from '@/components/ui/button';
 import { handleFileOpen } from '@/utils/functions';
+
+const instructions: string[] = [
+  'Allowed file types: PDF, MSWord',
+  'Attachment size must be less than 5MB',
+];
 
 const Form = () => {
   const {
@@ -143,7 +149,11 @@ const Form = () => {
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="newFile">
-                  Attachment {!selected && <AppRequired />}
+                  <AppModalTooltip
+                    label="Attachment"
+                    instructions={instructions}
+                  />{' '}
+                  {!selected && <AppRequired />}
                 </Label>
                 <FormSimpleFileUpload
                   control={form.control}

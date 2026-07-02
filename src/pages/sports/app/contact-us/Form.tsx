@@ -22,7 +22,13 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
-import { AppRequired, FormInput, FormTextarea, SubmitBtn } from '@/components';
+import {
+  AppModalTooltip,
+  AppRequired,
+  FormInput,
+  FormTextarea,
+  SubmitBtn,
+} from '@/components';
 import { Button } from '@/components/ui/button';
 
 const Form = () => {
@@ -177,7 +183,12 @@ const Form = () => {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="phone_1">Phone 1</Label>
+                <Label htmlFor="phone_1">
+                  <AppModalTooltip
+                    label="Phone 1"
+                    instructions={['Landline no. format: 33XXXXXXXX']}
+                  />
+                </Label>
                 <FormInput
                   register={form.register}
                   name="phone_1"
@@ -187,7 +198,12 @@ const Form = () => {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="phone_2">Phone 2</Label>
+                <Label htmlFor="phone_2">
+                  <AppModalTooltip
+                    label="Phone 2"
+                    instructions={['Landline no. format: 33XXXXXXXX']}
+                  />
+                </Label>
                 <FormInput
                   register={form.register}
                   name="phone_2"
@@ -197,7 +213,12 @@ const Form = () => {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="fax">FAX</Label>
+                <Label htmlFor="fax">
+                  <AppModalTooltip
+                    label="FAX"
+                    instructions={['FAX no. format: 33XXXXXXXX']}
+                  />
+                </Label>
                 <FormInput
                   register={form.register}
                   name="fax"

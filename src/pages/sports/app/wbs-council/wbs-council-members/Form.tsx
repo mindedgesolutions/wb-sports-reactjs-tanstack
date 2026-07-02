@@ -1,6 +1,7 @@
 import { showError } from '@/alerts/show.error';
 import { showSuccess } from '@/alerts/show.success';
 import {
+  AppModalTooltip,
   AppRequired,
   FormInput,
   FormSelect,
@@ -39,6 +40,11 @@ import { useForm } from 'react-hook-form';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
 import { MdWorkOutline } from 'react-icons/md';
 import { PiUserCircleLight } from 'react-icons/pi';
+
+const imageInstructions = [
+  'Allowed file types: JPEG, PNG, GIF',
+  'Attachment size must be less than 1MB',
+];
 
 const Form = ({ member }: { member?: IWbsCouncilRow }) => {
   const [open, setOpen] = useState(false);
@@ -275,7 +281,10 @@ const Form = ({ member }: { member?: IWbsCouncilRow }) => {
                   <div className=""></div>
                   <div className="">
                     <Label className="mb-2" htmlFor="phone">
-                      Phone no.
+                      <AppModalTooltip
+                        label="Phone no."
+                        instructions={['Landline no. format: 33XXXXXXXX']}
+                      />
                     </Label>
                     <FormInput
                       register={form.register}
@@ -288,7 +297,10 @@ const Form = ({ member }: { member?: IWbsCouncilRow }) => {
                   </div>
                   <div className="">
                     <Label className="mb-2" htmlFor="fax">
-                      FAX
+                      <AppModalTooltip
+                        label="FAX"
+                        instructions={['FAX no. format: 33XXXXXXXX']}
+                      />
                     </Label>
                     <FormInput
                       register={form.register}
@@ -300,7 +312,12 @@ const Form = ({ member }: { member?: IWbsCouncilRow }) => {
                     />
                   </div>
                   <div className="grid gap-2">
-                    <Label htmlFor="designation">Upload an image</Label>
+                    <Label htmlFor="designation">
+                      <AppModalTooltip
+                        label="Upload an image"
+                        instructions={imageInstructions}
+                      />
+                    </Label>
                     <div className="p-1 border border-muted-foreground/30 border-dashed w-32 h-32 relative">
                       {form.getValues('oldImg') && files.length === 0 && (
                         <img

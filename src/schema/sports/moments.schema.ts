@@ -84,11 +84,11 @@ export const bulletinsSchema = z
         });
       }
 
-      if (newFile.size > fileSizes().max10mb) {
+      if (newFile.size > fileSizes().max5mb) {
         ctx.addIssue({
           code: 'custom',
           path: ['newFile'],
-          message: 'File size must be less than 10MB',
+          message: 'File size must be less than 5MB',
         });
       }
     }
@@ -123,11 +123,11 @@ export const amphanPhotosSchema = z
         });
       }
 
-      if (newImage.size > fileSizes().max10mb) {
+      if (newImage.size > fileSizes().max5mb) {
         ctx.addIssue({
           code: 'custom',
           path: ['newImage'],
-          message: 'Image size must be less than 10MB',
+          message: 'Image size must be less than 5MB',
         });
       }
     }

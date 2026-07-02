@@ -23,6 +23,7 @@ import {
 } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import {
+  AppModalTooltip,
   AppRequired,
   FormDatepicker,
   FormSimpleFileUpload,
@@ -33,6 +34,11 @@ import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { titles } from '@/constants';
 import { GoFile } from 'react-icons/go';
+
+const instructions: string[] = [
+  'Allowed file types: PDF, MSWord, jpeg, png, gif',
+  'Attachment size must be less than 10MB',
+];
 
 const Form = () => {
   const {
@@ -173,7 +179,11 @@ const Form = () => {
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="newFile">
-                  Attachment {!selected && <AppRequired />}
+                  <AppModalTooltip
+                    label="Attachment"
+                    instructions={instructions}
+                  />{' '}
+                  {!selected && <AppRequired />}
                 </Label>
                 <FormSimpleFileUpload
                   control={form.control}

@@ -25,7 +25,7 @@ const StadiumImages = ({ resetKey }: { resetKey: number }) => {
       <AppTitleWrapper title="stadium images" />
       <AppBodyWrapper className="mb-4">
         <div className="grid grid-cols-4 gap-4">
-          <div className="col-span-3 grid gap-4">
+          <div className="col-span-3 gap-4 flex">
             <FormMultipleFileUpload
               maxCount={10}
               maxSize={1}

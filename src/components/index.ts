@@ -39,6 +39,8 @@ export { default as WbSliderPlaceholder } from '@/components/shared/website/WbSl
 export { default as WbLoader } from '@/components/shared/website/WbLoader';
 export { default as WbLoadMore } from '@/components/shared/website/WbLoadMore';
 export { default as AppHandleBrokenImg } from '@/components/shared/app/AppHandleBrokenImg';
+export { default as AppPopoverFile } from '@/components/shared/app/AppPopoverFile';
+export { default as AppModalTooltip } from '@/components/shared/app/AppModalTooltip';
 
 // Sports Website Components
 export { default as SpwHeaderTop } from '@/components/sports/website/header/SpwHeaderTop';

@@ -4,6 +4,12 @@ import { titles } from '@/constants';
 import { fileSizes } from '@/utils/format.validation';
 import { X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import AppModalTooltip from '../app/AppModalTooltip';
+
+const instructions: string[] = [
+  'Allowed file types: jpeg, png, gif',
+  'Attachment size must be less than 1MB',
+];
 
 type ExistingImage = {
   type: 'existing';
@@ -136,7 +142,7 @@ const FormMultipleFileUpload = ({
             onChange={handleSelect}
             className="hidden"
           />
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-4 items-center">
             <Button
               type="button"
               size={'sm'}
@@ -145,9 +151,12 @@ const FormMultipleFileUpload = ({
             >
               {label}
             </Button>
-            <FieldDescription>
-              Max. {maxCount} images allowed{' '}
-              {images.length > 0 && `(${maxCount - images.length} remains)`}
+            <FieldDescription className="mt-0.5">
+              <AppModalTooltip
+                label={`Max. ${maxCount} images allowed ${images.length > 0 ? `(${maxCount - images.length} remains)` : ''}`}
+                instructions={instructions}
+                className="text-xs"
+              />
             </FieldDescription>
           </div>
         </>

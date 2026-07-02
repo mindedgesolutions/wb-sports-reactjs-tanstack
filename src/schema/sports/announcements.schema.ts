@@ -1,4 +1,4 @@
-import { fileTypes } from '@/utils/format.validation';
+import { fileSizes, fileTypes } from '@/utils/format.validation';
 import z from 'zod';
 
 export const announcementSchema = z
@@ -41,6 +41,14 @@ export const announcementSchema = z
           message: 'Invalid file type',
         });
       }
+
+      if (newFile.size > fileSizes().max5mb) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['newFile'],
+          message: 'File size must be less than 5MB',
+        });
+      }
     }
   });
 export type AnnouncementSchema = z.input<typeof announcementSchema>;
@@ -78,6 +86,14 @@ export const advertisementSchema = z
           code: 'custom',
           path: ['newFile'],
           message: 'Invalid file type',
+        });
+      }
+
+      if (newFile.size > fileSizes().max5mb) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['newFile'],
+          message: 'File size must be less than 5MB',
         });
       }
     }

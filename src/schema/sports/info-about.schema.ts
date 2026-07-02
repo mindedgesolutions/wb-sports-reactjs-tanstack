@@ -159,11 +159,11 @@ export const sportsPolicySchema = z
     }
 
     if (newFile) {
-      if (newFile.size > fileSizes().max10mb) {
+      if (newFile.size > fileSizes().max5mb) {
         ctx.addIssue({
           code: 'custom',
           path: ['newFile'],
-          message: 'Policy attachment must be less than 10MB',
+          message: 'Policy attachment must be less than 5MB',
         });
       }
 

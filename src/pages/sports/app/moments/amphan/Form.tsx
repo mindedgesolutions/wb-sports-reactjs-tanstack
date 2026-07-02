@@ -21,7 +21,12 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { FormInput, FormUploadSingle, SubmitBtn } from '@/components';
+import {
+  AppModalTooltip,
+  FormInput,
+  FormUploadSingle,
+  SubmitBtn,
+} from '@/components';
 import { Label } from '@/components/ui/label';
 import { MdOutlineAddAPhoto } from 'react-icons/md';
 import { titles } from '@/constants';
@@ -29,6 +34,11 @@ import { fileSizes } from '@/utils/format.validation';
 import { PiUserCircleLight } from 'react-icons/pi';
 import { Button } from '@/components/ui/button';
 import { Trash2 } from 'lucide-react';
+
+const instructions: string[] = [
+  'Allowed file types: jpeg, png, gif',
+  'Attachment size must be less than 5MB',
+];
 
 const Form = () => {
   const {
@@ -134,7 +144,12 @@ const Form = () => {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="newImg">Upload an image</Label>
+                <Label htmlFor="newImg">
+                  <AppModalTooltip
+                    label="Upload an image"
+                    instructions={instructions}
+                  />
+                </Label>
                 <div className="p-1 border border-muted-foreground/30 border-dashed w-32 h-32 relative">
                   {form.getValues('existingImage') && files?.length === 0 && (
                     <img
@@ -158,7 +173,7 @@ const Form = () => {
                     setFiles={setFiles}
                     files={files}
                     setFormImg={(file: File) => form.setValue('newImage', file)}
-                    maxAllowed={fileSizes().max1mb}
+                    maxAllowed={fileSizes().max5mb}
                   />
                   <Button
                     size={'icon-xs'}

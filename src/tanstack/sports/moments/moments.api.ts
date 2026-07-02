@@ -350,26 +350,27 @@ export const getAmphanPhotosWb = async ({
 
 // -------------------------------
 
-const formatAmphanPhotoPayload = (data: AmphanPhotosSchema) => {
+const formatAmphanPhotoPayload = async (data: AmphanPhotosSchema) => {
   const payload = new FormData();
 
-  Object.entries(data).forEach(([key, value]) => {
-    if (key === 'newImage' && value instanceof File) {
-      payload.append('newImage', value);
-      return;
+  for (const [key, value] of Object.entries(data)) {
+    if (value instanceof File) {
+      const optimizedFile = await optimizeImage(value);
+      payload.append(key, optimizedFile);
+      continue;
     }
 
     if (value !== '' && value !== undefined && value !== null) {
       payload.append(key, String(value));
     }
-  });
+  }
   return payload;
 };
 
 // -------------------------------
 
 export const amphanPhotoCreate = async (data: AmphanPhotosSchema) => {
-  const payload = formatAmphanPhotoPayload(data);
+  const payload = await formatAmphanPhotoPayload(data);
 
   const res = await customFetch.post(
     sportsApp.moments.amphanPhotos.create,
@@ -385,7 +386,7 @@ export const amphanPhotoUpdate = async (
   id: number,
   data: AmphanPhotosSchema,
 ) => {
-  const payload = formatAmphanPhotoPayload(data);
+  const payload = await formatAmphanPhotoPayload(data);
   payload.append('_method', 'PUT');
 
   const res = await customFetch.post(

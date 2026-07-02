@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/card';
 import { useForm } from 'react-hook-form';
 import {
+  AppModalTooltip,
   AppRequired,
   FormDatepicker,
   FormInput,
@@ -191,7 +192,12 @@ const Form = () => {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="contactOne">Contact no. 1</Label>
+                <Label htmlFor="contactOne">
+                  <AppModalTooltip
+                    label="Contact no. 1"
+                    instructions={['Landline no. format: 33XXXXXXXX']}
+                  />
+                </Label>
                 <FormInput
                   register={form.register}
                   name="contactOne"
@@ -201,7 +207,12 @@ const Form = () => {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="contactTwo">Contact no. 2</Label>
+                <Label htmlFor="contactTwo">
+                  <AppModalTooltip
+                    label="Contact no. 2"
+                    instructions={['Landline no. format: 33XXXXXXXX']}
+                  />
+                </Label>
                 <FormInput
                   register={form.register}
                   name="contactTwo"

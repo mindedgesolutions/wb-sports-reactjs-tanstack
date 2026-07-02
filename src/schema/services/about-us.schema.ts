@@ -44,7 +44,7 @@ export const orgChartSchema = z
         ctx.addIssue({
           code: 'custom',
           path: ['newImg'],
-          message: 'File size cannot be more than 10 MB',
+          message: 'File size cannot be more than 10MB',
         });
       }
     }

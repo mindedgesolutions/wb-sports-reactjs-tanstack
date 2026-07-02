@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/card';
 import { useForm } from 'react-hook-form';
 import {
+  AppModalTooltip,
   AppRequired,
   FormInput,
   FormUploadSingle,
@@ -35,6 +36,11 @@ import {
 import type { IKeyPersonnelRow } from '@/interface/sports.interface';
 import { showSuccess } from '@/alerts/show.success';
 import { showError } from '@/alerts/show.error';
+
+const instructions: string[] = [
+  'Allowed file types: jpeg, png, gif',
+  'Attachment size must be less than 1MB',
+];
 
 const Form = () => {
   const {
@@ -174,7 +180,12 @@ const Form = () => {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="newImg">Upload an image</Label>
+                <Label htmlFor="newImg">
+                  <AppModalTooltip
+                    label="Upload an image"
+                    instructions={instructions}
+                  />
+                </Label>
                 <div className="p-1 border border-muted-foreground/30 border-dashed w-32 h-32 relative">
                   {form.getValues('oldImg') && files.length === 0 && (
                     <img

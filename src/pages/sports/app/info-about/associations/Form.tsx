@@ -2,6 +2,7 @@ import type { IAssociationRow } from '@/interface/sports.interface';
 import { showError } from '@/alerts/show.error';
 import { showSuccess } from '@/alerts/show.success';
 import {
+  AppModalTooltip,
   AppRequired,
   FormInput,
   FormTextarea,
@@ -37,6 +38,11 @@ import {
   useAssociationCreate,
   useAssociationUpdate,
 } from '@/tanstack/sports/info-about/info-about.mutation';
+
+const instructions: string[] = [
+  'Allowed file types: jpeg, png, gif',
+  'Attachment size must be less than 1MB',
+];
 
 const Form = ({ assoc }: { assoc?: IAssociationRow }) => {
   const [open, setOpen] = useState(false);
@@ -220,7 +226,10 @@ const Form = ({ assoc }: { assoc?: IAssociationRow }) => {
                   </div>
                   <div className="">
                     <Label className="mb-2" htmlFor="phone">
-                      Phone no. 1
+                      <AppModalTooltip
+                        label="Phone no. 1"
+                        instructions={['Landline no. format: 33XXXXXXXX']}
+                      />
                     </Label>
                     <FormInput
                       register={form.register}
@@ -233,7 +242,10 @@ const Form = ({ assoc }: { assoc?: IAssociationRow }) => {
                   </div>
                   <div className="">
                     <Label className="mb-2" htmlFor="phone">
-                      Phone no. 2
+                      <AppModalTooltip
+                        label="Phone no. 2"
+                        instructions={['Landline no. format: 33XXXXXXXX']}
+                      />
                     </Label>
                     <FormInput
                       register={form.register}
@@ -246,7 +258,10 @@ const Form = ({ assoc }: { assoc?: IAssociationRow }) => {
                   </div>
                   <div className="">
                     <Label className="mb-2" htmlFor="fax">
-                      FAX
+                      <AppModalTooltip
+                        label="FAX"
+                        instructions={['FAX no. format: 33XXXXXXXX']}
+                      />
                     </Label>
                     <FormInput
                       register={form.register}
@@ -259,7 +274,10 @@ const Form = ({ assoc }: { assoc?: IAssociationRow }) => {
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="designation" className="mb-1">
-                      Upload assoc. logo
+                      <AppModalTooltip
+                        label="Upload assoc. logo"
+                        instructions={instructions}
+                      />
                     </Label>
                     <div className="p-1 border border-muted-foreground/30 border-dashed w-32 h-32 relative">
                       {form.getValues('oldImg') && files.length === 0 && (
