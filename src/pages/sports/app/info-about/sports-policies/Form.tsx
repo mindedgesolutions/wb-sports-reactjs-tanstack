@@ -128,7 +128,7 @@ const Form = () => {
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>
-        <CardTitle>{selected ? 'Edit' : 'Add '} award</CardTitle>
+        <CardTitle>{selected ? 'Edit' : 'Add '} policy</CardTitle>
       </CardHeader>
       <form onSubmit={form.handleSubmit(handleSubmit)} autoComplete="off">
         <fieldset disabled={isLoading}>
