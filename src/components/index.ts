@@ -41,6 +41,8 @@ export { default as WbLoadMore } from '@/components/shared/website/WbLoadMore';
 export { default as AppHandleBrokenImg } from '@/components/shared/app/AppHandleBrokenImg';
 export { default as AppPopoverFile } from '@/components/shared/app/AppPopoverFile';
 export { default as AppModalTooltip } from '@/components/shared/app/AppModalTooltip';
+export { default as AppListNameContainer } from '@/components/shared/app/AppListNameContainer';
+export { default as AppListAddressContainer } from '@/components/shared/app/AppListAddressContainer';
 
 // Sports Website Components
 export { default as SpwHeaderTop } from '@/components/sports/website/header/SpwHeaderTop';

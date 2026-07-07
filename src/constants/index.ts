@@ -15,6 +15,7 @@ import {
   FaUserTie,
   FaCloudRain,
   FaRegImage,
+  FaMobileAlt,
 } from 'react-icons/fa';
 import { IoLocationOutline, IoDocumentAttachOutline } from 'react-icons/io5';
 import { FiPhone, FiGlobe } from 'react-icons/fi';
@@ -23,6 +24,7 @@ import { GiSoccerBall } from 'react-icons/gi';
 import { TfiGallery } from 'react-icons/tfi';
 import { BsFiletypePdf } from 'react-icons/bs';
 import { FcInfo } from 'react-icons/fc';
+import { User } from 'lucide-react';
 
 export const titles = {
   SPORTS_APP_NAME: import.meta.env.VITE_SPORTS_APP_NAME,
@@ -80,6 +82,8 @@ export const defaultIcons = {
   pdf: BsFiletypePdf,
   amphan: FaCloudRain,
   info: FcInfo,
+  userOutline: User,
+  mobile: FaMobileAlt,
 };
 
 // -------------------------------

@@ -49,7 +49,16 @@ export const servicesApp = {
         delete: (id: number) =>
           `/services/computer-training/course-syllabus/${id}`,
       },
-      trainingCentres: {},
+      trainingCentres: {
+        create: `/services/computer-training/training-centres`,
+        list: `/services/computer-training/training-centres`,
+        toggle: (id: number) =>
+          `/services/computer-training/training-centres/toggle/${id}`,
+        update: (id: number) =>
+          `/services/computer-training/training-centres/${id}`,
+        delete: (id: number) =>
+          `/services/computer-training/training-centres/${id}`,
+      },
     },
     vocTraining: {},
   },

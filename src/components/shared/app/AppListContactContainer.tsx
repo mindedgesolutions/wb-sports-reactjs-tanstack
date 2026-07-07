@@ -62,7 +62,7 @@ const AppListContactContainer = ({
       {email && (
         <span className="flex items-center gap-1">
           <Mail className="w-3 h-3" />
-          <span className="lowercase text-xs">
+          <span className="lowercase">
             <AppTooltip text={email} cropLen={20} />
           </span>
         </span>

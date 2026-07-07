@@ -1,6 +1,7 @@
 import { showError } from '@/alerts/show.error';
 import { showSuccess } from '@/alerts/show.success';
 import {
+  AppModalTooltip,
   AppRequired,
   FormInput,
   FormSelect,
@@ -230,7 +231,10 @@ const Form = ({ office }: { office?: IDistrictBlockOffice }) => {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="">
                     <Label className="mb-2" htmlFor="designationLabel">
-                      Landline no.
+                      <AppModalTooltip
+                        label="Landline no."
+                        instructions={['Landline no. format: 33XXXXXXXX']}
+                      />
                     </Label>
                     <FormInput
                       register={form.register}

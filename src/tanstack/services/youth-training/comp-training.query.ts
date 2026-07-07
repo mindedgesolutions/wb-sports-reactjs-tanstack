@@ -1,5 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { getCompCourseDetails, getCompSyllabus } from './comp-training.api';
+import {
+  getCompCourseDetails,
+  getCompSyllabus,
+  getCompTrainingCentres,
+} from './comp-training.api';
 
 type ParamProps = {
   page?: number;
@@ -21,5 +25,15 @@ export const useCompSyllabus = ({ page, search }: ParamProps) => {
     queryKey: ['comp-syllabus', { page, search }],
     queryFn: ({ signal }: { signal: AbortSignal }) =>
       getCompSyllabus({ page, search, signal }),
+  });
+};
+
+// -----------------------------
+
+export const useCompTrainingCentres = ({ page, search }: ParamProps) => {
+  return useQuery({
+    queryKey: ['comp-training-centres', { page, search }],
+    queryFn: ({ signal }: { signal: AbortSignal }) =>
+      getCompTrainingCentres({ page, search, signal }),
   });
 };

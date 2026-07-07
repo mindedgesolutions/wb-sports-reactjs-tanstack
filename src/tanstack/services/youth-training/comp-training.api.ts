@@ -2,6 +2,7 @@ import { customFetch } from '@/axios/custom.fetch';
 import { servicesApp } from '@/constants/api.services';
 import type {
   CompCourseDetailsSchema,
+  CompTrainingCentreSchema,
   CourseSyllabusSchema,
 } from '@/schema/services/youth-training.schema';
 
@@ -102,6 +103,45 @@ export const compSyllabusUpdate = async (
     servicesApp.youthTraining.compTraining.courseSyllabus.update(id),
     formData,
     { headers: { 'Content-Type': 'Multipart/form-data' } },
+  );
+  return res.data;
+};
+
+// -----------------------------
+
+export const getCompTrainingCentres = async ({
+  page,
+  search,
+  signal,
+}: ListProps) => {
+  const res = await customFetch.get(
+    servicesApp.youthTraining.compTraining.trainingCentres.list,
+    { params: { page, search }, signal },
+  );
+  return res.data;
+};
+
+// -----------------------------
+
+export const compTrainingCentreCreate = async (
+  data: CompTrainingCentreSchema,
+) => {
+  const res = await customFetch.post(
+    servicesApp.youthTraining.compTraining.trainingCentres.create,
+    data,
+  );
+  return res.data;
+};
+
+// -----------------------------
+
+export const compTrainingCentreUpdate = async (
+  id: number,
+  data: CompTrainingCentreSchema,
+) => {
+  const res = await customFetch.put(
+    servicesApp.youthTraining.compTraining.trainingCentres.update(id),
+    data,
   );
   return res.data;
 };

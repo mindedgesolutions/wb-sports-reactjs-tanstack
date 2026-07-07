@@ -22,6 +22,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import {
+  AppModalTooltip,
   AppRequired,
   FormInput,
   FormSelect,
@@ -36,6 +37,11 @@ import { PiTreeStructureLight, PiUserCircleLight } from 'react-icons/pi';
 import { SlBadge } from 'react-icons/sl';
 import { titles } from '@/constants';
 import { fileSizes } from '@/utils/format.validation';
+
+const instructions: string[] = [
+  'Allowed file types: jpeg, png, gif',
+  'Attachment size must be less than 10MB',
+];
 
 const DepartmentOptions = [
   { value: 'secretariat', label: 'Secretariat' },
@@ -209,7 +215,12 @@ const Form = () => {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="newImg">Upload an image</Label>
+                <Label htmlFor="newImg">
+                  <AppModalTooltip
+                    label="Upload an image"
+                    instructions={instructions}
+                  />
+                </Label>
                 <div className="p-1 border border-muted-foreground/30 border-dashed w-32 h-32 relative">
                   {form.getValues('oldImg') && files.length === 0 && (
                     <img

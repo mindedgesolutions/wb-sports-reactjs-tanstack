@@ -110,3 +110,32 @@ export interface ICourseSyllabusList {
 }
 
 // -----------------------------
+
+export interface ICompTrainingCentre {
+  id: number;
+  district_id: number;
+  district: IDistrict;
+  yctc_name: string;
+  slug: string;
+  yctc_code: string;
+  center_category: string;
+  address_line_1: string | null;
+  address_line_2: string | null;
+  address_line_3: string | null;
+  city: string | null;
+  pincode: string | null;
+  center_incharge_name: string | null;
+  center_incharge_mobile: string | null;
+  center_incharge_email: string | null;
+  center_owner_name: string | null;
+  center_owner_mobile: string | null;
+  is_active: boolean;
+  added_by: number;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface ICompTrainingCentreList {
+  data: ICompTrainingCentre[];
+  meta: IPagination;
+}

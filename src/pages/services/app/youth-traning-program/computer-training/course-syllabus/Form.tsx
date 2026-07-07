@@ -22,6 +22,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import {
+  AppModalTooltip,
   AppRequired,
   FormInput,
   FormSimpleFileUpload,
@@ -30,7 +31,13 @@ import {
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { LaptopMinimalCheck } from 'lucide-react';
-import { titles, defaultIcons } from '@/constants';
+import { defaultIcons } from '@/constants';
+import { handleFileOpen } from '@/utils/functions';
+
+const instructions: string[] = [
+  'Allowed file type: PDF',
+  'Attachment size must be less than 5MB',
+];
 
 const Form = () => {
   const {
@@ -114,6 +121,12 @@ const Form = () => {
     }
   }, [selected]);
 
+  // ---------------------------------
+
+  const handleView = () => {
+    selected && handleFileOpen(selected.file_path!, selected.file_name!);
+  };
+
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>
@@ -137,7 +150,11 @@ const Form = () => {
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="achievementDate">
-                  Upload attachment {!selected && <AppRequired />}
+                  <AppModalTooltip
+                    label="Upload attachment"
+                    instructions={instructions}
+                  />{' '}
+                  {!selected && <AppRequired />}
                 </Label>
                 <FormSimpleFileUpload
                   control={form.control}
@@ -145,12 +162,10 @@ const Form = () => {
                   description={errors.newFile?.message}
                 />
                 {selected && (
-                  <a
-                    href={`${titles.BASE_URL}${selected.file_path}`}
-                    target="_blank"
-                  >
-                    <defaultIcons.pdf className="size-12 text-destructive/80" />
-                  </a>
+                  <defaultIcons.fileAttachment
+                    className="size-12 text-muted-foreground/20 cursor-pointer"
+                    onClick={handleView}
+                  />
                 )}
               </div>
             </div>

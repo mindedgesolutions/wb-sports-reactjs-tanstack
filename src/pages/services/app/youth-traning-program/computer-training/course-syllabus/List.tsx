@@ -17,12 +17,12 @@ import {
   AppTooltip,
   FormToggle,
 } from '@/components';
-import { serialNo } from '@/utils/functions';
+import { handleFileOpen, serialNo } from '@/utils/functions';
 import { servicesApp } from '@/constants/api.services';
 import { Button } from '@/components/ui/button';
 import { queryClient } from '@/tanstack/query.client';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
-import { defaultIcons, titles } from '@/constants';
+import { defaultIcons } from '@/constants';
 
 const List = ({
   data,
@@ -60,58 +60,66 @@ const List = ({
               </TableCell>
             </TableRow>
           ) : (
-            data?.data?.map((data: ICourseSyllabus, index) => (
-              <TableRow
-                className="uppercase text-muted-foreground grayscale-100 hover:grayscale-0 transition-all"
-                key={data.id}
-              >
-                <TableCell>{serialNo({ page, index })}.</TableCell>
-                <TableCell>
-                  <AppTooltip text={data.name} />
-                </TableCell>
-                <TableCell>
-                  <a
-                    href={`${titles.BASE_URL}${data.file_path}`}
-                    target="_blank"
-                  >
-                    <defaultIcons.pdf className="w-6 h-6 text-destructive" />
-                  </a>
-                </TableCell>
-                <TableCell>
-                  <FormToggle
-                    checked={data.is_active}
-                    api={servicesApp.youthTraining.compTraining.courseSyllabus.toggle(
-                      Number(data.id),
-                    )}
-                    queryKey="comp-syllabus"
-                  />
-                </TableCell>
-                <TableCell>
-                  <span className="flex gap-6">
+            data?.data?.map((data: ICourseSyllabus, index) => {
+              const handleView = () => {
+                handleFileOpen(data.file_path!, data.file_name!);
+              };
+
+              return (
+                <TableRow
+                  className="uppercase text-muted-foreground grayscale-100 hover:grayscale-0 transition-all"
+                  key={data.id}
+                >
+                  <TableCell>{serialNo({ page, index })}.</TableCell>
+                  <TableCell>
+                    <AppTooltip text={data.name} />
+                  </TableCell>
+                  <TableCell>
                     <Button
-                      variant="ghost"
-                      size={'icon-xs'}
-                      onClick={() => {
-                        queryClient.setQueryData(
-                          ['comp-syllabus-selected'],
-                          data,
-                        );
-                      }}
+                      type="button"
+                      size={'xs'}
+                      variant={'ghost'}
+                      onClick={handleView}
                     >
-                      <HiOutlinePencilAlt className="size-4 text-warn" />
+                      <defaultIcons.attachment className="size-4 text-success cursor-pointer" />
                     </Button>
-                    <AppDeleteModal
-                      api={servicesApp.youthTraining.compTraining.courseSyllabus.delete(
+                  </TableCell>
+                  <TableCell>
+                    <FormToggle
+                      checked={data.is_active}
+                      api={servicesApp.youthTraining.compTraining.courseSyllabus.toggle(
                         Number(data.id),
                       )}
                       queryKey="comp-syllabus"
-                      deleteQueryKey="comp-syllabus-selected"
-                      id={data.id}
                     />
-                  </span>
-                </TableCell>
-              </TableRow>
-            ))
+                  </TableCell>
+                  <TableCell>
+                    <span className="flex gap-6">
+                      <Button
+                        variant="ghost"
+                        size={'icon-xs'}
+                        onClick={() => {
+                          queryClient.setQueryData(
+                            ['comp-syllabus-selected'],
+                            data,
+                          );
+                        }}
+                      >
+                        <HiOutlinePencilAlt className="size-4 text-warn" />
+                      </Button>
+                      <AppDeleteModal
+                        api={servicesApp.youthTraining.compTraining.courseSyllabus.delete(
+                          Number(data.id),
+                        )}
+                        queryKey="comp-syllabus"
+                        deleteQueryKey="comp-syllabus-selected"
+                        id={data.id}
+                      />
+                    </span>
+                  </TableCell>
+                </TableRow>
+              );
+            })
           )}
         </TableBody>
       </Table>

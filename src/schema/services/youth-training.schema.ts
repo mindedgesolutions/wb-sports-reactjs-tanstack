@@ -1,4 +1,9 @@
-import { fileSizes, fileTypes } from '@/utils/format.validation';
+import {
+  fileSizes,
+  fileTypes,
+  validEmail,
+  validNumber,
+} from '@/utils/format.validation';
 import z from 'zod';
 
 export const compCourseDetailsSchema = z
@@ -69,3 +74,83 @@ export const courseSyllabusSchema = z
     }
   });
 export type CourseSyllabusSchema = z.input<typeof courseSyllabusSchema>;
+
+// ---------------------------------
+
+export const compTrainingCentreSchema = z
+  .object({
+    districtId: z.string().nonempty('District is required'),
+    name: z
+      .string()
+      .nonempty('YCTC name is required')
+      .max(255, 'Name cannot be more than 255 characters'),
+    code: z
+      .string()
+      .max(255, 'YCTC code cannot be more than 255 characters')
+      .optional(),
+    category: z.string().optional(),
+    addressLine1: z
+      .string()
+      .nonempty('Address line 1 is required')
+      .max(255, 'Line 1 cannot be more than 255 characters'),
+    addressLine2: z
+      .string()
+      .max(255, 'Line 2 cannot be more than 255 characters')
+      .optional(),
+    addressLine3: z
+      .string()
+      .max(255, 'Line 3 cannot be more than 255 characters')
+      .optional(),
+    city: z
+      .string()
+      .max(255, 'City cannot be more than 255 characters')
+      .optional(),
+    pincode: z.string().optional(),
+    inchargeName: z
+      .string()
+      .max(255, 'Incharge name cannot be more than 255 characters')
+      .optional(),
+    inchargeMobile: z.string().optional(),
+    inchargeEmail: z.string().optional(),
+    ownerName: z
+      .string()
+      .max(255, 'Owner name cannot be more than 255 characters')
+      .optional(),
+    ownerMobile: z.string().optional(),
+  })
+  .superRefine((data, ctx) => {
+    const { pincode, inchargeMobile, inchargeEmail, ownerMobile } = data;
+
+    if (pincode && !validNumber(pincode, 6)) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['pincode'],
+        message: 'Invalid PIN code',
+      });
+    }
+
+    if (inchargeMobile && !validNumber(inchargeMobile, 10)) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['inchargeMobile'],
+        message: 'Invalid mobile no.',
+      });
+    }
+
+    if (inchargeEmail && !validEmail(inchargeEmail)) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['inchargeEmail'],
+        message: 'Invalid email',
+      });
+    }
+
+    if (ownerMobile && !validNumber(ownerMobile, 10)) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['ownerMobile'],
+        message: 'Invalid mobile no.',
+      });
+    }
+  });
+export type CompTrainingCentreSchema = z.input<typeof compTrainingCentreSchema>;
