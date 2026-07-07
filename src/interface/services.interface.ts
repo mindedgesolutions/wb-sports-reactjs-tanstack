@@ -139,3 +139,40 @@ export interface ICompTrainingCentreList {
   data: ICompTrainingCentre[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+export interface IVocScheme {
+  id: number;
+  content: string;
+  slug: string;
+  show_order: number;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IVocSchemeList {
+  data: IVocScheme[];
+  meta: IPagination;
+}
+
+// -----------------------------
+
+export interface IVocTrainingCentre {
+  id: number;
+  district_id: number;
+  district_name: string;
+  name_of_centre: string;
+  slug: string;
+  address: string;
+  phone: string;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IVocTrainingCentreList {
+  data: IVocTrainingCentre[];
+  meta: IPagination;
+}

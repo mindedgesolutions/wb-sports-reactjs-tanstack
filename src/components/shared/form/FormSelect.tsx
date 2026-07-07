@@ -15,6 +15,8 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
+import { Loader } from 'lucide-react';
+import { Spinner } from '@/components/ui/spinner';
 
 type SelectOption = {
   value: string | number;
@@ -42,6 +44,8 @@ const FormSelect = <T extends FieldValues>({
   description,
   className,
 }: RHFSelectProps<T>) => {
+  if (!options) return <Spinner className="h-3 opacity-50" />;
+
   return (
     <>
       <Controller

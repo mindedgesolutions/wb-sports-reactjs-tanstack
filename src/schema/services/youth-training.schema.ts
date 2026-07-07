@@ -154,3 +154,41 @@ export const compTrainingCentreSchema = z
     }
   });
 export type CompTrainingCentreSchema = z.input<typeof compTrainingCentreSchema>;
+
+// ---------------------------------
+
+export const vocSchemeSchema = z.object({
+  scheme: z
+    .string()
+    .nonempty('Scheme content is required')
+    .max(250, 'Content cannot be more than 250 characters'),
+});
+export type VocSchemeSchema = z.input<typeof vocSchemeSchema>;
+
+// ---------------------------------
+
+export const vocTrainingCentreSchema = z
+  .object({
+    district: z.string().nonempty('Select a district'),
+    name: z
+      .string()
+      .nonempty('Training centre name is required')
+      .max(255, 'Name cannot be more than 255 characters'),
+    address: z
+      .string()
+      .nonempty('Centre address is required')
+      .max(255, 'Address cannot be more than 255 characters'),
+    phone: z.string().optional(),
+  })
+  .superRefine((data, ctx) => {
+    const { phone } = data;
+
+    if (phone && !validNumber(phone, 10)) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['phone'],
+        message: 'Invalid mobile no.',
+      });
+    }
+  });
+export type VocTrainingCentreSchema = z.input<typeof vocTrainingCentreSchema>;

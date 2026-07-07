@@ -60,6 +60,27 @@ export const servicesApp = {
           `/services/computer-training/training-centres/${id}`,
       },
     },
-    vocTraining: {},
+    vocTraining: {
+      schemes: {
+        create: `/services/vocatioanl-training/schemes`,
+        list: `/services/vocatioanl-training/schemes`,
+        all: `/services/vocatioanl-training/schemes/all`,
+        sort: `/services/vocatioanl-training/schemes/sort`,
+        toggle: (id: number) =>
+          `/services/vocatioanl-training/schemes/toggle/${id}`,
+        update: (id: number) => `/services/vocatioanl-training/schemes/${id}`,
+        delete: (id: number) => `/services/vocatioanl-training/schemes/${id}`,
+      },
+      trainingCentres: {
+        create: `/services/vocatioanl-training/training-centres`,
+        list: `/services/vocatioanl-training/training-centres`,
+        toggle: (id: number) =>
+          `/services/vocatioanl-training/training-centres/toggle/${id}`,
+        update: (id: number) =>
+          `/services/vocatioanl-training/training-centres/${id}`,
+        delete: (id: number) =>
+          `/services/vocatioanl-training/training-centres/${id}`,
+      },
+    },
   },
 };
