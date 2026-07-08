@@ -1,3 +1,6 @@
+import type { MountainCourseSchema } from '@/schema/services/mountaineering.schema';
+import z from 'zod';
+
 export const validEmail = (value: string): boolean => {
   if (value === null || value === undefined || value === '') return true;
   const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -40,4 +43,50 @@ export const fileTypes = () => {
   const anyTypes = [...imageTypes, ...documentTypes];
 
   return { imageTypes, documentTypes, anyTypes };
+};
+
+// -------------------------------
+
+export type NumericFieldOptions = {
+  name: keyof MountainCourseSchema;
+  label: string;
+  min?: number;
+  max?: number;
+};
+
+export const validNumberWithMinMax = (
+  value: string | undefined,
+  ctx: z.RefinementCtx,
+  { name, label, min, max }: NumericFieldOptions,
+) => {
+  if (value === undefined || value === '') {
+    return;
+  }
+
+  if (!/^\d+$/.test(value)) {
+    ctx.addIssue({
+      code: 'custom',
+      path: [name],
+      message: `${label} must be a number`,
+    });
+    return;
+  }
+
+  const num = Number(value);
+
+  if (min !== undefined && num < min) {
+    ctx.addIssue({
+      code: 'custom',
+      path: [name],
+      message: `${label} cannot be less than ${min}`,
+    });
+  }
+
+  if (max !== undefined && num > max) {
+    ctx.addIssue({
+      code: 'custom',
+      path: [name],
+      message: `${label} cannot be more than ${max}`,
+    });
+  }
 };

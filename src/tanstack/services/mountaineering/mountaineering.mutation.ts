@@ -1,5 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import {
+  mountainCourseCreate,
+  mountainCourseUpdate,
   mountainGeneralBodyCreate,
   mountainGeneralBodyUpdate,
 } from './mountaineering.api';
@@ -40,6 +42,36 @@ export const useMountainGeneralBodyUpdate = () => {
       queryClient.invalidateQueries({
         queryKey: ['mountain-general-body-selected'],
       });
+    },
+  });
+};
+
+// -----------------------------
+
+export const useMountainCourseCreate = () => {
+  return useMutation({
+    mutationFn: mountainCourseCreate,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['mountain-courses'] });
+      queryClient.invalidateQueries({ queryKey: ['mountain-course-selected'] });
+    },
+  });
+};
+
+// -----------------------------
+
+type MountainCoursePayload = {
+  id: number;
+  data: any;
+};
+
+export const useMountainCourseUpdate = () => {
+  return useMutation({
+    mutationFn: ({ id, data }: MountainCoursePayload) =>
+      mountainCourseUpdate(id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['mountain-courses'] });
+      queryClient.invalidateQueries({ queryKey: ['mountain-course-selected'] });
     },
   });
 };

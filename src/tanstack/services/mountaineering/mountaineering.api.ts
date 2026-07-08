@@ -57,3 +57,37 @@ export const mountainGeneralBodyUpdate = async (
   );
   return res.data;
 };
+
+// -----------------------------
+
+export const getMountainCourses = async ({
+  page,
+  search,
+  signal,
+}: ListProps) => {
+  const res = await customFetch.get(
+    servicesApp.mountaineering.courseDetails.list,
+    { params: { page, search }, signal },
+  );
+  return res.data;
+};
+
+// -----------------------------
+
+export const mountainCourseCreate = async (data: any) => {
+  const res = await customFetch.post(
+    servicesApp.mountaineering.courseDetails.create,
+    data,
+  );
+  return res.data;
+};
+
+// -----------------------------
+
+export const mountainCourseUpdate = async (id: number, data: any) => {
+  const res = await customFetch.put(
+    servicesApp.mountaineering.courseDetails.update(id),
+    data,
+  );
+  return res.data;
+};

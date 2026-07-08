@@ -196,3 +196,27 @@ export interface IMountainGeneralBodyList {
   data: IMountainGeneralBody[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+export interface IMountainCourse {
+  id: number;
+  name: string;
+  slug: string;
+  courses_count: number;
+  duration: number;
+  age_group_start: number | null;
+  age_group_end: number | null;
+  course_fee: number;
+  file_path: string | null;
+  file_name: string | null;
+  remarks: string | null;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IMountainCourseList {
+  data: IMountainCourse[];
+  meta: IPagination;
+}

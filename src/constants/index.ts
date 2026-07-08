@@ -16,6 +16,7 @@ import {
   FaCloudRain,
   FaRegImage,
   FaMobileAlt,
+  FaRegCalendarAlt,
 } from 'react-icons/fa';
 import {
   IoLocationOutline,
@@ -23,12 +24,13 @@ import {
   IoBriefcaseOutline,
 } from 'react-icons/io5';
 import { FiPhone, FiGlobe } from 'react-icons/fi';
-import { MdMailOutline } from 'react-icons/md';
+import { MdMailOutline, MdNumbers } from 'react-icons/md';
 import { GiSoccerBall } from 'react-icons/gi';
 import { TfiGallery } from 'react-icons/tfi';
 import { BsFiletypePdf, BsChatSquareText } from 'react-icons/bs';
 import { FcInfo } from 'react-icons/fc';
 import { User } from 'lucide-react';
+import { LuIndianRupee } from 'react-icons/lu';
 
 export const titles = {
   SPORTS_APP_NAME: import.meta.env.VITE_SPORTS_APP_NAME,
@@ -90,6 +92,9 @@ export const defaultIcons = {
   mobile: FaMobileAlt,
   briefcase: IoBriefcaseOutline,
   chat: BsChatSquareText,
+  numbers: MdNumbers,
+  calendar: FaRegCalendarAlt,
+  inr: LuIndianRupee,
 };
 
 // -------------------------------
