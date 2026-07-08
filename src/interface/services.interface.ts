@@ -176,3 +176,23 @@ export interface IVocTrainingCentreList {
   data: IVocTrainingCentre[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+export interface IMountainGeneralBody {
+  id: number;
+  designation: string | null;
+  name: string;
+  slug: string;
+  description: string;
+  organisation: string;
+  added_by: number;
+  show_order: number;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IMountainGeneralBodyList {
+  data: IMountainGeneralBody[];
+  meta: IPagination;
+}

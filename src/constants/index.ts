@@ -17,12 +17,16 @@ import {
   FaRegImage,
   FaMobileAlt,
 } from 'react-icons/fa';
-import { IoLocationOutline, IoDocumentAttachOutline } from 'react-icons/io5';
+import {
+  IoLocationOutline,
+  IoDocumentAttachOutline,
+  IoBriefcaseOutline,
+} from 'react-icons/io5';
 import { FiPhone, FiGlobe } from 'react-icons/fi';
 import { MdMailOutline } from 'react-icons/md';
 import { GiSoccerBall } from 'react-icons/gi';
 import { TfiGallery } from 'react-icons/tfi';
-import { BsFiletypePdf } from 'react-icons/bs';
+import { BsFiletypePdf, BsChatSquareText } from 'react-icons/bs';
 import { FcInfo } from 'react-icons/fc';
 import { User } from 'lucide-react';
 
@@ -84,6 +88,8 @@ export const defaultIcons = {
   info: FcInfo,
   userOutline: User,
   mobile: FaMobileAlt,
+  briefcase: IoBriefcaseOutline,
+  chat: BsChatSquareText,
 };
 
 // -------------------------------

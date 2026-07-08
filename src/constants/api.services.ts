@@ -83,4 +83,24 @@ export const servicesApp = {
       },
     },
   },
+  mountaineering: {
+    gbMembers: {
+      create: `/services/mountaineering/general-body`,
+      list: `/services/mountaineering/general-body`,
+      all: `/services/mountaineering/general-body/all`,
+      sort: `/services/mountaineering/general-body/sort`,
+      toggle: (id: number) =>
+        `/services/mountaineering/general-body/toggle/${id}`,
+      update: (id: number) => `/services/mountaineering/general-body/${id}`,
+      delete: (id: number) => `/services/mountaineering/general-body/${id}`,
+    },
+    courseDetails: {
+      create: `/services/mountaineering/course-details`,
+      list: `/services/mountaineering/course-details`,
+      toggle: (id: number) =>
+        `/services/mountaineering/course-details/toggle/${id}`,
+      update: (id: number) => `/services/mountaineering/course-details/${id}`,
+      delete: (id: number) => `/services/mountaineering/course-details/${id}`,
+    },
+  },
 };
