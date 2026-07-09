@@ -61,7 +61,7 @@ const List = ({
             data?.data?.map((data, index) => {
               return (
                 <TableRow
-                  className="uppercase text-muted-foreground grayscale-100 hover:grayscale-0 transition-all group"
+                  className="uppercase text-muted-foreground transition-all group"
                   key={data.id}
                 >
                   <TableCell>{serialNo({ page, index })}.</TableCell>

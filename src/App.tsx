@@ -204,10 +204,10 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: 'fair-programs',
+        path: 'fair-programmes',
         children: [
           { index: true, element: <pg.YsaFairPrograms /> },
-          { path: 'fair-program/:id?', element: <pg.YsaFairProgram /> },
+          { path: 'fair-programme/:id?', element: <pg.YsaFairProgram /> },
         ],
       },
       { path: 'news-events', element: <pg.YsaNewsEvents /> },

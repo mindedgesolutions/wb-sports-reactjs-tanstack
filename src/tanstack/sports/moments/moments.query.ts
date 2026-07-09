@@ -53,6 +53,8 @@ export const useMomentsPhotoGalleries = () => {
   });
 };
 
+// -------------------------------
+
 export const useMomentsPhotoGallery = (slug: string) => {
   return useQuery({
     queryKey: ['moments-photo-gallery-web', slug],

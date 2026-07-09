@@ -242,6 +242,7 @@ export interface IFairProgramme {
   created_at: Date;
   images_count: number;
   event_date: Date | null;
+  images: IGalleryImage[];
 }
 
 export interface IFairProgrammeList {
@@ -258,6 +259,7 @@ export interface IFairProgrammeDetails {
   uuid: string;
   cover_image: string;
   organisation: string;
+  event_date: Date | null;
   images: IGalleryImage[];
   is_active: boolean;
   added_by: number;

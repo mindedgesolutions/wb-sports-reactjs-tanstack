@@ -127,9 +127,9 @@ export const servicesAppMenu = () => {
       },
       {
         title: 'Fair & Programs',
-        url: `${titles.SERVICES_APP_URL}/fair-programs`,
+        url: `${titles.SERVICES_APP_URL}/fair-programmes`,
         icon: FaRegImage,
-        isActive: pathname === `${titles.SERVICES_APP_URL}/fair-programs`,
+        isActive: pathname === `${titles.SERVICES_APP_URL}/fair-programmes`,
       },
       {
         title: 'News & Events',

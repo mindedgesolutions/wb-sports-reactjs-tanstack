@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { titles } from '@/constants';
 import { useResetPaginationOnSearch } from '@/hooks/reset-page-on-search';
 import { useEnsureValidPage, usePageParam } from '@/hooks/use-pagination';
-import { useFairProgrammes } from '@/tanstack/services/fair-programmes/fair-programme.query';
+import { useFairPrograms } from '@/tanstack/services/fair-programs/fair-program.query';
 import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
 import { useForm } from 'react-hook-form';
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
@@ -27,7 +27,7 @@ const YsaFairPrograms = () => {
 
   const { currentPage, onPageChange } = usePageParam();
 
-  const { data, isLoading, isFetching, isError, error } = useFairProgrammes({
+  const { data, isLoading, isFetching, isError, error } = useFairPrograms({
     page: currentPage,
     search: debounced,
   });
@@ -66,7 +66,7 @@ const YsaFairPrograms = () => {
             </AppFilterWrapper>
             <div className="mb-3">
               <Link
-                to={`${titles.SERVICES_APP_URL}/fair-programs/fair-program`}
+                to={`${titles.SERVICES_APP_URL}/fair-programmes/fair-programme`}
               >
                 <Button type="button" size={'sm'} className="rounded-sm">
                   Add Details

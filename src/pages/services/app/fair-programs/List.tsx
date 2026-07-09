@@ -11,6 +11,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import {
+  AppAvatarMultiple,
   AppDeleteModal,
   AppListImageContainer,
   AppPaginationContainer,
@@ -39,7 +40,7 @@ const List = ({
             <TableHead>Sl. No.</TableHead>
             <TableHead>Title</TableHead>
             <TableHead>Event Date</TableHead>
-            <TableHead>No. of Images</TableHead>
+            <TableHead>Images</TableHead>
             <TableHead>Active</TableHead>
             <TableHead></TableHead>
           </TableRow>
@@ -64,7 +65,7 @@ const List = ({
           ) : (
             data?.data?.map((data: IFairProgramme, index) => (
               <TableRow
-                className="uppercase text-muted-foreground grayscale-100 hover:grayscale-0 transition-all"
+                className="uppercase text-muted-foreground transition-all"
                 key={data.id}
               >
                 <TableCell>{serialNo({ page, index })}.</TableCell>
@@ -82,19 +83,22 @@ const List = ({
                     : 'N/A'}
                 </TableCell>
                 <TableCell>
-                  {data.images_count.toString().padStart(2, '0')}
+                  <AppAvatarMultiple
+                    images={data.images}
+                    imgCount={data.images_count}
+                  />
                 </TableCell>
                 <TableCell>
                   <FormToggle
                     checked={data.is_active}
                     api={servicesApp.fairProgrammes.toggle(Number(data.id))}
-                    queryKey="fair-programmes"
+                    queryKey="fair-programs"
                   />
                 </TableCell>
                 <TableCell>
                   <span className="flex gap-6">
                     <Link
-                      to={`${titles.SERVICES_APP_URL}/fair-programs/fair-program/${data.id}`}
+                      to={`${titles.SERVICES_APP_URL}/fair-programmes/fair-programme/${data.id}`}
                     >
                       <Button variant="ghost" size={'icon-xs'}>
                         <HiOutlinePencilAlt className="size-4 text-warn" />
@@ -102,7 +106,7 @@ const List = ({
                     </Link>
                     <AppDeleteModal
                       api={servicesApp.fairProgrammes.delete(Number(data.id))}
-                      queryKey="fair-programmes"
+                      queryKey="fair-programs"
                       deleteQueryKey="fair-programme-selected"
                       id={data.id}
                     />

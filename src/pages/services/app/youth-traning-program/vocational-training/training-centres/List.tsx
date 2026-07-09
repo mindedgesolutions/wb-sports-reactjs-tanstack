@@ -63,7 +63,7 @@ const List = ({
           ) : (
             data?.data?.map((data: IVocTrainingCentre, index) => (
               <TableRow
-                className="uppercase text-muted-foreground grayscale-100 hover:grayscale-0 transition-all"
+                className="uppercase text-muted-foreground transition-all"
                 key={data.id}
               >
                 <TableCell>{serialNo({ page, index })}.</TableCell>

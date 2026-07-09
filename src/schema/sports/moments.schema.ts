@@ -27,7 +27,7 @@ export const photoGallerySchema = z
         });
       }
 
-      if (!fileTypes().imageTypes.includes(coverImg.type)) {
+      if (coverImg.size > fileSizes().max10mb) {
         ctx.addIssue({
           code: 'custom',
           path: ['coverImg'],

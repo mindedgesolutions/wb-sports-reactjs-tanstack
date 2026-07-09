@@ -43,6 +43,7 @@ export { default as AppPopoverFile } from '@/components/shared/app/AppPopoverFil
 export { default as AppModalTooltip } from '@/components/shared/app/AppModalTooltip';
 export { default as AppListNameContainer } from '@/components/shared/app/AppListNameContainer';
 export { default as AppListAddressContainer } from '@/components/shared/app/AppListAddressContainer';
+export { default as AppAvatarMultiple } from '@/components/shared/app/AppAvatarMultiple';
 
 // Sports Website Components
 export { default as SpwHeaderTop } from '@/components/sports/website/header/SpwHeaderTop';

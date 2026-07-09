@@ -110,6 +110,6 @@ export const servicesApp = {
     update: (id: number) => `/services/fair-programmes/${id}`,
     delete: (id: number) => `/services/fair-programmes/${id}`,
     toggle: (id: number) => `/services/fair-programmes/toggle/${id}`,
-    upload: (id: number) => `/services/fair-programmes/photos/${id}`,
+    photos: (id: number) => `/services/fair-programmes/photos/${id}`,
   },
 };

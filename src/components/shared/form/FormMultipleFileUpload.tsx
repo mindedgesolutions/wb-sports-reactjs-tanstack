@@ -6,11 +6,6 @@ import { X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import AppModalTooltip from '../app/AppModalTooltip';
 
-const instructions: string[] = [
-  'Allowed file types: jpeg, png, gif',
-  'Attachment size must be less than 1MB',
-];
-
 type ExistingImage = {
   type: 'existing';
   url: string;
@@ -43,6 +38,11 @@ const FormMultipleFileUpload = ({
   label,
   description,
 }: Props) => {
+  const instructions: string[] = [
+    'Allowed file types: jpeg, png, gif',
+    `Attachment size must be less than ${maxSize}MB`,
+  ];
+
   const allowedSize = maxSize * fileSizes().max1mb;
   const inputRef = useRef<HTMLInputElement>(null);
 
