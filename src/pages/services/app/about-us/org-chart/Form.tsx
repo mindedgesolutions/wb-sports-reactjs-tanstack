@@ -150,7 +150,7 @@ const Form = () => {
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>
-        <CardTitle>{selected ? 'Edit' : 'Add new'} key personnel</CardTitle>
+        <CardTitle>{selected ? 'Edit' : 'Add new'} personnel</CardTitle>
       </CardHeader>
       <form onSubmit={form.handleSubmit(handleSubmit)} autoComplete="off">
         <fieldset disabled={isLoading}>

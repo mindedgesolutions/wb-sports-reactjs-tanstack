@@ -196,7 +196,7 @@ const Form = ({ data }: { data?: ICompTrainingCentre }) => {
       </DialogTrigger>
       <DialogContent className="sm:max-w-xl">
         <DialogHeader>
-          <DialogTitle>{data ? 'Update' : 'Add'} training centre</DialogTitle>
+          <DialogTitle>{data ? 'Edit' : 'Add'} training centre</DialogTitle>
           <DialogDescription>
             Click the Save button at the bottom
           </DialogDescription>

@@ -8,6 +8,7 @@ import {
 import { titles, defaultIcons } from '@/constants';
 import type { IBulletinRow } from '@/interface/sports.interface';
 import { useBulletinsWb } from '@/tanstack/sports/moments/moments.query';
+import { handleFileOpen } from '@/utils/functions';
 import { useEffect, useRef } from 'react';
 
 const SpwBulletins = () => {
@@ -41,13 +42,14 @@ const SpwBulletins = () => {
         {isLoading && <WbLoader />}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-8">
           {rows?.map((t: IBulletinRow) => {
+            const handleView = (path: string, name: string) => {
+              handleFileOpen(path, name);
+            };
             return (
-              <a
+              <div
                 key={t.id}
-                href={`${titles.BASE_URL}${t.file_path}`}
-                target="_blank"
-                rel="noreferrer"
                 className="col-span-1 flex flex-col relative"
+                onClick={() => handleView(t.file_path, t.file_name)}
               >
                 {t?.file_path.endsWith('.pdf') ? (
                   <div className="w-full h-full">
@@ -65,7 +67,7 @@ const SpwBulletins = () => {
                     className="w-full h-full object-cover"
                   />
                 )}
-              </a>
+              </div>
             );
           })}
         </div>

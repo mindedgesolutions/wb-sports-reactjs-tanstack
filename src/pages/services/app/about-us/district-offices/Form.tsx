@@ -173,7 +173,7 @@ const Form = ({ office }: { office?: IDistrictBlockOffice }) => {
       </DialogTrigger>
       <DialogContent className="sm:max-w-xl">
         <DialogHeader>
-          <DialogTitle>{office ? 'Update' : 'Add'} office details</DialogTitle>
+          <DialogTitle>{office ? 'Edit' : 'Add'} office details</DialogTitle>
           <DialogDescription>
             Click the Save button at the bottom
           </DialogDescription>

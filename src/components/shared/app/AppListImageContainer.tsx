@@ -9,6 +9,7 @@ type AppListImageContainerProps = {
   second?: string;
   showThird?: boolean;
   third?: string;
+  cropLen?: number;
 };
 
 const AppListImageContainer = ({
@@ -18,6 +19,7 @@ const AppListImageContainer = ({
   showSecond = true,
   second,
   third,
+  cropLen,
 }: AppListImageContainerProps) => {
   return (
     <div className="flex justify-start items-center gap-2">
@@ -40,7 +42,7 @@ const AppListImageContainer = ({
       </div>
       <div className="flex flex-col gap-2">
         <span className="font-medium tracking-wide">
-          <AppTooltip text={first} cropLen={30} />
+          <AppTooltip text={first} cropLen={cropLen || 30} />
         </span>
         <div className="flex flex-col gap-0.5">
           {showSecond && (

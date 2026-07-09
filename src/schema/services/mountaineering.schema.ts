@@ -1,4 +1,6 @@
 import {
+  fileSizes,
+  fileTypes,
   validNumberWithMinMax,
   type NumericFieldOptions,
 } from '@/utils/format.validation';
@@ -43,7 +45,7 @@ export const mountainCourseSchema = z
     oldFile: z.string().optional(),
   })
   .superRefine((data, ctx) => {
-    const { start, end } = data;
+    const { start, end, newFile } = data;
 
     const arr = [
       { name: 'count', label: 'Course count', max: 100 },
@@ -63,6 +65,24 @@ export const mountainCourseSchema = z
         path: ['end'],
         message: 'Start cannot be greater than end',
       });
+    }
+
+    if (newFile) {
+      if (!fileTypes().documentTypes.includes(newFile.type)) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['newFile'],
+          message: 'Invalid file type',
+        });
+      }
+
+      if (newFile.size > fileSizes().max5mb) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['newFile'],
+          message: 'File size cannot be more than 5MB',
+        });
+      }
     }
   });
 export type MountainCourseSchema = z.input<typeof mountainCourseSchema>;

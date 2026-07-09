@@ -14,7 +14,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { AppRequired, FormInput, FormTextarea, SubmitBtn } from '@/components';
+import {
+  AppModalTooltip,
+  AppRequired,
+  FormInput,
+  FormSimpleFileUpload,
+  FormTextarea,
+  SubmitBtn,
+} from '@/components';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -28,6 +35,7 @@ import { Label } from '@/components/ui/label';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { defaultIcons } from '@/constants';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
+import { handleFileOpen } from '@/utils/functions';
 
 const Form = ({ course }: { course?: IMountainCourse }) => {
   const [open, setOpen] = useState(false);
@@ -166,6 +174,12 @@ const Form = ({ course }: { course?: IMountainCourse }) => {
     }
   }, [selected]);
 
+  // ----------------------------
+
+  const handleView = () => {
+    selected && handleFileOpen(selected.file_path!, selected.file_name!);
+  };
+
   return (
     <Dialog open={open} onOpenChange={openModal}>
       <DialogTrigger asChild>
@@ -188,7 +202,7 @@ const Form = ({ course }: { course?: IMountainCourse }) => {
       </DialogTrigger>
       <DialogContent className="sm:max-w-xl">
         <DialogHeader>
-          <DialogTitle>{course ? 'Update' : 'Add new'} course</DialogTitle>
+          <DialogTitle>{course ? 'Edit' : 'Add new'} course</DialogTitle>
           <DialogDescription>
             Click the Save button at the bottom
           </DialogDescription>
@@ -215,7 +229,11 @@ const Form = ({ course }: { course?: IMountainCourse }) => {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <Label className="mb-2" htmlFor="type">
-                      No. of courses <AppRequired />
+                      <AppModalTooltip
+                        instructions={['Max. allowed figure 100']}
+                        label="No. of courses"
+                      />{' '}
+                      <AppRequired />
                     </Label>
                     <FormInput
                       register={form.register}
@@ -228,7 +246,11 @@ const Form = ({ course }: { course?: IMountainCourse }) => {
                   </div>
                   <div>
                     <Label className="mb-2" htmlFor="type">
-                      Course duration <AppRequired />
+                      <AppModalTooltip
+                        instructions={['Max. allowed figure 100']}
+                        label="Course duration"
+                      />
+                      <AppRequired />
                     </Label>
                     <FormInput
                       register={form.register}
@@ -243,7 +265,11 @@ const Form = ({ course }: { course?: IMountainCourse }) => {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <Label className="mb-2" htmlFor="type">
-                      Starting age group <AppRequired />
+                      <AppModalTooltip
+                        instructions={['Min. allowed figure 5']}
+                        label="Starting age group"
+                      />
+                      <AppRequired />
                     </Label>
                     <FormInput
                       register={form.register}
@@ -256,7 +282,11 @@ const Form = ({ course }: { course?: IMountainCourse }) => {
                   </div>
                   <div>
                     <Label className="mb-2" htmlFor="type">
-                      Ending age group <AppRequired />
+                      <AppModalTooltip
+                        instructions={['Max. allowed figure 70']}
+                        label="Ending age group"
+                      />
+                      <AppRequired />
                     </Label>
                     <FormInput
                       register={form.register}
@@ -296,6 +326,31 @@ const Form = ({ course }: { course?: IMountainCourse }) => {
                       iconStart={<defaultIcons.inr />}
                       className="mb-2"
                     />
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="col-span-1">
+                    <Label className="mb-2" htmlFor="type">
+                      <AppModalTooltip
+                        instructions={[
+                          'Max. allowed file size 5MB',
+                          'Allowed file types: PDF, MSWord',
+                        ]}
+                        label="Course attachment"
+                      />
+                    </Label>
+                    <FormSimpleFileUpload
+                      control={form.control}
+                      name="newFile"
+                      description={errors.newFile?.message}
+                      className="mb-2"
+                    />
+                    {selected && selected.file_path && (
+                      <defaultIcons.fileAttachment
+                        className="size-12 text-muted-foreground/20 cursor-pointer"
+                        onClick={handleView}
+                      />
+                    )}
                   </div>
                 </div>
               </div>

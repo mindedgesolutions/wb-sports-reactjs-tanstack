@@ -136,7 +136,7 @@ const Form = () => {
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>
-        <CardTitle>{selected ? 'Edit' : 'Add new'} scheme content</CardTitle>
+        <CardTitle>{selected ? 'Edit' : 'Add new'} training centre</CardTitle>
       </CardHeader>
       <form onSubmit={form.handleSubmit(handleSubmit)} autoComplete="off">
         <fieldset disabled={isLoading}>

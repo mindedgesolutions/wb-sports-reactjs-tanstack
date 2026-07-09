@@ -103,4 +103,13 @@ export const servicesApp = {
       delete: (id: number) => `/services/mountaineering/course-details/${id}`,
     },
   },
+  fairProgrammes: {
+    create: `/services/fair-programmes`,
+    list: `/services/fair-programmes`,
+    show: (id: number) => `/services/fair-programmes/${id}`,
+    update: (id: number) => `/services/fair-programmes/${id}`,
+    delete: (id: number) => `/services/fair-programmes/${id}`,
+    toggle: (id: number) => `/services/fair-programmes/toggle/${id}`,
+    upload: (id: number) => `/services/fair-programmes/photos/${id}`,
+  },
 };

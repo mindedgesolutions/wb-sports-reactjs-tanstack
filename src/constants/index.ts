@@ -31,6 +31,7 @@ import { BsFiletypePdf, BsChatSquareText } from 'react-icons/bs';
 import { FcInfo } from 'react-icons/fc';
 import { User } from 'lucide-react';
 import { LuIndianRupee } from 'react-icons/lu';
+import { HiOutlinePencilAlt } from 'react-icons/hi';
 
 export const titles = {
   SPORTS_APP_NAME: import.meta.env.VITE_SPORTS_APP_NAME,
@@ -95,6 +96,7 @@ export const defaultIcons = {
   numbers: MdNumbers,
   calendar: FaRegCalendarAlt,
   inr: LuIndianRupee,
+  edit: HiOutlinePencilAlt,
 };
 
 // -------------------------------

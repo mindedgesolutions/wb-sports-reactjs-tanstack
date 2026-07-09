@@ -1,6 +1,9 @@
 import { customFetch } from '@/axios/custom.fetch';
 import { servicesApp } from '@/constants/api.services';
-import type { MountainGeneralBodySchema } from '@/schema/services/mountaineering.schema';
+import type {
+  MountainCourseSchema,
+  MountainGeneralBodySchema,
+} from '@/schema/services/mountaineering.schema';
 
 type ListProps = {
   page?: number;
@@ -74,20 +77,45 @@ export const getMountainCourses = async ({
 
 // -----------------------------
 
-export const mountainCourseCreate = async (data: any) => {
+const formatMountainCoursePayload = (data: MountainCourseSchema) => {
+  const formData = new FormData();
+
+  Object.entries(data).forEach(([key, value]) => {
+    if (key === 'newFile' && value instanceof File) {
+      formData.append('newFile', value);
+      return;
+    }
+    if (value !== '' && value !== undefined && value !== null) {
+      formData.append(key, String(value));
+    }
+  });
+  return formData;
+};
+
+// -----------------------------
+
+export const mountainCourseCreate = async (data: MountainCourseSchema) => {
+  const formData = formatMountainCoursePayload(data);
+
   const res = await customFetch.post(
     servicesApp.mountaineering.courseDetails.create,
-    data,
+    formData,
   );
   return res.data;
 };
 
 // -----------------------------
 
-export const mountainCourseUpdate = async (id: number, data: any) => {
-  const res = await customFetch.put(
+export const mountainCourseUpdate = async (
+  id: number,
+  data: MountainCourseSchema,
+) => {
+  const formData = formatMountainCoursePayload(data);
+  formData.append('_method', 'PUT');
+
+  const res = await customFetch.post(
     servicesApp.mountaineering.courseDetails.update(id),
-    data,
+    formData,
   );
   return res.data;
 };

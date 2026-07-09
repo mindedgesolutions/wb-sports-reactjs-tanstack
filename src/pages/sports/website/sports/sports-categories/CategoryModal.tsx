@@ -31,7 +31,7 @@ const CategoryModal = (category: SportsDetailsProps) => {
         <div className="flex justify-center md:justify-start">
           <Button
             size={'sm'}
-            className="hidden md:block mt-8 rounded-none text-xs text-primary-foreground"
+            className="hidden md:block mt-4 rounded-none text-xs text-primary-foreground"
           >
             Read More
           </Button>

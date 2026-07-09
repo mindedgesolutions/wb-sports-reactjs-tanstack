@@ -220,3 +220,48 @@ export interface IMountainCourseList {
   data: IMountainCourse[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+export interface IGalleryImage {
+  id: number;
+  gallery_id: number;
+  image_path: string;
+  created_at: Date;
+  updated_at: Date;
+}
+
+// -----------------------------
+
+export interface IFairProgramme {
+  id: number;
+  title: string;
+  description: string;
+  cover_image: string;
+  is_active: boolean;
+  created_at: Date;
+  images_count: number;
+  event_date: Date | null;
+}
+
+export interface IFairProgrammeList {
+  data: IFairProgramme[];
+  meta: IPagination;
+}
+
+export interface IFairProgrammeDetails {
+  id: number;
+  title: string;
+  slug: string;
+  occurance: string;
+  description: string;
+  uuid: string;
+  cover_image: string;
+  organisation: string;
+  images: IGalleryImage[];
+  is_active: boolean;
+  added_by: number;
+  updated_by: number;
+  created_at: Date;
+  updated_at: Date;
+}
