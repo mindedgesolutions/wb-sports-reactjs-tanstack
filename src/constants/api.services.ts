@@ -104,12 +104,25 @@ export const servicesApp = {
     },
   },
   fairProgrammes: {
-    create: `/services/fair-programmes`,
-    list: `/services/fair-programmes`,
-    show: (id: number) => `/services/fair-programmes/${id}`,
-    update: (id: number) => `/services/fair-programmes/${id}`,
-    delete: (id: number) => `/services/fair-programmes/${id}`,
-    toggle: (id: number) => `/services/fair-programmes/toggle/${id}`,
-    photos: (id: number) => `/services/fair-programmes/photos/${id}`,
+    fairProgrammes: {
+      create: `/services/fair-programmes/fair-programmes`,
+      list: `/services/fair-programmes/fair-programmes`,
+      show: (id: number) => `/services/fair-programmes/fair-programmes/${id}`,
+      update: (id: number) => `/services/fair-programmes/fair-programmes/${id}`,
+      delete: (id: number) => `/services/fair-programmes/fair-programmes/${id}`,
+      toggle: (id: number) =>
+        `/services/fair-programmes/fair-programmes/toggle/${id}`,
+      photos: (id: number) =>
+        `/services/fair-programmes/fair-programmes/photos/${id}`,
+    },
+  },
+  newsEvents: {
+    newsEvents: {
+      create: `/services/news-events/news-events`,
+      list: `/services/news-events/news-events`,
+      update: (id: number) => `/services/news-events/news-events/${id}`,
+      delete: (id: number) => `/services/news-events/news-events/${id}`,
+      toggle: (id: number) => `/services/news-events/news-events/toggle/${id}`,
+    },
   },
 };

@@ -91,7 +91,9 @@ const List = ({
                 <TableCell>
                   <FormToggle
                     checked={data.is_active}
-                    api={servicesApp.fairProgrammes.toggle(Number(data.id))}
+                    api={servicesApp.fairProgrammes.fairProgrammes.toggle(
+                      Number(data.id),
+                    )}
                     queryKey="fair-programs"
                   />
                 </TableCell>
@@ -105,7 +107,9 @@ const List = ({
                       </Button>
                     </Link>
                     <AppDeleteModal
-                      api={servicesApp.fairProgrammes.delete(Number(data.id))}
+                      api={servicesApp.fairProgrammes.fairProgrammes.delete(
+                        Number(data.id),
+                      )}
                       queryKey="fair-programs"
                       deleteQueryKey="fair-programme-selected"
                       id={data.id}

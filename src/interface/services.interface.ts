@@ -267,3 +267,25 @@ export interface IFairProgrammeDetails {
   created_at: Date;
   updated_at: Date;
 }
+
+// -----------------------------
+
+export interface INewsEvents {
+  id: number;
+  type: string;
+  title: string;
+  slug: string;
+  description: string;
+  event_date: Date | null;
+  event_year: number;
+  file_path: string;
+  file_name: string;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface INewsEventsList {
+  data: INewsEvents[];
+  meta: IPagination;
+}

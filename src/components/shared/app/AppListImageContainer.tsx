@@ -41,7 +41,9 @@ const AppListImageContainer = ({
         )}
       </div>
       <div className="flex flex-col gap-2">
-        <span className="font-medium tracking-wide">
+        <span
+          className={`font-medium tracking-wide ${showSecond && 'text-card-foreground'}`}
+        >
           <AppTooltip text={first} cropLen={cropLen || 30} />
         </span>
         <div className="flex flex-col gap-0.5">

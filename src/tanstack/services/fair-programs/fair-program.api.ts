@@ -11,19 +11,25 @@ type ListProps = {
 };
 
 export const getFairPrograms = async ({ page, search, signal }: ListProps) => {
-  const res = await customFetch.get(servicesApp.fairProgrammes.list, {
-    params: { page, search },
-    signal,
-  });
+  const res = await customFetch.get(
+    servicesApp.fairProgrammes.fairProgrammes.list,
+    {
+      params: { page, search },
+      signal,
+    },
+  );
   return res.data;
 };
 
 // ---------------------------------------
 
 export const getFairProgramById = async (id: number, signal: AbortSignal) => {
-  const res = await customFetch.get(servicesApp.fairProgrammes.show(id), {
-    signal,
-  });
+  const res = await customFetch.get(
+    servicesApp.fairProgrammes.fairProgrammes.show(id),
+    {
+      signal,
+    },
+  );
   return res.data.data;
 };
 
@@ -76,7 +82,7 @@ export const fairProgrammeCreate = async (data: FairProgramSchema) => {
   const payload = await formatFpPayload(data);
 
   const res = await customFetch.post(
-    servicesApp.fairProgrammes.create,
+    servicesApp.fairProgrammes.fairProgrammes.create,
     payload,
     {
       headers: { 'Content-Type': 'multipart/form-data' },
@@ -98,7 +104,7 @@ export const uploadGalleryImages = async (
     const payload = await formatImageChunkPayload(chunks[i]);
 
     await customFetch.post(
-      servicesApp.fairProgrammes.photos(galleryId),
+      servicesApp.fairProgrammes.fairProgrammes.photos(galleryId),
       payload,
       {
         headers: {
@@ -121,7 +127,7 @@ export const fairProgrammeUpdate = async (
   payload.append('_method', 'PUT');
 
   const res = await customFetch.post(
-    servicesApp.fairProgrammes.update(id),
+    servicesApp.fairProgrammes.fairProgrammes.update(id),
     payload,
     { headers: { 'Content-Type': 'multipart/form-data' } },
   );

@@ -178,7 +178,7 @@ const Form = ({ member }: { member?: IWbsCouncilRow }) => {
               queryClient.setQueryData(['wbs-council-selected'], member);
             }}
           >
-            <HiOutlinePencilAlt className="size-4 text-chart-4" />
+            <HiOutlinePencilAlt className="size-4 text-warn" />
           </Button>
         ) : (
           <Button type="button" size={'sm'} className="rounded-sm">

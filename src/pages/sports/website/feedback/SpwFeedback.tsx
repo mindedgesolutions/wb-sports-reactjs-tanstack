@@ -164,7 +164,7 @@ const SpwFeedback = () => {
                         name="address"
                         description={errors.address?.message}
                         placeholder="Enter your address"
-                        maxLen={255}
+                        maxLen={250}
                       />
                     </div>
                   </div>

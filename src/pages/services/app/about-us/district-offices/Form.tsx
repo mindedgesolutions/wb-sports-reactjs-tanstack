@@ -224,7 +224,7 @@ const Form = ({ office }: { office?: IDistrictBlockOffice }) => {
                       placeholder="Enter office address"
                       description={errors.address?.message}
                       className="mb-2"
-                      maxLen={255}
+                      maxLen={250}
                     />
                   </div>
                 </div>
