@@ -15,7 +15,6 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
-import { Loader } from 'lucide-react';
 import { Spinner } from '@/components/ui/spinner';
 
 type SelectOption = {
@@ -51,41 +50,43 @@ const FormSelect = <T extends FieldValues>({
       <Controller
         control={control}
         name={name}
-        render={({ field }) => (
-          <Select
-            value={field.value}
-            onValueChange={(value) => {
-              field.onChange(value);
-              onValueChange?.(value);
-            }}
-          >
-            <SelectTrigger
-              className={cn('w-full', className)}
-              disabled={disabled}
+        render={({ field }) => {
+          return (
+            <Select
+              value={field.value}
+              onValueChange={(value) => {
+                field.onChange(value);
+                onValueChange?.(value);
+              }}
             >
-              <SelectValue placeholder={placeholder ?? 'Select an option'} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectLabel>{placeholder ?? 'Select an option'}</SelectLabel>
-                {options.length > 0 ? (
-                  options.map((option) => (
-                    <SelectItem
-                      key={option.value}
-                      value={option.value.toString()}
-                    >
-                      {option.label}
+              <SelectTrigger
+                className={cn('w-full', className)}
+                disabled={disabled}
+              >
+                <SelectValue placeholder={placeholder ?? 'Select an option'} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>{placeholder ?? 'Select an option'}</SelectLabel>
+                  {options.length > 0 ? (
+                    options.map((option) => (
+                      <SelectItem
+                        key={option.value}
+                        value={option.value.toString()}
+                      >
+                        {option.label}
+                      </SelectItem>
+                    ))
+                  ) : (
+                    <SelectItem key="0" value="0">
+                      No options available
                     </SelectItem>
-                  ))
-                ) : (
-                  <SelectItem key="0" value="0">
-                    No options available
-                  </SelectItem>
-                )}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        )}
+                  )}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          );
+        }}
       />
       {description && (
         <FieldDescription className="text-destructive text-xs">

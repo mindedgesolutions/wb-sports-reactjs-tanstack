@@ -9,6 +9,7 @@ import {
   FormUploadSingle,
 } from '@/components';
 import { Button } from '@/components/ui/button';
+import { FieldDescription } from '@/components/ui/field';
 import { Label } from '@/components/ui/label';
 import { titles } from '@/constants';
 import type { FairProgramSchema } from '@/schema/services/fair-program.schema';
@@ -130,6 +131,11 @@ const GeneralSection = ({
                   <Trash2 className="size-4 text-destructive" />
                 </Button>
               </div>
+              {files.length === 0 && (
+                <FieldDescription className="text-destructive text-xs">
+                  {errors.coverImg?.message}
+                </FieldDescription>
+              )}
             </div>
           </div>
         </div>

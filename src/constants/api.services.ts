@@ -125,4 +125,15 @@ export const servicesApp = {
       toggle: (id: number) => `/services/news-events/news-events/toggle/${id}`,
     },
   },
+  youthHostels: {
+    youthHostels: {
+      create: `/services/youth-hostels/youth-hostels`,
+      list: `/services/youth-hostels/youth-hostels`,
+      show: (id: number) => `/services/youth-hostels/youth-hostels/${id}`,
+      update: (id: number) => `/services/youth-hostels/youth-hostels/${id}`,
+      delete: (id: number) => `/services/youth-hostels/youth-hostels/${id}`,
+      toggle: (id: number) =>
+        `/services/youth-hostels/youth-hostels/toggle/${id}`,
+    },
+  },
 };

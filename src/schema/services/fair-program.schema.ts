@@ -15,7 +15,15 @@ export const fairProgramSchema = z
     existingGalleryImg: z.array(z.string()).optional(),
   })
   .superRefine((data, ctx) => {
-    const { coverImg } = data;
+    const { coverImg, existingCoverImg } = data;
+
+    if (!existingCoverImg && !coverImg) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['coverImg'],
+        message: 'Cover image is required',
+      });
+    }
 
     if (coverImg) {
       if (!fileTypes().imageTypes.includes(coverImg.type)) {

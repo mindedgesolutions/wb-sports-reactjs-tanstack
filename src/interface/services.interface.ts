@@ -289,3 +289,33 @@ export interface INewsEventsList {
   data: INewsEvents[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+export interface IYouthHostel {
+  id: number;
+  district_id: number;
+  name: string;
+  slug: string;
+  address: string;
+  phone_1: string;
+  phone_2: string;
+  email: string;
+  accommodation: string;
+  how_to_reach: string;
+  railway_station: string;
+  bus_stop: string;
+  airport: string;
+  road_network: string;
+  remarks: string;
+  hostel_img: string;
+  uuid: string;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IYouthHostelList {
+  data: IYouthHostel[];
+  meta: IPagination;
+}
