@@ -153,7 +153,7 @@ const YsaYouthHostel = () => {
         network: data.road_network || '',
         remarks: data.remarks || '',
         newImg: undefined,
-        existingImg: data.hostel_img,
+        existingImg: data.hostel_img || '',
       });
       setPageTitle(fetching ? <AppTitleLoading /> : data.name);
     } else {
@@ -182,7 +182,12 @@ const YsaYouthHostel = () => {
     <>
       <AppTitleWrapper title={pageTitle} />
       <AppBodyWrapper className="px-2">
-        <form onSubmit={form.handleSubmit(handleSubmit)} autoComplete="off">
+        <form
+          onSubmit={form.handleSubmit(handleSubmit, (errors) => {
+            console.log('Validation failed', errors);
+          })}
+          autoComplete="off"
+        >
           <fieldset disabled={isLoading}>
             <div className="grid grid-cols-4 gap-8">
               <div className="col-span-3 grid grid-cols-3 gap-6">

@@ -77,7 +77,7 @@ const List = ({
                     <AppTooltip text={data.title} />
                   </TableCell>
                   <TableCell>
-                    {dayjs(data.event_date).format('DD-MM-YYYY')}
+                    {dayjs(data.event_date).format('DD/MM/YYYY')}
                   </TableCell>
                   <TableCell>
                     <Button

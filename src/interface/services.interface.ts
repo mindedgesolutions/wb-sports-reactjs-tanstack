@@ -298,17 +298,17 @@ export interface IYouthHostel {
   name: string;
   slug: string;
   address: string;
-  phone_1: string;
-  phone_2: string;
-  email: string;
-  accommodation: string;
-  how_to_reach: string;
+  phone_1: string | null;
+  phone_2: string | null;
+  email: string | null;
+  accommodation: string | null;
+  how_to_reach: string | null;
   railway_station: string;
-  bus_stop: string;
-  airport: string;
-  road_network: string;
-  remarks: string;
-  hostel_img: string;
+  bus_stop: string | null;
+  airport: string | null;
+  road_network: string | null;
+  remarks: string | null;
+  hostel_img: string | null;
   uuid: string;
   is_active: boolean;
   created_at: Date;
@@ -317,5 +317,25 @@ export interface IYouthHostel {
 
 export interface IYouthHostelList {
   data: IYouthHostel[];
+  meta: IPagination;
+}
+
+// -----------------------------
+
+export interface IServicesPhotoGallery {
+  id: number;
+  program_id: number;
+  title: string;
+  description: string | null;
+  programme_date: Date | null;
+  cover_image: string | null;
+  is_active: boolean;
+  created_at: Date;
+  images_count: number;
+  images: IGalleryImage[];
+}
+
+export interface IServicesPhotoGalleryList {
+  data: IServicesPhotoGallery[];
   meta: IPagination;
 }

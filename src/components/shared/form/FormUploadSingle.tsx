@@ -64,6 +64,7 @@ const FormUploadSingle = ({
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <Button
+            type="button"
             size={'icon-xs'}
             variant={'ghost'}
             className="absolute -right-7 top-0"
@@ -103,6 +104,7 @@ const FormUploadSingle = ({
           <DialogFooter>
             <DialogClose asChild>
               <Button
+                type="button"
                 size={'sm'}
                 variant="outline"
                 onClick={() => setFiles([])}
@@ -110,7 +112,12 @@ const FormUploadSingle = ({
                 Cancel
               </Button>
             </DialogClose>
-            <Button size={'sm'} variant="outline" onClick={() => setFiles([])}>
+            <Button
+              type="button"
+              size={'sm'}
+              variant="outline"
+              onClick={() => setFiles([])}
+            >
               Clear Image
             </Button>
             <Button

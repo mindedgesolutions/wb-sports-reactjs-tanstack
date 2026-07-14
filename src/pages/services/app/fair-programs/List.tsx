@@ -25,6 +25,7 @@ import dayjs from 'dayjs';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import View from './View';
 
 const List = ({
   data,
@@ -79,7 +80,7 @@ const List = ({
                 </TableCell>
                 <TableCell>
                   {data.event_date
-                    ? dayjs(data.event_date).format('DD-MM-YYYY')
+                    ? dayjs(data.event_date).format('DD/MM/YYYY')
                     : 'N/A'}
                 </TableCell>
                 <TableCell>
@@ -99,6 +100,7 @@ const List = ({
                 </TableCell>
                 <TableCell>
                   <span className="flex gap-6">
+                    <View id={data.id} />
                     <Link
                       to={`${titles.SERVICES_APP_URL}/fair-programmes/fair-programme/${data.id}`}
                     >

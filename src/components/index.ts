@@ -56,3 +56,6 @@ export { default as SpwPageTitleWrapper } from '@/components/sports/website/SpwP
 export { default as SpwParagraphWrapper } from '@/components/sports/website/wrappers/SpwParagraphWrapper';
 export { default as SpwPageTitle } from '@/components/sports/website/SpwPageTitle';
 export { default as SpwPageBanner } from '@/components/sports/website/SpwPageBanner';
+
+// Services Website Components
+export { default as SrwParagraphWrapper } from '@/components/services/website/wrappers/SrwParagraphWrapper';

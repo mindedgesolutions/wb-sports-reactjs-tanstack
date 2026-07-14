@@ -128,7 +128,7 @@ const YsaFairProgam = () => {
         galleryImg: [],
         existingGalleryImg: [],
       });
-      setPageTitle(id ? <AppTitleLoading /> : 'Add new stadium');
+      setPageTitle(id ? <AppTitleLoading /> : 'Add Fair & Programme');
     }
   }, [data]);
 

@@ -2,7 +2,7 @@ import AppTooltip from './AppTooltip';
 import AppHandleBrokenImg from './AppHandleBrokenImg';
 
 type AppListImageContainerProps = {
-  img?: string | undefined;
+  img?: string | undefined | null;
   defaultImg: React.ElementType;
   first: string;
   showSecond?: boolean;

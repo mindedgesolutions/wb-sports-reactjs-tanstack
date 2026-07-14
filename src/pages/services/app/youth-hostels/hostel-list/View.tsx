@@ -75,7 +75,8 @@ const View = ({ data }: { data: IYouthHostel }) => {
                   <h1 className="text-sm font-semibold text-primary-muted">
                     Accommodation(s)
                   </h1>
-                  {data.accommodation?.split(',').length > 0 ? (
+                  {data.accommodation &&
+                  data.accommodation?.split(',').length > 0 ? (
                     <ol className="list-disc list-inside text-[10px] uppercase">
                       {data.accommodation.split(',').map((ac) => (
                         <li key={ac} className="mb-1">
@@ -84,7 +85,9 @@ const View = ({ data }: { data: IYouthHostel }) => {
                       ))}
                     </ol>
                   ) : (
-                    `N/A`
+                    <span className="text-[10px] text-muted-foreground">
+                      N/A
+                    </span>
                   )}
                 </div>
               </div>
@@ -109,7 +112,7 @@ const View = ({ data }: { data: IYouthHostel }) => {
                     {data.how_to_reach.toUpperCase()}
                   </p>
                 ) : (
-                  `N/A`
+                  <span className="text-[10px] text-muted-foreground">N/A</span>
                 )}
               </div>
             </div>
@@ -123,7 +126,7 @@ const View = ({ data }: { data: IYouthHostel }) => {
                     {data.railway_station.toUpperCase()}
                   </p>
                 ) : (
-                  `N/A`
+                  <span className="text-[10px] text-muted-foreground">N/A</span>
                 )}
               </div>
             </div>
@@ -137,7 +140,7 @@ const View = ({ data }: { data: IYouthHostel }) => {
                     {data.bus_stop.toUpperCase()}
                   </p>
                 ) : (
-                  `N/A`
+                  <span className="text-[10px] text-muted-foreground">N/A</span>
                 )}
               </div>
             </div>
@@ -151,7 +154,7 @@ const View = ({ data }: { data: IYouthHostel }) => {
                     {data.airport.toUpperCase()}
                   </p>
                 ) : (
-                  `N/A`
+                  <span className="text-[10px] text-muted-foreground">N/A</span>
                 )}
               </div>
             </div>
@@ -165,7 +168,7 @@ const View = ({ data }: { data: IYouthHostel }) => {
                     {data.road_network.toUpperCase()}
                   </p>
                 ) : (
-                  `N/A`
+                  <span className="text-[10px] text-muted-foreground">N/A</span>
                 )}
               </div>
             </div>
@@ -179,7 +182,7 @@ const View = ({ data }: { data: IYouthHostel }) => {
                     {data.remarks.toUpperCase()}
                   </p>
                 ) : (
-                  `N/A`
+                  <span className="text-[10px] text-muted-foreground">N/A</span>
                 )}
               </div>
             </div>
