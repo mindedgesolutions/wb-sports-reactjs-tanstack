@@ -226,6 +226,8 @@ const router = createBrowserRouter([
           { path: 'photo-gallery/:id?', element: <pg.YsaPhotoGallery /> },
         ],
       },
+      { path: 'e-tenders', element: <pg.YsaEtenders /> },
+      { path: 'homepage-scrollers', element: <pg.YsaHomepageScroller /> },
     ],
   },
   // Youth Services CMS routes end

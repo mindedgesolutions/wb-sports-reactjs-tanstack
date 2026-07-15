@@ -104,6 +104,8 @@ export { default as YsaYouthHostel } from '@/pages/services/app/youth-hostels/ho
 export { default as YsaHowToBook } from '@/pages/services/app/youth-hostels/how-to-book/YsaHowToBook';
 export { default as YsaPhotoGalleries } from '@/pages/services/app/photo-galleries/YsaPhotoGalleries';
 export { default as YsaPhotoGallery } from '@/pages/services/app/photo-galleries/YsaPhotoGallery';
+export { default as YsaEtenders } from '@/pages/services/app/e-tenders/YsaEtenders';
+export { default as YsaHomepageScroller } from '@/pages/services/app/homepage-scroller/YsaHomepageScroller';
 
 // Youth Services website starts --------
 export { default as YswLayout } from '@/pages/services/website/YswLayout';

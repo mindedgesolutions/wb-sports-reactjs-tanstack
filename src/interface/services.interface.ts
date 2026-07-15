@@ -321,3 +321,20 @@ export interface IYouthHostelList {
 }
 
 // -----------------------------
+
+export interface IEtender {
+  id: number;
+  name: string;
+  slug: string;
+  tender_date: Date | null;
+  file_name: string;
+  file_path: string;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IEtenderList {
+  data: IEtender[];
+  meta: IPagination;
+}

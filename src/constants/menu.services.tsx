@@ -4,8 +4,8 @@ import { MdOutlineHome } from 'react-icons/md';
 import { FaRegImage, FaRegImages } from 'react-icons/fa';
 import { RiComputerLine } from 'react-icons/ri';
 import { LuMountainSnow } from 'react-icons/lu';
-import { MdOutlineRssFeed } from 'react-icons/md';
-import { FaRegBuilding } from 'react-icons/fa';
+import { MdOutlineRssFeed, MdRssFeed } from 'react-icons/md';
+import { FaRegBuilding, FaRegFolderOpen } from 'react-icons/fa';
 
 import { useLocation } from 'react-router-dom';
 import { titles } from '.';
@@ -160,6 +160,18 @@ export const servicesAppMenu = () => {
         url: `${titles.SERVICES_APP_URL}/photo-galleries`,
         icon: FaRegImages,
         isActive: pathname === `${titles.SERVICES_APP_URL}/photo-galleries`,
+      },
+      {
+        title: 'E-Tenders',
+        url: `${titles.SERVICES_APP_URL}/e-tenders`,
+        icon: FaRegFolderOpen,
+        isActive: pathname === `${titles.SERVICES_APP_URL}/e-tenders`,
+      },
+      {
+        title: 'Homepage Scroller',
+        url: `${titles.SERVICES_APP_URL}/homepage-scrollers`,
+        icon: MdRssFeed,
+        isActive: pathname === `${titles.SERVICES_APP_URL}/homepage-scrollers`,
       },
     ] as IMenu[],
 

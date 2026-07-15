@@ -136,4 +136,13 @@ export const servicesApp = {
         `/services/youth-hostels/youth-hostels/toggle/${id}`,
     },
   },
+  eTenders: {
+    eTenders: {
+      create: `/services/e-tenders/e-tenders`,
+      list: `/services/e-tenders/e-tenders`,
+      update: (id: number) => `/services/e-tenders/e-tenders/${id}`,
+      delete: (id: number) => `/services/e-tenders/e-tenders/${id}`,
+      toggle: (id: number) => `/services/e-tenders/e-tenders/toggle/${id}`,
+    },
+  },
 };
