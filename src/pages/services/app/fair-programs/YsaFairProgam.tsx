@@ -53,7 +53,7 @@ const YsaFairProgam = () => {
   }) as { data: IFairProgrammeDetails | undefined; isLoading: boolean };
 
   const title = data ? `${data?.title.toUpperCase()}` : `Add Fair & Programme`;
-  document.title = title + ' | ' + titles.SPORTS_APP_NAME;
+  document.title = title + ' | ' + titles.SERVICES_APP_NAME;
 
   // ----------------------------------
 
@@ -71,6 +71,8 @@ const YsaFairProgam = () => {
 
   const handleSubmit = async (data: FairProgramSchema) => {
     const mutation = id ? update : add;
+    const type = 'programme';
+    data = { ...data, type: type };
     const payload = id ? { id, data } : data;
     const msg = id ? 'updated' : 'added';
 
@@ -137,7 +139,11 @@ const YsaFairProgam = () => {
       <AppTitleWrapper title={pageTitle} />
       <AppBodyWrapper className="px-2">
         <FormProvider {...methods}>
-          <form onSubmit={methods.handleSubmit(handleSubmit)}>
+          <form
+            onSubmit={methods.handleSubmit(handleSubmit, (errors) => {
+              console.log(errors);
+            })}
+          >
             <fieldset disabled={isLoading || fetching}>
               <GeneralSection files={files} setFiles={setFiles} />
               <GalleryImages resetKey={resetKey} />
@@ -145,7 +151,7 @@ const YsaFairProgam = () => {
               <div className="flex gap-4">
                 <SubmitBtn
                   isSubmitting={isLoading || fetching}
-                  label={id ? 'Update details' : 'Add gallery'}
+                  label={id ? 'Update details' : 'Add details'}
                 />
                 <Button
                   type="button"

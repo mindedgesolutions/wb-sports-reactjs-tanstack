@@ -3,6 +3,7 @@ import z from 'zod';
 
 export const fairProgramSchema = z
   .object({
+    type: z.string().optional(),
     title: z
       .string()
       .min(1, 'Gallery title is required')

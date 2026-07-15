@@ -136,17 +136,4 @@ export const servicesApp = {
         `/services/youth-hostels/youth-hostels/toggle/${id}`,
     },
   },
-  photoGalleries: {
-    photoGalleries: {
-      create: `/services/photo-galleries/photo-galleries`,
-      list: `/services/photo-galleries/photo-galleries`,
-      show: (id: number) => `/services/photo-galleries/photo-galleries/${id}`,
-      update: (id: number) => `/services/photo-galleries/photo-galleries/${id}`,
-      delete: (id: number) => `/services/photo-galleries/photo-galleries/${id}`,
-      toggle: (id: number) =>
-        `/services/photo-galleries/photo-galleries/toggle/${id}`,
-      photos: (id: number) =>
-        `/services/photo-galleries/photo-galleries/photos/${id}`,
-    },
-  },
 };

@@ -1,6 +1,6 @@
 import type {
-  IServicesPhotoGallery,
-  IServicesPhotoGalleryList,
+  IFairProgramme,
+  IFairProgrammeList,
 } from '@/interface/services.interface';
 import {
   Table,
@@ -31,7 +31,7 @@ const List = ({
   isLoading,
   page,
   onPageChange,
-}: IListProps<IServicesPhotoGalleryList>) => {
+}: IListProps<IFairProgrammeList>) => {
   return (
     <div>
       <Table className="text-[10px]">
@@ -63,7 +63,7 @@ const List = ({
               </TableCell>
             </TableRow>
           ) : (
-            data?.data?.map((data: IServicesPhotoGallery, index) => (
+            data?.data?.map((data: IFairProgramme, index) => (
               <TableRow
                 className="uppercase text-muted-foreground transition-all"
                 key={data.id}
@@ -78,17 +78,15 @@ const List = ({
                   />
                 </TableCell>
                 <TableCell>
-                  {data.programme_date
-                    ? dayjs(data.programme_date).format('DD/MM/YYYY')
+                  {data.event_date
+                    ? dayjs(data.event_date).format('DD/MM/YYYY')
                     : 'N/A'}
                 </TableCell>
                 <TableCell>
-                  {data.images_count > 0 && (
-                    <AppAvatarMultiple
-                      images={data.images}
-                      imgCount={data.images_count}
-                    />
-                  )}
+                  <AppAvatarMultiple
+                    images={data.images}
+                    imgCount={data.images_count}
+                  />
                 </TableCell>
                 <TableCell>
                   <FormToggle
@@ -102,7 +100,7 @@ const List = ({
                 <TableCell>
                   <span className="flex gap-6">
                     <Link
-                      to={`${titles.SERVICES_APP_URL}/fair-programmes/fair-programme/${data.id}`}
+                      to={`${titles.SERVICES_APP_URL}/photo-galleries/photo-gallery/${data.id}`}
                     >
                       <Button variant="ghost" size={'icon-xs'}>
                         <HiOutlinePencilAlt className="size-4 text-warn" />

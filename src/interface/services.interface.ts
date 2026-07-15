@@ -321,21 +321,3 @@ export interface IYouthHostelList {
 }
 
 // -----------------------------
-
-export interface IServicesPhotoGallery {
-  id: number;
-  program_id: number;
-  title: string;
-  description: string | null;
-  programme_date: Date | null;
-  cover_image: string | null;
-  is_active: boolean;
-  created_at: Date;
-  images_count: number;
-  images: IGalleryImage[];
-}
-
-export interface IServicesPhotoGalleryList {
-  data: IServicesPhotoGallery[];
-  meta: IPagination;
-}

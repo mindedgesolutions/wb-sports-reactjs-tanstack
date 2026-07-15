@@ -30,6 +30,7 @@ const YsaFairPrograms = () => {
   const { data, isLoading, isFetching, isError, error } = useFairPrograms({
     page: currentPage,
     search: debounced,
+    type: 'programme',
   });
 
   useEnsureValidPage(currentPage, data?.meta?.last_page);

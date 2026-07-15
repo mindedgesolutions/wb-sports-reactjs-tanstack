@@ -8,12 +8,12 @@ import { Button } from '@/components/ui/button';
 import { titles } from '@/constants';
 import { useResetPaginationOnSearch } from '@/hooks/reset-page-on-search';
 import { useEnsureValidPage, usePageParam } from '@/hooks/use-pagination';
-import { useServicesPhotoGalleries } from '@/tanstack/services/photo-galleries/photo-galleries.query';
 import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
 import { useForm } from 'react-hook-form';
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
 import { Link } from 'react-router-dom';
 import List from './List';
+import { useFairPrograms } from '@/tanstack/services/fair-programs/fair-program.query';
 
 const YsaPhotoGalleries = () => {
   document.title = `Photo Galleries | ${titles.SERVICES_APP_NAME}`;
@@ -27,11 +27,11 @@ const YsaPhotoGalleries = () => {
 
   const { currentPage, onPageChange } = usePageParam();
 
-  const { data, isLoading, isFetching, isError, error } =
-    useServicesPhotoGalleries({
-      page: currentPage,
-      search: debounced,
-    });
+  const { data, isLoading, isFetching, isError, error } = useFairPrograms({
+    page: currentPage,
+    search: debounced,
+    type: 'photos',
+  });
 
   useEnsureValidPage(currentPage, data?.meta?.last_page);
 

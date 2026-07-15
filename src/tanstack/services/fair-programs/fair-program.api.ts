@@ -7,14 +7,20 @@ import { chunkArray, optimizeImage } from '@/utils/image.utils';
 type ListProps = {
   page?: number;
   search?: string;
+  type: string;
   signal: AbortSignal;
 };
 
-export const getFairPrograms = async ({ page, search, signal }: ListProps) => {
+export const getFairPrograms = async ({
+  page,
+  search,
+  type,
+  signal,
+}: ListProps) => {
   const res = await customFetch.get(
     servicesApp.fairProgrammes.fairProgrammes.list,
     {
-      params: { page, search },
+      params: { page, search, type },
       signal,
     },
   );
