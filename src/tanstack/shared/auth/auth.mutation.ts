@@ -1,6 +1,12 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { login, logout } from './auth.api';
+import {
+  login,
+  logout,
+  profileUpdateServices,
+  profileUpdateSports,
+} from './auth.api';
 import { userManager } from '@/axios/user.manager';
+import { queryClient } from '@/tanstack/query.client';
 
 export const useLogin = () => {
   return useMutation({
@@ -24,5 +30,27 @@ export const useLogout = (org: string) => {
     mutationFn: () => logout(org),
     onSuccess: cleanup,
     onError: cleanup,
+  });
+};
+
+// ------------------------
+
+export const useProfileUpdateServices = () => {
+  return useMutation({
+    mutationFn: profileUpdateServices,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['current-user'] });
+    },
+  });
+};
+
+// ------------------------
+
+export const useProfileUpdateSports = () => {
+  return useMutation({
+    mutationFn: profileUpdateSports,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['current-user'] });
+    },
   });
 };

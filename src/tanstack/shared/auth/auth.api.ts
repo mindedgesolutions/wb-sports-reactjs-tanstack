@@ -1,5 +1,8 @@
 import { customFetch } from '@/axios/custom.fetch';
 import { simpleFetch } from '@/axios/refresh.fetch';
+import { servicesApp } from '@/constants/api.services';
+import type { ProfileSchema } from '@/schema/auth.schema';
+import { optimizeImage } from '@/utils/image.utils';
 
 export const getCaptcha = async () => {
   const res = await simpleFetch.get(`/auth/captcha`);
@@ -25,4 +28,49 @@ export const logout = async (org: string) => {
 export const currentUser = async (org: string) => {
   const res = await customFetch.get(`/${org}/auth/me`);
   return res.data.data;
+};
+
+// ------------------------
+
+const formatProfilePayload = async (data: ProfileSchema) => {
+  const payload = new FormData();
+
+  for (const [key, value] of Object.entries(data)) {
+    if (value instanceof File) {
+      const optimizedFile = await optimizeImage(value);
+      payload.append(key, optimizedFile);
+      continue;
+    }
+
+    if (value !== '' && value !== undefined && value !== null) {
+      payload.append(key, String(value));
+    }
+  }
+  return payload;
+};
+
+// ------------------------
+
+export const profileUpdateServices = async (data: ProfileSchema) => {
+  const payload = await formatProfilePayload(data);
+
+  const res = await customFetch.post(
+    servicesApp.profile.profile.update,
+    payload,
+    {
+      headers: { 'Content-Type': 'Multipart/form-data' },
+    },
+  );
+  return res.data;
+};
+
+// ------------------------
+
+export const profileUpdateSports = async (data: ProfileSchema) => {
+  const payload = await formatProfilePayload(data);
+
+  const res = await customFetch.post(`/sports/auth/update`, payload, {
+    headers: { 'Content-Type': 'Multipart/form-data' },
+  });
+  return res.data;
 };

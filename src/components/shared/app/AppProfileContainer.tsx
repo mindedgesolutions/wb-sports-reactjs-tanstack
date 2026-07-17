@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { images, titles } from '@/constants';
+import { titles } from '@/constants';
 import { useLogout } from '@/tanstack/shared/auth/auth.mutation';
 import { useCurrentUser } from '@/tanstack/shared/auth/auth.query';
 import { getDomainFromPath } from '@/utils/functions';
@@ -56,7 +56,7 @@ const AppProfileContainer = () => {
           </section>
           <Avatar>
             <AvatarImage
-              src={user?.user_details.profile_img || images.profileImg}
+              src={`${titles.BASE_URL}${user?.user_details.profile_img}`}
               alt={user?.name}
             />
             <AvatarFallback>
@@ -74,7 +74,7 @@ const AppProfileContainer = () => {
             <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage
-                  src={user?.user_details.profile_img || images.profileImg}
+                  src={`${titles.BASE_URL}${user?.user_details.profile_img}`}
                   alt={user?.name}
                 />
                 <AvatarFallback>

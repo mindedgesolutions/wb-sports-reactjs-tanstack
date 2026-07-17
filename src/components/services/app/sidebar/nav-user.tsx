@@ -62,7 +62,7 @@ export function NavUser() {
             >
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage
-                  src={user?.user_details.profile_img || images.profileImg}
+                  src={`${titles.BASE_URL}${user?.user_details.profile_img}`}
                   alt={user?.name}
                 />
                 <AvatarFallback>

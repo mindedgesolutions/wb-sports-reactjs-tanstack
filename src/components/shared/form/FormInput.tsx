@@ -17,6 +17,7 @@ type RHFFormInputProps<T extends FieldValues> = {
   iconStart?: React.ReactNode;
   iconEnd?: React.ReactNode;
   className?: string;
+  disabled?: boolean;
 };
 
 const FormInput = <T extends FieldValues>({
@@ -29,6 +30,7 @@ const FormInput = <T extends FieldValues>({
   iconStart,
   iconEnd,
   className,
+  disabled = false,
 }: RHFFormInputProps<T>) => {
   return (
     <>
@@ -40,6 +42,7 @@ const FormInput = <T extends FieldValues>({
           type={type ?? 'text'}
           autoComplete="off"
           className="placeholder:text-xs"
+          disabled={disabled}
         />
         {iconStart && (
           <InputGroupAddon align="inline-start">{iconStart}</InputGroupAddon>

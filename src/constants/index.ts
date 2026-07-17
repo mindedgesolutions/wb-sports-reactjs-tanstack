@@ -22,6 +22,7 @@ import {
   IoLocationOutline,
   IoDocumentAttachOutline,
   IoBriefcaseOutline,
+  IoEyeOutline,
 } from 'react-icons/io5';
 import { FiPhone, FiGlobe } from 'react-icons/fi';
 import { MdMailOutline, MdNumbers } from 'react-icons/md';
@@ -32,6 +33,8 @@ import { FcInfo } from 'react-icons/fc';
 import { User } from 'lucide-react';
 import { LuIndianRupee } from 'react-icons/lu';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
+import { CiLock } from 'react-icons/ci';
+import { TbLockPassword } from 'react-icons/tb';
 
 export const titles = {
   SPORTS_APP_NAME: import.meta.env.VITE_SPORTS_APP_NAME,
@@ -97,6 +100,9 @@ export const defaultIcons = {
   calendar: FaRegCalendarAlt,
   inr: LuIndianRupee,
   edit: HiOutlinePencilAlt,
+  lock: CiLock,
+  password: TbLockPassword,
+  eye: IoEyeOutline,
 };
 
 // -------------------------------
@@ -201,4 +207,11 @@ export const compCourseDuration = [
 export const newsTypes = [
   { label: 'News', value: 'news' },
   { label: 'Form', value: 'form' },
+];
+
+// -------------------------------
+
+export const homepageScrollerOptions = [
+  { label: 'Attachment', value: 'attachment' },
+  { label: 'Link', value: 'link' },
 ];

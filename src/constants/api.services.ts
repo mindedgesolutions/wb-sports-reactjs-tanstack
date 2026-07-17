@@ -145,4 +145,21 @@ export const servicesApp = {
       toggle: (id: number) => `/services/e-tenders/e-tenders/toggle/${id}`,
     },
   },
+  homepageScrollers: {
+    homepageScrollers: {
+      create: `/services/homepage-scroller/homepage-scroller`,
+      list: `/services/homepage-scroller/homepage-scroller`,
+      update: (id: number) =>
+        `/services/homepage-scroller/homepage-scroller/${id}`,
+      delete: (id: number) =>
+        `/services/homepage-scroller/homepage-scroller/${id}`,
+      toggle: (id: number) =>
+        `/services/homepage-scroller/homepage-scroller/toggle/${id}`,
+    },
+  },
+  profile: {
+    profile: {
+      update: `/services/auth/update`,
+    },
+  },
 };

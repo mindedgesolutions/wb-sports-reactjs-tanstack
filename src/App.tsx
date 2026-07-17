@@ -159,6 +159,7 @@ const router = createBrowserRouter([
     element: <pg.YsaLayout />,
     children: [
       { path: 'dashboard', element: <pg.YsaDashboard /> },
+      { path: 'profile', element: <pg.YsaProfile /> },
       { path: 'banners', element: <pg.YsaBanners /> },
       {
         path: 'about-us',

@@ -106,6 +106,7 @@ export { default as YsaPhotoGalleries } from '@/pages/services/app/photo-galleri
 export { default as YsaPhotoGallery } from '@/pages/services/app/photo-galleries/YsaPhotoGallery';
 export { default as YsaEtenders } from '@/pages/services/app/e-tenders/YsaEtenders';
 export { default as YsaHomepageScroller } from '@/pages/services/app/homepage-scroller/YsaHomepageScroller';
+export { default as YsaProfile } from '@/pages/services/app/profile/YsaProfile';
 
 // Youth Services website starts --------
 export { default as YswLayout } from '@/pages/services/website/YswLayout';

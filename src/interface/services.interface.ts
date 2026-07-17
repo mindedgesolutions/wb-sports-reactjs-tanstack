@@ -338,3 +338,24 @@ export interface IEtenderList {
   data: IEtender[];
   meta: IPagination;
 }
+
+// -----------------------------
+
+export interface IHomepageScroller {
+  id: number;
+  title: string;
+  slug: string;
+  event_date: Date | null;
+  type: 'attachment' | 'link';
+  file_name: string | null;
+  file_path: string | null;
+  link: string | null;
+  is_active: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface IHomepageScrollerList {
+  data: IHomepageScroller[];
+  meta: IPagination;
+}
