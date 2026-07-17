@@ -12,6 +12,7 @@ const router = createBrowserRouter([
 
   // Sports CMS routes start
   { path: `${spa}/sign-in`, element: <pg.SpaSignin /> },
+  { path: `${spa}/forgot-password`, element: <pg.SpaForgotPassword /> },
   {
     path: spa,
     element: <pg.SpaLayout />,
@@ -154,6 +155,8 @@ const router = createBrowserRouter([
 
   // Youth Services CMS routes start
   { path: `${ysa}/sign-in`, element: <pg.YsaSignin /> },
+  { path: `${ysa}/forgot-password`, element: <pg.YsaForgotPassword /> },
+  { path: `${ysa}/reset-password/:email`, element: <pg.YsaResetPassword /> },
   {
     path: ysa,
     element: <pg.YsaLayout />,

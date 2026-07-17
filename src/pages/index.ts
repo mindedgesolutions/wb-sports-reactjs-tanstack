@@ -37,6 +37,7 @@ export { default as SpaContactUs } from '@/pages/sports/app/contact-us/SpaContac
 export { default as SpaNewsScroller } from '@/pages/sports/app/news-scroller/SpaNewsScroller';
 export { default as SpaProfile } from '@/pages/sports/app/profile/SpaProfile';
 export { default as SpaHomepageSlider } from '@/pages/sports/app/homepage-slider/SpaHomepageSlider';
+export { default as SpaForgotPassword } from '@/pages/sports/app/forgot-password/SpaForgotPassword';
 
 // Sports website starts --------
 export { default as SpwLayout } from '@/pages/sports/website/SpwLayout';
@@ -107,6 +108,8 @@ export { default as YsaPhotoGallery } from '@/pages/services/app/photo-galleries
 export { default as YsaEtenders } from '@/pages/services/app/e-tenders/YsaEtenders';
 export { default as YsaHomepageScroller } from '@/pages/services/app/homepage-scroller/YsaHomepageScroller';
 export { default as YsaProfile } from '@/pages/services/app/profile/YsaProfile';
+export { default as YsaForgotPassword } from '@/pages/services/app/forgot-password/YsaForgotPassword';
+export { default as YsaResetPassword } from '@/pages/services/app/forgot-password/YsaResetPassword';
 
 // Youth Services website starts --------
 export { default as YswLayout } from '@/pages/services/website/YswLayout';

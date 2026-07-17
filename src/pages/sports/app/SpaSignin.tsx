@@ -213,7 +213,7 @@ const SpaSignin = () => {
                         Password
                       </FieldLabel>
                       <Link
-                        to="#"
+                        to={`${titles.SPORTS_APP_URL}/forgot-password`}
                         className="ml-auto text-xs underline-offset-4 hover:underline"
                         tabIndex={-1}
                       >
@@ -225,7 +225,7 @@ const SpaSignin = () => {
                       type="password"
                       register={form.register}
                       name="password"
-                      placeholder="Enter password"
+                      placeholder={'*'.repeat(8)}
                       description={errors.password?.message}
                       iconStart={<LockKeyhole />}
                     />

@@ -213,7 +213,7 @@ const YsaSignin = () => {
                         Password
                       </FieldLabel>
                       <Link
-                        to="#"
+                        to={`${titles.SERVICES_APP_URL}/forgot-password`}
                         className="ml-auto text-xs underline-offset-4 hover:underline"
                         tabIndex={-1}
                       >
@@ -225,7 +225,7 @@ const YsaSignin = () => {
                       type="password"
                       register={form.register}
                       name="password"
-                      placeholder="Enter password"
+                      placeholder={'*'.repeat(8)}
                       description={errors.password?.message}
                       iconStart={<LockKeyhole />}
                     />

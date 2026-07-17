@@ -197,4 +197,9 @@ export const sportsApp = {
         `/sports/homepage-sliders/homepage-sliders/toggle/${id}`,
     },
   },
+  profile: {
+    profile: {
+      update: `/sports/auth/update`,
+    },
+  },
 };

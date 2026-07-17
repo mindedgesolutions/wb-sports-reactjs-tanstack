@@ -94,3 +94,41 @@ export const profileSchema = z
     }
   });
 export type ProfileSchema = z.input<typeof profileSchema>;
+
+// ---------------------------
+
+export const forgotPasswordSchema = z.object({
+  email: z
+    .string()
+    .nonempty('Email is required')
+    .max(250, 'Email cannot be more than 250 characters')
+    .refine((value) => validEmail(value), { error: 'Invalid email' }),
+});
+export type ForgotPasswordSchema = z.input<typeof forgotPasswordSchema>;
+
+// ---------------------------
+
+export const resetPasswordSchema = z
+  .object({
+    email: z.string().optional(),
+    password: z
+      .string()
+      .nonempty('Password is required')
+      .min(8, 'Password must be min. 8 characters')
+      .max(16, 'Password cannot be more than 16 characters'),
+    password_confirmation: z
+      .string()
+      .nonempty('Password confirmation is required'),
+  })
+  .superRefine((data, ctx) => {
+    const { password, password_confirmation } = data;
+
+    if (password !== password_confirmation) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['password_confirmation'],
+        message: 'Passwords do not match',
+      });
+    }
+  });
+export type ResetPasswordSchema = z.input<typeof resetPasswordSchema>;

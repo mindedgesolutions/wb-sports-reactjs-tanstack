@@ -1,7 +1,12 @@
 import { customFetch } from '@/axios/custom.fetch';
 import { simpleFetch } from '@/axios/refresh.fetch';
 import { servicesApp } from '@/constants/api.services';
-import type { ProfileSchema } from '@/schema/auth.schema';
+import { sportsApp } from '@/constants/api.sports';
+import type {
+  ForgotPasswordSchema,
+  ProfileSchema,
+  ResetPasswordSchema,
+} from '@/schema/auth.schema';
 import { optimizeImage } from '@/utils/image.utils';
 
 export const getCaptcha = async () => {
@@ -69,8 +74,26 @@ export const profileUpdateServices = async (data: ProfileSchema) => {
 export const profileUpdateSports = async (data: ProfileSchema) => {
   const payload = await formatProfilePayload(data);
 
-  const res = await customFetch.post(`/sports/auth/update`, payload, {
-    headers: { 'Content-Type': 'Multipart/form-data' },
-  });
+  const res = await customFetch.post(
+    sportsApp.profile.profile.update,
+    payload,
+    {
+      headers: { 'Content-Type': 'Multipart/form-data' },
+    },
+  );
+  return res.data;
+};
+
+// ------------------------
+
+export const forgotPassword = async (data: ForgotPasswordSchema) => {
+  const res = await customFetch.post(`/auth/forgot-password`, data);
+  return res.data;
+};
+
+// ------------------------
+
+export const resetPassword = async (data: ResetPasswordSchema) => {
+  const res = await customFetch.post(`/auth/reset-password`, data);
   return res.data;
 };

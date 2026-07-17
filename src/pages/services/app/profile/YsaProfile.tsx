@@ -210,7 +210,7 @@ const YsaProfile = () => {
                       <FormPassword
                         register={form.register}
                         name="password"
-                        placeholder="Enter password"
+                        placeholder={'*'.repeat(8)}
                         description={errors.password?.message}
                         iconStart={<defaultIcons.password />}
                         type="password"
@@ -221,7 +221,7 @@ const YsaProfile = () => {
                       <FormPassword
                         register={form.register}
                         name="password_confirmation"
-                        placeholder="Confirm password"
+                        placeholder={'*'.repeat(8)}
                         description={errors.password_confirmation?.message}
                         iconStart={<defaultIcons.password />}
                         type="password"

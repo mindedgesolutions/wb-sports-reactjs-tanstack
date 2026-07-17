@@ -1,9 +1,11 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import {
+  forgotPassword,
   login,
   logout,
   profileUpdateServices,
   profileUpdateSports,
+  resetPassword,
 } from './auth.api';
 import { userManager } from '@/axios/user.manager';
 import { queryClient } from '@/tanstack/query.client';
@@ -52,5 +54,21 @@ export const useProfileUpdateSports = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['current-user'] });
     },
+  });
+};
+
+// ------------------------
+
+export const useForgotPassword = () => {
+  return useMutation({
+    mutationFn: forgotPassword,
+  });
+};
+
+// ------------------------
+
+export const useResetPassword = () => {
+  return useMutation({
+    mutationFn: resetPassword,
   });
 };
