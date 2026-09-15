@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import type { ReactNode } from 'react';
 
-const SrwParagraphWrapper = ({
+const YswParagraphWrapper = ({
   children,
   className,
 }: {
@@ -19,4 +19,4 @@ const SrwParagraphWrapper = ({
     </div>
   );
 };
-export default SrwParagraphWrapper;
+export default YswParagraphWrapper;

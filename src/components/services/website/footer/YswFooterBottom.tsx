@@ -1,6 +1,6 @@
 import { images } from '@/constants';
 
-const SpwFooterBottom = () => {
+const YswFooterBottom = () => {
   return (
     <div className="bg-primary p-2 py-4 md:p-2.5 md:py-2 flex flex-col md:flex-row gap-4 md:gap-0 justify-center items-center">
       <span className="flex flex-col md:flex-row justify-start md:justify-center text-center md:text-justify items-center gap-4 md:gap-2 text-card-foreground font-inter tracking-wider text-[10px] md:text-[11px]">
@@ -18,4 +18,4 @@ const SpwFooterBottom = () => {
     </div>
   );
 };
-export default SpwFooterBottom;
+export default YswFooterBottom;

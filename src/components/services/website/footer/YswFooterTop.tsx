@@ -3,67 +3,67 @@ import { Link } from 'react-router-dom';
 
 const links = [
   {
-    label: 'Vision & Mission',
-    value: `${titles.SPORTS_WEB_URL}/vision-mission`,
+    label: 'About Us',
+    value: `${titles.SERVICES_WEB_URL}/about-department`,
   },
   {
-    label: 'Notices',
-    value: `${titles.SPORTS_WEB_URL}/announcements/notice`,
-  },
-  {
-    label: 'Tenders',
-    value: `${titles.SPORTS_WEB_URL}/announcements/tender`,
-  },
-  {
-    label: 'Circulars',
-    value: `${titles.SPORTS_WEB_URL}/announcements/circular`,
-  },
-  {
-    label: 'Stadiums',
-    value: `${titles.SPORTS_WEB_URL}/stadiums`,
-  },
-  {
-    label: 'Photo Galleries',
-    value: `${titles.SPORTS_WEB_URL}/photo-galleries`,
-  },
-  {
-    label: 'Key Personnel',
-    value: `${titles.SPORTS_WEB_URL}/key-personnel`,
-  },
-  {
-    label: 'Achievements',
-    value: `${titles.SPORTS_WEB_URL}/achievements`,
-  },
-  {
-    label: 'Contact Us',
-    value: `${titles.SPORTS_WEB_URL}/contact-us`,
-  },
-  {
-    label: 'Feedback',
-    value: `${titles.SPORTS_WEB_URL}/feedback`,
+    label: 'Org. Chart',
+    value: `${titles.SERVICES_WEB_URL}/organisation-chart`,
   },
   {
     label: 'Privacy Policies',
-    value: `${titles.SPORTS_WEB_URL}/privacy-policies`,
+    value: `${titles.SERVICES_WEB_URL}/privacy-policies`,
+  },
+  {
+    label: 'Contact Us',
+    value: `${titles.SERVICES_WEB_URL}/contact-us`,
+  },
+  {
+    label: 'E-Tenders',
+    value: `${titles.SERVICES_WEB_URL}/e-tenders`,
+  },
+  {
+    label: 'Youth Hostels',
+    value: `${titles.SERVICES_WEB_URL}/hostel-list`,
+  },
+  {
+    label: 'Block Offices',
+    value: `${titles.SERVICES_WEB_URL}/district-block-offices`,
+  },
+  {
+    label: 'Mountaineering',
+    value: `${titles.SERVICES_WEB_URL}/mountaineering`,
+  },
+  {
+    label: 'Feedback',
+    value: `${titles.SERVICES_WEB_URL}/feedback`,
+  },
+  {
+    label: 'Privacy Policies',
+    value: `${titles.SERVICES_WEB_URL}/privacy-policies`,
   },
   {
     label: 'Site Map',
-    value: `${titles.SPORTS_WEB_URL}/site-map`,
+    value: `${titles.SERVICES_WEB_URL}/site-map`,
+  },
+  {
+    label: 'Site Map',
+    value: `${titles.SERVICES_WEB_URL}/site-map`,
   },
 ];
 
 const relativePath = '../../../../../';
 
 const fimages = [
-  `${relativePath}sports/chess.jpg`,
-  `${relativePath}sports/football.jpg`,
-  `${relativePath}sports/kho_kho.png`,
-  `${relativePath}sports/hockey1_1.jpg`,
-  `${relativePath}sports/cricket.jpg`,
-  `${relativePath}sports/football-2.jpg`,
+  `${relativePath}youth-services/footer/chess.jpg`,
+  `${relativePath}youth-services/footer/football.jpg`,
+  `${relativePath}youth-services/footer/kho_kho.png`,
+  `${relativePath}youth-services/footer/hockey1_1.jpg`,
+  `${relativePath}youth-services/footer/cricket.jpg`,
+  `${relativePath}youth-services/footer/football-2.jpg`,
 ];
 
-const SpwFooterTop = () => {
+const YswFooterTop = () => {
   return (
     <div className="flex flex-col">
       <div
@@ -89,7 +89,7 @@ const SpwFooterTop = () => {
           </div>
           <div className="flex flex-col gap-0.5 md:gap-1 text-sm md:text-lg font-bold font-oswald uppercase">
             <span>department of youth services</span>
-            <span>and sports (sports wing)</span>
+            <span>and sports (youth services wing)</span>
           </div>
         </div>
         <div className="col-span-1 p-2 md:p-4 flex justify-center items-center">
@@ -107,7 +107,11 @@ const SpwFooterTop = () => {
           <div className="grid grid-cols-6 md:grid-cols-3 max-w-84 float-right gap-1">
             {fimages.map((img, index) => (
               <div key={index} className="col-span-1">
-                <img src={img} className="w-full h-12 md:h-24 object-cover" />
+                <img
+                  src={img}
+                  alt={img}
+                  className="w-full h-12 md:h-24 object-cover"
+                />
               </div>
             ))}
           </div>
@@ -116,4 +120,4 @@ const SpwFooterTop = () => {
     </div>
   );
 };
-export default SpwFooterTop;
+export default YswFooterTop;

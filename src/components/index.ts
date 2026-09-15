@@ -58,4 +58,8 @@ export { default as SpwPageTitle } from '@/components/sports/website/SpwPageTitl
 export { default as SpwPageBanner } from '@/components/sports/website/SpwPageBanner';
 
 // Services Website Components
-export { default as SrwParagraphWrapper } from '@/components/services/website/wrappers/SrwParagraphWrapper';
+export { default as YswParagraphWrapper } from '@/components/services/website/wrappers/YswParagraphWrapper';
+export { default as YswFooter } from '@/components/services/website/footer/YswFooter';
+export { default as YswMenu } from '@/components/services/website/header/YswMenu';
+export { default as YswHeaderBottom } from '@/components/services/website/header/YswHeaderBottom';
+export { default as YswHeaderTop } from '@/components/services/website/header/YswHeaderTop';

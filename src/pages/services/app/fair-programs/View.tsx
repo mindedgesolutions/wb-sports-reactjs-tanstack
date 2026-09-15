@@ -14,7 +14,7 @@ import { titles } from '@/constants';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useFairProgram } from '@/tanstack/services/fair-programs/fair-program.query';
 import type { IFairProgrammeDetails } from '@/interface/services.interface';
-import { SrwParagraphWrapper } from '@/components';
+import { YswParagraphWrapper } from '@/components';
 
 const View = ({ id }: { id: number }) => {
   const [open, setOpen] = useState(false);
@@ -52,13 +52,13 @@ const View = ({ id }: { id: number }) => {
             <div className="grid grid-cols-4 gap-8">
               <div className="col-span-3 flex flex-col gap-6">
                 {data?.description && (
-                  <SrwParagraphWrapper className="text-[13px] leading-relaxed">
+                  <YswParagraphWrapper className="text-[13px] leading-relaxed">
                     <div
                       dangerouslySetInnerHTML={{
                         __html: data?.description,
                       }}
                     />
-                  </SrwParagraphWrapper>
+                  </YswParagraphWrapper>
                 )}
               </div>
               <div className="w-full h-44">
