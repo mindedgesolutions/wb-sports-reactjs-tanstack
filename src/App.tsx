@@ -240,7 +240,27 @@ const router = createBrowserRouter([
   {
     path: ysw,
     element: <pg.YswLayout />,
-    children: [],
+    children: [
+      { index: true, element: <pg.YswLanding /> },
+      { path: 'about-department', element: <pg.YswAboutDepartment /> },
+      { path: 'organisation-chart', element: <pg.YswOrgChart /> },
+      {
+        path: 'address-of-dept-director',
+        element: <pg.YswAddressDepartment />,
+      },
+      { path: 'district-block-offices', element: <pg.YswDistrictOffices /> },
+      { path: 'helpline', element: <pg.YswHelpline /> },
+      { path: 'computer-training', element: <pg.YswComputerTraining /> },
+      { path: 'vocational-training', element: <pg.YswVocationalTraining /> },
+      { path: 'mountaineering', element: <pg.YswMountaineering /> },
+      { path: 'fairs-programmes', element: <pg.YswFairsPrograms /> },
+      { path: 'news-events', element: <pg.YswNewsEvents /> },
+      { path: 'hostel-list', element: <pg.YswHostelList /> },
+      { path: 'how-to-book', element: <pg.YswHowToBook /> },
+      { path: 'photo-gallery', element: <pg.YswPhotoGalleries /> },
+      { path: 'rti-act-2005', element: <pg.YswTwoThousandFive /> },
+      { path: 'rti-rules-2006', element: <pg.YswTwoThousandSix /> },
+    ],
   },
   // Youth Services website routes end
 ]);

@@ -113,3 +113,19 @@ export { default as YsaResetPassword } from '@/pages/services/app/forgot-passwor
 
 // Youth Services website starts --------
 export { default as YswLayout } from '@/pages/services/website/YswLayout';
+export { default as YswLanding } from '@/pages/services/website/homepage/YswLanding';
+export { default as YswAboutDepartment } from '@/pages/services/website/about-us/about-department/YswAboutDepartment';
+export { default as YswAddressDepartment } from '@/pages/services/website/about-us/address-department/YswAddressDepartment';
+export { default as YswDistrictOffices } from '@/pages/services/website/about-us/district-offices/YswDistrictOffices';
+export { default as YswHelpline } from '@/pages/services/website/about-us/helpline/YswHelpline';
+export { default as YswOrgChart } from '@/pages/services/website/about-us/org-chart/YswOrgChart';
+export { default as YswComputerTraining } from '@/pages/services/website/youth-training-program/computer-training/YswComputerTraining';
+export { default as YswVocationalTraining } from '@/pages/services/website/youth-training-program/vocational-training/YswVocationalTraining';
+export { default as YswMountaineering } from '@/pages/services/website/mountaineering/YswMountaineering';
+export { default as YswFairsPrograms } from '@/pages/services/website/fairs-programs/YswFairsPrograms';
+export { default as YswNewsEvents } from '@/pages/services/website/news-events/YswNewsEvents';
+export { default as YswHostelList } from '@/pages/services/website/youth-hostels/hostel-list/YswHostelList';
+export { default as YswHowToBook } from '@/pages/services/website/youth-hostels/how-to-book/YswHowToBook';
+export { default as YswPhotoGalleries } from '@/pages/services/website/photo-galleries/YswPhotoGalleries';
+export { default as YswTwoThousandSix } from '@/pages/services/website/rti/YswTwoThousandSix';
+export { default as YswTwoThousandFive } from '@/pages/services/website/rti/YswTwoThousandFive';
