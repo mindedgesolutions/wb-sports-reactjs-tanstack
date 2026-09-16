@@ -8,14 +8,12 @@ const YswAboutDepartment = () => {
 
   const banner = {
     data: setup.data?.data,
-    isLoading: setup.isLoading,
-    isFetching: setup.isFetching,
   };
 
   return (
     <>
       <YswPageBanner
-        title="Department of Youth Services & Sports (Youth Services Wing)"
+        title="About the Department"
         subtitle="The official portal of the Government of West Bengal"
         {...banner}
       />

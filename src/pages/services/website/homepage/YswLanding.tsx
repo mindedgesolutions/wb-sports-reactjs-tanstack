@@ -1,4 +1,4 @@
-import { WbSliderPlaceholder, YswPageBanner } from '@/components';
+import { YswPageBanner } from '@/components';
 import { useYswPageSetup } from '@/hooks/use-ysw-page-setup';
 
 const YswLanding = () => {
@@ -12,15 +12,11 @@ const YswLanding = () => {
 
   return (
     <>
-      {setup.isLoading || setup.isFetching ? (
-        <WbSliderPlaceholder />
-      ) : (
-        <YswPageBanner
-          title="Department of Youth Services & Sports (Youth Services Wing)"
-          subtitle="The official portal of the Government of West Bengal"
-          {...banner}
-        />
-      )}
+      <YswPageBanner
+        title="Department of Youth Services & Sports (Youth Services Wing)"
+        subtitle="The official portal of the Government of West Bengal"
+        {...banner}
+      />
       YswLanding
     </>
   );
