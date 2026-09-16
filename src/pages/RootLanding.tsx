@@ -67,14 +67,14 @@ const RootLanding = () => {
             {homepageMentions
               .filter((p) => p.cm === true)
               .map((mention: IHomepageMention) => (
-                <RootLandingCard {...mention} />
+                <RootLandingCard key={mention.designation} {...mention} />
               ))}
           </div>
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-32 mt-0 md:-mt-40">
             {homepageMentions
               .filter((p) => p.cm === false)
               .map((mention) => (
-                <RootLandingCard {...mention} />
+                <RootLandingCard key={mention.designation} {...mention} />
               ))}
           </div>
           <div className="p-4 md:p-0">

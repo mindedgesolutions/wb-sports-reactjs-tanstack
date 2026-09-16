@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getBanners } from './banner.api';
+import { getBanners, getPageBanner } from './banner.api';
 
 type ParamProps = {
   page?: number;
@@ -11,5 +11,15 @@ export const useBanners = ({ page, search }: ParamProps) => {
     queryKey: ['page-banners', { page, search }],
     queryFn: ({ signal }: { signal: AbortSignal }) =>
       getBanners({ page, search, signal }),
+  });
+};
+
+// ------------------------
+
+export const usePageBanner = ({ url }: { url: string }) => {
+  return useQuery({
+    queryKey: ['individual-page-banner', { url }],
+    queryFn: ({ signal }: { signal: AbortSignal }) =>
+      getPageBanner(url, signal),
   });
 };

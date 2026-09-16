@@ -63,3 +63,4 @@ export { default as YswFooter } from '@/components/services/website/footer/YswFo
 export { default as YswMenu } from '@/components/services/website/header/YswMenu';
 export { default as YswHeaderBottom } from '@/components/services/website/header/YswHeaderBottom';
 export { default as YswHeaderTop } from '@/components/services/website/header/YswHeaderTop';
+export { default as YswPageBanner } from '@/components/services/website/YswPageBanner';

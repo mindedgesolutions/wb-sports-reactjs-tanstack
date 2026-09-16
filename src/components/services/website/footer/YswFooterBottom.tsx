@@ -7,7 +7,8 @@ const YswFooterBottom = () => {
         <p className="mr-1">
           This site is designed by National Informatics Centre (NIC). Content,
           DATA, Process and Operation owned and maintained by Department of
-          Youth Services & Sports (Sports Wing), Government of West Bengal.{' '}
+          Youth Services & Sports (Youth Services Wing), Government of West
+          Bengal.{' '}
         </p>
         <img
           src={images.nicLogo}

@@ -14,42 +14,42 @@ const links = [
     label: 'Privacy Policies',
     value: `${titles.SERVICES_WEB_URL}/privacy-policies`,
   },
-  {
-    label: 'Contact Us',
-    value: `${titles.SERVICES_WEB_URL}/contact-us`,
-  },
-  {
-    label: 'E-Tenders',
-    value: `${titles.SERVICES_WEB_URL}/e-tenders`,
-  },
-  {
-    label: 'Youth Hostels',
-    value: `${titles.SERVICES_WEB_URL}/hostel-list`,
-  },
-  {
-    label: 'Block Offices',
-    value: `${titles.SERVICES_WEB_URL}/district-block-offices`,
-  },
-  {
-    label: 'Mountaineering',
-    value: `${titles.SERVICES_WEB_URL}/mountaineering`,
-  },
-  {
-    label: 'Feedback',
-    value: `${titles.SERVICES_WEB_URL}/feedback`,
-  },
-  {
-    label: 'Privacy Policies',
-    value: `${titles.SERVICES_WEB_URL}/privacy-policies`,
-  },
-  {
-    label: 'Site Map',
-    value: `${titles.SERVICES_WEB_URL}/site-map`,
-  },
-  {
-    label: 'Site Map',
-    value: `${titles.SERVICES_WEB_URL}/site-map`,
-  },
+  // {
+  //   label: 'Contact Us',
+  //   value: `${titles.SERVICES_WEB_URL}/contact-us`,
+  // },
+  // {
+  //   label: 'E-Tenders',
+  //   value: `${titles.SERVICES_WEB_URL}/e-tenders`,
+  // },
+  // {
+  //   label: 'Youth Hostels',
+  //   value: `${titles.SERVICES_WEB_URL}/hostel-list`,
+  // },
+  // {
+  //   label: 'Block Offices',
+  //   value: `${titles.SERVICES_WEB_URL}/district-block-offices`,
+  // },
+  // {
+  //   label: 'Mountaineering',
+  //   value: `${titles.SERVICES_WEB_URL}/mountaineering`,
+  // },
+  // {
+  //   label: 'Feedback',
+  //   value: `${titles.SERVICES_WEB_URL}/feedback`,
+  // },
+  // {
+  //   label: 'Privacy Policies',
+  //   value: `${titles.SERVICES_WEB_URL}/privacy-policies`,
+  // },
+  // {
+  //   label: 'Site Map',
+  //   value: `${titles.SERVICES_WEB_URL}/site-map`,
+  // },
+  // {
+  //   label: 'Site Map',
+  //   value: `${titles.SERVICES_WEB_URL}/site-map`,
+  // },
 ];
 
 const relativePath = '../../../../../';

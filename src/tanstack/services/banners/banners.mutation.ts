@@ -8,6 +8,7 @@ export const useBannerCreate = () => {
     mutationFn: bannerCreate,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['page-banners'] });
+      queryClient.invalidateQueries({ queryKey: ['individual-page-banner'] });
       queryClient.removeQueries({ queryKey: ['page-banner-selected'] });
     },
   });
@@ -25,6 +26,7 @@ export const useBannerUpdate = () => {
     mutationFn: ({ id, data }: BannerPayload) => bannerUpdate(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['page-banners'] });
+      queryClient.invalidateQueries({ queryKey: ['individual-page-banner'] });
       queryClient.removeQueries({ queryKey: ['page-banner-selected'] });
     },
   });

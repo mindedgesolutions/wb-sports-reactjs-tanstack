@@ -1,5 +1,7 @@
 import { customFetch } from '@/axios/custom.fetch';
+import { simpleFetch } from '@/axios/refresh.fetch';
 import { servicesApp } from '@/constants/api.services';
+import { servicesWeb } from '@/constants/api.services.website';
 import type { BannersSchema } from '@/schema/services/banners.schema';
 import { optimizeImage } from '@/utils/image.utils';
 
@@ -60,5 +62,15 @@ export const bannerUpdate = async (id: number, data: BannersSchema) => {
     servicesApp.banners.banners.update(id),
     formData,
   );
+  return res.data;
+};
+
+// -----------------------------
+
+export const getPageBanner = async (url: string, signal: AbortSignal) => {
+  const res = await simpleFetch.get(servicesWeb.common.banners, {
+    params: { url },
+    signal,
+  });
   return res.data;
 };
